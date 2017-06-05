@@ -40,7 +40,14 @@ var needToDismiss = null;
 
 
 // CSS Theme
-var myTheme = ['body_bg_color',
+var myTheme = [
+"console_top_color",
+"console_bottom_color",
+"console_text_color",
+"tabstrip_bg_color",
+"tabstrip_alt_bg_color",
+"tabstrip_text_color",
+'body_bg_color',
 'body_text_color',
 'body_text_modified_color',
 'body_link_hover_color',
@@ -73,6 +80,13 @@ var myTheme = ['body_bg_color',
 'txtfield_text_color',
 'txtfield_bg_color',
 'txtfield_border_style'];
+var console_top_color;
+var console_bottom_color;
+var console_text_color;
+var tabstrip_bg_color;
+var tabstrip_alt_bg_color;
+var tabstrip_text_color;
+
 var body_bg_color;
 var body_text_color;
 var body_text_modified_color;
@@ -106,8 +120,8 @@ var btn_border_style;
 var txtfield_text_color;
 var txtfield_bg_color;
 var txtfield_border_style;
-// var requestVars = JSON.stringify(['boostTextSize','removePullDownBar'].push(myTheme));
- var requestVars = ['boostTextSize','removePullDownBar'].concat(myTheme);
+
+var requestVars = ['boostTextSize','removePullDownBar'].concat(myTheme);
 // var requestVars ='myTheme';
 // Sets Global Theme
 getVars(JSON.stringify(requestVars), setTheme);

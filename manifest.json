@@ -1,206 +1,239 @@
 {
-  "manifest_version": 2,
-  "name": "SCw33t",
-  "description": "ServiceCloud wildly 3xtensive 3xtension testing !! BETA !!",
-  "version": "0.1",
-  //"default_locale": "en",
-  "author": "Christian Lutz",
-  "homepage_url": "https://cawiki.ca.com/display/CASupport/Service+Cloud+User+Scripts",
-  //"minimum_chrome_version": "versionString",
-  "permissions": [
-    "webNavigation",
-	"storage",
-	"unlimitedStorage",
-	"tabs",
-	"webRequest",
-	"webRequestBlocking",
-    "contextMenus",
-	"<all_urls>"
-   ],
-   "web_accessible_resources": [
-     "images/*"
-   ],
-   //"icons": {
-    //"16": "images/icon-bitty.png",
-    //"48": "images/icon-small.png",
-    //"128": "images/icon-large.png"
-   //},
-  //"options_page": "options.html",
-  //"options_ui": {
-  //  "page": "options.html",
-  //  "chrome_style": false
-  //},
-  "background": {
-    "scripts": ["background_vars.js","scnippets.js","frame_header_ignore.js"]//,
-	//"page": "options.html"
-  },
-  "content_scripts": [
-  	{
-      "matches": [
-		"https://ca.my.salesforce.com/*",
-		"https://ca--c.na13.visual.force.com/apex/*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*",
-		"https://ca--c.na13.visual.force.com/apex/SideBarTabs*",
-		"https://ca.my.salesforce.com/emptyHtmlDoc.html*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  "css": ["500a_style.css"],
-      "js": ["jquery-3.0.0.min.js","scw33t_global.js"]
+    "manifest_version": 2,
+    "name": "SCw33t",
+    "description": "ServiceCloud wildly 3xtensive 3xtension testing !! BETA !!",
+    "version": "0.1.0.1",
+    "author": "Christian Lutz",
+    "homepage_url": "https://cawiki.ca.com/display/CASupport/Service+Cloud+User+Scripts",
+    "permissions": [
+        "webNavigation",
+        "storage",
+        "unlimitedStorage",
+        "tabs",
+        "webRequest",
+        "webRequestBlocking",
+        "contextMenus",
+        "<all_urls>"
+    ],
+    "web_accessible_resources": [
+        "images/*"
+    ],
+    "background": {
+        "page": "background.html",
+        "persistent": true
     },
-    {
-      "matches": [
-        "https://ca.my.salesforce.com/500a*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*",
-	    "https://ca.my.salesforce.com/500a*/s*",
-		"https://ca.my.salesforce.com/500a*/e*",
-		"https://ca.my.salesforce.com/500a*/a*",
-		"https://ca.my.salesforce.com/500a*/*clone*",
-		"https://ca.my.salesforce.com/500a*/*Closed*"
-      ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  "css": ["500a_style.css","settings.css"],
-      "js": ["settings_helper.js","settings_content.js","500a_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca--c.na13.visual.force.com/apex/CaseReviewEdit*",
-		"https://ca.my.salesforce.com/apex/CaseReviewEdit*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["case_review_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/00a/e*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["comment_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["email_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca--c.na13.visual.force.com/apex/defect?caseId=*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["defect_new_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca--c.na13.visual.force.com/apex/defectComment*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["defect_comment_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/00T/e*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-	  //"css": ["settings.css"],
-      "js": ["new_task_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/liveagent/supervisor.apexp*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-      "js": ["live_agent_supervisor_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca--c.na13.visual.force.com/apex/Dismiss_selected_Callbacks*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-      "js": ["dismiss_callbacks_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/500*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*",
-		"https://ca.my.salesforce.com/500a"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-      "js": ["cases_page_content.js"]
-    },
-	{
-      "matches": [
-		"https://ca.my.salesforce.com/00O*",
-		"https://ca.my.salesforce.com/reportbuilder*"
-      ],
-	  "exclude_globs": [
-		"*dontscw33ten=1*",
-		"https://ca.my.salesforce.com/500a"
-	  ],
-	  "match_about_blank": false,
-	  "all_frames": true,
-	  "run_at": "document_end",
-      "js": ["report_content.js"]
+    "content_scripts": [
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/*",
+                "https://ca--c.na13.visual.force.com/apex/*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*",
+                "https://ca--c.na13.visual.force.com/apex/SideBarTabs*",
+                "https://ca.my.salesforce.com/emptyHtmlDoc.html*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "css": [
+                "500a_style.css"
+            ],
+            "js": [
+                "jquery-3.0.0.min.js",
+                "scw33t_global.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/500a*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*",
+                "https://ca.my.salesforce.com/500a*/s*",
+                "https://ca.my.salesforce.com/500a*/e*",
+                "https://ca.my.salesforce.com/500a*/a*",
+                "https://ca.my.salesforce.com/500a*/*clone*",
+                "https://ca.my.salesforce.com/500a*/*Closed*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "css": [
+                "500a_style.css",
+                "settings.css"
+            ],
+            "js": [
+                "settings_helper.js",
+                "settings_content.js",
+                "500a_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca--c.na13.visual.force.com/apex/CaseReviewEdit*",
+                "https://ca.my.salesforce.com/apex/CaseReviewEdit*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "case_review_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/00a/e*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "comment_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "email_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca--c.na13.visual.force.com/apex/defect?caseId=*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "defect_new_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca--c.na13.visual.force.com/apex/defectComment*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "defect_comment_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/00T/e*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "new_task_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/liveagent/supervisor.apexp*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "live_agent_supervisor_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca--c.na13.visual.force.com/apex/Dismiss_selected_Callbacks*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "dismiss_callbacks_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/console"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "console_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/500*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*",
+                "https://ca.my.salesforce.com/500a"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "cases_page_content.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://ca.my.salesforce.com/00O*",
+                "https://ca.my.salesforce.com/reportbuilder*"
+            ],
+            "exclude_globs": [
+                "*dontscw33ten=1*",
+                "https://ca.my.salesforce.com/500a"
+            ],
+            "match_about_blank": false,
+            "all_frames": true,
+            "run_at": "document_end",
+            "js": [
+                "report_content.js"
+            ]
+        }
+    ],
+    "browser_action": {
+      "default_icon": {
+            "16": "images/rainbow_cloud_16.png",
+            "19": "images/rainbow_cloud_19.png",
+            "32": "images/rainbow_cloud_32.png",
+            "64": "images/rainbow_cloud_64.png"
+      }
     }
-  ],
-  "browser_action": {
-    "default_icon": "images/icon.png"
-  }
 }

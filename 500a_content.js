@@ -1,5 +1,5 @@
 /////////////////////////////////////       500a_content.js     //////////////////////////////////////
-//                                                     
+//
 // VeRsIoN: 0.1
 // Last updated: 03/27/2017
 // Full Path: 500a_content.js
@@ -26,15 +26,14 @@ logTrace('500a_content.js initializing.');
 logTrace("HREF: " + window.location.href);
 
 
-var myself = { 
-	name: "Christian Lutz",
-	alias: "lutch01",
-	color: '#e6e6fa',
-	startHour: 8,
-	endHour: 17,
-	
-};
-console.log("Stringified myself: " + JSON.stringify(myself));
+// var myself = {
+// 	name: "Christian Lutz",
+// 	alias: "lutch01",
+// 	color: '#e6e6fa',
+// 	startHour: 8,
+// 	endHour: 17,
+// };
+// console.log("Stringified myself: " + JSON.stringify(myself));
 
 // Light colors...
 /*
@@ -50,52 +49,52 @@ console.log("Stringified myself: " + JSON.stringify(myself));
 	#f2f2bc yellow
 
 */
-var myTeam = [
-	{
-		name: "Ed Vogel",
-		alias: "VOGED01",
-		color: "#bcd7f2",
-	}, {
-		name: "Margaret Anttila",
-		alias: "ANTMA06",
-		color: "#a6eea7",
-	}, {
-		name: "Ralf Prigl",
-		alias: "PRIRA01",
-		color: "#c9eea6",
-	},	{
-		name: "Ilir Prifti",
-		alias: "PRIIL01",
-		color: "#f2bcd7",
-	},	{
-		name: "Anthony Manoleas",
-		alias: "MANAN23",
-		color: "#bcf2d7",
-	},	{
-		name: "Joseph Lutz",
-		alias: "LUTJO01",
-		color: "#bcbcf2",
-	}, {
-		name: "Brian Rehder",
-		alias: "REHBR01",
-		color: "#bcf2f2",
-	}, {
-		name: "Carlos Solla",
-		alias: "SOLCA02",
-		color: "#f2d7bc",
-	},	{
-		name: "Aaron Armagost",
-		alias: "ARMAA01",
-		color: "#f2f2bc",
-	}, {
-		name: "Shams Ahmed",
-		alias: "AHMSH05",
-		color: "#e3e3e3",
-	},
-	
-];
-
-console.log("Stringified myTeam: " + JSON.stringify(myTeam));
+// var myTeam = [
+// 	{
+// 		name: "Ed Vogel",
+// 		alias: "VOGED01",
+// 		color: "#bcd7f2",
+// 	}, {
+// 		name: "Margaret Anttila",
+// 		alias: "ANTMA06",
+// 		color: "#a6eea7",
+// 	}, {
+// 		name: "Ralf Prigl",
+// 		alias: "PRIRA01",
+// 		color: "#c9eea6",
+// 	},	{
+// 		name: "Ilir Prifti",
+// 		alias: "PRIIL01",
+// 		color: "#f2bcd7",
+// 	},	{
+// 		name: "Anthony Manoleas",
+// 		alias: "MANAN23",
+// 		color: "#bcf2d7",
+// 	},	{
+// 		name: "Joseph Lutz",
+// 		alias: "LUTJO01",
+// 		color: "#bcbcf2",
+// 	}, {
+// 		name: "Brian Rehder",
+// 		alias: "REHBR01",
+// 		color: "#bcf2f2",
+// 	}, {
+// 		name: "Carlos Solla",
+// 		alias: "SOLCA02",
+// 		color: "#f2d7bc",
+// 	},	{
+// 		name: "Aaron Armagost",
+// 		alias: "ARMAA01",
+// 		color: "#f2f2bc",
+// 	}, {
+// 		name: "Shams Ahmed",
+// 		alias: "AHMSH05",
+// 		color: "#e3e3e3",
+// 	},
+//
+// ];
+//
+// console.log("Stringified myTeam: " + JSON.stringify(myTeam));
 
 
 
@@ -106,41 +105,41 @@ console.log("Stringified myTeam: " + JSON.stringify(myTeam));
 	// body_text_modified_color: "#FF6A00",
 	// body_link_hover_color: "#FF0000", /*#015BA7;*/
 	// body_link_color: "#006CB5",
-	
+
 	// body_label_text_color: "#54698D",
-	
+
 	// alert_background_color: "#FF99EE",
 	// alert_text_color: "#CC0000",
 	// alert_border_style: "1px solid #000000",
-	
+
 	// warning_background_color: "#FFCF6F",
 	// warning_text_color: "#FF6A00",
 	// warning_border_style: "1px solid #000000",
 
 	// percentBarColor: "#00FFFF",
-	
+
 	// tb_bg_color: "#0070D2",
 	// tb_text_color: "#FFFFFF",
 	// tb_link_color: "#FFFFFF",
 	// tb_border_style: "1px solid #000000",
-	
+
 	// box_h_text_color: "#FFFFFF",
 	// box_h_bg_color: "#0070D2",
 	// box_h_border_style: "1px solid #000000",
 	// box_body_bg_color: "#FFFFFF",
 	// box_body_border_style: "1px solid #000000",
-	
+
 	// cell_label_border_style: "1px solid #00FF00",
 	// cell_data_border_style: "1px solid #0000FF",
-	
+
 	// row_color_even: "inherit",
 	// row_color_odd: "#DDDDDD",
 	// row_color_highlight: "#000000",
-	
+
 	// btn_text_color: "#0070d2",
-	// btn_bg_color: "#F4F5F7", 
+	// btn_bg_color: "#F4F5F7",
 	// btn_border_style: "1px solid #E0E5EE",
-	
+
 	// txtfield_text_color: "#000000",
 	// txtfield_bg_color: "#FFFFFF",
 	// txtfield_border_style: "1px solid #D8DDE6",
@@ -159,7 +158,9 @@ console.log("Stringified myTeam: " + JSON.stringify(myTeam));
 
 
 
-
+// Team
+var myself;
+var myTeam;
 
 // General
 var boostTextSize;
@@ -250,6 +251,26 @@ var newDefCommentBoxH;
 var dComBoxWidth;
 var dComBoxHeight;
 
+// Live Agent Supervisor Page Specific
+var prodName;
+var onlyMyQS;
+var collapseQS;
+var statusLevel;
+var userFilter;
+var userList;
+
+// Case Review Page Specific
+var caseRevTestMode;
+var caseRevSubject;
+var caseRevBody;
+var caseRevCC;
+var caseRevBCC;
+var caseRevDefaultToAssisted;
+var defaultAssType;
+
+// Cases Page (queue) Specific
+var unlockRolodex;
+
 // Local Globals...
 var theBoxes2;
 var theCase;
@@ -266,7 +287,7 @@ getVars('all', init);
 
 
 /*
-// TODO modify Sample extension button... 
+// TODO modify Sample extension button...
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
 	    if( request.message === "setVars" ) {
@@ -284,7 +305,7 @@ chrome.runtime.onMessage.addListener(
 */
 
 
-
+/*
 var curVersion = "3.0 BETA";
 var pblink = "https://cawiki.ca.com/display/CASupport/ArrangeSC+v2";
 var changeLog = [
@@ -380,7 +401,7 @@ var changeLog = [
      'Major Release: Initial Release.'
     ]
 ];
-
+*/
 // For SC default layout...
 var dRows;
 var dIndex = JSON.parse('[[[],[]],[[],["100%","Case Information","SCw33t Alerts!","Details","Product Detail","Case Resolution","Product and Offering","Supplemental Details","Alt Contact Information","Case Audit History","Open Activities","Activity History","Case Team","Attachments","Case Comments","SFTP File Attachments","Related Cases","CA Diagnostics","External Requests","KB Articles","Related Content","Emails","Case Reviews","Live Chat Transcripts","Related Defects","Case History"],["0%","empty"]]]');
@@ -447,8 +468,8 @@ theCase = {
 	fiveHunAAID: fiveHunAAID,
 	fiveHunID: fiveHunID,
 	SID: SID,
-	CID: CID,	
-	
+	CID: CID,
+
 	owner: pullTextByCellName('Case Owner').trim().split(' [')[0],
 	type: pullTextByCellName('Case Type').trim(),
 	tStage: pullTextByCellName('Troubleshooting Stage').trim(),
@@ -457,32 +478,32 @@ theCase = {
 	naDue: pullTextByCellName('Next Action Due Date').trim(),
 	siteId: pullTextByCellName('Tops Site ID').trim(),
 	siteId: pullTextByCellName('Project ID').trim(),
-	
-	
+
+
 	conName: pullTextByCellName('Contact Name').trim(),
 	conEmail: pullTextByCellName('Contact Emaill').trim(),
-	
+
 	altName: pullTextByCellName('Alt Contact First Name').trim() + ' ' + pullTextByCellName('Alt Contact Last Name').trim(),
 	altEmail: pullTextByCellName('Alternate email').trim(),
-	
-	
+
+
 	product: pullTextByCellName('CA Product').trim(),
 	productCode: pullTextByCellName('Product Code').trim(),
 	component: pullTextByCellName('Component').trim(),
 	release: pullTextByCellName('Product Release Selection').trim(),
 	servicePack: pullTextByCellName('Product Service Pack Selection').trim(),
-	
+
 	isOpen: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Open') > -1),
 	isVerify: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Verify') > -1),
 	isClosed: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Closed') > -1),
-	
-	
-	
-	
-	
+
+
+
+
+
 	/*escalated: pullTextByCellName('Escalated').trim(),// need oullCheckedByCellName?? */
-	
-	// 
+
+	//
 };
 logTrace("theCase: " + JSON.stringify(theCase));
 
@@ -496,13 +517,13 @@ logTrace("theCase: " + JSON.stringify(theCase));
 
 
 // Add Alerts box:
-$('<div style="display:none;" id="alertHider"><div class="brandTertiaryBrd pbSubheader tertiaryPalette" id="head_arrangeSC-alertBox_ep"><img src="/s.gif" alt="Hide Section - Alerts!" class="hideListButton" id="img_arrangeSC-alertBox" name="Alerts" onclick="twistSection(this);" onkeypress="if (event.keyCode==\'13\')twistSection(this);" style="cursor:pointer;" tabindex="0" title="Hide Section - Alerts!"><h3>SCw33t Alerts!<span class="titleSeparatingColon">:</span></h3><h3> ( </h3><h3 id="numAlerts">0</h3><h3> )</h3></div><div class="pbSubsection" id="body_arrangeSC-alertBox_ep" style="display: block;"></div></div>').appendTo('body');
+$('<div style="display:none;" id="alertHider"><div class="brandTertiaryBrd pbSubheader tertiaryPalette" id="head_arrangeSC-alertBox_ep"><img src="/s.gif" alt="Hide Section - SCw33t Alerts!" class="hideListButton" id="img_arrangeSC-alertBox" name="SCw33t Alerts!" onclick="twistSection(this);" onkeypress="if (event.keyCode==\'13\')twistSection(this);" style="cursor:pointer;" tabindex="0" title="Hide Section - SCw33t Alerts!"><h3>SCw33t Alerts!<span class="titleSeparatingColon">:</span></h3><h3> ( </h3><h3 id="numAlerts">0</h3><h3> )</h3></div><div class="pbSubsection" id="body_arrangeSC-alertBox_ep" style="display: block;"></div></div>').appendTo('body');
 $('<table id="arrangeSC-alertBox-table-0" class="detailList"></table>').appendTo("#body_arrangeSC-alertBox_ep"); // headers? <th class=\'labelCol\' style="min-width:75px;">Level</th><th class=\'dataCol\' style="width:100%;">Details</th>
 $('<table id="arrangeSC-alertBox-table-1" class="detailList"></table>').appendTo("#body_arrangeSC-alertBox_ep");
 $('<table id="arrangeSC-alertBox-table-2" class="detailList"></table>').appendTo("#body_arrangeSC-alertBox_ep");
 $('<table id="arrangeSC-alertBox-table-3" class="detailList"></table>').appendTo("#body_arrangeSC-alertBox_ep");
 $('<table id="arrangeSC-alertBox-No-Alerts" style="width:auto;" class="detailList"><tr><td align=\'right\' style=\'min-width:75px; word-wrap: break-word;\'></td><td style=\'width:100%; word-wrap: break-word;\'>-- No Alerts --</td></tr></table>').appendTo("#body_arrangeSC-alertBox_ep");
-  
+
 // addAlert(1, "This is a test of the <a href='www.google.com'>automated</a> alert function. <br /> This is <br /> a multi-line <br /> message");
 // addAlert(0, "This is a test of the <a href='www.google.com'>automated</a> alert function.");
 // addAlert(2, "This is a test of the <a href='www.google.com'>automated</a> alert function.");
@@ -513,11 +534,11 @@ $('<table id="arrangeSC-alertBox-No-Alerts" style="width:auto;" class="detailLis
 theBoxes2 = {};
 
 //------ID the Bodies------
-$("div.pbSubheader").each( 
+$("div.pbSubheader").each(
 	function() {
-		
+
 		var thisId = this.id.replace(/head_|_ep/ig,'');
-		
+
 		var thisBox = {
 			title: $(this).children("h3").first().text().replace(/:/g,''),
 			id: thisId,
@@ -529,17 +550,17 @@ $("div.pbSubheader").each(
 			target: null,
 			// TODO add each list item as their name...
 		};
-		
+
 		// Add an ID to the body piece since there is none.
 		$(this).next().attr('id', thisBox.body);
-		
+
 		theBoxes2[thisBox.title] = thisBox;
 	}
 );
 
-$("div.bRelatedList").each( 
+$("div.bRelatedList").each(
 	function() {
-		
+
 		//var this500Id = this.id.split('_')[0];
 		//var thisUniq = this.id.split('_')[1];
 		var thisId = this.id;
@@ -557,10 +578,10 @@ $("div.bRelatedList").each(
 			target: thisId + "_target",
 			// TODO should I collect more? buttons in head?
 		};
-		
+
 		theBoxes2[thisBox.title] = thisBox;
 	}
-); 
+);
 
 // for (var box in theBoxes2) {
 	// if (theBoxes2[box].boxType == 'rel') {
@@ -568,14 +589,14 @@ $("div.bRelatedList").each(
 		// alert(JSON.stringify(theBoxes2[box]));
 	// }
 
-// } 
+// }
 
 
 // TODO add function to compare settings to boxes & make sure all used boxes still exist!
 
 
 /*
-	
+
 	// TODO Auto generate theBoxes...
 var theBoxes = {
     // Details Boxes
@@ -608,11 +629,11 @@ var theBoxes = {
     defectsID: ["#" + fiveHunID + "_00Na000000BFxGt", "Related Defects", "r"],                   // ID for Related Defects
     caseHistoryID: ["#" + fiveHunID + "_RelatedEntityHistoryList", "Case History", "r"],         // ID for Case History
     relContentID: ["#" + fiveHunID + "_00Na000000AxMex", "Related Content", "r"] };       // ID for Related Content
-	
-	
+
+
 	*/
-	
-	
+
+
 
 var emptyID = "";                   // ID for creating empty space
 //var fiftyFrameID = "#fiftyFrame"; // ID for 50/50 Iframe
@@ -704,11 +725,11 @@ function loop1(argss) {
         }
 
         if (foundIt) { // If Page is ready execute, otherwise skip and loop again
-		
+
 		// Case status alerts
 // If not closed, lets make some alerts...
 if (theCase.isClosed == false) {
-	
+
 	// Next acction check
 	logTrace("Checking Next Action...");
 	var compared = compareDTNow($("#" + pullIdByCellName("Next Action Due Date")).text());
@@ -721,18 +742,18 @@ if (theCase.isClosed == false) {
 		addAlert(1,"Your next action has expired! " + compared.timeLeft);
 	} else if (compared.tense == 'future') {
 		//addAlert(3,"Your next action is OK! " + compared.timeLeft);
-	} 
-	
+	}
+
 	if (compared.tense == 'future' || compared.tense == 'today') {
 		var naCell = $("#" + pullIdByCellName("Next Action Due Date"));
 		naCell.text(naCell.text() + ' (' + compared.timeLeft + ')');
 	}
-	
+
 	// Empty Field Checks
 	logTrace("Checking for empty required fields...");
 	var fieldsToCheck = ["Symptom", "Root Cause Category", "Root Cause Subcategory", "Case Reason", "Resolution",
 								  "Product Release","CA Product","Component","Product Code","Product Release Selection"];
-								  
+
 	if (theCase.sev <= 2) {
 		logTrace("Sev is 2 or greater, adding additional empty field checks.");
 		fieldsToCheck.push("Business Impact");
@@ -741,17 +762,17 @@ if (theCase.isClosed == false) {
 	if (theCase.sev == 1) {
 		logTrace("Sev is 1, adding additional empty field checks.");
 		fieldsToCheck.push("Severity 1 Impact", "Production Down Status","SDM Owner");
-		
+
 		logTrace("Sev is 1, adding alert styles.");
 		addClassByCellName({'name': "Severity", "className": "alertCell", "mod": "both"});
 		// $("#" + pullIdByCellName()).addClass('alertCell');
-	} 
-	
-	var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);	
+	}
+
+	var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);
 	bgPercent(stgNum,7,$("#" + pullIdByCellName("Troubleshooting Stage")).parent());
-	
+
 	var emptyFields=[];// = '';
-	
+
 	for (var field in fieldsToCheck) {
 		var txt = pullTextByCellName({'name': fieldsToCheck[field]});
 		//console.log("'"+txt+"'");
@@ -763,7 +784,7 @@ if (theCase.isClosed == false) {
 			addClassByCellName({'name': fieldsToCheck[field], "className": "alertBg"});
 		}
 	}
-	
+
 	if (emptyFields.length) {
 		if (parseInt(pullTextByCellName({name: "Troubleshooting Stage"}).split('.')[0]) >= 5) {
 			logTrace("Troubleshooting stage >= 5, generating empty field alert at Alert level instead of Warning.");
@@ -776,11 +797,22 @@ if (theCase.isClosed == false) {
 		// TODO decide if I want to generate an alert here saying OK!
 		logTrace("No empty fields found. No alert will be generated.");
 	}
-	
+
+  var ownerCell = $("#" + pullIdByCellName("Case Owner")).parent();
+  if (theCase.owner == myself.name) {
+   ownerCell.css('background-color', myself.color);
+  } else {
+    for (var teamMate in myTeam) {
+      if (theCase.owner == myTeam[teamMate].name) {
+        ownerCell.css({"background-color": myTeam[teamMate].color});
+      }
+    }
+  }
+
 	// Check if last item in Case History is > 5 days old?
 	// alert(compareDTNow(cellPull2('t',"Date",theBoxes2["Case History"].pid,0)));
-	
-} else { 
+
+} else {
 	addAlert(3, "This case is closed, case status alerts not processed.");
 }
 
@@ -797,7 +829,7 @@ if (theCase.isClosed == false) {
 					var defs = [];
 					var needed = [];
 					var notneeded = 0;
-					
+
 					var bodyID = theBoxes2["Open Activities"].pid;
 					for (i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
 						// if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text() != ("SE Action" || "SE Info")) { }
@@ -806,43 +838,43 @@ if (theCase.isClosed == false) {
 							seActs.push($(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text());
 						}
 					}
-					
+
 					bodyID = theBoxes2["Related Defects"].pid;
 					var closedDECount = 0;
 					for (var i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
-						if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text() == "Closed") { 
-						closedDECount += 1; 
+						if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text() == "Closed") {
+						closedDECount += 1;
 						}
-						
-						defs.push(i + "-" + $(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text()); 
-						
+
+						defs.push(i + "-" + $(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text());
+
 					}
 					logTrace("seActs.length: "+seActs.length + " defs.length: "+ defs.length);
-					
+
 					// TODO add alert with quick links to defects?
-					// if (seActs.length > defs.length - closedDECount) { 
-						// addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras."); 
-					// } 
+					// if (seActs.length > defs.length - closedDECount) {
+						// addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras.");
+					// }
 					// Too many SE?!
-					if (seActs.length > defs.length - closedDECount) { 
-						addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras."); 
-					} 
-					
+					if (seActs.length > defs.length - closedDECount) {
+						addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras.");
+					}
+
                     //else if (seActs.length == defs.length) {  }  // if #SE and #DE are equal, they should each have one
                     if (seActs.length < defs.length) {        // If more defects than SE actions, something is missing
                         for (var i = 0; i < defs.length; i++) {    // Check each DE & SE to see if there are corresponding actions
                             if ($('#' + theBoxes2["Open Activities"].id + " table.list tr.dataRow").length > 0) {
                                 for (var j = 0; j < seActs.length; j++) {
-                                    if (seActs[j].indexOf(defs[i].split("-")[1]) > -1) { 
-										notneeded++; 
+                                    if (seActs[j].indexOf(defs[i].split("-")[1]) > -1) {
+										notneeded++;
 									}//needed.push(defs[i]); } // Open Activity Found with DE in title, doesn't need
-									else { 
-										needed.push(defs[i]); 
+									else {
+										needed.push(defs[i]);
 									} // Open Activity Not found with DE in title, may need one
 								}
 							} else { needed.push(defs[i]); }       // No Open Activities at all... needs one
 						}
-						
+
 						if (seActs.length - notneeded === 0) {      // All SEs have a DE in title, Create individual alerts for remaining DEs
 							for (var i = 0; i < needed.length; i++) {
 								var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + needed[i].split("-")[1] + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
@@ -851,7 +883,7 @@ if (theCase.isClosed == false) {
 								$("<b style='color: red;'>NoSE - </b>").prependTo($(bodyID + "_body table.list .dataCell.cellCol1:eq( " + needed[i].split("-")[0] + " )"));
 								addAlert(1, needed[i].split("-")[1] + ' has no corresponding SE Activity! Create ' + '<a id="seActPOP" onclick=\'document.getElementById("makeSEact_' + needed[i].split("-")[0] + '").click();\'>SE Action</a>' + ' or ' + '<a id="seInfoPOP" onclick=\'document.getElementById("makeSEinfo_' + needed[i].split("-")[0] + '").click();\'>SE Info</a>' );
 							}
-						} else if (seActs.length - notneeded > 0) {  
+						} else if (seActs.length - notneeded > 0) {
 							// NO SEs have a DE in title, Create 1 Generic alert for remaining DEs w/o specific SE
                             var alertText = "One or more defects do not have corresponding SE Activity! Create:";
                             for (var i = 0; i < needed.length; i++) {
@@ -913,7 +945,7 @@ if (theCase.isClosed == false) {
                                 // TODO if cell is number...
                                 $(commentsBody + " table.list tr.dataRow td.dataCell:eq(" + cell + ")").html($(commentsBody + " table.list tr.dataRow td.dataCell:eq(" + cell + ")").html().toString().split("-----Original Message-----")[0]);
                             }
-                            catch(e) { 
+                            catch(e) {
 								console.log("compress comment fail " + cell + " :: " + e)
 							}
                         }
@@ -949,8 +981,8 @@ if (theCase.isClosed == false) {
                                     else if (cFiltered.text() == creater || cFiltered.text() == l2creater) { $(this).css('display','table-row'); }                                          // if specified creater, display only that persons comments
                                     else if (cFiltered.text().toLowerCase() == contactName.toLowerCase() && (l2creater == contactEmail || l2creater.toLowerCase() == contactEmail.toLowerCase())) { $(this).css('display','table-row'); }                                          // if specified creater is main contact, also display updates from their email
                                     else { $(this).css('display','none'); }                                                                                                                 // else it doesn't belong, hide it
-                                } catch(e) { 
-									$(this).css('display','none'); 
+                                } catch(e) {
+									$(this).css('display','none');
 								}
                             });
 
@@ -1112,14 +1144,11 @@ if (theCase.isClosed == false) {
     } // END: if foundIt 0
 } // END: loops
 
-
-
-
 //-------------Advanced Style Options----------------------
 // Adjust the margin and width allotment...
 // TODO merge to css
-$("td.labelCol").css({'margin-left': '3px',"width": "12%"}); // ...of the Labels (e.g Case Number)
-$("td.dataCol").css({'margin-left': '3px',"width": "38%"});  // ...of the Data portion (e.g 88888888 [View Hierarchy])
+// $("td.labelCol").css({'margin-left': '3px',"width": "12%"}); // ...of the Labels (e.g Case Number)
+// $("td.dataCol").css({'margin-left': '3px',"width": "38%"});  // ...of the Data portion (e.g 88888888 [View Hierarchy])
 // note: there are 2 labelCols and 2 dataCols for each info object.
 // due to this making labelCol + dataCol > 50% may cause strange formatting
 
@@ -1128,11 +1157,13 @@ try {
     $("div.efdFields").css({'overflow': 'hidden'});                           // Fix wrapper
     // if (showBodyBorders) { $("div.pbSubsection").css({'border': bodyBorderStyle}); } // Body borders?
     $("div.brandTertiaryBrd").css({'margin-top': '2px'});           // Top Margins
-    if (showHelpButtons == false) { 
-		$(".pbHelp").css('display','none'); 
-		$(".helpOrb").css('display','none'); 
-	}
-    if (showRedundantButtons == false) { $("div.pbBottomButtons").css('display','none'); } // Redundant buttons?
+    if (showHelpButtons == false) {
+  		$(".pbHelp").css('display','none');
+  		$(".helpOrb").css('display','none');
+	  }
+    if (showRedundantButtons == false) {  // Redundant buttons?
+      $("div.pbBottomButtons").css('display','none');
+    }
 }
 catch(e) {
     addAlert(0, "ArrangeSC: Failed to complete Style Tweaks.<br />Additional info: " + e);
@@ -1141,12 +1172,6 @@ catch(e) {
 
 //------BEGIN: Rework Body------
 try {
-    // $("td.labelCol.empty").remove(); // Remove empty label cells
-    // $("td.dataCol.empty").remove();  // Remove empty data cells
-    // $("#cas14_ilecell").css({'margin-right': '10px',"width": "100%"});
-    // $("#cas15_ilecell").css({'margin-right': '10px',"width": "100%"});
-    // $("#cas16_ilecell").css({'margin-right': '10px',"width": "100%"});
-    // $("#cas17_ilecell").css({'margin-right': '10px',"width": "100%"});
     $('#' + theBoxes2["Case Comments"].body).css(
         {
             'overflow': 'hidden',
@@ -1186,15 +1211,11 @@ try {
     $(".pbTitle").css({'min-width': '100px','width': 'auto'});
     $(".pbTitle:eq(0)").css({'width': '170px'});
     $("h2.mainTitle").append(": " + caseNum);
-	$('<div id="theTrash" style="display:none;"></div>').appendTo('head');
-    if (removeDisplayProcessFlow) { $("input[name=process_flow]").appendTo('#theTrash'); } // if removeDisplayProcessFlow = true, remove it
+	  $('<div id="theTrash" style="display:none;"></div>').appendTo('head');
+    if (removeDisplayProcessFlow) {
+      $("input[name=process_flow]").appendTo('#theTrash');
+    }
 	// TODO add options to move 'close case', 'send email', 'searchIt' 'edit' 'clone' 'displayprocessflow' to a dropdown
-	
-    // Backup for future:
-    //$('div.fewerMore').css({'display':"block"});
-    //$(".btn").css({'margin': '0px'});
-    //$("div.bRelatedList").css({"overflow":"visible"});
-    //$("td.pbButton").css({"width": "90%"});
 }
 catch(e)
 {
@@ -1202,35 +1223,39 @@ catch(e)
 }
 //------END: Rework Body-----
 
-// Add footer
-try {
-    $("<table width=\"100%\" height='15px'><tbody><tr id='SCw33t_footer' style='height: 20px; background-color: " + topBarBG +
-      ";'><td id='arrangeFooterText' style='color: " + topBarFontColor + ";'>&nbsp;&nbsp;Sweetened by <a href='" + pblink +
-      "' target='_blank' style='text-decoration: underline; color: " + topBarFontColor + ";'>SCw33t v" + curVersion + "</a> - </td></tr></tbody></table>")
-        .insertBefore("div.fewerMore");
-    $("<a href='javascript:void(0)' style='text-decoration: underline; color: " + topBarFontColor + ";'>What's New?</a>").click(
-        function() {
-            reviewChanges();
-        }
-    ).appendTo($('#arrangeFooterText'));
-} catch(e) {
-    addAlert(0, "ArrangeSC: Failed to add footer.<br />Additional info: " + e);
-}
+// // Add footer
+// try {
+//     $("<table width=\"100%\" height='15px'><tbody><tr id='SCw33t_footer' style='height: 20px; background-color: " + topBarBG +
+//       ";'><td id='arrangeFooterText' style='color: " + topBarFontColor + ";'>&nbsp;&nbsp;Sweetened by <a href='" + pblink +
+//       "' target='_blank' style='text-decoration: underline; color: " + topBarFontColor + ";'>SCw33t v" + curVersion + "</a> - </td></tr></tbody></table>")
+//         .insertBefore("div.fewerMore");
+//     $("<a href='javascript:void(0)' style='text-decoration: underline; color: " + topBarFontColor + ";'>What's New?</a>").click(
+//         function() {
+//             reviewChanges();
+//         }
+//     ).appendTo($('#arrangeFooterText'));
+// } catch(e) {
+//     addAlert(0, "ArrangeSC: Failed to add footer.<br />Additional info: " + e);
+// }
 
 //------BEGIN: Top Bar Code------
-if (disableHoverLinks) { $("div#RLPanel").children().first().remove(); } // Disable hover functionality (if set)
-if (removeHoverLinks) { $("div.efdRLHover").css("display","none"); }     // Remove the top hover links completely (if set)
+if (disableHoverLinks) {
+  $("div#RLPanel").children().first().remove();
+}
+
+if (removeHoverLinks) {
+  $("div.efdRLHover").css("display","none");
+}
 
 if (lockTopBar) {
-    //$("h3").css({'color': topBarFontColor, 'font-weight': 'bold'});
-    $("h2.mainTitle").css({/*'color': topBarFontColor, */'font-weight': 'bold'});
+    $("h2.mainTitle").css({'font-weight': 'bold'});
     if (removeHoverLinks == false) {
         // Add style for coloring hover links & fixing the hover functionality to take 100% width & open at current location (previously opened at very top no matter what)
-		$('<style id="Arrange_Hover_Link">'+
-		'.listHoverLinks { color: ' + hoverLinkColor + '!important; }'+
-		'.linklet { color: ' + hoverLinkColor +'!important; }'+
-		'#RLPanelShadow { width: 100% !important; position: fixed; }'+
-		'</style>').appendTo($('head'));
+		// $('<style id="Arrange_Hover_Link">'+
+		// '.listHoverLinks { color: ' + hoverLinkColor + '!important; }'+
+		// '.linklet { color: ' + hoverLinkColor +'!important; }'+
+		// '#RLPanelShadow { width: 100% !important; position: fixed; }'+
+		// '</style>').appendTo($('head'));
 
         //$(".sfxConsole.sfxStyle .listHoverLinks,.sfxConsole.sfxStyle .linklet,.sfxConsole.sfxStyle .listTitle, .sfxConsole.sfxStyle a, .sfxConsole.sfxStyle a:hover").css('color', topBarFontColor, 'important');
         //$("div.listHoverLinks").first().css({'z-index': '1', 'position': 'fixed', 'background': topBarBG, 'width': '100%', 'margin': '-5px 0px 0px 0px','padding': '0px','text-align': 'left', 'min-height': '10px'});
@@ -1249,7 +1274,7 @@ if (lockTopBar) {
     $("div.pbHeader").children().first().css('table-layout', 'fixed');
     $("td.topButtonRow").css({'overflow': 'hidden', 'width': 'inherit'});
     $("div.helpElement").css({'z-index': '100','position': 'fixed', 'margin':'7px 10px 0px 130px'}); // Lock layout/print/? icons in place
-    $("#efpViews_" + fiveHunID).first().css({'z-index': '101','position': 'fixed'});                 // Lock Case - feed view switching buttons in place
+    $("#efpViews_" + theCase.fiveHunID).first().css({'z-index': '101','position': 'fixed'});                 // Lock Case - feed view switching buttons in place
     $(window).resize(updateBodyMargin); // Set window resize to adjust margin between body & top bar
 }
 
@@ -1258,7 +1283,7 @@ if (lockTopBar) {
 
 //------BEGIN: Generate 50-50 buttons & re-arrange objects into custom table------
 if (enablePOP || enable5050 || enableSCTab) {
-	
+
 	// Add Dropdown Buttons
 	if (enableSCTab) {
 		addDropDown("sctab", "SCtab");
@@ -1282,7 +1307,7 @@ if (enablePOP || enable5050 || enableSCTab) {
 	//buttGen("newerEmail","New Email",'https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor?p2_lkid=' + CID + '&rtype=003&p3_lkid=' + fiveHunID + '&retURL=/' + fiveHunAAID + '?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw', "Send an Email") ;//Old, no subject
 	buttGen("newTask", "New Task", encodeURI("https://ca.my.salesforce.com/setup/ui/recordtypeselect.jsp?ent=Task&ekp=00T&retURL=/" + fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&save_new_url=/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw"), "New Task");
 	//buttGen("newTask2", "New Task 2","https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&ctestDe=DE123456&ctestSev=2", "New Task");
-	buttGen("caseReview","Review Case", encodeURI('https://ca--c.na13.visual.force.com/apex/CaseReviewEdit?caseId=' + fiveHunID + '&isdtp=vw'));
+	buttGen("caseReview","Review Case", encodeURI('https://ca--c.na13.visual.force.com/apex/CaseReviewEdit?caseId=' + fiveHunID +'&caseType=' + theCase.type + '&isdtp=vw'));
 	buttGen("relateKB","Relate KB Doc", encodeURI('https://ca.my.salesforce.com/apex/RelateKBArticle?id=' + fiveHunID + '&isdtp=vw'));
 	buttGen("relateContent", "Relate Content", encodeURI('https://ca.my.salesforce.com/a9n/e?CF00Na000000AxMex=' + caseNum + "&isdtp=vw"));
 	buttGen("caseTeam", "Update Case Team", encodeURI('/0B6/e?kp=500&pid=' + fiveHunID + '&isdtp=vw')); //&sfdcIFrameOrigin=https%3A%2F%2Fca.my.salesforce.com
@@ -1296,7 +1321,7 @@ tableGen(cIndex, cRows, "c");
 
 //------BEGIN: Generate Convenience Buttons
 if (enableConvenience) {
-	
+
     addDropDown("conv", "Buttons");
 
 	var CSOURL = "https://support.ca.com/irj/portal/implsvccasedetails?issueNo=" + caseNum;
@@ -1305,10 +1330,10 @@ if (enableConvenience) {
 	// Prod
 	var SFTPURL = "sftp://supportftp.ca.com/";
 	var SFTPSite;
-	
+
 	// Get the TOPS Site ID
 	var TopsID = $("td.labelCol:contains(Tops Site ID)").next('td').find("div").text();
-	
+
 	// Get the Project Site ID
 	var ProjID = $("td.labelCol:contains(Project ID)").next('td').find("div").text();
 
@@ -1318,28 +1343,28 @@ if (enableConvenience) {
 	} else {
 		SFTPSite = SFTPURL + prependZero(TopsID) + "/" + caseNum + "/";
 	}
-	
+
 	if (createLocalDirs) {
 		SFTPSite = SFTPSite + "?" + encodeURIComponent($("td.labelCol:contains(Site Association)").next('td').find("div").text().replace(/[<>:\"\/\\\|\?\*\.\']/g, "").trim()) + "?" + encodeURIComponent($("td.labelCol:contains(Subject)").next('td').find("div").text().replace(/[<>:\"\/\\\|\?\*\.\']/g, ""));
 	}
-	
+
 	addConvButton("rSFTP","Remote SFTP", 'm', SFTPSite);
 
 	if (createLocalDirs && openLocalButton) {
 		localdir = SFTPSite + "?LOCAL";
 		addConvButton("lSFTP","Local Dir", 'm', localdir);
 	}
-	
-	
+
+
 	// Replaed with SCtab, keeping in case needed later.
 	//addConvButton("commentConvButton","New Comment", 'c', "[name='newComment']");
 	//addConvButton("sendEmailConvButton","Send Email", 'c', "[name='newEmail']");
 	addConvButton("dismissConvButton","Dismiss Callbacks", 'c', "[name='dismiss_the_selected_call_backs']");
 	addConvButton("CSOConvButton","Open in CSO", 'l', CSOURL);
-	
+
 	addConvButton("kbHomeButton","KB Home", 'l', 'https://ecm.ca.com/kb/pages/Authoring/dashboard.aspx');
 	addConvButton("searchItButton","Search It", 'l', 'https://searchit.ca.com/Pages/FindSearch.aspx');
-	
+
 	// Account Team button, based on Greg Butt's AccountTeam Script
 	var accountId = $('#cas4_ileinner>a').attr('href').slice(23,38);
 	var accTeamUrl = "javascript:srcUp(%27%2Facc%2Faccteammemberlist.jsp%3Fid%3D" + accountId + "%26isdtp%3Dvw%27);";
@@ -1376,7 +1401,7 @@ if (enableCaseLinkButton) {
                             'display': 'inline', 'title': 'Copy Link', 'type': 'button'})
             .click(function() {prompt("Case Link for " + caseNum +":", genLink);})
             .appendTo($("#topButtonRow"));
-    }  catch(e) { 
+    }  catch(e) {
 		addAlert(0, "ArrangeSC: There was a problem adding the 'Case Link' button<br />Additional info: " + e);
 	}
 }
@@ -1406,7 +1431,7 @@ function fixSpecialConditions() {
 				}
 			}
 		);
-		
+
 		// var formID = $(caseInfoID +" td.dataCol:eq("+cellNumber+")").text().replace("document.forms['","").replace("'].submit()","").replace("echoScontrolForm_",""); // Collect form properties
 		var formID = $('#'+caseInfoID +" td.dataCol:eq("+cellNumber+")").text().replace("document.forms['","").replace("'].submit()","").replace("echoScontrolForm_",""); // Collect form properties
 		if (formID.indexOf("[View]") > -1) {
@@ -1422,6 +1447,12 @@ function fixSpecialConditions() {
 		if (enablePeekIt) {
 			peekIt("specialViewLink", "https://ca--c.na13.visual.force.com/apex/SC_VFComponents?id=" + fiveHunAAID + "&blkRender=SC&isdtp=vw");
 		}
+
+    // trying to find a way to read the number of conditions
+    // alert($("[title='SpecialConditionsPage']").attr('id'));
+    // var myIFrame = document.getElementById($("[title='SpecialConditionsPage']").attr('id'));
+    // var content = myIFrame.contentWindow.document.body.innerHTML;
+    // alert(content);
 
 	} catch(e) {
 		addAlert(0, "ArrangeSC: Special conditions fix failed.<br />Additional info: " + e);
@@ -1459,15 +1490,15 @@ function scweeten(boxTitle) {
 	// try{
 		var bodyId = theBoxes2[boxTitle].pid;
 		logTrace("SCw33tening: " + boxTitle);
-		
+
 		switch (boxTitle) {
-			
+
 			case "Activity History":
 				if (squareMonitor) {
 					if ($(bodyId + " table.list tr.dataRow").length > 0) {
 						for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
 							tabGen(2,bodyId);
-						
+
 							cellGen(1, 0, "5%",'rowspan="2"', cellPull('a','',bodyId),bodyId);
 							cellGen(1, 1, "30%",'', "<span>Subject: </span>" + cellPull(1,'h',bodyId),bodyId);
 							cellGen(1, 2, "25%",'', "<span>SLO: </span>" + cellPull(3,'',bodyId),bodyId);
@@ -1484,9 +1515,9 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
-			
-				
+
+
+
 			case "Case Comments":
 				if ($(bodyId + " table.list tr.dataRow").length > 0 && $("#revComments").length < 1) {
 					logTrace("Adding Reverse Comments button...");
@@ -1507,7 +1538,7 @@ function scweeten(boxTitle) {
 					).appendTo($(bodyId + " td.pbButton"));
 				}
 				break;
-			
+
 			case "Case Reviews":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
 					// Generate Case Reviewed alert:
@@ -1518,7 +1549,7 @@ function scweeten(boxTitle) {
 						var reviewLink = $(bodyId + " table.list .dataCell.cellCol" + 1 + ":eq( " + h + " )").html().split('href="')[1].split('">')[0];
 						addAlert(3, 'This case was reviewed by ' + reviewer /*[0] + ' @ ' + reviewer[1] */ + '!\n' + '  <a id="caseRevAlert-' + h + '" href=\'' + reviewLink + '\'>Click to view this review.</a>' );
 					}
-				
+
 					if (squareMonitor) {
 						for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
 							tabGen(2,bodyId);
@@ -1536,18 +1567,18 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
+
 			case "Case Team":
 				if (squareMonitor) {
 					if ($(bodyId + " table.list tr.dataRow").length > 0) {
 						for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
 							tabGen(2,bodyId);
-						
+
 							cellGen(1, 0, "10%",'rowspan="2"', cellPull2('a','Action',bodyId),bodyId);
 							cellGen(1, 1, "45%",'',"<span>User: </span>" + cellPull2('h','Team Member',bodyId).replace("User: ", ""),bodyId);
 							cellGen(1, 2, "17%",'',"<span>Access: </span>" + cellPull2('t', 'Case Access',bodyId),bodyId);
 							cellGen(1, 3, "28%",'',"<span>Last Modified: </span>",bodyId);
-						
+
 							cellGen(2, 1, "45%",'',"<span>Role: </span>" + cellPull2('h', 'Member Role',bodyId),bodyId);
 							cellGen(2, 2, "17%","","<span>Visible in Portal: </span>" + cellPull2('h', 'Visible In Customer Portal',bodyId),bodyId);
 							cellGen(2, 3, "28%","",cellPull2('h', 'Modified By',bodyId),bodyId);
@@ -1557,7 +1588,7 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
+
 			case "Emails":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
 					if (squareMonitor) {
@@ -1578,16 +1609,16 @@ function scweeten(boxTitle) {
 							emailAdjustment($(bodyId + " td.sqTD a"));
 						}
 					}
-					
+
 				}
-			
+
 				break;
-				
+
 			case "KB Articles":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
 					$(bodyId +" table.list tr.dataRow a").each(
 						function(index) {
-							var txt = $(this).text();						
+							var txt = $(this).text();
 							var excludes = ["Del", "Edit"];//"Make Private"
 							if (excludes.indexOf(txt) == -1) {
 								// TODO choose href based on xframe option (to enable/disable sameorigin compliance)
@@ -1617,52 +1648,52 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
+
 			case "Open Activities":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
-					
+
 					var cbNum = 0;
 					var cbs = [];
-					
+
 					// TODO not seeing CBs when there is 1 cb & 1 DE...
-					
+
 					for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
 						// if ($(bodyId + " table.list .dataCell.cellCol2:eq( " + i + " )").text().indexOf("Callback") > -1) {
 						if (cellPull2('t','Type',bodyId).indexOf("Callback") > -1) {
 								needToDismiss = true;
-								cbNum++; 
+								cbNum++;
 								// cbs.push($(bodyId + " table.list .dataCell.cellCol3:eq( " + i + " )").text());
 								cbs.push(cellPull2('t','Due Date (SLO)',bodyId));
 						}
 					}
-					
+
 					// last in list isnt always first to expire... especially when a case goes sev 1 it can have new updates with shorter SLO
 					var closestCB = null;
 					// TODO Reverse this for loop? It will usually find the last one is newest...
 					// TODO Find out if this needs to check for show more (when >10 open activities)...
-					
+
 					// TODO function splitTimestamp()
 					for (var cb in cbs) {
-						
+
 							var splitCB = cbs[cb].split(' ');
-							
+
 							var cbObj = {};
-							
+
 							cbObj.orig = cbs[cb];
-							
+
 							cbObj.date = splitCB[0];
 							cbObj.time = splitCB[1];
-							
+
 							cbObj.month = parseInt(cbObj.date.split('/')[0]);
 							cbObj.day = parseInt(cbObj.date.split('/')[1]);
 							cbObj.year = parseInt(cbObj.date.split('/')[2]);
-							
+
 							cbObj.hour = parseInt(cbObj.time.split(':')[0]);
 							cbObj.mins = parseInt(cbObj.time.split(':')[1]);
-							
+
 							cbObj.ampm = splitCB[2];
-							
-							
+
+
 							// Convert to 24 hrs
 							if (cbObj.ampm == "PM" && cbObj.hour != 12) {
 								cbObj.hour += 12;
@@ -1670,7 +1701,7 @@ function scweeten(boxTitle) {
 								cbObj.hour = 0;
 							}
 							// if closestCB not defined, this is closestCB...
-							
+
 						if (closestCB == null) {
 							closestCB = cbObj;
 							logTrace("Setting closestCB for the first time: " + cbObj.date + " @ " + cbObj.time);
@@ -1679,47 +1710,47 @@ function scweeten(boxTitle) {
 							logTrace("Re-setting closestCB: " + cbObj.date + " @ " + cbObj.time);
 						}
 					}
-					
+
 					if (needToDismiss) {
 						// TODO better implementation of the time difference...
 						logTrace("Need to dismiss... Creating alert.");
 						//('Y: ' + compareDTNow(closestCB.orig).yearDif + ' M: ' + compareDTNow(closestCB.orig).minsDif
-						
+
 						var compared = compareDTNow(closestCB.orig);
 						// var timeLeft = ((compared.yearDif != 0) ? 'Yrs: ' + compared.yearDif : '')
 											// + ((compared.monthDif != 0) ? ' Mos: ' + compared.monthDif : '')
 											// + ((compared.dayDif != 0) ? ' Days: ' + compared.dayDif : '')
 											// + ' Hrs: ' + compared.hourDif + ' Mins: ' + compared.minsDif;
 						if (cbNum == 1) {
-							addAlert(2, 'There is an open callback expiring ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callback.</a>'); 
-						} else { 
+							addAlert(2, 'There is an open callback expiring ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callback.</a>');
+						} else {
 							addAlert(2, 'There are ' + cbNum + ' open callbacks which start expiring ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callbacks.</a>');
 						}
 					}
-					
+
 					for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
-						
+
 						tabGen(2,bodyId);
-						
+
 						cellGen(1, 0, "5%",'rowspan="2"', cellPull('a','',bodyId),bodyId);
 						cellGen(1, 1, "30%",'',"<span> Subject: </span>" + cellPull(1,'h',bodyId),bodyId);
 						cellGen(1, 2, "8%",'',"<span>Sev: </span>" + cellPull(7,'',bodyId),bodyId);
 						cellGen(1, 3, "22%",'',"<span>Status: </span>" + cellPull(6,'',bodyId),bodyId);
 						cellGen(1, 4, "40%",'',"<span>Owner: </span>" + cellPull(8, 'h',bodyId),bodyId);
-						
+
 						cellGen(2, 1, "35%",'colspan="2"',"<span>SLO: </span>" + cellPull(3,'',bodyId),bodyId);
 						cellGen(2, 2, "20%",'',"<span>Type: </span>" + cellPull(2,'',bodyId),bodyId);
 						cellGen(2, 3, "40%",'',"<span>Mod: </span>" + cellPull(9,'',bodyId),bodyId);
-						
+
 						// cellGen(1, 3, "35%","colspan='2'","<span>Completed: </span>" + cellPull(4));
 						// cellGen(2, 2, "20%","","<span>Due: </span>" + cellPull(5));
 					}
 					$(bodyId + " table.list tr.headerRow").remove();
 					$(bodyId + " table.list tr.dataRow").remove();
-					
+
 				}
 				break;
-				
+
 			case "Related Content":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
 					if (enablePeekIt) {
@@ -1753,7 +1784,7 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
+
 			case "Related Defects":
 				$(bodyId + " th a").each(
 					function() {
@@ -1795,7 +1826,7 @@ function scweeten(boxTitle) {
 					}
 				}
 				break;
-				
+
 			case "SFTP File Attachments":
 				if ($(bodyId + " table.list tr.dataRow").length > 0) {
 					if (convertBytesSFTP) {
@@ -1842,7 +1873,7 @@ function scweeten(boxTitle) {
 					);
 					if (squareMonitor) {
 						for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
-						
+
 							tabGen(2,bodyId);
 
 							cellGen(1, 1, "30%",'',"<span>File: </span>" + cellPull(1,'',bodyId),bodyId);
@@ -1872,28 +1903,28 @@ function paintIt() {
 
 //--BEGIN: Functions to re-arrange the insides of related lists--
 function tabGen(numRows, bodyID) {
-	
+
 	$(bodyID + "_body table.list tbody:eq(0)")
 		.append($("<table class='sqTB' id='reworkTable_t" + i + "_" + bodyID.split("_")[1] +"'><tbody></tbody></table>"));
-		
+
 	for (var j = 1; j <= numRows; j++) {
 		$("#reworkTable_t" + i + "_" + bodyID.split("_")[1] + " tbody")
 			.append("<tr class='sqTR' id='rw_t" + i + "_r" + j + "_" + bodyID.split("_")[1] + "'></tr>"); //<tr class='sqTR' id='rw_t" + i + "_r2_" + bodyID.split("_")[1] + "'></tr><tr class='sqTR' id='rw_t" + i + "_r3_" + bodyID.split("_")[1] + "'></tr>"
 	}
-	
+
 	if (i % 2 === 0) {
 		$("#reworkTable_t" + i + "_" + bodyID.split("_")[1]).attr("class",'sqTB even');
 	} else {
 		$("#reworkTable_t" + i + "_" + bodyID.split("_")[1]).attr("class",'sqTB odd');
 	}
-	
+
 }
-				
+
 function cellGen(row, col, width, params, inner, bodyID) {
-	
+
 	$("#rw_t" + i + "_r" + row + "_" + bodyID.split("_")[1])
 		.append($("<td class='sqTD' id='rw_t" + i + "r" + row + "c" + col + "' width='" + width + "' " + params + ">" + inner  + "</td>"));
-		
+
 }
 
 function cellPull(cell, type, bodyID) {
@@ -1905,7 +1936,7 @@ function cellPull(cell, type, bodyID) {
 	} else {
 		return $(bodyID + " table.list .dataCell.cellCol" + cell + ":eq( " + i + " )").text();
 	}
-	
+
 }
 //--END: Functions to re-arrange the insides of related lists--
 
@@ -1919,23 +1950,23 @@ function cellPull2(type, name, bodyID,j) {// pass i explicitly??
 	if (type == 'a') {
 		return $(bodyID + " table.list .actionColumn:eq( " + (i + 1) + " )").html();
 	}
-	
+
 	if (bodyID == undefined || bodyID == null || bodyID == "") {
 		cell= $("table.list th:contains(" + name + ")").attr('class').split("cellCol")[1].split(' ')[0];
 	} else {
 		cell= $(bodyID + " table.list th:contains('" + name + "')").attr('class').split("cellCol")[1].split(' ')[0];
 	}
-	
+
 	logTrace("cell: " +cell);
-	
+
 	if (type == 'h') {
 		return $(bodyID + " table.list .dataCell.cellCol" + cell + ":eq( " + i + " )").html();
-	} else if (type == 't') { 
+	} else if (type == 't') {
 		return $(bodyID + " table.list .dataCell.cellCol" + cell + ":eq( " + i + " )").text();
-	} else { 
-		return false; 
+	} else {
+		return false;
 	}
-	
+
 }
 //--
 
@@ -1982,7 +2013,7 @@ function buttGen(pageName, friendlyName, loc, dontKill)
 
                         //$('#fiftyRow2').css('height','calc(100% - ' + (($("#arrangeTopBar").outerHeight() + 25) + "px") + ')');
 
-                        document.getElementById('fiftyFrame').onload = 
+                        document.getElementById('fiftyFrame').onload =
 						function() {
                             if ($("#fiftyFrame").attr('frameborder') == "0" && (dontKill === undefined || (dontKill !== undefined && $("#fiftyFrame").contents().find('title').text().indexOf(dontKill) == -1))) {
                                 if ($("#fiftyFrame").contents().find('title').text() != undefined) {
@@ -2059,9 +2090,9 @@ function buttGen(pageName, friendlyName, loc, dontKill)
             }
 
         }
-		
+
 		if (enableSCTab) {
-			
+
 			// Create link button under POP! dropdown button to open the page in a pop-up window
             var buttonToAddPOP = $('<a/>').attr({'id': 'openSCTab_' + pageName, 'class': 'btn', 'href': 'javascript:void(0)', 'title': friendlyName, 'onclick': "navigateToUrl('"+loc+"');" })
             .css({'vertical-align': 'middle','margin': '3px', 'height': '17px', 'line-height': '17px', 'padding': '0 3px 0 3px'})
@@ -2082,7 +2113,7 @@ function buttGen(pageName, friendlyName, loc, dontKill)
                 buttonToAddPOP.appendTo(liToAddPOP);        // Add link to <li> so it shows up properly in POP! dropdown
                 liToAddPOP.appendTo($("#sctabButtonHolder")); // Add button/li to POP! dropdown
             }
-			
+
 		}
     } catch(e) {
         addAlert(0, "ArrangeSC: There was a problem adding the " + friendlyName + " button.<br />Additional info: " + e);
@@ -2091,16 +2122,16 @@ function buttGen(pageName, friendlyName, loc, dontKill)
 
 
 function tableGen(vIndex, iType) {
-	
+
 	var vRows = vIndex.length;
 	//console.log(vRows);
-	
+
     //if ($('#arrangeSC_table').length > -1) { $('#arrangeSC_table').remove(); }
     $("div.efdFields").prepend("<div id='arrangeSC_table_" + iType + "' width='100%' height='100%'></div>"); // Create the initial div; attach it to the page
-	
+
 	// If fiftyPageOnRight != true, switch sides
-    if (iType == 'h' && fiftyPageOnLeft && vIndex[1][1] != "50%,empty") { 
-		vIndex[1][2] = vIndex[1][1]; vIndex[1][1] = ["50%","empty"]; 
+    if (iType == 'h' && fiftyPageOnLeft && vIndex[1][1] != "50%,empty") {
+		vIndex[1][2] = vIndex[1][1]; vIndex[1][1] = ["50%","empty"];
 	}
 
     for (var i = 1; i < vRows; i++) {
@@ -2111,53 +2142,53 @@ function tableGen(vIndex, iType) {
             for (var j = 1; j < vIndex[i].length; j++) {
                 try {
 					// Add the Coulumns
-                    $("<td id='arrangeSC_row_" + iType + i + "-col" + j + "' valign='top' style='height: 100%; width: " + vIndex[i][j][0] + ";'></td>").appendTo("#arrangeSC_row_" + iType + i); 
+                    $("<td id='arrangeSC_row_" + iType + i + "-col" + j + "' valign='top' style='height: 100%; width: " + vIndex[i][j][0] + ";'></td>").appendTo("#arrangeSC_row_" + iType + i);
                      // Allows for multiple objects to be put in one cell
-					for (var k = 1; k < vIndex[i][j].length; k++) { 
+					for (var k = 1; k < vIndex[i][j].length; k++) {
 						if (vIndex[i][j][k] != "empty") {
-								$(theBoxes2[vIndex[i][j][k]].pid).css("width","auto").appendTo("#arrangeSC_row_" + iType + i + "-col" + j); 
-						} 
+								$(theBoxes2[vIndex[i][j][k]].pid).css("width","auto").appendTo("#arrangeSC_row_" + iType + i + "-col" + j);
+						}
 					}  // Move the object to the cell
-                } catch(e) { 
-					addAlert(0, "ArrangeSC: Arrangement failed at: R: " + i + ", O: " + j + ".<br />Additional info: " + e); 
+                } catch(e) {
+					addAlert(0, "ArrangeSC: Arrangement failed at: R: " + i + ", O: " + j + ".<br />Additional info: " + e);
 				}
             }
         } catch(e) {
-			addAlert(0, "ArrangeSC: Arrangement failed at: R: " + i + ".<br />Additional info: " + e); 
+			addAlert(0, "ArrangeSC: Arrangement failed at: R: " + i + ".<br />Additional info: " + e);
 		}
     }
     //if (iType == "h" && $('#arrangeSC_table_c').length() > -1) { $('#arrangeSC_table_c').remove(); }
     //else if ($('#arrangeSC_table_h').length() > -1) { $('#arrangeSC_table_h').remove(); }
 
     //------BEGIN: Object Disable & Collapse code------
-    var DisO = []; 
-	var ColO = []; 
+    var DisO = [];
+	var ColO = [];
 	var OpeO = [];
-	
+
 	// Create vars for use in functions below
     if (iType == 'c') {// if full page, set to full page settings
-		DisO = cDisabledObjects; 
-		ColO = cCollapsedObjects; 
+		DisO = cDisabledObjects;
+		ColO = cCollapsedObjects;
 		OpeO = cOpenObjects;
 	} else if (iType == 'h') { // else if half page, set to half page settings
-		DisO = hDisabledObjects; 
-		ColO = hCollapsedObjects; 
+		DisO = hDisabledObjects;
+		ColO = hCollapsedObjects;
 		OpeO = hOpenObjects;
-	}                                                   
+	}
 
     try {
         if (DisO.length > 0 && DisO[0] != "") {
 			 // Add hidden div to hold objects (in case they are still enabled in a different view)
-            if ($("#arrangeSC_hiddenObjects").length === 0) { 
-				$('<div id="arrangeSC_hiddenObjects" style="display: none;"></div>').appendTo('body'); 
+            if ($("#arrangeSC_hiddenObjects").length === 0) {
+				$('<div id="arrangeSC_hiddenObjects" style="display: none;"></div>').appendTo('body');
 			}
-			
+
             for (var i = 0; i < DisO.length; i++) {
-				$("#arrangeSC_hiddenObjects").append($(theBoxes2[DisO[i]].pid)); 
+				$("#arrangeSC_hiddenObjects").append($(theBoxes2[DisO[i]].pid));
 			}
         }
-    } catch(e) { 
-		addAlert(0, "ArrangeSC: Object hiding failed.<br />Additional info: " + e); 
+    } catch(e) {
+		addAlert(0, "ArrangeSC: Object hiding failed.<br />Additional info: " + e);
 	}
 
     try {
@@ -2170,7 +2201,7 @@ function tableGen(vIndex, iType) {
 					logTrace('Collapsing ' + key);
 					$(theBoxes2[key].collapseBtn).click();
 				}
-				
+
             }
         }
     } catch(e) {
@@ -2209,6 +2240,7 @@ function tableGen(vIndex, iType) {
 // Function to adjust margin between body & top bar
 function updateBodyMargin() {
 	try {
+    logTrace('trying to update body margins..');
 		var barHeight = ($("#arrangeTopBar").outerHeight()+20) + "px";
 		$('div.pbBody').first().css({'margin-top': barHeight});
 		if ($('#fiftyFrame').length == 1) { $("#fiftyFrame").css({'height': 'calc(100% - ' + barHeight + ')','top': barHeight}); }
@@ -2219,13 +2251,13 @@ function updateBodyMargin() {
 
 
 function pullTextByCellName(args) {
-	
+
 	// If not object formatted, it should just be the name...
 	if (args.name == undefined) {
 		args = {name: args};
 	}
-	
-	if (args.box) { 
+
+	if (args.box) {
 		return $(args.box + " td.labelCol:contains(" + args.name + ")").next('td').find("div").text();
 	} else {
 		return $("td.labelCol:contains(" + args.name + ")").next('td').find("div").text();
@@ -2233,13 +2265,13 @@ function pullTextByCellName(args) {
 }
 
 function pullHtmlByCellName(args) {
-	
+
 	// If not object formatted, it should just be the name...
 	if (args.name == undefined) {
 		args = {name: args};
 	}
-	
-	if (args.box) { 
+
+	if (args.box) {
 		return $(args.box + " td.labelCol:contains(" + args.name + ")").next('td').find("div").html();
 	} else {
 		return $("td.labelCol:contains(" + args.name + ")").next('td').find("div").html();
@@ -2248,13 +2280,13 @@ function pullHtmlByCellName(args) {
 }
 
 function pullIdByCellName(args) {
-	
+
 	// If not object formatted, it should just be the name...
 	if (args.name == undefined) {
 		args = {name: args};
 	}
-	
-	if (args.box) { 
+
+	if (args.box) {
 		return $(args.box + " td.labelCol:contains(" + args.name + ")").next('td').find("div").attr('id');
 	} else {
 		return $("td.labelCol:contains(" + args.name + ")").next('td').find("div").attr('id');
@@ -2266,13 +2298,13 @@ function addClassByCellName(args) {
 	// 	name*	= name of label col
 	//		box		= Id (with #) of box where this resides (some will require this, especially small word ones, due to contains being used...)
 	//		mod		= modify what level the class is added to, current opts: div (default), td, label, both (=td + label)
-	
+
 	// If not object formatted, it should just be the name...
 	if (args.name == undefined) {
 		args = {name: args};
 	}
-	
-	
+
+
 	// replace contains type with this?? (would provide more exact matching...)
 	//
 	// $(((args.box) ? args.box + ' ': '') + "td.labelCol").filter(function() {
@@ -2281,7 +2313,7 @@ function addClassByCellName(args) {
 
 
 	var label = $(((args.box) ? args.box + ' ': '') + "td.labelCol:contains(" + args.name + ")");
-	
+
 	switch (args.mod){
 		case "both":
 			label.addClass(args.className);
@@ -2290,15 +2322,15 @@ function addClassByCellName(args) {
 			label.next('td').find("div").css({"border": "none !important"});
 			return true;
 			break;
-			
+
 		case "label":
 			return label.addClass(args.className);
 			break;
-		
+
 		case "td":
 			return label.next('td').addClass(args.className);
 			break;
-		
+
 		default:
 			return label.next('td').find("div").addClass(args.className);
 			break;
@@ -2312,18 +2344,18 @@ function addClassByCellName(args) {
 								else if ((a) > (b) ) { return '>'; }
 								else { return false; }
 							}
-							
-							
+
+
 							function compareCBs(a,b) {
 								if (a.orig == b.orig) {
 									logTrace('a and b are the same');
 									return b;
 								} else {
-									
+
 									var parts = ['year','month','day','hour','mins'];
-									
+
 									var closest;
-									
+
 									for (var part in parts) {
 										if (a[parts[part]] > b[parts[part]]) {
 											// a is after b... do nothing
@@ -2342,9 +2374,9 @@ function addClassByCellName(args) {
 											closest = false;
 											logTrace('failed to compare'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
 											break;
-										} 
+										}
 									}
-								
+
 									// return soonest CB found by this
 									return closest;
 								}

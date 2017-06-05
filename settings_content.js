@@ -108,6 +108,15 @@ function init_settings() {
 
 	logTrace('settings init called.');
 
+	window.onbeforeunload = function(e) {
+		// TODO add if statement to check for unsaved settings
+	  var dialogText = 'Dialog text here';
+	  e.returnValue = dialogText;
+	  return dialogText;
+	};
+
+	logTrace('onbefore added');
+
     // All related boxes use the same empty filler:
     var emptyFill = '<table class="list" border="0" cellspacing="0" cellpadding="0"><tbody><tr class="headerRow"><th scope="col" class="noRowsHeader">No records to display</th></tr></tbody></table>';
     // Add sample & Empty fills to current box:
@@ -176,10 +185,11 @@ function init_settings() {
 
     // Make tab box & top bar
     makeTabBox("tabbox1");
-    makeTopBar();
+    // makeTopBar('body');
 
     // Add Tabs
     addTab("tabbox1","arrangementTab","Arrange<b>SC</b>", ""); // <b>ARRANGE</b><span style='font-size:12px'>sc</span>
+		makeTopBar('arrangementTab');
     addTab("tabbox1","paintTab","Paint<b>SC</b>", "");
     // addTab("tabbox1","alertBoxTab","Alert<b>SC</b>", "");
 	// addTab("tabbox1","templateSCTab","Template<b>SC</b>", "");
@@ -188,15 +198,25 @@ function init_settings() {
     // addTab("tabbox1","advSettingsTab","Advanced <b>SC</b>w33tness", "");
 
     addTab("tabbox1","aboutTab","About", "");
+		$('#aboutTab').html(
+			"<h3>Welcome to SCw33t.</h3>"+
+			"<p>SCw33t is a browser extension developed to customize & add functionality to Service Cloud.</p>"+
+			"<p>This is currently BETA software, so not everything is going to always work right. Feel free to contact me if you run into any problems. -Christian Lutz (<a href='mailto://lutch01@ca.com'>lutch01@ca.com</a>)</p>"+
+			"<br />"
+			// "<h4>Some code </h4>"
+			// "<br />"+
+			// "<br />"+
+			// "<br />"+
+		);
 
     // Add Close Button
     append('<li><a href="#" id="closeSettings-li" class="tablinks" onclick="window.location.reload();">X</a></li>',"tabbox1");
 
-    //Add Save Button (TEMPORARY!!!!!!!!)
+    //Add Save Button (TEMPORARY!!!!!!!!??)
     append('<li><a href="#" id="saveASC" class="tablinks">Save</a></li>',"tabbox1");
     document.getElementById('saveASC').addEventListener('click', saveOut, false);
 
-	append('<li><a href="#" id="clearCloud" class="tablinks">Clear Settings</a></li>',"tabbox1");
+	append('<li><a href="#" id="clearCloud" class="tablinks">Reset Defaults</a></li>',"tabbox1");
     document.getElementById('clearCloud').addEventListener('click', clearSettings, false);
 
     // Add hidden Div & helper buttons
@@ -218,28 +238,27 @@ function init_settings() {
     makeButton("addCell","+Cell","","topBar",addArrangeCell);//addArragneRow();
     //makeButton("btn2","+Cell","alert('test');","topBar");
 
-    var currSel2 = makeSelect("arrangeBar-fillSelect", "topBar");
-       addSelOpt("arrangeBar-fillSelect-real", "Real Case", currSel2, "L", "realFill");
-       addSelOpt("arrangeBar-fillSelect-small", "Sample Fill - Small", currSel2, "L", "smallFill");
-       addSelOpt("arrangeBar-fillSelect-full", "Sample Fill - Full", currSel2, "L", "fullFill");
-       addSelOpt("arrangeBar-fillSelect-empty", "Empty", currSel2, "L", "emptyFill");
-       document.getElementById(currSel2).outerHTML = document.getElementById(currSel2).outerHTML.replace(currSel2+'">', currSel2+'" onclick="switchArrangeBoxFill()">');
+    // var currSel2 = makeSelect("arrangeBar-fillSelect", "topBar");
+    //    addSelOpt("arrangeBar-fillSelect-real", "Real Case", currSel2, "L", "realFill");
+    //    addSelOpt("arrangeBar-fillSelect-small", "Sample Fill - Small", currSel2, "L", "smallFill");
+    //    addSelOpt("arrangeBar-fillSelect-full", "Sample Fill - Full", currSel2, "L", "fullFill");
+    //    addSelOpt("arrangeBar-fillSelect-empty", "Empty", currSel2, "L", "emptyFill");
+    //    document.getElementById(currSel2).outerHTML = document.getElementById(currSel2).outerHTML.replace(currSel2+'">', currSel2+'" onclick="switchArrangeBoxFill()">');
 
     //console.log("s");
     //try { console.log(makeIframe("testframe", "body", "http://www.youtube.com", "")); } catch(e){alert("failedframe " + e);}
 
     // create switch for changing between square & standard
-    makeSwitch("arrangeBar-fillSwitch", "topBar", "Fill Switch:");
-    document.getElementById('arrangeBar-fillSwitch').outerHTML = document.getElementById('arrangeBar-fillSwitch').outerHTML.replace('arrangeBar-fillSwitch'+'">', 'arrangeBar-fillSwitch'+'" onclick="if (this.checked == true) {  } if (this.checked == false) { }">');
+    // makeSwitch("arrangeBar-fillSwitch", "topBar", "Fill Switch:");
+    // document.getElementById('arrangeBar-fillSwitch').outerHTML = document.getElementById('arrangeBar-fillSwitch').outerHTML.replace('arrangeBar-fillSwitch'+'">', 'arrangeBar-fillSwitch'+'" onclick="if (this.checked == true) {  } if (this.checked == false) { }">');
 
 	// create switch for changing between square & standard
-	makeSwitch("arrangeBar-collapsedSwitch", "topBar", "Collapsed All:");
-	document.getElementById('arrangeBar-collapsedSwitch').outerHTML = document.getElementById('arrangeBar-collapsedSwitch').outerHTML.replace('arrangeBar-collapsedSwitch'+'">', 'arrangeBar-collapsedSwitch'+'" onclick="var toClick; if (this.checked == true) { toClick = document.getElementsByClassName(\'showListButton\'); } else if (this.checked == false) { var toClick = document.getElementsByClassName(\'hideListButton\'); } console.log(\'toclick length: \' + toClick.length); for (var i = toClick.length-1; i >= 0; i--) { console.log(\'clicking \' + i + \' - \'+ toClick[i].id);toClick[i].click(); }">');
-
-	addTable("genSettingsTable", "genSettingsTab","Table Head");
+	// makeSwitch("arrangeBar-collapsedSwitch", "topBar", "Collapsed All:");
+	// document.getElementById('arrangeBar-collapsedSwitch').outerHTML = document.getElementById('arrangeBar-collapsedSwitch').outerHTML.replace('arrangeBar-collapsedSwitch'+'">', 'arrangeBar-collapsedSwitch'+'" onclick="var toClick; if (this.checked == true) { toClick = document.getElementsByClassName(\'showListButton\'); } else if (this.checked == false) { var toClick = document.getElementsByClassName(\'hideListButton\'); } console.log(\'toclick length: \' + toClick.length); for (var i = toClick.length-1; i >= 0; i--) { console.log(\'clicking \' + i + \' - \'+ toClick[i].id);toClick[i].click(); }">');
 
 
-	makeListBox({id:'listbox1',targetId:'genSettingsTab'});//,targetId:'genSettingsTab'
+
+	// makeListBox({id:'listbox1',targetId:'genSettingsTab'});//,targetId:'genSettingsTab'
 
 
 	// insertRowX("genSettingsTable", "M", "1");
@@ -258,55 +277,70 @@ function init_settings() {
 	// insertColX("genSettingsTable", 2);
 	// insertColX("genSettingsTable", 2);
 
-	// case page
-	makeOption({varId:'enableBack2Top',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});//labelText: '',
-	makeOption({varId:'convertBytesSFTP',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'squareMonitor',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'removePullDownBar',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'showRedundantButtons',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'showHelpButtons',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	//makeOption({varId:'showBodyBorders',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'lockTopBar',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'createLocalDirs',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'openLocalButton',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-
-	// makeOption({varId:'forceCAEmail',targetId:'genSettingsTable', type: 'toggle', displayStyle:'tableRow'});
-	makeOption({varId:'peekHighlightColor',targetId:'genSettingsTable', type: 'color', displayStyle:'tableRow'});
-	// makeOption({varId:'boostTextSize',targetId:'genSettingsTable', type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'cIndex',targetId:'genSettingsTable', type: 'textArea', displayStyle:'tableRow'});
-	makeOption({varId:'hoverLinkColor',targetId:'genSettingsTable', type: 'select', displayStyle:'tableRow', selectOptions: '[ {"value": "#FFFFFF", "title":"#FFFFFF"},{"value": "#FFFFFA", "title":"#FFFFFA"}]'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-	// makeToggleSwitch({varId:'squareMonitor',targetId:'genSettingsTable-2', displayStyle:'tableRow'});
-
-	//makeOption({varId:'bodyBorderStyle',targetId:'genSettingsTable', type: 'style', displayStyle:'tableRow'});
-
 
 	var currOptTable;
 
 	// Global
 	currOptTable = addTable("globalSettingsTable", "genSettingsTab","Global");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'boostTextSize',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'removePullDownBar',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	// makeOption({varId:'forceIframe',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
-	// comment page
+	// case page
+	currOptTable = addTable("genSettingsTable", "genSettingsTab","Case Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'enableBack2Top',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});//labelText: '',
+	makeOption({varId:'convertBytesSFTP',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'squareMonitor',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'showRedundantButtons',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'showHelpButtons',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'hIndex',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'cDisabledObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'hDisabledObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'cCollapsedObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'hCollapsedObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'cOpenObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'hOpenObjects',targetId:currOptTable, type: 'textArea', displayStyle:'tableRow'});
+
+	// makeOption({varId:'hoverLinkColor',targetId:'genSettingsTable', type: 'select', displayStyle:'tableRow', selectOptions: '[ {"value": "#FFFFFF", "title":"#FFFFFF"},{"value": "#FFFFFA", "title":"#FFFFFA"}]'});
+
+	// Top Bar
+	currOptTable = addTable("topBarSettingsTable", "genSettingsTab","Top Bar");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'lockTopBar',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'disableHoverLinks',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'removeHoverLinks',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enableCaseRefreshButton',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enableCaseLinkButton',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'removeDisplayProcessFlow',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+
+	// Convenience Buttons
+	currOptTable = addTable("convenienceButtonsSettingsTable", "genSettingsTab","Convenience Buttons");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'enableConvenience',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'createLocalDirs',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'openLocalButton',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+
+	// Comment Page
 	currOptTable = addTable("commentPageSettingsTable", "genSettingsTab","Comment Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'alwaysPublic',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'alwaysSendEMail',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'alsoCheckEMail',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
-	// email page
+	// Email Page
 	currOptTable = addTable("emailPageSettingsTable", "genSettingsTab","Email Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'forceCAEmail',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'disableOriginalSendButtons',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'includeToInfo',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'includeSubjet',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'includeEmailBody',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
-	// new defect page
+	// New Defect Page
 	currOptTable = addTable("newDefectPageSettingsTable", "genSettingsTab","New Defect Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'newDefDescriptionBoxW',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'newDefDescriptionBoxH',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'newDefCommentBoxW',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
@@ -314,11 +348,13 @@ function init_settings() {
 
 	// New Defect Comment Page
 	currOptTable = addTable("newDefectCommentPageSettingsTable", "genSettingsTab","Defect New Comment Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'dComBoxWidth',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'dComBoxHeight',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	// Live Agent Supervisor Page
 	currOptTable = addTable("liveAgentSupervisorPageSettingsTable", "genSettingsTab"," Live Agent Supervisor Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'onlyMyQS',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'prodName',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'collapseQS',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
@@ -326,6 +362,36 @@ function init_settings() {
 							selectOptions: '[ {"value": "0", "title":"Not Offline"},{"value": "1", "title":"Online"},'
 													+ '{"value": "2", "title":"Away"},{"value": "3", "title":"Offline"},'
 													+ '{"value": "4", "title":"ANY"}]' });
+
+	// Team Info
+	currOptTable = addTable("teamSettingsTable", "genSettingsTab","Team Info");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'myself',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	makeOption({varId:'myTeam',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	// makeOption({varId:'collapseQS',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+
+	// Peek It
+	currOptTable = addTable("peekItSettingsTable", "genSettingsTab","Peek It");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'highlightPeeks',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'peekHighlightColor',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'peekDelay',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'peekItHeight',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'peekItWidth',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'peekSftpTypes',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+
+	// Case Review Page
+	currOptTable = addTable("caseReviewPageSettingsTable", "genSettingsTab","Case Review Page");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'caseRevTestMode',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'caseRevCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'caseRevBCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'caseRevSubject',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'caseRevBody',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'defaultAssType',targetId: currOptTable, type: 'select', displayStyle:'tableRow',
+							selectOptions: '[ {"value": "", "title":"--None--"},{"value": "Self", "title":"Self"},'
+													+ '{"value": "Peer", "title":"Peer"},{"value": "Manager", "title":"Manager"} ]' });
+	makeOption({varId:'caseRevDefaultToAssisted',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
 	// currOptTable = addTable("paintTable", "paintTab","PaintSC");
 	// makeOption({varId:'myTheme.body_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
@@ -373,7 +439,11 @@ function init_settings() {
 	// makeOption({varId:'myTheme.txtfield_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	// makeOption({varId:'myTheme.txtfield_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	// makeOption({varId:'myTheme.txtfield_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+
+	// Console
+
 	currOptTable = addTable("paintTable", "paintTab","PaintSC");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'body_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'body_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'body_text_modified_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
@@ -382,43 +452,58 @@ function init_settings() {
 	makeOption({varId:'body_label_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintAlertTable", "paintTab","AlertSC");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'alert_background_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'alert_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'alert_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'alert_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'warning_background_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'warning_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'warning_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'percentBarColor',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 
+	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+
 	currOptTable = addTable("paintTopBarTable", "paintTab","Top Bar");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'tb_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'tb_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'tb_link_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tb_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'tb_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintBoxesTable", "paintTab","SC Boxes");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'box_h_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'box_h_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'box_h_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'box_body_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'box_body_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
-	makeOption({varId:'cell_label_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
-	makeOption({varId:'cell_data_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'box_body_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'cell_label_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'cell_data_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintRowsTable", "paintTab","Rows");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'row_color_even',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'row_color_odd',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'row_color_highlight',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintButtonsTable", "paintTab","Buttons");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'btn_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'btn_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTextFieldsTable", "paintTab","Text Fields (Editables)");
+	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'txtfield_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'txtfield_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'txtfield_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	// removePullDownBar
 
@@ -546,10 +631,14 @@ function init_settings() {
 		}
 
 		// set row widths... needs to be done after cells are added bc they auto-set on add...
-		for (var cell = 0; cell < cIndex[i].length-1; cell++) {
+		// for (var cell = 0; cell < cIndex[i].length-1; cell++) {
+		for (var cell = (cIndex[i].length-2); cell >= 0; cell--) {
+			console.log(cell);
 			logTrace("arrangementTable-" + i + "-0-" + cell + "-wB == " + cIndex[i][cell+1][0]);
-			document.getElementById("arrangementTable-" + i + "-0-" + cell + "-wB").value = cIndex[i][cell+1][0];
-			document.getElementById("arrangementTable-" + i + "-0-" + cell + "-wB-btn").click();
+			var wb =document.getElementById("arrangementTable-" + i + "-0-" + cell + "-wB");
+			wb.value = cIndex[i][cell+1][0];
+			wb.parentElement.parentElement.width = cIndex[i][cell+1][0];
+			// document.getElementById("arrangementTable-" + i + "-0-" + cell + "-wB-btn").click();
 			// $("#arrangementTable-" + i + "-0-" + cell + "-wB-btn").click();
 		}
 	}
@@ -602,17 +691,67 @@ function getTopBar() {
     document.getElementById("arrangementTable-0-0-0").appendChild(buttonBar);
 }
 
+function toggleSaveButton() {
+	if (changedOpts()) {
+		document.getElementById("saveASC").classNaame = "tablinks warningCell";
+	} else {
+		document.getElementById("saveASC").classNaame = "tablinks";
+	}
+}
 
+function changedOpts(returnArg) {
+
+	var options = $("span.optChangedSpan");
+	var changed = $("span.optChanged");
+	// var notChanged = $("span.optNotChanged");
+	var currCIndex = exportArrangement("c");
+	var numChanged = changed.length;
+	var indexChanged = false;
+
+	if (currCIndex != JSON.stringify(window["cIndex"])) {
+		numChanged++;
+		indexChanged = true;
+	}
+
+	if (returnArg == 'changedCount') {
+		return numChanged;
+	} else if (returnArg == 'changedEles') {
+		return changed;
+	} else if (returnArg == 'indexChanged') {
+		return indexChanged;
+	} else if (numChanged > 0) {
+		return true;
+	} else {
+		return false;
+	}
+
+}
 
 
 function saveOut() {
 	// TODO add support for listboxes...
 
-	var options = $("span.optChangedSpan");
+	// var options = $("span.optChangedSpan");
 	var changed = $("span.optChanged");
-	var notChanged = $("span.optNotChanged");
+	// var notChanged = $("span.optNotChanged");
+	// var currCIndex = exportArrangement("c");
 
-	if (changed.length > 0) {
+
+	 // alert(currCIndex + '\n\n\n' + window["cIndex"]);
+	 // alert(currCIndex + '\n\n\n' + JSON.stringify(window["cIndex"]));
+	//  console.log(currCIndex + '\n\n\n' + JSON.stringify(window["cIndex"]));
+	//  if (currCIndex  == JSON.stringify(window["cIndex"])) {alert('same'); }
+
+	//logTrace('currCIndex: ' + JSON.parse(currCIndex) + '  ---  cIndex:'+JSON.stringify(cIndex));
+	// if (JSON.parse(currCIndex) == JSON.stringify(cIndex)){
+	// 	logTrace('same');
+	// } else {
+	// 	logTrace('changed');
+	// }
+
+
+	// if (changed.length > 0  || currCIndex != JSON.stringify(window["cIndex"])) {
+	if (changedOpts()) {
 		//save
 		var saveArgs = {};
 		// saveArgs[args.varId] = myOption.checked;
@@ -657,6 +796,12 @@ function saveOut() {
 			}
 		);
 
+		//  if (currCIndex != JSON.stringify(window["cIndex"])) {
+		 if (changedOpts('indexChanged')) {
+			 logDebug("cIndex is being changed.");
+			 saveArgs["cIndex"] = currCIndex;
+		}
+
 		setVars(saveArgs);
 		changed.each( function() { this.className = "optChangedSpan optNotChanged"} );
 
@@ -666,7 +811,7 @@ function saveOut() {
 		alert("Nothing to save...");
 	}
 
-	// alert(exportArrangement("c"));
+
 	//exportArrangement("h"); // not implemented yet
 	// alert(exportTopBarOptions());
 }
@@ -675,28 +820,110 @@ function exportArrangement(type) {
 
     var rows = document.getElementsByClassName("arrange");
     var numRows = rows.length;
-    var cellDefs = '';
+    //var cellDefs;// = '[[[],[]],[[],';
 
-    var setupParams = 'var ' + type + 'Rows = ' + numRows + ';' + ' \n' +
-    'var ' + type + 'Index = new Array( ' + type + 'Rows + 1);' + ' \n' +
-    'for (var i = 0; i < ( ' + type + 'Rows + 1); i++) {  ' + type + 'Index[i] = [[],[]]; }';
+    // var setupParams = 'var ' + type + 'Rows = ' + numRows + ';' + ' \n' +
+    // 'var ' + type + 'Index = new Array( ' + type + 'Rows + 1);' + ' \n' +
+    // 'for (var i = 0; i < ( ' + type + 'Rows + 1); i++) {  ' + type + 'Index[i] = [[],[]]; }';
 
 
-	/*
-	cIndex[a][b] = [%,b,bn]
-	for (var i = 1; i < numRows; i++) {
-		var thisRow = document.getElementById('arrangementTable-' + i + '-0');
-		// loop through cells to get boxes inside
-		for (var j = 0; j < thisRow.children.length; j++) {
-			var thisCell = document.getElementById(thisRow.id + '-' + j);
-			var cellDef = cIndex[i][j+1] = [thisCell.width;
+    /*
+    cIndex[a][b] = [%,b,bn]
+    for (var i = 1; i < numRows; i++) {
+    	var thisRow = document.getElementById('arrangementTable-' + i + '-0');
+    	// loop through cells to get boxes inside
+    	for (var j = 0; j < thisRow.children.length; j++) {
+    		var thisCell = document.getElementById(thisRow.id + '-' + j);
+    		var cellDef = cIndex[i][j+1] = [thisCell.width;
 
+    	}
+    }*/
+
+    // var xRows = numRows;
+    // var xIndex = new Array(xRows + 1);
+    // for (var i = 0; i < (xRows + 1); i++) {
+        // xIndex[i] = [ [], [] ];
+    // };
+
+    //loop through rows to get to cells
+	var rowDefs = '[[[],[]],';
+    for (var i = 1; i < numRows; i++) {
+        var thisRow = document.getElementById('arrangementTable-' + i + '-0');
+		var rowDef = '[[],';
+        // loop through cells to get boxes inside
+		var cellDefs = '';
+        for (var j = 0; j < thisRow.children.length; j++) {
+            var thisCell = document.getElementById(thisRow.id + '-' + j);
+            var cellDef = '["' + thisCell.width + '",'; // = type + 'Index[' + (i) + '][' + (j+1) + '] = ["' + thisCell.width + '",'; // add start of line
+
+            // loop through boxes in cell to create definition
+
+            if (thisCell.children.length == 1) {
+                cellDef += '"empty",'; // if no boxes in cell add empty
+            } else {
+                for (var h = 1; h < thisCell.children.length; h++) {
+                    var boxTitle = $('#' + thisCell.children[h].id.replace('SBI-MD-', 'SBI-SBI-')).text();
+                    console.log(boxTitle);
+                    // cellDef += '"' + boxTitle + '",';
+					if (h != thisCell.children.length -1) {
+						cellDef += '"' + boxTitle + '",';
+					} else {
+						cellDef += '"' + boxTitle + '"';
+					}
+                }
+            } // else add cell info
+            // cellDef += "],"; // + ' \n'; // add end of line
+			//alert(cellDef);
+
+			if (j != thisRow.children.length -1) {
+				cellDef += "],";
+			} else {
+				cellDef += "]";
+			}
+
+			cellDefs += cellDef;
+        }
+		if (i != numRows -1) {
+			rowDef += cellDefs + '],';
+		} else {
+			rowDef += cellDefs + ']';
 		}
-	}*/
+		rowDefs += rowDef;//
+    }
 
-		var xRows = numRows;
-		var xIndex = new Array(xRows + 1);
-		for (var i = 0; i < ( xRows + 1); i++) {  xIndex[i] = [[],[]]; };
+    return rowDefs + ']';
+    // return xIndex;
+}
+
+
+function exportArrangementBACKUP(type) {
+
+    var rows = document.getElementsByClassName("arrange");
+    var numRows = rows.length;
+    var cellDefs = '[[[],[]],[[],';
+
+    // var setupParams = 'var ' + type + 'Rows = ' + numRows + ';' + ' \n' +
+    // 'var ' + type + 'Index = new Array( ' + type + 'Rows + 1);' + ' \n' +
+    // 'for (var i = 0; i < ( ' + type + 'Rows + 1); i++) {  ' + type + 'Index[i] = [[],[]]; }';
+
+
+    /*
+    cIndex[a][b] = [%,b,bn]
+    for (var i = 1; i < numRows; i++) {
+    	var thisRow = document.getElementById('arrangementTable-' + i + '-0');
+    	// loop through cells to get boxes inside
+    	for (var j = 0; j < thisRow.children.length; j++) {
+    		var thisCell = document.getElementById(thisRow.id + '-' + j);
+    		var cellDef = cIndex[i][j+1] = [thisCell.width;
+
+    	}
+    }*/
+
+    var xRows = numRows;
+    var xIndex = new Array(xRows + 1);
+    for (var i = 0; i < (xRows + 1); i++) {
+        xIndex[i] = [ [], [] ];
+    };
 
     //loop through rows to get to cells
     for (var i = 1; i < numRows; i++) {
@@ -704,40 +931,30 @@ function exportArrangement(type) {
         // loop through cells to get boxes inside
         for (var j = 0; j < thisRow.children.length; j++) {
             var thisCell = document.getElementById(thisRow.id + '-' + j);
-            var cellDef = type + 'Index[' + (i) + '][' + (j+1) + '] = ["' + thisCell.width + '",'; // add start of line
-			var xdef = '["' + thisCell.width + '", ';
+            var cellDef = '[' + thisCell.width + '",'; // = type + 'Index[' + (i) + '][' + (j+1) + '] = ["' + thisCell.width + '",'; // add start of line
+            var xdef = '["' + thisCell.width + '", ';
 
             // loop through boxes in cell to create definition
             if (thisCell.children.length == 1) {
-				cellDef += '"empty",';  // if no boxes in cell add empty
+                cellDef += '"empty",'; // if no boxes in cell add empty
             } else {
-				for (var h = 1; h < thisCell.children.length; h++) {
-					cellDef += '"' + theBoxesSet[thisCell.children[h].id.split('_')[1]] + '",';
-					xdef += '"' + theBoxesSet[thisCell.children[h].id.split('_')[1]] + '",';
-				}
-			} // else add cell info
-            cellDef += "];";// + ' \n'; // add end of line
-			xdef = xdef.substring(0, xdef.length - 1);
-			xdef += "]";
+                for (var h = 1; h < thisCell.children.length; h++) {
+                    var boxTitle = $('#' + thisCell.children[h].id.replace('SBI-MD-', 'SBI-SBI-')).text();
+                    console.log(boxTitle);
+                    cellDef += '"' + boxTitle + '",';
+                    xdef += '"' + boxTitle + '",';
+                }
+            } // else add cell info
+            cellDef += "],"; // + ' \n'; // add end of line
+            xdef = xdef.substring(0, xdef.length - 1);
+            xdef += "]";
             cellDefs += cellDef;
-			// alert(xdef);
-			xIndex[i][j+1] = JSON.parse(xdef);
+            // alert(xdef);
+            xIndex[i][j + 1] = JSON.parse(xdef);
+			console.log('xindex: ' + xIndex);
         }
     }
-
-	// alert(xIndex);
-
-	/*
-		var xRows = numRows;
-		var xIndex = new Array(xRows + 1);
-		for (var i = 0; i < ( xRows + 1); i++) {  xIndex[i] = [[],[]]; };
-
-		for (var cd in cellDefs) {
-			xIndex
-
-		}
-*/
-	return setupParams + ' \n\n' + cellDefs;
+    return cellDefs + ']';
 }
 
 // this is useless now??
@@ -820,15 +1037,6 @@ var sampleFills =  {
 
 
 
-
-
-
-
-
-
-
-
-
 function resetArrangementTable() {
 	document.getElementById('clearAllArrangeBoxes').click();
 	document.getElementById('ep').innerHTML = '';
@@ -836,13 +1044,6 @@ function resetArrangementTable() {
 	document.getElementById('addArrangeRow').click();
 
 }
-
-
-
-
-
-
-
 
 function makeIframe(frameID, appendToID, href, params) { // Make an IFrame
     var iframe = document.createElement('iframe');
@@ -995,58 +1196,58 @@ function addArrangeCell(rowNum, cellNum, topB) {
     addClass(document.getElementById(cellToolB), "arrangeTD-toolbar");
 
     if (topB === true) {
-        // Lock Top Bar
-        var currSw = makeSwitch("lockTopBar", cellToolB, "Lock Top Bar:", "Locks the top bar. Applies to: Case Page, Case Review Page");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'arrangementTable-0-0-0\').style.position = \'fixed\'; } if (this.checked == false) {document.getElementById(\'arrangementTable-0-0-0\').style.position = \'relative\'; }">');
-        if (lockTopBar) { document.getElementById(currSw).checked = true; } // match current setting...
-
-        // Disable Hover Links
-        currSw = makeSwitch("disableHoverLinks", cellToolB, "Disable Hover Links:", "Disable the hover functionality of the top links.");
-        if (disableHoverLinks) { document.getElementById(currSw).checked = true; } // match current setting...
-        //document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'arrangementTable-0-0-0\').style.position = \'fixed\'; } if (this.checked == false) {document.getElementById(\'arrangementTable-0-0-0\').style.position = \'relative\'; }">');
-
-        // Remove Hover Links
-        currSw = makeSwitch("removeHoverLinks", cellToolB, "Remove Hover Links:", "Completely remove the top links.");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'topBHoverLinks\').style.display = \'none\'; } if (this.checked == false) { document.getElementById(\'topBHoverLinks\').style.display = \'\'; }">');
-        if (removeHoverLinks) { document.getElementById(currSw).checked = true; } // match current setting...
-
-      // /*
-	  //LENGTHS BELOW MESSED UP... fixed... probably
-
-	  // Enable Case Page Refresh Button
-        if (document.getElementById("case_refresh")) append('<input id="case_refresh" href="javascript:void(0)" class="refreshListButton btn" onclick="window.location.reload();" display="inline" title="Refresh" type="button" style="display: none; background-image: url(\'/img/support/servicedesk/serviceDeskListReskin-sprite.png\') !important; background-repeat: no-repeat !important; background-position: 4px -257px !important; vertical-align: middle !important; margin: 5px 5px 5px 5px; height: 27px; width: 29px;">', "topButtonRow");
-        currSw = makeSwitch("enableCaseRefreshButton", cellToolB, "Enable Case Refresh Button:", "Adds a refresh button for the case page. Only refreshes the current case page, nothing else.");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'case_refresh\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'case_refresh\').style.display = \'none\'; }">');
-        if (enableCaseRefreshButton) { document.getElementById(currSw).checked = true; } // match current setting...
-
-        // Enable Case Link Button
-        if (document.getElementById("copy_link")) append('<input id="copy_link" href="javascript:void(0)" padding="0" class="btn" display="inline" title="Copy Link" type="button" style="display: none; background-image: url(\'/img/support/servicedesk/links.png\') !important; background-repeat: no-repeat !important; vertical-align: middle !important; margin: 0px !important; height: 20px; width: 20px;">', "topButtonRow");
-        currSw = makeSwitch("enableCaseLinkButton", cellToolB, "Enable Case Link Button:", "");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'copy_link\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'copy_link\').style.display = \'none\'; }">');
-        if (enableCaseLinkButton) { document.getElementById(currSw).checked = true; } // match current setting...
-
-        // Enable POP!
-        if (document.getElementById("pop")) append('<button class="btn ca-button" type="button" id="pop" data-jq-dropdown="#BTNS-BTN-GRP-POP">POP!<span class="caret"></span></button>', "topButtonRow");
-        currSw = makeSwitch("enablePop", cellToolB, "Enable POP!:");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'pop\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'pop\').style.display = \'none\'; }">');
-        if (enablePop) { document.getElementById(currSw).checked = true; } // match current setting...
-
-        // Enable 50/50
-        if (document.getElementById("fifty").length < 1) append('<button class="btn ca-button" type="button" id="fifty" data-jq-dropdown="#BTNS-BTN-GRP-50">50/50<span class="caret"></span></button>', "topButtonRow");
-        currSw = makeSwitch("enable5050", cellToolB, "Enable 50/50:");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'fifty\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'fifty\').style.display = \'none\'; }">');
-        if (enable5050) { document.getElementById(currSw).checked = true; } // match current setting...
-
-		// Enable convenience
-        if (document.getElementById("conv").length < 1) append('<button class="btn ca-button" type="button" id="conv" data-jq-dropdown="#BTNS-BTN-GRP-CONV">Buttons<span class="caret"></span></button>', "topButtonRow");
-        currSw = makeSwitch("enableConvenience", cellToolB, "Enable Convenience:");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'conv\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'conv\').style.display = \'none\'; }">');
-        if (enable5050) { document.getElementById(currSw).checked = true; } // match current setting...
-
-        // Remove Display Process Flow
-        currSw = makeSwitch("removeDisplayProcessFlow", cellToolB, "Remove Display Process Flow:");
-        document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementsByName(\'process_flow\')[0].style.display = \'none\'; } if (this.checked == false) { document.getElementsByName(\'process_flow\')[0].style.display = \'\'; }">');
-        if (removeDisplayProcessFlow) { document.getElementById(currSw).checked = true; } // match current setting...
+    //     // Lock Top Bar
+    //     var currSw = makeSwitch("lockTopBar", cellToolB, "Lock Top Bar:", "Locks the top bar. Applies to: Case Page, Case Review Page");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'arrangementTable-0-0-0\').style.position = \'fixed\'; } if (this.checked == false) {document.getElementById(\'arrangementTable-0-0-0\').style.position = \'relative\'; }">');
+    //     if (lockTopBar) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //     // Disable Hover Links
+    //     currSw = makeSwitch("disableHoverLinks", cellToolB, "Disable Hover Links:", "Disable the hover functionality of the top links.");
+    //     if (disableHoverLinks) { document.getElementById(currSw).checked = true; } // match current setting...
+    //     //document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'arrangementTable-0-0-0\').style.position = \'fixed\'; } if (this.checked == false) {document.getElementById(\'arrangementTable-0-0-0\').style.position = \'relative\'; }">');
+		//
+    //     // Remove Hover Links
+    //     currSw = makeSwitch("removeHoverLinks", cellToolB, "Remove Hover Links:", "Completely remove the top links.");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'topBHoverLinks\').style.display = \'none\'; } if (this.checked == false) { document.getElementById(\'topBHoverLinks\').style.display = \'\'; }">');
+    //     if (removeHoverLinks) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //   // /*
+	  // //LENGTHS BELOW MESSED UP... fixed... probably
+		//
+	  // // Enable Case Page Refresh Button
+    //     if (document.getElementById("case_refresh")) append('<input id="case_refresh" href="javascript:void(0)" class="refreshListButton btn" onclick="window.location.reload();" display="inline" title="Refresh" type="button" style="display: none; background-image: url(\'/img/support/servicedesk/serviceDeskListReskin-sprite.png\') !important; background-repeat: no-repeat !important; background-position: 4px -257px !important; vertical-align: middle !important; margin: 5px 5px 5px 5px; height: 27px; width: 29px;">', "topButtonRow");
+    //     currSw = makeSwitch("enableCaseRefreshButton", cellToolB, "Enable Case Refresh Button:", "Adds a refresh button for the case page. Only refreshes the current case page, nothing else.");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'case_refresh\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'case_refresh\').style.display = \'none\'; }">');
+    //     if (enableCaseRefreshButton) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //     // Enable Case Link Button
+    //     if (document.getElementById("copy_link")) append('<input id="copy_link" href="javascript:void(0)" padding="0" class="btn" display="inline" title="Copy Link" type="button" style="display: none; background-image: url(\'/img/support/servicedesk/links.png\') !important; background-repeat: no-repeat !important; vertical-align: middle !important; margin: 0px !important; height: 20px; width: 20px;">', "topButtonRow");
+    //     currSw = makeSwitch("enableCaseLinkButton", cellToolB, "Enable Case Link Button:", "");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'copy_link\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'copy_link\').style.display = \'none\'; }">');
+    //     if (enableCaseLinkButton) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //     // Enable POP!
+    //     if (document.getElementById("pop")) append('<button class="btn ca-button" type="button" id="pop" data-jq-dropdown="#BTNS-BTN-GRP-POP">POP!<span class="caret"></span></button>', "topButtonRow");
+    //     currSw = makeSwitch("enablePop", cellToolB, "Enable POP!:");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'pop\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'pop\').style.display = \'none\'; }">');
+    //     if (enablePop) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //     // Enable 50/50
+    //     if (document.getElementById("fifty").length < 1) append('<button class="btn ca-button" type="button" id="fifty" data-jq-dropdown="#BTNS-BTN-GRP-50">50/50<span class="caret"></span></button>', "topButtonRow");
+    //     currSw = makeSwitch("enable5050", cellToolB, "Enable 50/50:");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'fifty\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'fifty\').style.display = \'none\'; }">');
+    //     if (enable5050) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+		// // Enable convenience
+    //     if (document.getElementById("conv").length < 1) append('<button class="btn ca-button" type="button" id="conv" data-jq-dropdown="#BTNS-BTN-GRP-CONV">Buttons<span class="caret"></span></button>', "topButtonRow");
+    //     currSw = makeSwitch("enableConvenience", cellToolB, "Enable Convenience:");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementById(\'conv\').style.display = \'\'; } if (this.checked == false) { document.getElementById(\'conv\').style.display = \'none\'; }">');
+    //     if (enable5050) { document.getElementById(currSw).checked = true; } // match current setting...
+		//
+    //     // Remove Display Process Flow
+    //     currSw = makeSwitch("removeDisplayProcessFlow", cellToolB, "Remove Display Process Flow:");
+    //     document.getElementById(currSw).outerHTML = document.getElementById(currSw).outerHTML.replace('>', ' onclick="if (this.checked == true) { document.getElementsByName(\'process_flow\')[0].style.display = \'none\'; } if (this.checked == false) { document.getElementsByName(\'process_flow\')[0].style.display = \'\'; }">');
+    //     if (removeDisplayProcessFlow) { document.getElementById(currSw).checked = true; } // match current setting...
 
      } else {
         // Add width textbox (to cell toolbar)
@@ -1161,6 +1362,7 @@ function removeArrangeRow(ev) {
 	function cellResize() {
 		var par = this.parentElement.parentElement;
 		par.width=par.getElementsByClassName('widthTB')[0].value;
+		console.log('new: ' + par.getElementsByClassName('widthTB')[0].value + ' -- actual: ' + par.width);
 	}
 
 	function cellDelete() {
@@ -1497,6 +1699,7 @@ function makeDiv(divID, appendToID) {
 }
 
 function makeButton(btnID, btnName, btnOC, appendToID, funcX) {
+	 // class="btn"
     var buttonTemplate = '<button id="' + btnID + '"  onclick="' + btnOC + '">' + btnName + '</button>'; //onclick="' + btnOC + '" //onclick="' + btnOC + '" "onclick="' + funcX + '()"  ' + funcX + '
     append(buttonTemplate, appendToID);
 	//document.getElementById(btnID).addEventListener('click', btnOC, false);
@@ -1615,6 +1818,12 @@ function makeSwitch(switchID, appendToID, switchLabel, switchTip) { // Make a sw
     return switchID;
 }
 
+
+// TODO multiple component settings.??
+//		type: multi
+// 	components: {comp name: type, comp2 name: type2, n...}
+
+
 function makeOption(args) { // Make a switch
 // Accepted args:
 // * = REQUIRED
@@ -1631,8 +1840,9 @@ function makeOption(args) { // Make a switch
 //		title 			= Title/Tool Tip/alt text for switch (if empty = args.labelText + "Toggle Switch"
 //		displayStyle	= How to display the switch: br, tableRow, tableCell
 //		selectOptions	= for select type only (so far?), options to be listed in select, object { value:, title:,}
-//		width			= duh...
+//		width				= duh...
 //		height			= duh...
+//		stringify		= (true/false), stringify the initial setting
 //
 // Add left/right side options?
 	// try {
@@ -1678,8 +1888,8 @@ function makeOption(args) { // Make a switch
 			'function(){var co=document.getElementById(option_changed_'+args.varId+');if(co.style.display!=\"none\"){co.style.diplay=\"none\";}else{co.style.diplay=\"inline\"}}';
 
 		optionTemplate.color =
-			'<div class="optionDiv"> \n'+
-			'	<input type="color" id="option_' + args.varId + '" title="' + args.title + '"> \n' +
+			'<div class="optionDiv "> \n'+
+			'	<input type="color" id="option_' + args.varId + '" title="' + args.title + '"></input>  \n' +
 			optionTemplate.changed +
 			'</div>';
 
@@ -1692,28 +1902,29 @@ function makeOption(args) { // Make a switch
 		optionTemplate.toggle =
 			'<div class="optionDiv"> \n' +
 			'	<label class="switch"> \n'+
-			'		<input type="checkbox" id="option_' + args.varId + '"> \n' +
+			'		<input type="checkbox" id="option_' + args.varId + '"></input> \n' +
 			'		<div class="slider round" title="' + args.title + '"></div> \n' +
 			'	</label> \n' +
 			optionTemplate.changed +
 			'</div>';
 
+			// TODO add width & height options
 		optionTemplate.textArea =
 			'<div class="optionDiv"> \n'+
-			'	<textarea id="option_' + args.varId + '" title="' + args.title + '"> \n' +
+			'	<textarea id="option_' + args.varId + '" title="' + args.title + '"></textarea> \n' +
 			optionTemplate.changed +
 			'</div>';
 
 		optionTemplate.textBox =
 			'<div class="optionDiv"> \n'+
-			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"> \n' +
+			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"></input> \n' +
 			optionTemplate.changed +
 			'</div>';
 
 		optionTemplate.style =
 			'<div class="optionDiv"> \n'+
-			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"> \n' +
-			'	<input type="color" id="option_' + args.varId + '_color" title="' + args.title + '"> \n' +
+			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"></input> \n' +
+			'	<input type="color" id="option_' + args.varId + '_color" title="' + args.title + '"></input> \n' +
 			optionTemplate.changed +
 			'</div>';
 
@@ -1734,9 +1945,12 @@ function makeOption(args) { // Make a switch
 			var newRow = insertRowX(args.targetId);
 			var lblCell = insertColX(args.targetId,newRow);
 			var dtaCell = insertColX(args.targetId,newRow);
-			//append('<tr id="' + "row_switch_" + args.varId + '"/>',args.targetId);
+
 			append(optionTemplate.label,lblCell);
 			append(optionTemplate[args.type],dtaCell);
+
+			document.getElementById(lblCell).className = 'label2Col';
+			document.getElementById(dtaCell).className = 'data2Col';
 		} else if (args.displayStyle == 'tableCell') {
 			append(optionTemplate.label,args.targetId);
 			append(optionTemplate[args.type],args.targetId);
@@ -1757,8 +1971,11 @@ function makeOption(args) { // Make a switch
 		var changables = [ myOption ];
 		var newVal = null;
 
+		// Determine appropriate value
 		if (isTheme) {
 			newVal = myTheme[args.varId];
+		} else if (args.stringify) {
+			newVal = JSON.stringify(window[args.varId]);
 		} else {
 			newVal = window[args.varId];
 		}
@@ -1831,9 +2048,21 @@ function makeOption(args) { // Make a switch
 					}
 
 					logTrace('Option modified: ' + args.varId + ' original: ' + window[args.varId] + ', is now: ' + setting);
+
+
+					try {
+						setting = JSON.parse(setting);
+					} catch (e) {
+
+					}
+// saveASC
 					if (window[args.varId] == setting) {
 						document.getElementById("option_changed_" + args.varId).className = "optChangedSpan optNotChanged";
-					}  else {
+					}
+					// else if (window[args.varId] == ) {
+					// 	 document.getElementById("option_changed_" + args.varId).className = "optChangedSpan optNotChanged";
+					// }
+					 else {
 						document.getElementById("option_changed_" + args.varId).className = "optChangedSpan optChanged";
 					}
 				},
@@ -1900,9 +2129,10 @@ function makeTextbox(tbID, appendToID, preFill) {
     return tbID;
 }
 
-function makeTopBar() {
+
+function makeTopBar(appendTo) {
     var topBarTemplate = '<div class="topBar" style="" id="topBar"></div>';
-    append(topBarTemplate,"body");
+    append(topBarTemplate,appendTo);
 } // Make a div
 
 function setAttr(toID, attrs) {

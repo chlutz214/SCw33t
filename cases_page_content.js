@@ -1,69 +1,78 @@
 //cases_page_content.js
 
 
-var unlockRolodex = true;
+var unlockRolodex;
+// Team
+var myself;
+var myTeam;
+
+var requestVars = ['myself','myTeam','unlockRolodex'];
+getVars(JSON.stringify(requestVars), casesPageInit);
+
 // x-grid3-td-LIST_RECORD_ID = 500id.. Can build links and stuff with this
 //div.waitingSearchDiv
 // on change in table dom do alerts...x-grid3-row-last
-var mySelf = { 
-	name: "Christian Lutz",
-	alias: "lutch01",
-	color: '#e6e6fa',
-	startHour: 8,
-	endHour: 17,
-};
-
-var myTeam = [
-	{
-		name: "Ed Vogel",
-		alias: "VOGED01",
-		color: "#bcd7f2",
-	}, {
-		name: "Margaret Anttila",
-		alias: "ANTMA06",
-		color: "#a6eea7",
-	}, {
-		name: "Ralf Prigl",
-		alias: "PRIRA01",
-		color: "#c9eea6",
-	},	{
-		name: "Ilir Prifti",
-		alias: "PRIIL01",
-		color: "#f2bcd7",
-	},	{
-		name: "Anthony Manoleas",
-		alias: "MANAN23",
-		color: "#bcf2d7",
-	},	{
-		name: "Joseph Lutz",
-		alias: "LUTJO01",
-		color: "#bcbcf2",
-	}, {
-		name: "Brian Rehder",
-		alias: "REHBR01",
-		color: "#bcf2f2",
-	}, {
-		name: "Carlos Solla",
-		alias: "SOLCA02",
-		color: "#f2d7bc",
-	},	{
-		name: "Aaron Armagost",
-		alias: "ARMAA01",
-		color: "#f2f2bc",
-	}, {
-		name: "Shams Ahmed",
-		alias: "AHMSH05",
-		color: "#e3e3e3",
-	},
-	
-];
+// var mySelf = {
+// 	name: "Christian Lutz",
+// 	alias: "lutch01",
+// 	color: '#e6e6fa',
+// 	startHour: 8,
+// 	endHour: 17,
+// };
+//
+// var myTeam = [
+// 	{
+// 		name: "Ed Vogel",
+// 		alias: "VOGED01",
+// 		color: "#bcd7f2",
+// 	}, {
+// 		name: "Margaret Anttila",
+// 		alias: "ANTMA06",
+// 		color: "#a6eea7",
+// 	}, {
+// 		name: "Ralf Prigl",
+// 		alias: "PRIRA01",
+// 		color: "#c9eea6",
+// 	},	{
+// 		name: "Ilir Prifti",
+// 		alias: "PRIIL01",
+// 		color: "#f2bcd7",
+// 	},	{
+// 		name: "Anthony Manoleas",
+// 		alias: "MANAN23",
+// 		color: "#bcf2d7",
+// 	},	{
+// 		name: "Joseph Lutz",
+// 		alias: "LUTJO01",
+// 		color: "#bcbcf2",
+// 	}, {
+// 		name: "Brian Rehder",
+// 		alias: "REHBR01",
+// 		color: "#bcf2f2",
+// 	}, {
+// 		name: "Carlos Solla",
+// 		alias: "SOLCA02",
+// 		color: "#f2d7bc",
+// 	},	{
+// 		name: "Aaron Armagost",
+// 		alias: "ARMAA01",
+// 		color: "#f2f2bc",
+// 	}, {
+// 		name: "Shams Ahmed",
+// 		alias: "AHMSH05",
+// 		color: "#e3e3e3",
+// 	},
+//
+// ];
 var casePageEvenOddRowColors = true;
 
-if (unlockRolodex) {
-	// $('div.rolodex').attr('visibility','');
-}
-console.log('cases_page_content initialized');
-// var bound = 0;
+function casesPageInit() {
+	console.log('myTeam: ' + myTeam);
+	if (unlockRolodex) {
+		// $('div.rolodex').attr('visibility','');
+	}
+	console.log('cases_page_content initialized');
+	// var bound = 0;
         var loopTime = 200; // Set time between loops (ms)
         var loops = 50;     // Set max loops to avoid overrun
         var lps = 1;        // Starting at loop 1
@@ -81,28 +90,28 @@ console.log('cases_page_content initialized');
 
                 // if ($(".x-grid3-row-last").length > 0) { // If "table.list tr.dataRow" exists, ensure page is ready
                 if ($("div.waitingSearchDiv").css('display') == 'none') { // If "table.list tr.dataRow" exists, ensure page is ready
-					foundIt = 1; 
+					foundIt = 1;
                     //if (FIAHold === 0) {} // For initial page load, if not a "Show More" re-check page is ready
                     //else if ($("table.list tr.dataRow").lenth > FIAHold) { foundIt = 1; } // For re-check when Show-more button is clicked, if additioanl dataRows have been added page is ready
                 }
 
-                if (foundIt) { 
+                if (foundIt) {
 					// if (bound = 0) {
-						// $(".x-grid3-scroller").unbind("DOMSubtreeModified").bind("DOMSubtreeModified", 
+						// $(".x-grid3-scroller").unbind("DOMSubtreeModified").bind("DOMSubtreeModified",
 						$(".x-grid3-scroller").unbind("DOMNodeInserted DOMNodeRemoved DOMNodeRemovedFromDocument DOMNodeInsertedIntoDocument")
-							.bind("DOMNodeInserted DOMNodeRemoved DOMNodeRemovedFromDocument DOMNodeInsertedIntoDocument", 
-						// $(".waitingSearchDiv").unbind("DOMAttrModified").bind("DOMAttrModified", 
+							.bind("DOMNodeInserted DOMNodeRemoved DOMNodeRemovedFromDocument DOMNodeInsertedIntoDocument",
+						// $(".waitingSearchDiv").unbind("DOMAttrModified").bind("DOMAttrModified",
 							function(e) {console.log("change! "+ e);
-								 lps=1; foundIt=0; loop1();  
+								 lps=1; foundIt=0; loop1();
 							}
-						); 
+						);
 					// }
 					evenOddRows();
 					getCellsByHeader();
 				}
 			}
 		}
-		
+
 		function evenOddRows() {
 			if (casePageEvenOddRowColors)  {
 				var eo = 0;
@@ -119,7 +128,7 @@ console.log('cases_page_content initialized');
 				);
 			}
 		}
-		
+
 		function getCellsByHeader() {
 			$('.x-grid3-hd-inner').each(
 				function() {
@@ -132,7 +141,7 @@ console.log('cases_page_content initialized');
 				}
 			);
 		}
-		
+
 		// TODO fix this or find a different way to display alerts that is NOT color based...
 		function addToAction(row,txt) {
 			console.log('adding to action: ' + txt + ' - row: ' + row);
@@ -141,10 +150,10 @@ console.log('cases_page_content initialized');
 			try { console.log('origtext = ' + act.text); act.text = act.text + ' ' + txt; }
 			catch(e) { logError('Error with addToAction: ' + e); }
 		}
-		
+
 		function doAlerts(args) {
 			switch (args.title) {
-				
+
 				case "Age of a case":
 					console.log('length '+ $(args.cssClass).length);
 					$(args.cssClass).each(function() {
@@ -164,7 +173,7 @@ console.log('cases_page_content initialized');
 							if (age >= 75) {
 								// starts to get hard to read black after the bg color 75 generates...
 								$(this).parent().css({"color":"white"});
-							} 
+							}
 						} else if (age > 90 && age < 365) {
 							var a =  255 - Math.round((age - 90)*0.93);// 256/275 = 0.93
 							$(this).parent().css({"background-color": "rgba("+a+",0,0,"+alpha+")", "color":"white", "font-weight":"bold"});
@@ -173,12 +182,12 @@ console.log('cases_page_content initialized');
 						}
 					});
 					break;
-				
+
 				case "Case Owner Alias":
 					console.log('length '+ $(args.cssClass).length);
 
 					$(args.cssClass).each(
-						function() {						
+						function() {
 							//var teamMate = $(this).text().trim();
 							// console.log(teamMate);
 							for (var teamMate in myTeam) {
@@ -190,7 +199,7 @@ console.log('cases_page_content initialized');
 						}
 					);
 					break;
-				
+
 				case "Next Action Due Date":
 					logTrace("Checking Next action due dates " + $(args.cssClass).length);
 					$(args.cssClass).each(function() {
@@ -198,13 +207,13 @@ console.log('cases_page_content initialized');
 						if (NA.text().indexOf('M') > -1) {
 							try{
 						console.log("Next Action: " + NA.text());
-						
+
 						var compared = compareDTNow(NA.text());
 						if (compared.tense == 'today') {
 							$(this).parent().addClass('warningCell');
 							// addToAction(this.id,"NA");
-							console.log(mySelf.endHour - compared.now.hour);
-							if (mySelf.endHour - compared.now.hour < 2) {
+							console.log(myself.endHour - compared.now.hour);
+							if (myself.endHour - compared.now.hour < 2) {
 								$(this).parent().addClass('blink_me');
 							}
 						} else if (compared.tense == 'future') {
@@ -222,9 +231,9 @@ console.log('cases_page_content initialized');
 					// console.log('id3: '+this.id);
 					// addToAction(this.id,"NA")
 					});
-					
+
 					break;
-				
+
 				case "Open CB":
 					$(args.cssClass).each(
 						function() {
@@ -243,12 +252,12 @@ console.log('cases_page_content initialized');
 					);
 
 					break;
-					
+
 				case "Owner Name":
 					console.log('length '+ $(args.cssClass).length);
 
 					$(args.cssClass).each(
-						function() {						
+						function() {
 							//var teamMate = $(this).text().trim();
 							// console.log(teamMate);
 							for (var teamMate in myTeam) {
@@ -261,14 +270,14 @@ console.log('cases_page_content initialized');
 						}
 					);
 					break;
-					
+
 				case "Severity":
 					$(args.cssClass).each(
 						function() {
 							var sev = parseInt($(this).text().trim());
 							if (sev == 1) {
 								$(this).css({"color": "var(--alert_text_color)", "font-weight": "bold"});
-							} 
+							}
 							// else if (sev == 2) {
 								// $(this).css({"color": "--warning_text_color", "font-weight": "bold"});
 							// } else if (sev == 3) {
@@ -278,25 +287,25 @@ console.log('cases_page_content initialized');
 							// } else {}
 						}
 					);
-					
+
 					break;
-					
+
 				case "Special Conditions":
 					$(args.cssClass).each(
-						function() {						
+						function() {
 							var cond = parseInt($(this).text().trim());
 							if (cond > 0) {
-								$(this).css({"color": "var(--alert_text_color)","font-weight": "bold"});//"background-color": "#FFECEC", 
-							} 
+								$(this).css({"color": "var(--alert_text_color)","font-weight": "bold"});//"background-color": "#FFECEC",
+							}
 						}
-					);	
+					);
 					// addToAction(this.id,"SC")
 					break;
-					
+
 				case "Troubleshooting Stage":
 					$(args.cssClass).each(
-						function() {			
-							var stgNum = parseInt($(this).text().trim().split('. ')[0]);		
+						function() {
+							var stgNum = parseInt($(this).text().trim().split('. ')[0]);
 							bgPercent(stgNum,7,$(this));
 							// var percent = (stgNum/6) * 100;
 							// console.log('stage: ' + stgNum);
@@ -304,7 +313,7 @@ console.log('cases_page_content initialized');
 
 							// if (stgNum == 7) {
 								// $(this).css({"background": "#00FFFF"});
-							// } else { 
+							// } else {
 								// $(this).css({"background": "linear-gradient(90deg, #00FFFF 0%, #00FFFF " + (percent-10) + "%, rgba(0,0,0,0) " + (percent+10) + "%, rgba(0,0,0,0)"});
 							// }
 															// $(this).css({"background": "linear-gradient(90deg, #00FFFF 0%, #00FFFF " + (percent-10) + "%, #FFFFFF " + (percent+10) + "%, #FFFFFF"});
@@ -314,27 +323,27 @@ console.log('cases_page_content initialized');
 					// addToAction(this.id,"SC")
 					break;
 
-					
+
 				default:
 					break;
 			}
 		}
-		
-		
+
+}
 		function filterColumn(args) {
 			// console.log(args.column);
 			//.prepend();
 			// addDropDown(args.cssClass,$('<img width="10px" height="10px" src="' + chrome.extension.getURL("images/filter.png") + '"></img>'),args.column);
-			
+
 			var id = args.cssClass + '_filter';
 			var ddImg = $('<a  data-jq-dropdown="#BTNS-BTN-GRP-' + id + '" onclick="function(e) { console.log(\'click\'); e.stopPropagation();}"><img width="10px" height="10px" src="' + chrome.extension.getURL("images/filter.png") + '"></img><a>');// "<button class=\"btn ca-button\" type=\"button\" id=\"" + id + "\" data-jq-dropdown=\"#BTNS-BTN-GRP-" + id + "\">" + text + "</button>";
 			var popDropdownDiv = $("<div class=\"jq-dropdown\" id=\"BTNS-BTN-GRP-" + id + "\"><ul id=\"" + id + "ButtonHolder\" class=\"jq-dropdown-menu\"></ul></div>");
 			$("body").append(popDropdownDiv);             // POP: Add the div that contains the magic - it can go anywhere within body, so just stick it at the end... It's not visable.
 			args.column.parent().prepend(ddImg); // POP: Add the button to top bar.
 			console.log('image adding');
-			
-			
-			
+
+
+
 			var options = [];
 			$(args.cssClass).each(
 				function() {
@@ -342,21 +351,21 @@ console.log('cases_page_content initialized');
 				}
 			);
 			//$('#filter_"' +  args.columnId).append('<option value=""></option>');
-			
+
 		}
-		
+
 		/*
-function findParentNodeByClass(childObj, parentClass) {     
-        console.log("checking for parent by class");        
-    var testObj = childObj.parentNode;                      
-    try { console.log(testObj.className); }                 
-    catch(e) { console.log("no class name"); }              
-    var count = 1;                                          
-    while(testObj.className.contains(parentClass) == -1 && count < 15) { 
-		try { console.log(testObj.className); }                 
-		catch(e) { console.log("no class name"); }                        
-        testObj = testObj.parentNode;                       
-        count++;                                            
-    }                                                       
-    return testObj;                                         
-}       */         
+function findParentNodeByClass(childObj, parentClass) {
+        console.log("checking for parent by class");
+    var testObj = childObj.parentNode;
+    try { console.log(testObj.className); }
+    catch(e) { console.log("no class name"); }
+    var count = 1;
+    while(testObj.className.contains(parentClass) == -1 && count < 15) {
+		try { console.log(testObj.className); }
+		catch(e) { console.log("no class name"); }
+        testObj = testObj.parentNode;
+        count++;
+    }
+    return testObj;
+}       */

@@ -1,5 +1,5 @@
 /////////////////////////////////////     live_agent_supervisor_content.js    //////////////////////////////////////
-//                                                     
+//
 // VeRsIoN: 0.1
 // Last updated: 03/05/2017
 // Full Path: /live_agent_supervisor_content.js
@@ -11,10 +11,10 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 logTrace('live_agent_supervisor_content.js initializing.');
 /* Release Notes:
- * 
+ *
  * 1.4 - March 03, 2017
  * - Added to extension. NOT WORKING YETTTTTTTTTTTTTTTT
- * 
+ *
  * 1.3 - June 21, 2016
  * - Updated to be more useful to management & multi-product engineers...
  *   - Added ability to select multiple products
@@ -31,12 +31,12 @@ logTrace('live_agent_supervisor_content.js initializing.');
  * 1.0
  * - Initial Release
  */
- 
+
 // ==UserScript==
 // @name        LAS- AutoSelectProduct
 // @namespace   lutch01-ca.com
 // @author      Christian Lutz
-// @description 
+// @description
 // @include     https://ca.my.salesforce.com/liveagent/supervisor.apexp*
 // @run-at      document-end
 // @version     1.3
@@ -78,6 +78,7 @@ var userList = ["Aaron Armagost", "Brian Rehder", "Carlos Solla", "Christian Lut
 */
 
 // TODO Fix SfdcApp.LiveAgent.Supervisor call problems......
+// TODO convert userlist to myTeam
 
 // Live Agent Supervisor Page Specific
 var prodName;
@@ -106,7 +107,7 @@ function(ele,sel,box) {  // Wait for the page to load fully
     $(jqScript).appendTo($('body'));
 /*
     var scripts = '<script id="LAS_functions" type="text/javascript">';
-	
+
     scripts += 'var statusLevel = ' + statusLevel + ';';
     scripts += 'var userFilter = ' + userFilter + ';';
     scripts += 'var userList = [];';
@@ -203,7 +204,7 @@ function reListUsers(que) {
 	} else { userList = userListStatic; }
 }
 
-	
+
 function resetAll(que, status) {
 	$("select.LA_AgentStatus_Selector #ANY_OPTION").prop("selected", true);
 	$("select.LA_Skill_Selector #ANY_OPTION").prop("selected", true);
@@ -224,8 +225,8 @@ function reFilter() {
 	$("td.nameCell").each(function() {
 		if (jQuery.inArray($(this).text(), userList) != -1) {
 			showAgentLAS($(this).parent(), $(this).next().text());
-		}                                                                    
-	});                                                                      
+		}
+	});
 }
 
 function showAgentLAS(agentRow, status) {
@@ -233,5 +234,5 @@ function showAgentLAS(agentRow, status) {
 	else if (statusLevel == "online" && status == "Available") { agentRow.css("display","table-row"); }
 	else if (statusLevel == "away" && status == "Away") { agentRow.css("display","table-row"); }
 	else if (statusLevel == "offline" && status == "Offline") { agentRow.css("display","table-row"); }
-	else if (statusLevel == "ANY") { agentRow.css("display","table-row"); }    
+	else if (statusLevel == "ANY") { agentRow.css("display","table-row"); }
 }

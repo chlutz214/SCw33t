@@ -1,6 +1,19 @@
 /* Define variables in root */
 /* TODO MAKE THESE ALL "INHERIT" as default */
 :root {
+	--console_top_color: #000000; /*#0070D2;*/
+	--console_bottom_color: #ff0000;
+	--console_text_color: #FFFFFF;
+
+ 	--tabstrip_bg_color: #000000;
+	--tabstrip_alt_bg_color: #333333;
+
+	--tabstrip_text_color: #ffffff;
+
+	--tabstrip_border_style: 1px solid #FF00FF;
+	--tabstrip_tab_border_style: 1px solid #FFFFFF;
+	--tabstrip_tab_alt_border_style: 1px solid #00FF00;
+
 	--body_bg_color: #FFFFFF;
 	--body_text_color: #16325C;
 	--body_text_modified_color: #FF6A00;
@@ -28,6 +41,9 @@
 	--box_h_border_style: 1px solid #000000;
 	--box_body_bg_color: #FFFFFF;
 	--box_body_border_style: 1px solid #000000;
+	--table_header_bg_color: #000000;
+	--table_header_text_color: #FFFFFF;
+	--table_header_border_style: 1px solid #FFFFFF;
 
 	--cell_label_border_style: 1px solid #000000;
 	--cell_data_border_style: 1px solid #000000;
@@ -47,6 +63,58 @@
 	--txtfield_border_style: 1px solid #D8DDE6;
 }
 
+.headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row * {
+	background-color: var(--table_header_bg_color) !important;
+	border: var(--table_header_border_style) !important;
+	color: var(--table_header_text_color) !important;
+}
+
+.phHeader, .phHeader a, .x-btn-text {
+	background-color: var(--console_top_color) !important;
+	color: var(--console_text_color) !important;
+}
+
+/*.phHeader a, .x-btn-text {
+	color: var(--console_text_color) !important;
+}*/
+
+/* Tab Strip FULL Style */
+.x-plain-header, .x-plain-header *, .x-tab-strip, .x-tab-strip *, .x-tab-right, .x-tab-strip-closable,
+ .support-servicedesk-navigator, .support-servicedesk-navigator *,  .x-menu, .x-menu-list-item, .x-menu-list  {
+	background-color: var(--tabstrip_bg_color) !important;
+	color: var(--tabstrip_text_color) !important;
+}
+
+.x-plain-header, .x-tab-strip, .x-tab-right, .support-servicedesk-navigator {
+	border: var(--tabstrip_border_style) !important;
+}
+
+/* Tab Strip ALT BG Style */
+.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected,
+.x-tab-strip-active *, .x-tab-strip-over *, .x-menu-item-active *, .support-servicedesk-sbmenuitemselected * {
+	background-color: var(--tabstrip_alt_bg_color) !important;
+	color: var(--tabstrip_text_color) !important;
+}
+.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected/*, .x-tab-strip-closable*/ {
+	border: var(--tabstrip_tab_alt_border_style) !important;
+}
+
+/* Tab Strip Text Color only */
+.tabText, .x-tab-strip-text, .x-btn-text *, .x-menu-list-item a {
+		color: var(--tabstrip_text_color) !important;
+}
+
+.x-tab-strip-closable {
+	border: var(--tabstrip_tab_alt_border_style) !important;
+}
+
+/* Console Footer Style */
+.sd_footer, .sd_footer > *, .sd_widget_btn_text, .sd_widget_btn_text>* {
+	 background-color: var(--console_bottom_color) !important;
+	 color: var(--console_text_color) !important;
+ }
+
+/* Blinker style */
 .blink_me {
   animation: blinker 1s linear infinite;
 }
@@ -60,17 +128,17 @@
 	display: none !important;
 }
 
-
 /* Label & data cells */
 .labelCol {
 	border: var(--cell_label_border_style) !important;
 	max-width: 75px !important;
-
+	margin-left: 3px !important;
 }
 
 .dataCol, .data2Col {
 	border: var(--cell_data_border_style) !important;
 	max-width: 5000px !important;
+	margin-left: 3px !important;
 }
 
 /* Warning & Alert Styles */
@@ -80,10 +148,12 @@
 	font-weight: bold !important;
 	border:  var(--alert_border_style) !important;
 }
+
 .alertText {
 	color: var(--alert_text_color) !important;
 	font-weight: bold !important;
 }
+
 .alertBg {
 	background-color: var(--alert_background_color) !important;
 	font-weight: bold !important;
@@ -95,10 +165,12 @@
 	font-weight: bold !important;
 	border:  var(--warning_border_style) !important;
 }
+
 .warningText {
 	color: var(--warning_text_color) !important;
 	font-weight: bold !important;
 }
+
 .warningBg {
 	background-color: var(--warning_background_color) !important;
 	font-weight: bold !important;
@@ -116,9 +188,13 @@
 	overflow: visible;
 }
 
-div.efdRLHover, div.pbHeader {
+div.efdRLHover, div.pbHeader, .linkBar, .bPageTitle, .listHoverLinks, .listHoverLinks *, .bNext, .bNext a,
+/*div.efdRLHover, div.pbHeader,*/.topNav, .topNav a, .fewerMore, .fewerMore a, .linkBar *, .pageType, .pageDescription {
 	background: var(--tb_bg_color) !important;
 	color: var(--tb_text_color) !important;
+}
+.bPageTitle {
+	border: var(--tb_border_style);
 }
 
 div.efdRLHover, .mainTitle {
@@ -126,9 +202,10 @@ div.efdRLHover, .mainTitle {
 	color: var(--tb_text_color) !important;
 }
 
-div.efdRLHover a, div.pbHeader a {
+div.efdRLHover a, div.pbHeader a, .linkBar a {
 	color: var(--tb_link_color) !important;
 }
+
 
 /* removes the colored line above the top bar on some pages... */
 .bPageBlock {
@@ -138,7 +215,7 @@ div.efdRLHover a, div.pbHeader a {
 
 /* Body Styles */
 
-.entityFeedLayout, body, .efodBody, .pbBody {
+.entityFeedLayout, body, .efodBody, .pbBody, .bottomNav,.bPageBlock {
 	background-color: var(--body_bg_color) !important;
 }
 
@@ -160,12 +237,12 @@ a:hover, body a:hover, .entityFeedLayout a:hover,
 	color: var(--body_link_hover_color) !important;
 }
 
-body, .dataCell, .dataCol, .sqTD {
+body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
 	color: var(--body_text_color) !important;
 }
 
 /* text color for table headers... */
-.sqTD span, th, .labelCol {
+.sqTD span, th, .labelCol, .recordTypeName, .noRowsHeader {
 	color: var(--body_label_text_color) !important;
 	font-weight: normal !important;
 	font-size: .9em !important;
@@ -188,7 +265,7 @@ body, .dataCell, .dataCol, .sqTD {
 }
 
 /* Test Field Style textbox textarea select */
-input[type=text], select, option {
+input[type=text], select, option, textArea {
 	color: var(--txtfield_text_color) !important;
 	background-color: var(--txtfield_bg_color) !important;
 	border:var(--txtfield_border_style) !important;
@@ -222,7 +299,7 @@ input[type=checkbox] {
 
 
 
-.pbSubheader, div.bRelatedList .pbHeader {
+.pbSubheader, div.bRelatedList .pbHeader, .bottomNav, .bottomNav a {
 	background-color: var(--box_h_bg_color) !important;
 	border: var(--box_h_border_style) !important;
 	background-image: none !important;
@@ -233,13 +310,13 @@ input[type=checkbox] {
 	background-image: none !important;
 }
 
-.pbSubsection {
+.pbSubsection, .pShowMore,.pShowMore a, .noRowsHeader {
 	background-color: var(--box_body_bg_color) !important;
 	background-image: none !important;
 }
 
 /* borders not working for even & odd...*/
-table.list, .even, .odd {
+table.list, table.list *, .detailList, .detailList *, .even, .odd {
 	border-collapse: collapse !important;
 }
 
@@ -306,9 +383,11 @@ div.x-grid3-row-over > * {
 	left: 15px;
 	padding: 5px;
 	z-index: 102;
-	background-color: #FFFFFF;
 }
 
+.backToTop, .backToTop a {
+	background-color: var(--body_bg_color);
+}
 /* Square Monitor style */
 
 table .sqTB {

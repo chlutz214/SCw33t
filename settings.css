@@ -1,18 +1,17 @@
 /* Settings Page CSS */
 
 .tableHead {
-	font-size: 18px !important;
-	font-weight: bold !important;
-	background-color: rgb(241, 241, 241) !important;
+	font-size: 13px !important;
+	background-color: var(--box_h_bg_color) !important;
+	color: var(--box_h_text_color) !important;
+	border: var(--box_h_border_style) !important;
 	-webkit-column-span: all !important;
 	column-span: all !important;
-
 }
 
 /* for Tab Boxes */
 .tablinks {
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
+	border: var(--tabstrip_tab_border_style) !important;
 }
 /* Style the list */
 ul.tab {
@@ -20,210 +19,232 @@ ul.tab {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+    /*border: 1px solid #ccc;*/
+		border: var(--tabstrip_border_style) !important;
+    background-color: var(--tabstrip_bg_color) !important;
 }
 /* Float the list items side by side */
 ul.tab li {
-    float: left;           
-    margin-left: 0px;      
-}                          
-ul.tab li a {               /* Style the links inside the list items */
-    display: inline-block; 
-    color: black;          
-    text-align: center;    
-    margin-left: 0px;      
-    padding: 14px 16px;    
-    text-decoration: none; 
-    transition: 0.3s;      
-    font-size: 17px;       
-}                          
+    float: left;
+    margin-left: 0px;
+		height: 30px !important;
+		border: var(--tabstrip_tab_border_style) !important;
+}
+ul.tab li a, ul.tab li a:hover {               /* Style the links inside the list items */
+    display: inline-block;
+		color: var(--tabstrip_text_color) !important;
+		border: var(--tabstrip_tab_alt_border_style) !important;
+	 	text-align: center;
+    margin-left: 0px;
+    padding: 7px 12px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
   /* Change background color of links on hover */
 ul.tab li a:hover {
-	background-color: #ddd;
+	background-color: var(--tabstrip_alt_bg_color) !important;
 }
   /* Create an active/current tablink class */
 ul.tab li a:focus, .active {
-	background-color: #ccc;
+	background-color: var(--tabstrip_alt_bg_color) !important;
 }
-.tabcontent {                 /* Style the tab content */
-    display: none;          
-    padding: 6px 12px;      
-    border: 1px solid #ccc; 
-    border-top: none;       
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 7px 12px;
+    /*border: 1px solid #ccc;*/
+    /*border-top: none;*/
 }
 
 
 
 /* for switches */
-.switch {                 /* The switch - the box around the slider */
-  position: relative;    
-  display: inline-block; 
-  width: 30px;           
-  height: 16px;          
-}                        
-.switch input {            /* Hide default HTML checkbox */
-  display:none;          
-}                        
-.slider {                 /* The slider */
-  position: absolute;    
-  cursor: pointer;       
-  top: 0;                
-  left: 0;               
-  right: 0;              
-  bottom: 0;             
-  background-color: #ccc;  
-  -webkit-transition: .4s; 
-  transition: .4s;       
-}                        
-.slider:before {         
-  position: absolute;    
-  content: "";           
-  height: 10px;          
-  width: 10px;           
-  left: 4px;             
-  bottom: 3px;           
-  background-color: white; 
-  -webkit-transition: .4s; 
-  transition: .4s;      
-}                       
-input:checked + .slider {      
-  background-color: #2196F3;   
-}                              
-input:focus + .slider {        
-  box-shadow: 0 0 1px #2196F3; 
-}                              
-input:checked + .slider:before {       
-  -webkit-transform: translateX(12px); 
-  -ms-transform: translateX(12px);     
-  transform: translateX(12px);         
-}                                  
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 16px;
+}
 
-/* Rounded sliders*/    
-.slider.round {        
-  border-radius: 14px; 
-}           
-           
-.slider.round:before { 
-  border-radius: 50%;  
+ /* Hide default HTML checkbox */
+.switch input {
+  display:none;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--box_h_bg_color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  left: 4px;
+  bottom: 3px;
+  background-color: var(--box_h_text_color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: var(--box_h_bg_color);
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--box_h_bg_color);
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
+}
+
+/* Rounded sliders*/
+.slider.round {
+  border-radius: 14px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 
 /* For Arrangement */
-.arrange {                  
-   border: 1px solid black; 
-   height: 100px            
-}                           
-.arrange-toolbar {          
-   border: 1px solid black; 
-   height: 100px            
-}                           
-.arrangeTR {                
-}                           
-.arrangeTR-toolbar {        
-}                           
-.arrangeTD {                
-   border: 1px solid black; 
-   height: 100px;           
-   vertical-align: top;     
-   horizontal-align: left;  
-}                           
-.arrangeTD-toolbar {        
-   height: 20px;            
-   width: 100%;             
-   background-color: red;   
-}                           
-.addAbove {                 
-   height: 30px;             
-   width: 100%;             
-   background-color: blue;   
-}                           
-.addBelow {                 
-   height: 30px;             
-   width: 100%;             
-   background-color: blue;   
+.arrange {
+   border: 1px solid black;
+   height: 100px
+}
+
+.arrange-toolbar {
+   border: 1px solid black;
+   height: 100px
+}
+
+.arrangeTR {
+}
+
+.arrangeTR-toolbar {
+	background-color: var(--box_h_bg_color) !important;
+	border: var(--box_h_border_style) !important;
+}
+
+.arrangeTD {
+   border: 1px solid black;
+   height: 100px;
+   vertical-align: top;
+   horizontal-align: left;
+}
+.arrangeTD-toolbar {
+   height: 20px;
+   width: 100%;
+   background-color: var(--box_h_bg_color) !important;
+	 border: var(--box_h_border_style) !important;
+}
+.addAbove {
+   height: 30px;
+   width: 100%;
+   background-color: blue;
+}
+.addBelow {
+   height: 30px;
+   width: 100%;
+   background-color: blue;
 }
 
 
 /* For HTML Demo Box */
-.bodyCover {           
-    display: flex;           
-    cursor: move;            
-    position: absolute;      
-/*    left: 6px;     */          
-    z-index: 100;              
-    height: 100%;            
-    width: 100%;             
-    opacity: 1;            
-    background-color: #FFFFFF; 
-}                            
-.movableDiv {                
-    position: relative;      
-    z-index: 1;              
-}                            
-.movableDivCover {           
-    display: flex;           
-    cursor: move;            
-    position: absolute;      
-/*    left: 6px;  */            
-    z-index: 2;              
-    height: 105%;            
-    width: 105%;             
-    opacity: 0.5;            
-    background-color: black; 
-}                            
-.movableDivCoverToolbar {    
-/*   display: flex;        */   
-/*    cursor: move;        */    
-    position: absolute;      
-    top: 0px;                
+.bodyCover {
+    display: flex;
+    cursor: move;
+    position: absolute;
+/*    left: 6px;     */
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    background-color: #FFFFFF;
+}
+.movableDiv {
+    position: relative;
+    z-index: 1;
+}
+.movableDivCover {
+    display: flex;
+    cursor: move;
+    position: absolute;
+/*    left: 6px;  */
+    z-index: 2;
+    height: 105%;
+    width: 105%;
+    opacity: 0.5;
+    background-color: black;
+}
+.movableDivCoverToolbar {
+	background-color: var(--box_h_bg_color) !important;
+	border: var(--box_h_border_style) !important;
+/*   display: flex;        */
+/*    cursor: move;        */
+    position: absolute;
+    top: 0px;
     left: calc(50% - 60px);
-    z-index: 2;              
-    height: 25px;            
-    width: 120px;            
-    background-color: red;   
-    opacity: 1;              
-    text-align: right;       
-}                            
-.moveArrow {                 
-    height:10px;             
-    width: 10px;                           
-}                            
-.sideBar {                   
-    position: fixed;         
-    top: 15%;                
-    right: 0px;              
-    z-index: 3;              
-    height: 75%;             
-    width: 10%;              
-    background-color: red;   
-    overflow: auto;          
-}                            
-.sideBarItem {               
-    display: block;          
-    position: relative;      
-    width: 90%;             
-    height: 20px;            
-    background-color: green; 
-    margin: 3px 6px;         
-    padding-top: 5px;        
-    padding-bottom: 5px;     
-    text-align: center;      
-}                            
-.sbSpan {                    
-    width: 100%;             
-    height: 100%;            
-    color: #FFFFFF;          
-    vertical-align: middle;  
-    text-align: center;      
-}                            
-.topBar {                    
-    height: 50px;            
-    width: 100%;             
-    background-color: red;   
-}                            
-.noSelect {                    
-   cursor: move;               
+    z-index: 2;
+    height: 25px;
+    width: 120px;
+    opacity: 1;
+    text-align: right;
+}
+.moveArrow {
+    height:10px;
+    width: 10px;
+}
+.sideBar {
+    position: fixed;
+    top: 15%;
+    right: 0px;
+    z-index: 3;
+		height: auto;
+    max-height: 75%;
+    width: 10%;
+    background-color: red;
+    overflow: auto;
+}
+.sideBarItem {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 20px;
+    background-color: var(--box_h_bg_color);
+		border: var(--box_h_border_style);
+    margin: 3px 6px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.sbSpan {
+    width: 100%;
+    height: 100%;
+    color: var(--box_h_text_color);
+    vertical-align: middle;
+    text-align: center;
+}
+.topBar {
+    height: 50px;
+    width: 100%;
+    background-color: red;
+}
+.noSelect {
+   cursor: move;
   -webkit-touch-callout: none;  /* iOS Safari */
   -webkit-user-select: none;    /* Chrome/Safari/Opera */
   -khtml-user-select: none;     /* Konqueror */
@@ -233,7 +254,7 @@ input:checked + .slider:before {
 }
 
 .optChangedSpan {
-	color: red;
+	color: var(--alert_text_color);
 	font-size: 20px;
 	font-weight: bold;
 }

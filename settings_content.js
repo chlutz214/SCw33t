@@ -1039,7 +1039,15 @@ var sampleFills =  {
 
 function resetArrangementTable() {
 	document.getElementById('clearAllArrangeBoxes').click();
-	document.getElementById('ep').innerHTML = '';
+	$("table.arrange").each(
+		function() {
+			if (this.id != "arrangementTable-0") {
+				console.log('removing: ' + this.id);
+				$(this).remove();
+			}
+		}
+	);
+	// refillArrangeSelect();
 	// document.getElementById('arrangeBar-RowSelect').innerHTML = '';
 	document.getElementById('addArrangeRow').click();
 

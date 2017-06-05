@@ -28,7 +28,7 @@ ul.tab li {
     float: left;
     margin-left: 0px;
 		height: 30px !important;
-		border: var(--tabstrip_tab_border_style) !important;
+		/*border: var(--tabstrip_tab_border_style) !important;*/
 }
 ul.tab li a, ul.tab li a:hover {               /* Style the links inside the list items */
     display: inline-block;

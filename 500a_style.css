@@ -63,10 +63,14 @@
 	--txtfield_border_style: 1px solid #D8DDE6;
 }
 
+/* Table Headers */
 .headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row * {
 	background-color: var(--table_header_bg_color) !important;
-	border: var(--table_header_border_style) !important;
 	color: var(--table_header_text_color) !important;
+}
+
+.x-grid3-hd-row, .headerRow, .headerRow th {
+		border: var(--table_header_border_style) !important;
 }
 
 .phHeader, .phHeader a, .x-btn-text {
@@ -79,13 +83,13 @@
 }*/
 
 /* Tab Strip FULL Style */
-.x-plain-header, .x-plain-header *, .x-tab-strip, .x-tab-strip *, .x-tab-right, .x-tab-strip-closable,
+.x-plain-header, .x-plain-header *, .x-tab-strip, .x-tab-strip *, .x-tab-right, .x-tab-strip-closable, .x-tab-strip-closable a,
  .support-servicedesk-navigator, .support-servicedesk-navigator *,  .x-menu, .x-menu-list-item, .x-menu-list  {
 	background-color: var(--tabstrip_bg_color) !important;
 	color: var(--tabstrip_text_color) !important;
 }
 
-.x-plain-header, .x-tab-strip, .x-tab-right, .support-servicedesk-navigator {
+.x-plain-header, .x-tab-strip, .support-servicedesk-navigator {
 	border: var(--tabstrip_border_style) !important;
 }
 
@@ -109,7 +113,7 @@
 }
 
 /* Console Footer Style */
-.sd_footer, .sd_footer > *, .sd_widget_btn_text, .sd_widget_btn_text>* {
+.sd_footer, .sd_footer *, .sd_widget_btn_text, .sd_widget_btn_text * {
 	 background-color: var(--console_bottom_color) !important;
 	 color: var(--console_text_color) !important;
  }
@@ -188,11 +192,14 @@
 	overflow: visible;
 }
 
+
+/*.fewerMore, .fewerMore a,*/ /*div.efdRLHover, div.pbHeader,*/
 div.efdRLHover, div.pbHeader, .linkBar, .bPageTitle, .listHoverLinks, .listHoverLinks *, .bNext, .bNext a,
-/*div.efdRLHover, div.pbHeader,*/.topNav, .topNav a, .fewerMore, .fewerMore a, .linkBar *, .pageType, .pageDescription {
+.topNav, .topNav a,  .linkBar *, .pageType, .pageDescription {
 	background: var(--tb_bg_color) !important;
 	color: var(--tb_text_color) !important;
 }
+
 .bPageTitle {
 	border: var(--tb_border_style);
 }
@@ -330,6 +337,7 @@ table.list, table.list *, .detailList, .detailList *, .even, .odd {
 	border: var(--row_border_style_odd) !important;
 }
 
+/* .over */
 .highlight, .highlight > td, .highlight > th, .highlight > tr,
 .inlineEditWriteOn, .inlineEditLockOn, .dataCol:hover, .data2Col:hover,
 div.x-grid3-row-over > * {

@@ -59,7 +59,8 @@ var myTheme = [
 'warning_background_color',
 'warning_text_color',
 'warning_border_style',
-'percentBarColor',
+'percent_bar_color',
+'percent_bar_bg_color',
 'tb_bg_color',
 'tb_text_color',
 'tb_link_color',
@@ -77,6 +78,9 @@ var myTheme = [
 'btn_text_color',
 'btn_bg_color',
 'btn_border_style',
+'btn_alt_text_color',
+'btn_alt_bg_color',
+'btn_alt_border_style',
 'txtfield_text_color',
 'txtfield_bg_color',
 'txtfield_border_style'];
@@ -99,7 +103,8 @@ var alert_border_style;
 var warning_background_color;
 var warning_text_color;
 var warning_border_style;
-var percentBarColor;
+var percent_bar_color;
+var percent_bar_bg_color;
 var tb_bg_color;
 var tb_text_color;
 var tb_link_color;
@@ -509,7 +514,7 @@ function formatBytes(bytes,decimals)
 //Changelog review
 function reviewChanges()
 {
-    $("<div id='changesDiv' style='height:100%; width:100%; background-color: rgba(0, 0, 0, 0.8); position:fixed; top:0px; left:0px; z-index: 102;'></div>").appendTo($('div.efObjectDetails'));
+    $("<div id='changesDiv' style='height:100%; width:100%; background-color: rgba(0, 0, 0, 0.8); position:fixed; top:0px; left:0px; z-index: 102;'></div>").appendTo($('body'));//'div.efObjectDetails'
     $("<table id='changesTab' border='0' padding='0' style='position:absolute; top:calc(32%); left:calc(37.5%); background-color:#FFFFFF; width:25%; height: 35%;'><tbody></tbody></table>").appendTo($('#changesDiv'));
     $("<tr id='changesTab-r1' style='border:1px solid rgb(216, 221, 230); height:28px; background-color: rgb(244, 246, 249);'><td id='changesTab-r1-c1' width='25%'><h3>What's New?<h3></td><td id='changesTab-r1-c2' width='65%'></td><td id='changesTab-r1-c3' width='10%'></td></tr>").appendTo($('#changesTab'));
     $("<a href='javascript:void(0)'>Close</a>").click(function() { $('#changesDiv').remove(); }).appendTo($('#changesTab-r1-c3')); //add .click(function() {})
@@ -1203,10 +1208,10 @@ function getCaseOwner()
 								console.log('percent: ' + percent);
 
 								if (thisVal >= maxVal) {
-									cell.css({"background": "var(--percentBarColor)"});
+									cell.css({"background": "var(--percent_bar_color)"});
 								} else {
 									 /*#00FFFF 0%,*/
-									cell.css({"background": "linear-gradient(90deg, var(--percentBarColor) " + (percent-10) + "%, rgba(0,0,0,0) " + (percent+10) + "%"});//, rgba(0,0,0,0)
+									cell.css({"background": "linear-gradient(90deg, var(--percent_bar_color) " + (percent-10) + "%, var(--percent_bar_bg_color) " + (percent+10) + "%"});//, rgba(0,0,0,0)
 								}
 							}
 

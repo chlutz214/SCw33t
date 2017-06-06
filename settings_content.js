@@ -459,7 +459,8 @@ function init_settings() {
 	makeOption({varId:'warning_background_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'warning_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'percentBarColor',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'percent_bar_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'percent_bar_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
 	document.getElementById(currOptTable).className = 'pbSubsection';
@@ -498,6 +499,9 @@ function init_settings() {
 	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'btn_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTextFieldsTable", "paintTab","Text Fields (Editables)");
 	document.getElementById(currOptTable).className = 'pbSubsection';
@@ -1135,7 +1139,13 @@ function makeArrangeSideBar() { // make side bar for ArrangeSC
         makeButton('SBI-TBB-' + boxID +'-cellRight',">","", workingID, pushCellRight);
         makeButton('SBI-TBB-' + boxID +'-cellDown',"v","", workingID, pushCellDown);
 
-        //old celled style?
+		    currSw = makeSwitch('SBI-TBB-' + boxID +'-collapsed', workingID, "", "Collapse this box on page load?");
+				document.getElementById(currSw).className = "cCollapsed";
+				document.getElementById(currSw).addEventListener("click", function(){
+    			// alert($("#"+ boxID + " img:eq(0)").attr('id'));
+					$("#"+ boxID + " img:eq(0)").click();
+				});
+        // old celled style?
         //var workingID = 'SBI-TBT-' + boxID;
 
         //addTable(workingID, 'SBI-MDCTB-' + boxID);
@@ -2060,9 +2070,7 @@ function makeOption(args) { // Make a switch
 
 					try {
 						setting = JSON.parse(setting);
-					} catch (e) {
-
-					}
+					} catch (e) { }
 // saveASC
 					if (window[args.varId] == setting) {
 						document.getElementById("option_changed_" + args.varId).className = "optChangedSpan optNotChanged";

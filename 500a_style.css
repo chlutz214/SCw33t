@@ -7,7 +7,6 @@
 
  	--tabstrip_bg_color: #000000;
 	--tabstrip_alt_bg_color: #333333;
-
 	--tabstrip_text_color: #ffffff;
 
 	--tabstrip_border_style: 1px solid #FF00FF;
@@ -29,7 +28,8 @@
 	--warning_text_color: #FF6A00;
 	--warning_border_style: 1px solid #000000;
 
-	--percentBarColor: #00FFFF;
+	--percent_bar_color: #00FFFF;
+	--percent_bar_bg_color: transparent;
 
 	--tb_bg_color: #0070D2;
 	--tb_text_color: #FFFFFF;
@@ -41,6 +41,7 @@
 	--box_h_border_style: 1px solid #000000;
 	--box_body_bg_color: #FFFFFF;
 	--box_body_border_style: 1px solid #000000;
+
 	--table_header_bg_color: #000000;
 	--table_header_text_color: #FFFFFF;
 	--table_header_border_style: 1px solid #FFFFFF;
@@ -50,17 +51,24 @@
 
 	--row_color_even: inherit;
 	--row_border_style_even: 1px solid #000000;
+
 	--row_color_odd: #DDDDDD;
 	--row_border_style_odd: 1px solid #000000;
+
 	--row_color_highlight: #000000; /* #e3f3ff */
 
-	--btn_text_color: #0070d2;
 	--btn_bg_color: #F4F5F7;
 	--btn_border_style: 1px solid #E0E5EE;
+	--btn_text_color: #0070d2;
+
+	--btn_alt_bg_color: #00FFFF;
+	--btn_alt_border_style: 1px solid #0000FF;
+	--btn_alt_text_color: #00FF00;
 
 	--txtfield_text_color: #000000;
 	--txtfield_bg_color: #FFFFFF;
 	--txtfield_border_style: 1px solid #D8DDE6;
+	--txtfield_alt_border_style: 1px solid #FF0000;
 }
 
 /* Table Headers */
@@ -161,6 +169,10 @@
 .alertBg {
 	background-color: var(--alert_background_color) !important;
 	font-weight: bold !important;
+}
+.inlineEditRequiredDiv {
+	border-left: 3px solid var(--alert_background_color) !important;
+
 }
 
 .warningCell {
@@ -275,7 +287,15 @@ body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
 input[type=text], select, option, textArea {
 	color: var(--txtfield_text_color) !important;
 	background-color: var(--txtfield_bg_color) !important;
-	border:var(--txtfield_border_style) !important;
+	border: var(--txtfield_border_style) !important;
+}
+
+input[type=text]:hover, select:hover, option:hover, textArea:hover{
+	border:var(--txtfield_alt_border_style) !important;
+}
+
+input[type=text]:active, select:active, option:active, textArea:active {
+	border: var(--txtfield_alt_border_style) !important;
 }
 
 /*
@@ -360,6 +380,12 @@ div.x-grid3-row-over > * {
 	border: var(--btn_border_style) !important;
 }
 
+.btn:hover, .menuButtonLabel:hover {
+	color: var(--btn_alt_text_color) !important;
+	background-color: var(--btn_alt_bg_color) !important;
+	border: var(--btn_alt_border_style) !important;
+}
+
 .refreshListButton {
 	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/serviceDeskListReskin-sprite.png') !important;
 	background-repeat: no-repeat !important;
@@ -391,11 +417,9 @@ div.x-grid3-row-over > * {
 	left: 15px;
 	padding: 5px;
 	z-index: 102;
-}
-
-.backToTop, .backToTop a {
 	background-color: var(--body_bg_color);
 }
+
 /* Square Monitor style */
 
 table .sqTB {
@@ -445,13 +469,14 @@ tr .sqTR {
 	position:absolute;
 	z-index:1039;
 	display:none;
+		background:var(--tb_bg_color) !important;
 }
 
 .jq-dropdown .jq-dropdown-menu,.jq-dropdown .jq-dropdown-panel {
 	min-width:160px;
 	max-width:360px;
 	list-style:none;
-	background:#FFF;
+	background:var(--tb_bg_color) !important;
 	border:solid 1px #DDD;
 	border:solid 1px rgba(0,0,0,.2);
 	border-radius:6px;
@@ -530,18 +555,18 @@ tr .sqTR {
 	cursor:pointer;
 }
 
-.jq-dropdown .jq-dropdown-menu .jq-dropdown-divider {
+/*.jq-dropdown .jq-dropdown-menu .jq-dropdown-divider {
 	font-size:1px;
 	border-top:solid 1px #E5E5E5;
 	padding:0;
 	margin:5px 0;
-}
-
+}*/
+/*
 .jq-dropdown.has-icons LI > A {
 	padding-left:30px;
 	background-position:8px center;
 	background-repeat:no-repeat;
-}
+}*/
 	/* I don't think these are needed for our usage.
 	.jq-dropdown .undo A {
 		background-image:url(icons/arrow-curve-180-left.png);

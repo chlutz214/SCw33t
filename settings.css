@@ -1,5 +1,4 @@
 /* Settings Page CSS */
-
 .tableHead {
 	font-size: 13px !important;
 	background-color: var(--box_h_bg_color) !important;
@@ -38,7 +37,6 @@ ul.tab li a, ul.tab li a:hover {               /* Style the links inside the lis
     margin-left: 0px;
     padding: 7px 12px;
     text-decoration: none;
-    transition: 0.3s;
     font-size: 14px;
 }
   /* Change background color of links on hover */

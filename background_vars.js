@@ -3,6 +3,7 @@ var forceIframe;
 
 // CSS Theme
 // var myTheme;
+var replaceCloud;
 var console_top_color;
 var console_bottom_color;
 var console_text_color;
@@ -23,7 +24,8 @@ var alert_border_style;
 var warning_background_color;
 var warning_text_color;
 var warning_border_style;
-var percentBarColor;
+var percent_bar_color;
+var percent_bar_bg_color;
 var tb_bg_color;
 var tb_text_color;
 var tb_link_color;
@@ -41,6 +43,9 @@ var row_color_highlight;
 var btn_text_color;
 var btn_bg_color;
 var btn_border_style;
+var btn_alt_text_color;
+var btn_alt_bg_color;
+var btn_alt_border_style;
 var txtfield_text_color;
 var txtfield_bg_color;
 var txtfield_border_style;
@@ -160,8 +165,6 @@ chrome.storage.sync.get(
 		'forceIframe':false,
 
 		// CSS Theme
-		// 'myTheme':
-		// '{"body_bg_color":"#FFFFFF","body_text_color":"#000000","body_text_modified_color":"#FF6A00","body_link_hover_color":"#FF0000","body_link_color":"#006CB5","body_label_text_color":"#54698D","alert_background_color":"#FF99EE","alert_text_color":"#CC0000","alert_border_style":"1px solid #000000","warning_background_color":"#FFCF6F","warning_text_color":"#FF6A00","warning_border_style":"1px solid #000000","percentBarColor":"#00FFFF","tb_bg_color":"#0070D2","tb_text_color":"#FFFFFF","tb_link_color":"#FFFFFF","tb_border_style":"1px solid #000000","box_h_text_color":"#FFFFFF","box_h_bg_color":"#0070D2","box_h_border_style":"1px solid #000000","box_body_bg_color":"#FFFFFF","box_body_border_style":"1px solid #000000","cell_label_border_style":"1px solid #00FF00","cell_data_border_style":"1px solid #0000FF","row_color_even":"inherit","row_color_odd":"#DDDDDD","row_color_highlight":"#000000","btn_text_color":"#0070d2","btn_bg_color":"#F4F5F7","btn_border_style":"1px solid #E0E5EE","txtfield_text_color":"#000000","txtfield_bg_color":"#FFFFFF","txtfield_border_style":"1px solid #D8DDE6"}',
 		"console_top_color":"#000000",
 		"console_bottom_color":"#FFFFFF",
 		"console_text_color":"#ff0000",
@@ -181,7 +184,8 @@ chrome.storage.sync.get(
 		"warning_background_color":"#FFCF6F",
 		"warning_text_color":"#FF6A00",
 		"warning_border_style":"1px solid #000000",
-		"percentBarColor":"#00FFFF",
+		"percent_bar_color":"#00FFFF",
+		"percent_bar_bg_color":"transparent",
 		"tb_bg_color":"#0070D2",
 		"tb_text_color":"#FFFFFF",
 		"tb_link_color":"#FFFFFF",
@@ -199,6 +203,9 @@ chrome.storage.sync.get(
 		"btn_text_color":"#0070d2",
 		"btn_bg_color":"#F4F5F7",
 		"btn_border_style":"1px solid #E0E5EE",
+		"btn_alt_text_color":"#0070d2",
+		"btn_alt_bg_color":"#F4F5F7",
+		"btn_alt_border_style":"1px solid #E0E5EE",
 		"txtfield_text_color":"#000000",
 		"txtfield_bg_color":"#FFFFFF",
 		"txtfield_border_style":"1px solid #D8DDE6",
@@ -345,7 +352,8 @@ chrome.storage.sync.get(
 		warning_background_color = items.warning_background_color;
 		warning_text_color = items.warning_text_color;
 		warning_border_style = items.warning_border_style;
-		percentBarColor = items.percentBarColor;
+		percent_bar_color = items.percent_bar_color;
+		percent_bar_bg_color = items.percent_bar_bg_color;
 		tb_bg_color = items.tb_bg_color;
 		tb_text_color = items.tb_text_color;
 		tb_link_color = items.tb_link_color;
@@ -363,6 +371,9 @@ chrome.storage.sync.get(
 		btn_text_color = items.btn_text_color;
 		btn_bg_color = items.btn_bg_color;
 		btn_border_style = items.btn_border_style;
+		btn_alt_text_color = items.btn_alt_text_color;
+		btn_alt_bg_color = items.btn_alt_bg_color;
+		btn_alt_border_style = items.btn_alt_border_style;
 		txtfield_text_color = items.txtfield_text_color;
 		txtfield_bg_color = items.txtfield_bg_color;
 		txtfield_border_style = items.txtfield_border_style;
@@ -505,7 +516,8 @@ chrome.extension.onMessage.addListener(
 					'warning_background_color': warning_background_color,
 					'warning_text_color': warning_text_color,
 					'warning_border_style': warning_border_style,
-					'percentBarColor': percentBarColor,
+					'percent_bar_color': percent_bar_color,
+					'percent_bar_bg_color': percent_bar_bg_color,
 					'tb_bg_color': tb_bg_color,
 					'tb_text_color': tb_text_color,
 					'tb_link_color': tb_link_color,
@@ -523,6 +535,9 @@ chrome.extension.onMessage.addListener(
 					'btn_text_color': btn_text_color,
 					'btn_bg_color': btn_bg_color,
 					'btn_border_style': btn_border_style,
+					'btn_alt_text_color': btn_alt_text_color,
+					'btn_alt_bg_color': btn_alt_bg_color,
+					'btn_alt_border_style': btn_alt_border_style,
 					'txtfield_text_color': txtfield_text_color,
 					'txtfield_bg_color': txtfield_bg_color,
 					'txtfield_border_style': txtfield_border_style,

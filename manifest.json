@@ -37,7 +37,7 @@
             "all_frames": true,
             "run_at": "document_end",
             "css": [
-                "500a_style.css"
+                "scw33t_global_style.css"
             ],
             "js": [
                 "jquery-3.0.0.min.js",

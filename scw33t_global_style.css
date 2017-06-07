@@ -1,1 +1,470 @@
 /* scw33t_global_style.css */
+/* Define variables in root */
+/* TODO MAKE THESE ALL "INHERIT" as default */
+:root {
+	--console_top_color: #000000; /*#0070D2;*/
+	--console_bottom_color: #ff0000;
+	--console_text_color: #FFFFFF;
+
+ 	--tabstrip_bg_color: #000000;
+	--tabstrip_alt_bg_color: #333333;
+	--tabstrip_text_color: #ffffff;
+
+	--tabstrip_border_style: 1px solid #FF00FF;
+	--tabstrip_tab_border_style: 1px solid #FFFFFF;
+	--tabstrip_tab_alt_border_style: 1px solid #00FF00;
+
+	--body_bg_color: #FFFFFF;
+	--body_text_color: #16325C;
+	--body_text_modified_color: #FF6A00;
+	--body_link_color: #006CB5;
+	--body_link_hover_color: #FF0000;/*#015BA7;*/
+	--body_label_text_color: #54698D;
+
+	--alert_background_color: #FFECEC;
+	--alert_text_color: #CC0000;
+	--alert_border_style: 1px solid #000000;
+
+	--warning_background_color: #FFB75D;
+	--warning_text_color: #FF6A00;
+	--warning_border_style: 1px solid #000000;
+
+	--percent_bar_color: #00FFFF;
+	--percent_bar_bg_color: transparent;
+
+	--tb_bg_color: #0070D2;
+	--tb_text_color: #FFFFFF;
+	--tb_link_color: #FFFFFF;
+	--tb_border_style: 1px solid #000000;
+
+	--box_h_text_color: #FFFFFF;
+	--box_h_bg_color: #0070D2;
+	--box_h_border_style: 1px solid #000000;
+	--box_body_bg_color: #FFFFFF;
+	--box_body_border_style: 1px solid #000000;
+
+	--table_header_bg_color: #000000;
+	--table_header_text_color: #FFFFFF;
+	--table_header_border_style: 1px solid #FFFFFF;
+
+	--cell_label_border_style: 1px solid #000000;
+	--cell_data_border_style: 1px solid #000000;
+
+	--row_color_even: inherit;
+	--row_border_style_even: 1px solid #000000;
+
+	--row_color_odd: #DDDDDD;
+	--row_border_style_odd: 1px solid #000000;
+
+	--row_color_highlight: #000000; /* #e3f3ff */
+
+	--btn_bg_color: #F4F5F7;
+	--btn_border_style: 1px solid #E0E5EE;
+	--btn_text_color: #0070d2;
+
+	--btn_alt_bg_color: #00FFFF;
+	--btn_alt_border_style: 1px solid #0000FF;
+	--btn_alt_text_color: #00FF00;
+
+	--txtfield_text_color: #000000;
+	--txtfield_bg_color: #FFFFFF;
+	--txtfield_border_style: 1px solid #D8DDE6;
+	--txtfield_alt_border_style: 1px solid #FF0000;
+}
+
+/* Table Headers */
+.headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row * {
+	background-color: var(--table_header_bg_color) !important;
+	color: var(--table_header_text_color) !important;
+}
+
+.x-grid3-hd-row, .headerRow, .headerRow th {
+		border: var(--table_header_border_style) !important;
+}
+
+.phHeader, .phHeader a, .x-btn-text {
+	background-color: var(--console_top_color) !important;
+	color: var(--console_text_color) !important;
+}
+
+/*.phHeader a, .x-btn-text {
+	color: var(--console_text_color) !important;
+}*/
+
+/* Tab Strip FULL Style */
+/*.x-plain-header, .x-plain-header *, .x-tab-strip, .x-tab-strip *, */.x-tab-right, .x-tab-strip-closable, .x-tab-strip-closable a,
+ .support-servicedesk-navigator, .support-servicedesk-navigator *,  .x-menu, .x-menu-list-item, .x-menu-list,
+ .sd_primary_tabstrip,  .sd_primary_tabstrip *  {
+	background-color: var(--tabstrip_bg_color) !important;
+	color: var(--tabstrip_text_color) !important;
+}
+
+  .sd_secondary_tabstrip, .sd_secondary_tabstrip * {
+		background-color: var(--tabstrip_alt_bg_color) !important;
+	}
+
+.x-plain-header, .x-tab-strip, .support-servicedesk-navigator {
+	border: var(--tabstrip_border_style) !important;
+}
+
+/* Tab Strip ALT BG Style */
+.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected,
+.x-tab-strip-active *, .x-tab-strip-over *, .x-menu-item-active *, .support-servicedesk-sbmenuitemselected * {
+	background-color: var(--tabstrip_alt_bg_color) !important;
+	color: var(--tabstrip_text_color) !important;
+}
+.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected/*, .x-tab-strip-closable*/ {
+	border: var(--tabstrip_tab_alt_border_style) !important;
+}
+
+/* Tab Strip Text Color only */
+.tabText, .x-tab-strip-text, .x-btn-text *, .x-menu-list-item a {
+		color: var(--tabstrip_text_color) !important;
+}
+
+.x-tab-strip-closable {
+	border: var(--tabstrip_tab_alt_border_style) !important;
+}
+
+/* Console Footer Style */
+.sd_footer, .sd_footer *, .sd_widget_btn_text, .sd_widget_btn_text * {
+	 background-color: var(--console_top_color) !important;
+	 color: var(--console_text_color) !important;
+ }
+
+/* Blinker style */
+.blink_me {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+/* Hide empty cells... */
+.empty {
+	display: none !important;
+}
+
+/* Label & data cells */
+.labelCol {
+	border: var(--cell_label_border_style) !important;
+	max-width: 75px !important;
+	margin-left: 3px !important;
+}
+
+.dataCol, .data2Col {
+	border: var(--cell_data_border_style) !important;
+	max-width: 5000px !important;
+	margin-left: 3px !important;
+}
+
+/* Warning & Alert Styles */
+.alertCell {
+	color: var(--alert_text_color) !important;
+	background-color: var(--alert_background_color) !important;
+	font-weight: bold !important;
+	border:  var(--alert_border_style) !important;
+}
+
+.alertText {
+	color: var(--alert_text_color) !important;
+	font-weight: bold !important;
+}
+
+.alertBg {
+	background-color: var(--alert_background_color) !important;
+	font-weight: bold !important;
+}
+.inlineEditRequiredDiv {
+	border-left: 3px solid var(--alert_background_color) !important;
+
+}
+
+.warningCell {
+	color: var(--warning_text_color) !important;
+	background-color: var(--warning_background_color) !important;
+	font-weight: bold !important;
+	border:  var(--warning_border_style) !important;
+}
+
+.warningText {
+	color: var(--warning_text_color) !important;
+	font-weight: bold !important;
+}
+
+.warningBg {
+	background-color: var(--warning_background_color) !important;
+	font-weight: bold !important;
+}
+
+/* Top Bar Styles */
+#arrangeTopBar {
+	z-index: 1;
+	position: fixed;
+	border: var(--tb_border_style);
+	width: 100%;
+	margin: -4px 0px 0px -13px;
+	padding: 0px;
+	min-height: 10px;
+	overflow: visible;
+}
+
+
+/*.fewerMore, .fewerMore a,*/ /*div.efdRLHover, div.pbHeader,*/
+div.efdRLHover, div.pbHeader, .linkBar, .bPageTitle, .listHoverLinks, .listHoverLinks *, .bNext, .bNext a,
+.topNav, .topNav a,  .linkBar *, .pageType, .pageDescription {
+	background: var(--tb_bg_color) !important;
+	color: var(--tb_text_color) !important;
+}
+
+.bPageTitle {
+	border: var(--tb_border_style);
+}
+
+div.efdRLHover, .mainTitle {
+	background: var(--tb_bg_color) !important;
+	color: var(--tb_text_color) !important;
+}
+
+div.efdRLHover a, div.pbHeader a, .linkBar a {
+	color: var(--tb_link_color) !important;
+}
+
+
+/* removes the colored line above the top bar on some pages... */
+.bPageBlock {
+	border-top: none !important;
+	/* border: var(--tb_border_style) !important; */
+}
+
+/* Body Styles */
+
+.entityFeedLayout, body, .efodBody, .pbBody, .bottomNav,.bPageBlock {
+	background-color: var(--body_bg_color) !important;
+}
+
+img {
+	background-color: inherit !important;
+}
+
+.efdFields .pbBody {
+	padding: 0px  !important;
+	margin: 0px  !important;
+}
+
+a, body a, .entityFeedLayout a, .dataCell a, .dataCol a, .sqTD a  {
+	color: var(--body_link_color) !important;
+}
+
+a:hover, body a:hover, .entityFeedLayout a:hover,
+.dataCell a:hover, .dataCol a:hover, .sqTD a:hover {
+	color: var(--body_link_hover_color) !important;
+}
+
+body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
+	color: var(--body_text_color) !important;
+}
+
+/* text color for table headers... */
+.sqTD span, th, .labelCol, .recordTypeName, .noRowsHeader {
+	color: var(--body_label_text_color) !important;
+	font-weight: normal !important;
+	font-size: .9em !important;
+}
+
+/* Modified text */
+.inlineEditModified {
+	color: var(--body_text_modified_color) !important;
+}
+
+/* Alert Styles */
+.warningSC {
+	color: var(--warning_text_color) !important;
+	background_color: var(--warning_background_color) !important;
+}
+
+.alertSC {
+	color: var(--alert_text_color) !important;
+	background_color: var(--alert_background_color) !important;
+}
+
+/* Test Field Style textbox textarea select */
+input[type=text], select, option, textArea {
+	color: var(--txtfield_text_color) !important;
+	background-color: var(--txtfield_bg_color) !important;
+	border: var(--txtfield_border_style) !important;
+}
+
+input[type=text]:hover, select:hover, option:hover, textArea:hover{
+	border:var(--txtfield_alt_border_style) !important;
+}
+
+input[type=text]:active, select:active, option:active, textArea:active {
+	border: var(--txtfield_alt_border_style) !important;
+}
+
+/*
+input[type=checkbox] {
+    display: none;
+}
+
+
+.checkbox label:before {
+    border-radius: 3px;
+}
+
+input[type=checkbox]:checked {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}
+input[type=checkbox] {
+	color: var(--txtfield_text_color) !important;
+	background-color: var(--txtfield_bg_color) !important;
+	border-color:var(--txtfield_border_style) !important;
+}
+*/
+/* List Styles */
+
+
+
+.pbSubheader, div.bRelatedList .pbHeader, .bottomNav, .bottomNav a {
+	background-color: var(--box_h_bg_color) !important;
+	border: var(--box_h_border_style) !important;
+	background-image: none !important;
+}
+
+.pbSubheader h3, div.bRelatedList .pbHeader h3 {
+	color: var(--box_h_text_color) !important;
+	background-image: none !important;
+}
+
+.pbSubsection, .pShowMore,.pShowMore a, .noRowsHeader {
+	background-color: var(--box_body_bg_color) !important;
+	background-image: none !important;
+}
+
+/* borders not working for even & odd...*/
+table.list, table.list *, .detailList, .detailList *, .even, .odd {
+	border-collapse: collapse !important;
+}
+
+.even {
+	background-color: var(--row_color_even) !important;
+	border: var(--row_border_style_even) !important;
+}
+
+.odd {
+	background-color: var(--row_color_odd) !important;
+	border: var(--row_border_style_odd) !important;
+}
+
+/* .over */
+.highlight, .highlight > td, .highlight > th, .highlight > tr,
+.inlineEditWriteOn, .inlineEditLockOn, .dataCol:hover, .data2Col:hover,
+div.x-grid3-row-over > * {
+	background-color: var(--row_color_highlight) !important;
+}
+
+.inlineEditWriteVisible {
+	 background-color: inherit !important;
+ }
+
+.relatedListIcon {
+	display: none !important;
+}
+
+/* Button Styles */
+
+.btn, .menuButtonLabel {
+	color: var(--btn_text_color) !important;
+	background-color: var(--btn_bg_color) !important;
+	border: var(--btn_border_style) !important;
+}
+
+.btn:hover, .menuButtonLabel:hover {
+	color: var(--btn_alt_text_color) !important;
+	background-color: var(--btn_alt_bg_color) !important;
+	border: var(--btn_alt_border_style) !important;
+}
+
+.refreshListButton {
+	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/serviceDeskListReskin-sprite.png') !important;
+	background-repeat: no-repeat !important;
+	background-position: 4px -257px !important;
+	vertical-align: middle !important;
+	margin: 5px 5px 5px 5px !important;
+	height: 27px !important;
+	width: 29px !important;
+}
+
+.copyLinkButton {
+	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/links.png') !important;
+	background-repeat: no-repeat !important;
+	background-position: 0px 0px !important;
+	vertical-align: middle !important;
+	margin: 0px !important;
+	padding: 0px !important;
+	height: 20px !important;
+	width: 20px !important;
+}
+
+.copyLinkButton:hover {
+	background-position: 0px -20px !important;
+}
+
+.backToTop {
+	position: fixed;
+	bottom: 0px;
+	left: 15px;
+	padding: 5px;
+	z-index: 102;
+	background-color: var(--body_bg_color);
+}
+
+/* Square Monitor style */
+
+table .sqTB {
+	width: 100% !important;
+	padding: 1px !important;
+	border-top-width: 0px !important;
+	border-bottom-width: 1px !important;
+	border-left-width: 0px !important;
+	border-right-width: 0px !important;
+	border-style: solid !important;
+	border-color: grey !important;
+}
+
+th .sqTH {
+	border: 0 none !important;
+}
+
+tr .sqTR {
+	border: 0 none !important;
+	padding: 0px !important;
+}
+
+.sqTD {
+	padding: 0px !important;
+	margin: 1px !important;
+	border-top-width: 0px !important;
+	border-bottom-width: 0px !important;
+	border-left-width: 0px !important;
+	border-right-width: 0px !important;
+	border-style: none !important;
+}
+
+.sqTD span {
+	font-weight: normal !important;
+	font-size: .9em !important;
+}
+
+.labelSpan {
+	color: #54698d !important;
+	font-weight: normal !important;
+	font-size: .9em !important;
+}

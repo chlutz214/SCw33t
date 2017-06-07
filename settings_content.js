@@ -465,7 +465,7 @@ function init_settings() {
 	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
 	document.getElementById(currOptTable).className = 'pbSubsection';
 	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	// makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});

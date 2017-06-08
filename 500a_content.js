@@ -1124,11 +1124,11 @@ if (theCase.isClosed == false) {
                 // if (theBoxes[key][2] == "r" && $("#" + "img_" + theBoxes[key][1].replace(/ /g, "_")).length < 1) {
                 if ($(theBoxes2[key].collapseBtn).length < 1) {
                     $(theBoxes2[key].titleId)  // TODO .parent()  <will put it in the same placce as others, but its white and still odesnt ork on settings...
-                        .prepend($('<img src="/s.gif" alt="Hide Section - ' + key + '" class="hideListButton" id="img_' + key.replace(/ /g, "_") + '" name="' + key + '" onclick=" \n' +
+                        .prepend($('<img src="/s.gif" alt="Hide Section - ' + key + '" class="hideListButton" id="' + theBoxes2[key].collapseBtn.replace('#','') + '" name="' + key + '" onclick=" \n' +
                                    'if ($(\'#' + theBoxes2[key].body + '\').css(\'display\') == \'none\') \n' +
                                    '    { $(\'#' + theBoxes2[key].body + '\').css({\'display\': \'block\'}); $(\'' + theBoxes2[key].collapseBtn+ '\').attr({\'class\': \'hideListButton\', \'title\': \'Hide Section - ' + key + '\', \'alt\': \'Hide Section - ' + key + '\'}); } \n' +
                                    'else \n' +
-                                   '    { $(\'#' + theBoxes2[key].body  + '\').css({\'display\': \'none\'}); $(\'' + theBoxes2[key].collapseBtn + '\').attr({\'class\': \'showListButton\', \'title\': \'Show Section - ' + key + '\', \'alt\': \'Show Section - ' + key + '\'}); }" \n' +
+                                   '    {$(\'' + theBoxes2[key].collapseBtn + '\').attr({\'class\': \'showListButton\', \'title\': \'Show Section - ' + key + '\', \'alt\': \'Show Section - ' + key + '\'}); $(\'#' + theBoxes2[key].body  + '\').css({\'display\': \'none\'});  }" \n' +
                                    'style="cursor:pointer;" tabindex="0" title="Hide Section - ' + key + '">'));
 
                     // If Related List is set to be collapsed on load, collapse it

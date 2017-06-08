@@ -554,37 +554,37 @@ var peekItHeight = 300;
 var peekItWidth = 450;
 //BEGIN: PeekIt
 //BEGIN: HoverBox Style
-$('<style id="Arrange_Hover_Box_Style">'+
-  ".hoverBox {"+
-  "padding: 0;"+
-  //"position: absolute;"+
-  "position: fixed;"+
-  "overflow: hidden;"+
-  "top: 0;"+
-  "left: 0;"+
-  "border: 3px solid #0070d2;"+
-  "height: " + peekItHeight + "px;"+
-  "width: " + peekItWidth + "px;"+
-  "z-index: 70;"+
-  "background-color: rgb(255, 255, 255);"+
-  "box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 3px;"+
-  "border-radius: 4px;"+
-  "}"+
-  ".hoverFrame {"+
-  "padding: 0;"+
-  "position: absolute;"+
-  "overflow: auto;"+
-  "top: 0;"+
-  "left: 0;"+
-  "border: 0px none;"+
-  "height: " + peekItHeight + "px;"+
-  "width: " + peekItWidth + "px;"+
-  //"height: 100%;"+
-  //"width: 100%;"+
-  //"z-index: 71;"+
-  "}"+
-  "</style>")
-    .appendTo($('body'));
+// $('<style id="Arrange_Hover_Box_Style">'+
+//   ".hoverBox {"+
+//   "padding: 0;"+
+//   //"position: absolute;"+
+//   "position: fixed;"+
+//   "overflow: hidden;"+
+//   "top: 0;"+
+//   "left: 0;"+
+//   "border: 3px solid #0070d2;"+
+//   "height: " + peekItHeight + "px;"+
+//   "width: " + peekItWidth + "px;"+
+//   "z-index: 70;"+
+//   "background-color: rgb(255, 255, 255);"+
+//   "box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 3px;"+
+//   "border-radius: 4px;"+
+//   "}"+
+//   ".hoverFrame {"+
+//   "padding: 0;"+
+//   "position: absolute;"+
+//   "overflow: auto;"+
+//   "top: 0;"+
+//   "left: 0;"+
+//   "border: 0px none;"+
+//   "height: " + peekItHeight + "px;"+
+//   "width: " + peekItWidth + "px;"+
+//   //"height: 100%;"+
+//   //"width: 100%;"+
+//   //"z-index: 71;"+
+//   "}"+
+//   "</style>")
+//     .appendTo($('body'));
 //END: peekit Style
 
 function peekIt(attachTo, insides) {

@@ -72,6 +72,19 @@
 	--txtfield_alt_border_style: 1px solid #FF0000;
 }
 
+/* slo timer - not working on task page*/
+.timer {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+/* Loading (related box) */
+.loading, .loadingText {
+  background-color: var(--box_body_bg_color) !important;
+  color: var(--body_text_color) !important;
+}
+
+
 /* Table Headers */
 .headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row * {
 	background-color: var(--table_header_bg_color) !important;
@@ -153,7 +166,8 @@
 	margin-left: 3px !important;
 }
 
-.dataCol, .data2Col {
+.dataCol, .data2Col, #arrangeSC-alertBox-No-Alerts {
+  color: var(--body_text_color) !important;
 	border: var(--cell_data_border_style) !important;
 	max-width: 5000px !important;
 	margin-left: 3px !important;
@@ -218,8 +232,22 @@ div.efdRLHover, div.pbHeader, .linkBar, .bPageTitle, .listHoverLinks, .listHover
 	color: var(--tb_text_color) !important;
 }
 
+/*.listHoverLinks {
+  line-height: normal !important;
+}*/
+
+ .linkBar {
+   margin-top: 0px !important;
+ }
+
+.paginator, .bottomNav {
+  bottom: 0;
+  padding-bottom: 0px !important;
+  margin-bottom: 0px !important;
+}
+
 .bPageTitle {
-	border: var(--tb_border_style);
+	border: var(--tb_border_style) !important;
 }
 
 div.efdRLHover, .mainTitle {
@@ -300,7 +328,7 @@ input[type=text]:hover, select:hover, option:hover, textArea:hover{
 	border:var(--txtfield_alt_border_style) !important;
 }
 
-input[type=text]:active, select:active, option:active, textArea:active {
+input[type=text]:focus, select:focus, option:focus, textArea:focus {
 	border: var(--txtfield_alt_border_style) !important;
 }
 
@@ -366,20 +394,17 @@ table.list, table.list *, .detailList, .detailList *, .even, .odd {
 /* .over */
 .highlight, .highlight > td, .highlight > th, .highlight > tr,
 .inlineEditWriteOn, .inlineEditLockOn, .dataCol:hover, .data2Col:hover,
-div.x-grid3-row-over > * {
+div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *{
 	background-color: var(--row_color_highlight) !important;
 }
 
-.inlineEditWriteVisible {
-	 background-color: inherit !important;
- }
 
 .relatedListIcon {
 	display: none !important;
 }
 
 /* Button Styles */
-
+/* Why is menuButtonLabel here? it messes up console page squares... */
 .btn, .menuButtonLabel {
 	color: var(--btn_text_color) !important;
 	background-color: var(--btn_bg_color) !important;
@@ -390,9 +415,10 @@ div.x-grid3-row-over > * {
 	color: var(--btn_alt_text_color) !important;
 	background-color: var(--btn_alt_bg_color) !important;
 	border: var(--btn_alt_border_style) !important;
+  background-image: none !important;
 }
 
-.refreshListButton {
+.btn.refreshListButton {
 	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/serviceDeskListReskin-sprite.png') !important;
 	background-repeat: no-repeat !important;
 	background-position: 4px -257px !important;
@@ -402,7 +428,7 @@ div.x-grid3-row-over > * {
 	width: 29px !important;
 }
 
-.copyLinkButton {
+.btn.copyLinkButton {
 	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/links.png') !important;
 	background-repeat: no-repeat !important;
 	background-position: 0px 0px !important;
@@ -467,4 +493,31 @@ tr .sqTR {
 	color: #54698d !important;
 	font-weight: normal !important;
 	font-size: .9em !important;
+}
+
+/* peekIt */
+.hoverBox {
+  padding: 0;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  border: 3px solid #0070d2;
+  height: calc(50%);
+  width: calc(33%);
+  z-index: 70;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.156863) 0px 2px 3px;
+  border-radius: 4px;
+}
+
+.hoverFrame {
+  padding: 0;
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  border: 0px none;
+  height: 100%;
+  width: 100%;
 }

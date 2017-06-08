@@ -409,6 +409,7 @@ div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *{
 	color: var(--btn_text_color) !important;
 	background-color: var(--btn_bg_color) !important;
 	border: var(--btn_border_style) !important;
+  background-image: none !important;
 }
 
 .btn:hover, .menuButtonLabel:hover {

@@ -110,10 +110,12 @@ function init_settings() {
 
 	window.onbeforeunload = function(e) {
 		// TODO add if statement to check for unsaved settings
-	  var dialogText = 'Dialog text here';
-	  e.returnValue = dialogText;
-	  return dialogText;
-	};
+		if (changedOpts()) {
+		  var dialogText = 'Dialog text here';
+		  e.returnValue = dialogText;
+		  return dialogText;
+		}
+	}
 
 	logTrace('onbefore added');
 
@@ -315,6 +317,17 @@ function init_settings() {
 	makeOption({varId:'enableCaseLinkButton',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 	makeOption({varId:'removeDisplayProcessFlow',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
+	// 50/50 & POP!
+	currOptTable = addTable("popSettingsTable", "genSettingsTab","POP!, 50/50 & SCab Buttons");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'enablePOP',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enable5050',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enableSCTab',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'fiftyPageOnLeft',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'popUpEmails',targetId:currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'popUpWidth',targetId:currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'popUpHeight',targetId:currOptTable, type: 'textBox', displayStyle:'tableRow'});
+
 	// Convenience Buttons
 	currOptTable = addTable("convenienceButtonsSettingsTable", "genSettingsTab","Convenience Buttons");
 	document.getElementById(currOptTable).className = 'pbSubsection';
@@ -444,69 +457,69 @@ function init_settings() {
 
 	currOptTable = addTable("paintTable", "paintTab","PaintSC");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'body_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'body_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'body_text_modified_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'body_link_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'body_link_hover_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'body_label_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'body_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_text_modified_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_link_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_link_hover_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_label_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintAlertTable", "paintTab","AlertSC");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'alert_background_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'alert_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'alert_background_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'alert_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'alert_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'warning_background_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'warning_background_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'warning_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'percent_bar_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'percent_bar_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'percent_bar_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	// makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTopBarTable", "paintTab","Top Bar");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'tb_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tb_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'tb_link_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'tb_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tb_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tb_link_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'tb_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintBoxesTable", "paintTab","SC Boxes");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'box_h_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'box_h_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'box_h_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'box_body_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'box_body_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'box_body_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'cell_label_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'cell_data_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintRowsTable", "paintTab","Rows");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'row_color_even',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'row_color_odd',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'row_color_highlight',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_even',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_odd',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_highlight',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintButtonsTable", "paintTab","Buttons");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'btn_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_alt_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'btn_alt_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'btn_alt_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTextFieldsTable", "paintTab","Text Fields (Editables)");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'txtfield_text_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'txtfield_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'txtfield_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 
 	// removePullDownBar
@@ -697,9 +710,17 @@ function getTopBar() {
 
 function toggleSaveButton() {
 	if (changedOpts()) {
-		document.getElementById("saveASC").classNaame = "tablinks warningCell";
+		// document.getElementById("saveASC").className = "tablinks warningCell";
+		document.getElementById("saveASC").style.setProperty("background-color","var(--alert_background_color)","important");
+		document.getElementById("saveASC").style.setProperty("color","var(--alert_text_color)","important");
+		document.getElementById("saveASC").style.setProperty("border","var(--alert_border_style)","important");
+		document.getElementById("saveASC").style.setProperty("font-weight","bold","important");
 	} else {
-		document.getElementById("saveASC").classNaame = "tablinks";
+		// document.getElementById("saveASC").className = "tablinks";
+		document.getElementById("saveASC").style.setProperty("background-color","initial");
+		document.getElementById("saveASC").style.setProperty("color","var(--alert_text_color)");
+		document.getElementById("saveASC").style.setProperty("border","var(--alert_border_style)");
+		document.getElementById("saveASC").style.setProperty("font-weight","normal");
 	}
 }
 
@@ -723,6 +744,8 @@ function changedOpts(returnArg) {
 		return changed;
 	} else if (returnArg == 'indexChanged') {
 		return indexChanged;
+	} else if (returnArg == 'cIndex') {
+		return currCIndex;
 	} else if (numChanged > 0) {
 		return true;
 	} else {
@@ -801,20 +824,19 @@ function saveOut() {
 		);
 
 		//  if (currCIndex != JSON.stringify(window["cIndex"])) {
-		 if (changedOpts('indexChanged')) {
+		if (changedOpts('indexChanged')) {
 			 logDebug("cIndex is being changed.");
-			 saveArgs["cIndex"] = currCIndex;
+			 saveArgs["cIndex"] = changedOpts("cIndex");
 		}
 
 		setVars(saveArgs);
 		changed.each( function() { this.className = "optChangedSpan optNotChanged"} );
 
-
-
 	} else {
 		alert("Nothing to save...");
 	}
 
+	toggleSaveButton();
 
 	//exportArrangement("h"); // not implemented yet
 	// alert(exportTopBarOptions());
@@ -2047,8 +2069,6 @@ function makeOption(args) { // Make a switch
 						optType = 'style';
 					}
 
-
-
 					var setting;
 					switch(optType) {
 						case 'checkbox':
@@ -2081,6 +2101,8 @@ function makeOption(args) { // Make a switch
 					 else {
 						document.getElementById("option_changed_" + args.varId).className = "optChangedSpan optChanged";
 					}
+
+					toggleSaveButton();
 				},
 				false);
 			}

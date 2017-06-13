@@ -239,7 +239,7 @@ input:checked + .slider:before {
 .topBar {
     height: 50px;
     width: 100%;
-    background-color: red;
+    background-color: var(--tb_bg_color);
 }
 .noSelect {
    cursor: move;

@@ -449,6 +449,7 @@ document.getElementById($(".efpDetailsView").attr('id')).addEventListener('click
 // Add Settings Button
 addTemplateByClass("<li><a href='javascript:void(0)' id='asc_Settings_Launch'>SCw33t</a></li>", 'optionContainer');//onclick='init()'
 document.getElementById("asc_Settings_Launch").addEventListener('click', init_settings, false);
+document.getElementById("asc_Settings_Launch").addEventListener('click', init_settings, false);
 
 //-----BEGIN: Collect Case Info-----
 //var fiveHunID = $("div.bRelatedList:eq( 0 )").attr('id').replace("_RelatedActivityList", ""); //Collect the 500 ID  --old way
@@ -2036,15 +2037,13 @@ function buttGen(pageName, friendlyName, loc, dontKill)
 
                         $('#fiftyFrame').attr({'src': loc});
                         if (fiftyPageOnLeft) {
-                            $('#fiftyTable').appendTo($("#arrangeSC_row_h1-col1"));
+                            $('#fiftyTable').appendTo($("#arrangeSC_row_11-col1"));
                             $('#fiftyFrame').appendTo('#fiftyRow2'); //.appendTo($("#arrangeSC_row_h1-col1"));
                         } else {
-                            $('#fiftyTable').appendTo($("#arrangeSC_row_h1-col2"));
+                            $('#fiftyTable').appendTo($("#arrangeSC_row_11-col2"));
                             $('#fiftyFrame').appendTo('#fiftyRow2'); //.appendTo($("#arrangeSC_row_h1-col2"));
                         }
-                    }
-                    else
-                    {
+                    } else {
                         alert("A 50/50 page is already open!");
                     } // END: if iframe
                 } );      // END: click
@@ -2130,9 +2129,13 @@ function tableGen(vIndex, iType) {
     $("div.efdFields").prepend("<div id='arrangeSC_table_" + iType + "' width='100%' height='100%'></div>"); // Create the initial div; attach it to the page
 
 	// If fiftyPageOnRight != true, switch sides
-    if (iType == 'h' && fiftyPageOnLeft && vIndex[1][1] != "50%,empty") {
-		vIndex[1][2] = vIndex[1][1]; vIndex[1][1] = ["50%","empty"];
-	}
+	// why is iType a number?! h = 1, c = 4, d = undefined?!
+	// alert('t: ' + iType + ' -- fifty: ' +fiftyPageOnLeft + ' -- index1: ' + vIndex[1][1]);
+    if ((iType == 'h' || iType == 1) && fiftyPageOnLeft && vIndex[1][1] != "50%,empty") {
+			// alert('a');
+			vIndex[1][2] = vIndex[1][1];
+			vIndex[1][1] = ["50%","empty"];
+		}
 
     for (var i = 1; i < vRows; i++) {
         try {

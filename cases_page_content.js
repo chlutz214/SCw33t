@@ -1,15 +1,18 @@
 //cases_page_content.js
 
 
-var unlockRolodex;
+
 // Team
 var myself;
 var myTeam;
 
-var requestVars = ['myself','myTeam','unlockRolodex'];
+var requestVars = ['myself','myTeam'];
 getVars(JSON.stringify(requestVars), casesPageInit);
 
 // x-grid3-td-LIST_RECORD_ID = 500id.. Can build links and stuff with this
+
+
+
 //div.waitingSearchDiv
 // on change in table dom do alerts...x-grid3-row-last
 // var mySelf = {
@@ -68,9 +71,6 @@ var casePageEvenOddRowColors = true;
 
 function casesPageInit() {
 	console.log('myTeam: ' + myTeam);
-	if (unlockRolodex) {
-		// $('div.rolodex').attr('visibility','');
-	}
 	console.log('cases_page_content initialized');
 	// var bound = 0;
         var loopTime = 200; // Set time between loops (ms)
@@ -90,7 +90,7 @@ function casesPageInit() {
 
                 // if ($(".x-grid3-row-last").length > 0) { // If "table.list tr.dataRow" exists, ensure page is ready
                 if ($("div.waitingSearchDiv").css('display') == 'none') { // If "table.list tr.dataRow" exists, ensure page is ready
-					foundIt = 1;
+									foundIt = 1;
                     //if (FIAHold === 0) {} // For initial page load, if not a "Show More" re-check page is ready
                     //else if ($("table.list tr.dataRow").lenth > FIAHold) { foundIt = 1; } // For re-check when Show-more button is clicked, if additioanl dataRows have been added page is ready
                 }
@@ -106,7 +106,7 @@ function casesPageInit() {
 							}
 						);
 					// }
-					evenOddRows();
+					// evenOddRows();
 					getCellsByHeader();
 				}
 			}
@@ -160,6 +160,7 @@ function casesPageInit() {
 						// TODO make colors modifiable by selecting anchor colors like: g y o r
 						var alpha = 0.75;
 						var age = parseInt($(this).text().trim());
+						this.style.setProperty("color", "white", "important");
 						if (age == 0) {
 							$(this).parent().css({"background-color": "rgba(0,112,210,"+alpha+")"});
 						} else if (age > 0 && age <= 30) {
@@ -172,13 +173,16 @@ function casesPageInit() {
 							$(this).parent().css({"background-color": "rgba(255," + (Math.round(165-5.5*(age-60))) + ",0,"+alpha+")"}); // 165 (orange max - yellow...0) / 30 = 5.5
 							if (age >= 75) {
 								// starts to get hard to read black after the bg color 75 generates...
-								$(this).parent().css({"color":"white"});
+								// $(this).parent().css({"color":"white !important"});
+								this.style.setProperty("color", "white", "important");
 							}
 						} else if (age > 90 && age < 365) {
 							var a =  255 - Math.round((age - 90)*0.93);// 256/275 = 0.93
-							$(this).parent().css({"background-color": "rgba("+a+",0,0,"+alpha+")", "color":"white", "font-weight":"bold"});
+							$(this).parent().css({"background-color": "rgba("+a+",0,0,"+alpha+")", "font-weight":"bold"});// "color":"white !important",
+							this.style.setProperty("color", "white", "important");
 						} else {
-							$(this).parent().css({"background-color": "rgba(0,0,0,"+alpha+")","color":"white", "font-weight":"bold"});
+							$(this).parent().css({"background-color": "rgba(0,0,0,"+alpha+")", "font-weight":"bold"});//,"color":"white !important"
+							this.style.setProperty("color", "white", "important");
 						}
 					});
 					break;
@@ -217,7 +221,7 @@ function casesPageInit() {
 								$(this).parent().addClass('blink_me');
 							}
 						} else if (compared.tense == 'future') {
-							$(this).css({"background-color": 'blue'});
+							// $(this).css({"background-color": 'blue'});
 
 						}else if (compared.tense == 'past') {
 							// $(this).css({"background-color": 'red'});

@@ -31,7 +31,7 @@
             "exclude_globs": [
                 "*dontscw33ten=1*",
                 "https://ca--c.na13.visual.force.com/apex/SideBarTabs*",
-                "https://ca.my.salesforce.com/emptyHtmlDoc.html*"
+                "https://ca.my.salesforce.com/BACKUPFIELDREMOVETHIS/emptyHtmlDoc.html*"
             ],
             "match_about_blank": false,
             "all_frames": true,
@@ -156,7 +156,7 @@
         },
         {
             "matches": [
-                "https://ca.my.salesforce.com/liveagent/supervisor.apexp*"
+                "https://ca.my.salesforce.com/liveagent/supervisor.apexp22222222222222222222222*"
             ],
             "exclude_globs": [
                 "*dontscw33ten=1*"

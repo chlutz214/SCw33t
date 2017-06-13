@@ -79,14 +79,18 @@
 }
 
 /* Loading (related box) */
-.loading, .loadingText {
+.loading, .loadingText, .waitingSearchDiv, .ext-el-mask-msg div {
   background-color: var(--box_body_bg_color) !important;
   color: var(--body_text_color) !important;
 }
 
+iframe {
+	background-color: var(--body_bg_color) !important;
+}
+
 
 /* Table Headers */
-.headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row * {
+.headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row *, .x-grid3-header-inner {
 	background-color: var(--table_header_bg_color) !important;
 	color: var(--table_header_text_color) !important;
 }
@@ -95,11 +99,15 @@
 		border: var(--table_header_border_style) !important;
 }
 
-.phHeader, .phHeader a, .x-btn-text {
+
+/* Console */
+.phHeader, .console_widget_header_bg, .x-window-tl {
 	background-color: var(--console_top_color) !important;
 	color: var(--console_text_color) !important;
 }
-
+.sd_widget_header_tool, .phHeader a, .x-btn-text {
+	color: var(--console_text_color) !important;
+}
 /*.phHeader a, .x-btn-text {
 	color: var(--console_text_color) !important;
 }*/
@@ -107,7 +115,8 @@
 /* Tab Strip FULL Style */
 /*.x-plain-header, .x-plain-header *, .x-tab-strip, .x-tab-strip *, */.x-tab-right, .x-tab-strip-closable, .x-tab-strip-closable a,
  .support-servicedesk-navigator, .support-servicedesk-navigator *,  .x-menu, .x-menu-list-item, .x-menu-list,
- .sd_primary_tabstrip,  .sd_primary_tabstrip *  {
+ .sd_primary_tabstrip,  .sd_primary_tabstrip *,
+ .tab, .tab a, .tabPanel, .tabPanel *  {
 	background-color: var(--tabstrip_bg_color) !important;
 	color: var(--tabstrip_text_color) !important;
 }
@@ -116,22 +125,23 @@
 		background-color: var(--tabstrip_alt_bg_color) !important;
 	}
 
-.x-plain-header, .x-tab-strip, .support-servicedesk-navigator {
+.x-plain-header, .x-tab-strip, .support-servicedesk-navigator, .tab {
 	border: var(--tabstrip_border_style) !important;
 }
 
 /* Tab Strip ALT BG Style */
 .x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected,
-.x-tab-strip-active *, .x-tab-strip-over *, .x-menu-item-active *, .support-servicedesk-sbmenuitemselected * {
+.x-tab-strip-active *, .x-tab-strip-over *, .x-menu-item-active *, .support-servicedesk-sbmenuitemselected *,
+ .tab:hover, .tab a:hover, .tab.selected {
 	background-color: var(--tabstrip_alt_bg_color) !important;
 	color: var(--tabstrip_text_color) !important;
 }
-.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected/*, .x-tab-strip-closable*/ {
+.x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected, .tab a:hover, .tab.selected/*, .x-tab-strip-closable*/ {
 	border: var(--tabstrip_tab_alt_border_style) !important;
 }
 
 /* Tab Strip Text Color only */
-.tabText, .x-tab-strip-text, .x-btn-text *, .x-menu-list-item a {
+.tabText, .x-tab-strip-text, .x-btn-text *, .x-menu-list-item a, .mruPrimaryMenu * {
 		color: var(--tabstrip_text_color) !important;
 }
 
@@ -143,6 +153,7 @@
 .sd_footer, .sd_footer *, .sd_widget_btn_text, .sd_widget_btn_text * {
 	 background-color: var(--console_top_color) !important;
 	 color: var(--console_text_color) !important;
+   background-image: none !important;
  }
 
 /* Blinker style */
@@ -173,44 +184,7 @@
 	margin-left: 3px !important;
 }
 
-/* Warning & Alert Styles */
-.alertCell {
-	color: var(--alert_text_color) !important;
-	background-color: var(--alert_background_color) !important;
-	font-weight: bold !important;
-	border:  var(--alert_border_style) !important;
-}
 
-.alertText {
-	color: var(--alert_text_color) !important;
-	font-weight: bold !important;
-}
-
-.alertBg {
-	background-color: var(--alert_background_color) !important;
-	font-weight: bold !important;
-}
-.inlineEditRequiredDiv {
-	border-left: 3px solid var(--alert_background_color) !important;
-
-}
-
-.warningCell {
-	color: var(--warning_text_color) !important;
-	background-color: var(--warning_background_color) !important;
-	font-weight: bold !important;
-	border:  var(--warning_border_style) !important;
-}
-
-.warningText {
-	color: var(--warning_text_color) !important;
-	font-weight: bold !important;
-}
-
-.warningBg {
-	background-color: var(--warning_background_color) !important;
-	font-weight: bold !important;
-}
 
 /* Top Bar Styles */
 #arrangeTopBar {
@@ -226,10 +200,20 @@
 
 
 /*.fewerMore, .fewerMore a,*/ /*div.efdRLHover, div.pbHeader,*/
-div.efdRLHover, div.pbHeader, .linkBar, .bPageTitle, .listHoverLinks, .listHoverLinks *, .bNext, .bNext a,
-.topNav, .topNav a,  .linkBar *, .pageType, .pageDescription {
+div.efdRLHover, div.pbHeader:not(.pbHeaderEmpty), .linkBar, .bPageTitle, .listHoverLinks, .bNext,
+.topNav, .pageType, .pageDescription, .efpsTopTabs {
 	background: var(--tb_bg_color) !important;
 	color: var(--tb_text_color) !important;
+}
+
+.topNav a, .bNext a, .listHoverLinks *, .linkBar *, .optionLabel {
+	color: var(--tb_text_color) !important;
+}
+
+
+/* Fix for this being smaller than its contents... Move to above???*/
+.bPageTitle {
+  overflow: auto !important;
 }
 
 /*.listHoverLinks {
@@ -268,8 +252,9 @@ div.efdRLHover a, div.pbHeader a, .linkBar a {
 
 /* Body Styles */
 
-.entityFeedLayout, body, .efodBody, .pbBody, .bottomNav,.bPageBlock {
+body, .entityFeedLayout, .efodBody, .pbBody, .bottomNav, .bPageBlock, .feedBody, .new-tab-form {
 	background-color: var(--body_bg_color) !important;
+  /*background-image: none !important;*/
 }
 
 img {
@@ -295,11 +280,25 @@ body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
 }
 
 /* text color for table headers... */
-.sqTD span, th, .labelCol, .recordTypeName, .noRowsHeader {
+label, .sqTD span, th, .labelCol, .recordTypeName, .noRowsHeader {
 	color: var(--body_label_text_color) !important;
 	font-weight: normal !important;
 	font-size: .9em !important;
 }
+
+/* console item bodies */
+.x-window-footer.x-panel-btns, .x-toolbar-left-row, .x-toolbar-right-row, .x-window-bc, .x-window-body, .x-window-body > div, .x-window-mc, .x-window-bl, .paneWrapper > div, .innerContent, .homeTab {
+	background-color: var(--box_body_bg_color) !important;
+	background-image: none !important;
+	color: var(--box_body_text_color) !important;
+ }
+
+/* LAS box header */
+#liveAgentRequestPanelHeaderContainer, #liveAgentRequestPanelHeaderContainer * {
+	background-color: var(--box_h_bg_color) !important;
+	color: var(--box_h_text_color) !important;
+}
+
 
 /* Modified text */
 .inlineEditModified {
@@ -307,6 +306,8 @@ body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
 }
 
 /* Alert Styles */
+
+
 .warningSC {
 	color: var(--warning_text_color) !important;
 	background_color: var(--warning_background_color) !important;
@@ -318,18 +319,21 @@ body, .dataCell, .dataCol, .sqTD, .recordTypeDescription {
 }
 
 /* Test Field Style textbox textarea select */
-input[type=text], select, option, textArea {
+input[type=text], select, option, x-combo-list-item, textArea {
 	color: var(--txtfield_text_color) !important;
 	background-color: var(--txtfield_bg_color) !important;
 	border: var(--txtfield_border_style) !important;
+  background-image: none !important;
 }
 
-input[type=text]:hover, select:hover, option:hover, textArea:hover{
+input[type=text]:hover, select:hover, option:hover, x-combo-list-item:hover, textArea:hover{
 	border:var(--txtfield_alt_border_style) !important;
+  background-image: none !important;
 }
 
-input[type=text]:focus, select:focus, option:focus, textArea:focus {
+input[type=text]:focus, select:focus, option:focus, x-combo-list-item:focus, textArea:focus {
 	border: var(--txtfield_alt_border_style) !important;
+  background-image: none !important;
 }
 
 /*
@@ -358,20 +362,19 @@ input[type=checkbox] {
 */
 /* List Styles */
 
-
-
-.pbSubheader, div.bRelatedList .pbHeader, .bottomNav, .bottomNav a {
+.pbSubheader, div.bRelatedList .pbHeader, .apexp .pbHeader,  .bottomNav, .bottomNav a, .inlineEditDialog > div, .agentFilterPanel {
 	background-color: var(--box_h_bg_color) !important;
 	border: var(--box_h_border_style) !important;
 	background-image: none !important;
 }
 
-.pbSubheader h3, div.bRelatedList .pbHeader h3 {
+.pbSubheader h3, div.bRelatedList .pbHeader h3, .apexp .pbHeader h3, .inlineEditDialog h2, .inlineEditDialog .topRight .topLeft, .inlineEditDialog .bottomLeft, .agentFilterPanelTitle {
+	background-color: var(--box_h_bg_color) !important;
 	color: var(--box_h_text_color) !important;
 	background-image: none !important;
 }
 
-.pbSubsection, .pShowMore,.pShowMore a, .noRowsHeader {
+.pbSubsection, .pShowMore,.pShowMore a, .noRowsHeader, .fieldTableDiv, .centerContent, .innerContent > div {
 	background-color: var(--box_body_bg_color) !important;
 	background-image: none !important;
 }
@@ -381,21 +384,30 @@ table.list, table.list *, .detailList, .detailList *, .even, .odd {
 	border-collapse: collapse !important;
 }
 
-.even {
+.sqTB.even, .list tr:nth-child(even):not(.sqTR), .x-grid3-row:nth-child(even), .x-tree-node:nth-child(even), .feeditem:nth-child(even) {
 	background-color: var(--row_color_even) !important;
 	border: var(--row_border_style_even) !important;
 }
 
-.odd {
+.sqTB.odd, .list tr:nth-child(odd):not(.sqTR), .x-grid3-row:nth-child(odd), .x-tree-node:nth-child(odd), .feeditem:nth-child(odd) {
 	background-color: var(--row_color_odd) !important;
 	border: var(--row_border_style_odd) !important;
 }
 
+.list td:not(.sqTR), .x-grid3-cell, .x-tree-node div { /*:not(.warningCell):not(.alertCell)*/
+	color: var(--body_text_color) !important;
+}
+
 /* .over */
-.highlight, .highlight > td, .highlight > th, .highlight > tr,
+.highlight, .highlight > td, .highlight > th, .highlight > tr, .selectedDate,
 .inlineEditWriteOn, .inlineEditLockOn, .dataCol:hover, .data2Col:hover,
-div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *{
+div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *,
+.x-tree-selected, .x-tree-node-over, tr.LA_Expanded > *, .list tr:not(.sqTR):hover, .sqTB:hover, .dataRow:hover > * {
 	background-color: var(--row_color_highlight) !important;
+}
+
+.x-grid3-scroller, .chatListCell, .apexp > div {
+	background-color: var(--box_body_bg_color) !important;
 }
 
 
@@ -405,14 +417,47 @@ div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *{
 
 /* Button Styles */
 /* Why is menuButtonLabel here? it messes up console page squares... */
-.btn, .menuButtonLabel {
+.btn, .zen-btn, .x-btn, .x-btn-noicon, #asc_Settings_Launch {
 	color: var(--btn_text_color) !important;
 	background-color: var(--btn_bg_color) !important;
 	border: var(--btn_border_style) !important;
   background-image: none !important;
 }
 
-.btn:hover, .menuButtonLabel:hover {
+/*#newCase.menuButton{
+  width: auto !important;
+}
+
+#newCaseButton.menuButtonButton {
+  color: var(--btn_text_color) !important;
+	border: var(--btn_border_style) !important;
+  background-color: var(--btn_bg_color) !important;
+  background-image: none !important;
+  width: 60px !important;
+}
+
+#newCaseButton.menuButtonButton:hover
+  color: var(--btn_alt_text_color) !important;
+	background-color: var(--btn_alt_bg_color) !important;
+	border: var(--btn_alt_border_style) !important;
+  background-image: none !important;
+}
+
+#newCaseLabel.menuButtonLabel::after {
+  content: " | \\\/";
+}
+
+.menuButtonLabel {
+  color: var(--btn_text_color) !important;
+}
+
+.menuButtonMenu, .menuButtonMenu a {
+  color: var(--btn_alt_text_color) !important;
+  background-color: var(--btn_alt_bg_color) !important;
+  border: var(--btn_alt_border_style) !important;
+}*/
+
+.btn:hover, .zen-btn:hover, .x-btn-over, #asc_Settings_Launch:hover, .menuButtonButton:hover {
 	color: var(--btn_alt_text_color) !important;
 	background-color: var(--btn_alt_bg_color) !important;
 	border: var(--btn_alt_border_style) !important;
@@ -521,4 +566,44 @@ tr .sqTR {
   border: 0px none;
   height: 100%;
   width: 100%;
+}
+
+/* Warning & Alert Styles */
+.alertCell, .pbError {
+	color: var(--alert_text_color) !important;
+	background-color: var(--alert_background_color) !important;
+	font-weight: bold !important;
+	border:  var(--alert_border_style) !important;
+}
+
+.alertText, .errorMsg {
+	color: var(--alert_text_color) !important;
+	font-weight: bold !important;
+}
+
+.alertBg {
+	background-color: var(--alert_background_color) !important;
+	font-weight: bold !important;
+}
+
+.inlineEditRequiredDiv {
+	border-left: 3px solid var(--alert_background_color) !important;
+
+}
+
+.warningCell {
+	color: var(--warning_text_color) !important;
+	background-color: var(--warning_background_color) !important;
+	font-weight: bold !important;
+	border: var(--warning_border_style) !important;
+}
+
+.warningText {
+	color: var(--warning_text_color) !important;
+	font-weight: bold !important;
+}
+
+.warningBg {
+	background-color: var(--warning_background_color) !important;
+	font-weight: bold !important;
 }

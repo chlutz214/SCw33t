@@ -2,7 +2,7 @@
 var forceIframe;
 
 // CSS Theme
-// var myTheme;
+var myTheme;
 var replaceCloud;
 var console_top_color;
 var console_bottom_color;
@@ -10,45 +10,53 @@ var console_text_color;
 var tabstrip_bg_color;
 var tabstrip_alt_bg_color;
 var tabstrip_text_color;
-
-
+var tabstrip_border_color;
+var tabstrip_tab_border_color;
+var tabstrip_tab_alt_border_color;
 var body_bg_color;
 var body_text_color;
 var body_text_modified_color;
 var body_link_hover_color;
 var body_link_color;
 var body_label_text_color;
-var alert_background_color;
+var alert_bg_color;
 var alert_text_color;
-var alert_border_style;
-var warning_background_color;
+var alert_border_color;
+var warning_bg_color;
 var warning_text_color;
-var warning_border_style;
+var warning_border_color;
+var success_bg_color;
+var success_text_color;
+var success_border_color;
 var percent_bar_color;
 var percent_bar_bg_color;
 var tb_bg_color;
 var tb_text_color;
 var tb_link_color;
-var tb_border_style;
+var tb_border_color;
 var box_h_text_color;
 var box_h_bg_color;
-var box_h_border_style;
+var box_h_border_color;
 var box_body_bg_color;
-var box_body_border_style;
-var cell_label_border_style;
-var cell_data_border_style;
+var box_body_border_color;
+var table_header_bg_color;
+var table_header_text_color;
+var table_header_border_color;
+var cell_label_border_color;
+var cell_data_border_color;
 var row_color_even;
 var row_color_odd;
 var row_color_highlight;
 var btn_text_color;
 var btn_bg_color;
-var btn_border_style;
+var btn_border_color;
 var btn_alt_text_color;
 var btn_alt_bg_color;
-var btn_alt_border_style;
+var btn_alt_border_color;
 var txtfield_text_color;
 var txtfield_bg_color;
-var txtfield_border_style;
+var txtfield_border_color;
+var txtfield_alt_border_color;
 
 // Team
 var myself;
@@ -155,6 +163,20 @@ var caseRevBCC;
 var caseRevDefaultToAssisted;
 var defaultAssType;
 
+// TemplateSC
+var enableCommentTemplates;
+var enableNewDefectTemplate;
+var enableEmailTemplates;
+var emailGreeting;
+var emailSignature;
+var ftsSubject;
+var ftsDList;
+var ftsCC;
+var ftsBCC;
+var emailTemplates;
+var commentTemplates;
+var setSendNotification;
+
 // Cases Page (queue) Specific
 var unlockRolodex;
 
@@ -165,54 +187,78 @@ chrome.storage.sync.get(
 		'forceIframe':false,
 
 		// CSS Theme
-		"console_top_color":"#000000",
-		"console_bottom_color":"#FFFFFF",
-		"console_text_color":"#ff0000",
-		"tabstrip_bg_color":"#000000",
-		"tabstrip_alt_bg_color":"#333333",
-		"tabstrip_text_color":"#FFFFFF",
+		"myTheme":"SCDefault",
 
-		"body_bg_color":"#FFFFFF",
-		"body_text_color":"#000000",
-		"body_text_modified_color":"#FF6A00",
-		"body_link_hover_color":"#FF0000",
-		"body_link_color":"#006CB5",
-		"body_label_text_color":"#54698D",
-		"alert_background_color":"#FF99EE",
-		"alert_text_color":"#CC0000",
-		"alert_border_style":"1px solid #000000",
-		"warning_background_color":"#FFCF6F",
-		"warning_text_color":"#FF6A00",
-		"warning_border_style":"1px solid #000000",
-		"percent_bar_color":"#00FFFF",
-		"percent_bar_bg_color":"transparent",
-		"tb_bg_color":"#0070D2",
-		"tb_text_color":"#FFFFFF",
-		"tb_link_color":"#FFFFFF",
-		"tb_border_style":"1px solid #000000",
-		"box_h_text_color":"#FFFFFF",
-		"box_h_bg_color":"#0070D2",
-		"box_h_border_style":"1px solid #000000",
-		"box_body_bg_color":"#FFFFFF",
-		"box_body_border_style":"1px solid #000000",
-		"cell_label_border_style":"1px solid #00FF00",
-		"cell_data_border_style":"1px solid #0000FF",
-		"row_color_even":"inherit",
-		"row_color_odd":"#DDDDDD",
-		"row_color_highlight":"#000000",
-		"btn_text_color":"#0070d2",
-		"btn_bg_color":"#F4F5F7",
-		"btn_border_style":"1px solid #E0E5EE",
-		"btn_alt_text_color":"#0070d2",
-		"btn_alt_bg_color":"#F4F5F7",
-		"btn_alt_border_style":"1px solid #E0E5EE",
-		"txtfield_text_color":"#000000",
-		"txtfield_bg_color":"#FFFFFF",
-		"txtfield_border_style":"1px solid #D8DDE6",
+		"console_top_color":"rgba(0,112,210,1)",
+		"console_bottom_color":"rgba(37,44,51,1)",
+		"console_text_color":"rgba(255,255,255,1)",
+		"tabstrip_bg_color":"rgba(244,246,249,1)",
+		"tabstrip_alt_bg_color":"rgba(255,255,255,1)",
+		"tabstrip_text_color":"rgba(22,50,92,1)",
+
+		"tabstrip_border_color":"rgba(0,0,0,0.2)",
+		"tabstrip_tab_border_color":"rgba(255,255,0,1)",
+		"tabstrip_tab_alt_border_color":"rgba(255,0,0,1)",
+
+		"body_bg_color":"rgba(255,255,255,1)",
+		"body_text_color":"rgba(22,50,92,1)",
+		"body_text_modified_color":"rgba(255,106,0,1)",
+		"body_link_hover_color":"rgba(0,108,181,1)",
+		"body_link_color":"rgba(0,108,181,1)",
+		"body_label_text_color":"rgba(84,105,141,1)",
+
+		"alert_bg_color":"rgba(0,0,0,0)",
+		"alert_text_color":"rgba(204,0,0,1)",
+		"alert_border_color":"rgba(0,0,0,0)",
+
+		"warning_bg_color":"rgba(0,0,0,0)",
+		"warning_text_color":"rgba(255,106,0,1)",
+		"warning_border_color":"rgba(0,0,0,0)",
+
+		"success_bg_color":"rgba(0,0,0,0)",
+		"success_text_color":"rgba(255,106,0,1)",
+		"success_border_color":"rgba(0,0,0,0)",
+
+		"percent_bar_color":"rgba(255,255,0,1)",
+		"percent_bar_bg_color":"rgba(0,0,0,0)",
+
+		"tb_bg_color":"rgba(255,255,255,1)",
+		"tb_text_color":"rgba(22,50,92,1)",
+		"tb_link_color":"rgba(0,108,181,1)",
+		"tb_border_color":"rgba(255,255,255,1)",
+
+		"box_h_text_color":"rgba(22,50,92,1)",
+		"box_h_bg_color":"rgba(244,246,249,1)",
+		"box_h_border_color":"rgb(216,221,230,1)",
+		"box_body_bg_color":"rgba(255,255,255,1)",
+		"box_body_border_color":"rgba(255,255,255,1)",
+
+		"table_header_bg_color": "rgba(255,255,255,1)",
+		"table_header_text_color": "rgba(84,105,141,1)",
+		"table_header_border_color": "rgba(224,227,229,1)",
+
+		"cell_label_border_color":"rgba(236,236,236,1)",
+		"cell_data_border_color":"rgba(236,236,236,1)",
+
+		"row_color_even":"rgba(255,255,255,1)",
+		"row_color_odd":"rgba(255,255,255,1)",
+		"row_color_highlight":"rgba(244,246,249,1)",
+
+		"btn_text_color":"rgba(0,112,210,1)",
+		"btn_bg_color":"rgba(244,245,247,1)",
+		"btn_border_color":"rgba(224,229,238,1)",
+		"btn_alt_text_color":"rgba(0,112,210,1)",
+		"btn_alt_bg_color":"rgba(231,237,244,1)",
+		"btn_alt_border_color":"rgba(224,229,238,1)",
+
+		"txtfield_text_color":"rgba(0,0,0,1)",
+		"txtfield_bg_color":"rgba(255,255,255,1)",
+		"txtfield_border_color":"rgba(216,221,230,1)",
+		"txtfield_alt_border_color": "rgba(216,221,230,1)",
 
 		// Team
 		'myself': '{"name":"Christian Lutz","alias":"lutch01","color":"#e6e6fa","startHour":8,"endHour":17}',
-		'myTeam': '[{"name":"Ed Vogel","alias":"VOGED01","color":"#bcd7f2"},{"name":"Margaret Anttila","alias":"ANTMA06","color":"#a6eea7"},{"name":"Ralf Prigl","alias":"PRIRA01","color":"#c9eea6"},{"name":"Ilir Prifti","alias":"PRIIL01","color":"#f2bcd7"},{"name":"Anthony Manoleas","alias":"MANAN23","color":"#bcf2d7"},{"name":"Joseph Lutz","alias":"LUTJO01","color":"#bcbcf2"},{"name":"Brian Rehder","alias":"REHBR01","color":"#bcf2f2"},{"name":"Carlos Solla","alias":"SOLCA02","color":"#f2d7bc"},{"name":"Aaron Armagost","alias":"ARMAA01","color":"#f2f2bc"},{"name":"Shams Ahmed","alias":"AHMSH05","color":"#e3e3e3"}]',
+		'myTeam': '[{"name":"Ed Vogel","alias":"VOGED01","color":"#bcd7f2"},{"name":"Margaret Anttila","alias":"ANTMA06","color":"#a6eea7"},{"name":"Ralf Prigl","alias":"PRIRA01","color":"#c9eea6"},{"name":"Ilir Prifti","alias":"PRIIL01","color":"#f2bcd7"},{"name":"Anthony Manoleas","alias":"MANAN23","color":"#bcf2d7"},{"name":"Joseph Lutz","alias":"LUTJO01","color":"#bcbcf2"},{"name":"Brian Rehder","alias":"REHBR01","color":"#bcf2f2"},{"name":"Carlos Solla","alias":"SOLCA02","color":"#f2d7bc"},{"name":"Aaron Armagost","alias":"ARMAA01","color":"#f2f2bc"},{"name":"Shams Ahmed","alias":"AHMSH05","color":"#e3e3e3"},{"name":"Kelly Wong","alias":"SONWA03","color":"#e3e3FF"}]',
 
 		// General
 		'boostTextSize': '75%',
@@ -223,7 +269,7 @@ chrome.storage.sync.get(
 		'showRedundantButtons': false,
 		'showHelpButtons': false,
 		// 'showBodyBorders': true,
-		// 'bodyBorderStyle': '1px solid #d8dde6',
+		// 'bodyBorderStyle': '#d8dde6',
 		'enableCommentFilters': true,
 		'enableCompression ': false,
 		'listArrangementFix': true,
@@ -317,7 +363,101 @@ chrome.storage.sync.get(
 		'caseRevDefaultToAssisted': true,
 		'defaultAssType': 'Manager',
 
-		//'myTheme':{"body_bg_color":"#FFFFFF","body_text_color":"#16325C","body_text_modified_color":"#FF6A00","body_link_color":"#006CB5","body_label_text_color":"#54698D","alert_background_color":"#FF99EE","alert_text_color":"#CC0000","warning_background_color":"#FFB75D","warning_text_color":"#FF6A00","tb_bg_color":"#0070D2","tb_text_color":"#FFFFFF","tb_link_color":"#FFFFFF","tb_border_style":"1px solid #000000","box_h_text_color":"#FFFFFF","box_h_bg_color":"#0070D2","box_h_border_style":"1px solid #000000","box_body_bg_color":"#FFFFFF","box_body_border_style":"1px solid #000000","row_color_even":"inherit","row_color_odd":"#DDDDDD","row_color_highlight":"#000000","btn_text_color":"#0070d2","btn_bg_color":"#F4F5F7","btn_border_style":"1px solid #E0E5EE","txtfield_text_color":"#000000","txtfield_bg_color":"#FFFFFF","txtfield_border_style":"1px solid #D8DDE6"},
+
+		// TemplateSC
+		"enableCommentTemplates": true,
+		"enableNewDefectTemplate": true,
+		"enableEmailTemplates": true,
+		"emailGreeting": "Hello <contactFirst>,",
+		"emailSignature": "Thanks, \n" +
+		                  "Christian Lutz \n" +
+		                  "Support Engineer \n" +
+		                  "CA Technologies - North America",
+		"ftsSubject": "FTS Sev 1 - Case #<caseNum>",
+		"ftsDList": '',
+		"ftsCC": '',
+		"ftsBCC": '',
+
+		"emailTemplates": JSON.stringify({
+			"Basic Email": {
+				greeting: "<myGreeting>",
+				body: '',
+				signature: "<mySignature>",
+				postSignature: "<SFTPLinks>",
+
+			},
+			"Follow-Up Email": {
+				greeting: "<myGreeting>",
+				body: "I sent a response to this case on <INSERT DATE HERE> <as well as a follow-up email on --date here--> and haven't heard back from you. Do you have any further questions regarding this issue? Can we consider this issue resolved and close the support ticket?",
+				signature: "<mySignature>",
+				postSignature: "<SFTPLinks>",
+			},
+			"Close Case Email": {
+				greeting: "<myGreeting>",
+				body: "This case is being closed. If you receive a customer satisfaction survey please take the time to fill it out, I would truly appreciate your honest feedback.\n\n" +
+				      "If you should need any additional help with this issue now that it is closed, you can easily reopen it within 14 days of closure. After 14 days we would need to open a new issue and can simply reference this issue number within the new issue.",
+				signature: "<mySignature>",
+				postSignature: "",
+			},
+			"Close Case Inactive": {
+				greeting: "<myGreeting>",
+				body: "I sent a response to this case on <INSERT DATE HERE> <as well as a follow-up email on --date here--> and haven't heard back from you. Do you have any further questions regarding this issue? Can we consider this issue resolved and close the support ticket?",
+				signature: "<mySignature>",
+				postSignature: "",
+			},
+			"Proactive Email": {
+				greeting: "<myGreeting>",
+				body: "I am just checking to see if the solution we discussed for this case still meets your needs or if you have concerns. There is no need to respond to this email if things are going well, but if you have concerns please feel free to respond.",
+				signature: "<mySignature>",
+				postSignature: "",
+			}
+		}),
+
+		setSendNotification: true,
+		commentTemplates: JSON.stringify({
+			"Case Update": [
+					["Current Status", 6, "", "<explanations.currentStatus>"],
+					["Next Action", 6, "", "<explanations.nextAction>"],
+			],
+			"Initial Contact & Full Summary": [
+				["Issue Details", 6, "", "<explanations.issueDetails>"],
+				["Product Impact", 2, "", "<explanations.productImpact>"],
+				["Business Impact", 2, "", "<explanations.businessImpact>"],
+				["Environment Details", 4, "", "<explanations.environmentDetails>"],
+				["Troubleshooting", 2, "", "<explanations.troubleshooting>"],
+				["Reproduction Steps", 6, "", "<explanations.reproductionSteps>"],
+				["Search Results", 2, "", "<explanations.searchResults>"],
+				["Case Update", 0, "", ""],
+				["Current Status", 4, "", "<explanations.currentStatus>"],
+				["Next Action", 4, "", "<explanations.nextAction>"],
+			],
+			"Case Closure Summary": [
+					["Issue Details", 4, "", "<explanations.issueDetails>"],
+					["Environment Details", 4, "Environment Type: PRODUCTION | PRE-PRODUCTION | DEVELOPMENT | TEST\n", "<explanations.environmentDetails>"],
+					["Useful Resources", 2, "", "<explanations.usefulResources>"],
+					["Root Cause Analysis", 2, "", "<explanations.rootCauseAnalysis>"],
+					["Workaround", 4, "", "<explanations.workaround>"],
+					["Resolution", 2, "", "<explanations.resolution>"],
+			],
+			"Follow The Sun": [
+					["Current Status", 4, "", "<explanations.currentStatus>"],
+					["Issue Details", 8, "", "<explanations.issueDetails>"],
+					["Next Action", 4, "", "<explanations.nextAction>"],
+					["Product Impact", 2, "", "<explanations.productImpact>"],
+					["Business Impact", 2, "", "<explanations.businessImpact>"],
+					["Client Contact(s) & Sensitivity", 2, "", "<explanations.clientContactsSensitivity>"],
+					["CA Management Involved", 2, "", "<explanations.managementInvolved>"],
+					["Who Was Contacted From Next Region?", 2, "", "<explanations.nextRegionContacted>"],
+					["Engineering Involvement", 2, "", "<explanations.engineeringInvolvement>"],
+					["Lab Information", 2, "", "<explanations.labInformation>"],
+					["Early Transfer Reason", 2, "", "<explanations.earlyTransferReason>"],
+					["Non-Case Attachments", 2, "", "<explanations.attachments>"],
+			],
+
+		}),
+
+
+
 
 	},
 	function(items) {
@@ -332,51 +472,60 @@ chrome.storage.sync.get(
 		forceIframe = items.forceIframe;
 
 		// CSS Theme
-		// myTheme = items.myTheme;
+		myTheme = items.myTheme;
 		console_top_color = items.console_top_color;
 		console_bottom_color = items.console_bottom_color;
 		console_text_color = items.console_text_color;
 		tabstrip_bg_color = items.tabstrip_bg_color;
 		tabstrip_alt_bg_color = items.tabstrip_alt_bg_color;
 		tabstrip_text_color = items.tabstrip_text_color;
-
+		tabstrip_border_color = items.tabstrip_border_color;
+		tabstrip_tab_border_color = items.tabstrip_tab_border_color;
+		tabstrip_tab_alt_border_color = items.tabstrip_tab_alt_border_color;
 		body_bg_color = items.body_bg_color;
 		body_text_color = items.body_text_color;
 		body_text_modified_color = items.body_text_modified_color;
 		body_link_hover_color = items.body_link_hover_color;
 		body_link_color = items.body_link_color;
 		body_label_text_color = items.body_label_text_color;
-		alert_background_color = items.alert_background_color;
+		alert_bg_color = items.alert_bg_color;
 		alert_text_color = items.alert_text_color;
-		alert_border_style = items.alert_border_style;
-		warning_background_color = items.warning_background_color;
+		alert_border_color = items.alert_border_color;
+		warning_bg_color = items.warning_bg_color;
 		warning_text_color = items.warning_text_color;
-		warning_border_style = items.warning_border_style;
+		warning_border_color = items.warning_border_color;
+		success_bg_color = items.success_bg_color;
+		success_text_color = items.success_text_color;
+		success_border_color = items.success_border_color;
 		percent_bar_color = items.percent_bar_color;
 		percent_bar_bg_color = items.percent_bar_bg_color;
 		tb_bg_color = items.tb_bg_color;
 		tb_text_color = items.tb_text_color;
 		tb_link_color = items.tb_link_color;
-		tb_border_style = items.tb_border_style;
+		tb_border_color = items.tb_border_color;
 		box_h_text_color = items.box_h_text_color;
 		box_h_bg_color = items.box_h_bg_color;
-		box_h_border_style = items.box_h_border_style;
+		box_h_border_color = items.box_h_border_color;
 		box_body_bg_color = items.box_body_bg_color;
-		box_body_border_style = items.box_body_border_style;
-		cell_label_border_style = items.cell_label_border_style;
-		cell_data_border_style = items.cell_data_border_style;
+		box_body_border_color = items.box_body_border_color;
+		table_header_bg_color = items.table_header_bg_color;
+		table_header_text_color = items.table_header_text_color;
+		table_header_border_color = items.table_header_border_color;
+		cell_label_border_color = items.cell_label_border_color;
+		cell_data_border_color = items.cell_data_border_color;
 		row_color_even = items.row_color_even;
 		row_color_odd = items.row_color_odd;
 		row_color_highlight = items.row_color_highlight;
 		btn_text_color = items.btn_text_color;
 		btn_bg_color = items.btn_bg_color;
-		btn_border_style = items.btn_border_style;
+		btn_border_color = items.btn_border_color;
 		btn_alt_text_color = items.btn_alt_text_color;
 		btn_alt_bg_color = items.btn_alt_bg_color;
-		btn_alt_border_style = items.btn_alt_border_style;
+		btn_alt_border_color = items.btn_alt_border_color;
 		txtfield_text_color = items.txtfield_text_color;
 		txtfield_bg_color = items.txtfield_bg_color;
-		txtfield_border_style = items.txtfield_border_style;
+		txtfield_border_color = items.txtfield_border_color;
+		txtfield_alt_border_color = items.txtfield_alt_border_color;
 
 		// Team
 		myself = items.myself;
@@ -485,6 +634,21 @@ chrome.storage.sync.get(
 		caseRevDefaultToAssisted = items.caseRevDefaultToAssisted;
 		defaultAssType = items.defaultAssType;
 
+		// TemplateSC
+		enableCommentTemplates = items.enableCommentTemplates;
+		enableNewDefectTemplate = items.enableNewDefectTemplate;
+		enableEmailTemplates = items.enableEmailTemplates;
+		emailGreeting = items.emailGreeting;
+		emailSignature = items.emailSignature;
+		ftsSubject = items.ftsSubject;
+		ftsDList = items.ftsDList;
+		ftsCC = items.ftsCC;
+		ftsBCC = items.ftsBCC;
+
+		emailTemplates = items.emailTemplates;
+		commentTemplates = items.commentTemplates;
+		setSendNotification = items.setSendNotification;
+
 chrome.extension.onMessage.addListener(
 	function(msg, sender, sendResponse) {
 		console.log('msg rcv')
@@ -496,7 +660,7 @@ chrome.extension.onMessage.addListener(
 					'forceIframe': forceIframe,
 
 					// CSS Theme
-					// 'myTheme': myTheme,
+					'myTheme': myTheme,
 					"console_top_color":console_top_color,
 					"console_bottom_color":console_bottom_color,
 					"console_text_color":console_text_color,
@@ -504,43 +668,54 @@ chrome.extension.onMessage.addListener(
 					"tabstrip_alt_bg_color":tabstrip_alt_bg_color,
 					"tabstrip_text_color":tabstrip_text_color,
 
+					"tabstrip_border_color":tabstrip_border_color,
+					"tabstrip_tab_border_color":tabstrip_tab_border_color,
+					"tabstrip_tab_alt_border_color":tabstrip_tab_alt_border_color,
+
 					'body_bg_color': body_bg_color,
 					'body_text_color': body_text_color,
 					'body_text_modified_color': body_text_modified_color,
 					'body_link_hover_color': body_link_hover_color,
 					'body_link_color': body_link_color,
 					'body_label_text_color': body_label_text_color,
-					'alert_background_color': alert_background_color,
+					'alert_bg_color': alert_bg_color,
 					'alert_text_color': alert_text_color,
-					'alert_border_style': alert_border_style,
-					'warning_background_color': warning_background_color,
+					'alert_border_color': alert_border_color,
+					'warning_bg_color': warning_bg_color,
 					'warning_text_color': warning_text_color,
-					'warning_border_style': warning_border_style,
+					'warning_border_color': warning_border_color,
+					'success_bg_color': success_bg_color,
+					'success_text_color':success_text_color,
+					'success_border_color':success_border_color,
 					'percent_bar_color': percent_bar_color,
 					'percent_bar_bg_color': percent_bar_bg_color,
 					'tb_bg_color': tb_bg_color,
 					'tb_text_color': tb_text_color,
 					'tb_link_color': tb_link_color,
-					'tb_border_style': tb_border_style,
+					'tb_border_color': tb_border_color,
 					'box_h_text_color': box_h_text_color,
 					'box_h_bg_color': box_h_bg_color,
-					'box_h_border_style': box_h_border_style,
+					'box_h_border_color': box_h_border_color,
 					'box_body_bg_color': box_body_bg_color,
-					'box_body_border_style': box_body_border_style,
-					'cell_label_border_style': cell_label_border_style,
-					'cell_data_border_style': cell_data_border_style,
+					'box_body_border_color': box_body_border_color,
+					'table_header_bg_color': table_header_bg_color,
+					'table_header_text_color': table_header_text_color,
+					'table_header_border_color': table_header_border_color,
+					'cell_label_border_color': cell_label_border_color,
+					'cell_data_border_color': cell_data_border_color,
 					'row_color_even': row_color_even,
 					'row_color_odd': row_color_odd,
 					'row_color_highlight': row_color_highlight,
 					'btn_text_color': btn_text_color,
 					'btn_bg_color': btn_bg_color,
-					'btn_border_style': btn_border_style,
+					'btn_border_color': btn_border_color,
 					'btn_alt_text_color': btn_alt_text_color,
 					'btn_alt_bg_color': btn_alt_bg_color,
-					'btn_alt_border_style': btn_alt_border_style,
+					'btn_alt_border_color': btn_alt_border_color,
 					'txtfield_text_color': txtfield_text_color,
 					'txtfield_bg_color': txtfield_bg_color,
-					'txtfield_border_style': txtfield_border_style,
+					'txtfield_border_color': txtfield_border_color,
+					'txtfield_alt_border_color': txtfield_alt_border_color,
 
 					// Team
 					'myself': myself,
@@ -648,8 +823,19 @@ chrome.extension.onMessage.addListener(
 					'caseRevDefaultToAssisted': caseRevDefaultToAssisted,
 					'defaultAssType': defaultAssType,
 
-					// Cases Page (queue) Specific
-					'unlockRolodex': unlockRolodex,
+					// TemplateSC
+					'enableCommentTemplates': enableCommentTemplates,
+					'enableNewDefectTemplate': enableNewDefectTemplate,
+					'enableEmailTemplates': enableEmailTemplates,
+					'emailGreeting': emailGreeting,
+					'emailSignature': emailSignature,
+					'ftsSubject': ftsSubject,
+					'ftsDList': ftsDList,
+					'ftsCC': ftsCC,
+					'ftsBCC': ftsBCC,
+					'emailTemplates': emailTemplates,
+					'commentTemplates': commentTemplates,
+					'setSendNotification': setSendNotification,
 				});
 			} else {
 				var varis = {};

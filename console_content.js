@@ -42,14 +42,14 @@ function init_console() {
 
         // Add footer
         try {
-            $("<table width=\"100%\" height='15px'><tbody><tr id='SCw33t_footer'" +
-              ";'><td id='arrangeFooterText'>&nbsp;&nbsp;Sweetened by <a href='" + pblink +
+            $("<table width=\"100%\" height='15px'><tbody><tr id='SCw33t_footer'>" +
+              "<td id='arrangeFooterText'>&nbsp;&nbsp;Sweetened by <a href='" + pblink +
               "' target='_blank' style='text-decoration: underline;'>SCw33t v" + curVersion + "</a> - </td></tr></tbody></table>")
                 .prependTo("div.x-box-inner");
 
             $("<a href='javascript:void(0)' style='text-decoration: underline;'>What's New?</a>").click(
                 function() {
-                    reviewChanges();
+                  reviewChanges();
                 }
             ).appendTo($('#arrangeFooterText'));
             console.log('added footer')

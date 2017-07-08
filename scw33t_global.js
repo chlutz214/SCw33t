@@ -32,105 +32,127 @@ var isChrome = true; // !!window.chrome && !!window.chrome.webstore;
 //alert("FF: " + isFirefox + ". Chrome: " + isChrome);
 // END: Browser ID
 
-var boostTextSize = '75%';
-var removePullDownBar = true;
+var boostTextSize;
+var removePullDownBar;
 var caseNum = null;
 var fiveHunId = null;
 var needToDismiss = null;
 
 
 // CSS Theme
-var myTheme = [
+var themeParts = [
 "console_top_color",
 "console_bottom_color",
 "console_text_color",
 "tabstrip_bg_color",
 "tabstrip_alt_bg_color",
 "tabstrip_text_color",
+"tabstrip_border_color",
+"tabstrip_tab_border_color",
+"tabstrip_tab_alt_border_color",
 'body_bg_color',
 'body_text_color',
 'body_text_modified_color',
 'body_link_hover_color',
 'body_link_color',
 'body_label_text_color',
-'alert_background_color',
+'alert_bg_color',
 'alert_text_color',
-'alert_border_style',
-'warning_background_color',
+'alert_border_color',
+'warning_bg_color',
 'warning_text_color',
-'warning_border_style',
+'warning_border_color',
+'success_bg_color',
+'success_text_color',
+'success_border_color',
 'percent_bar_color',
 'percent_bar_bg_color',
 'tb_bg_color',
 'tb_text_color',
 'tb_link_color',
-'tb_border_style',
+'tb_border_color',
 'box_h_text_color',
 'box_h_bg_color',
-'box_h_border_style',
+'box_h_border_color',
 'box_body_bg_color',
-'box_body_border_style',
-'cell_label_border_style',
-'cell_data_border_style',
+'box_body_border_color',
+'table_header_bg_color',
+'table_header_text_color',
+'table_header_border_color',
+'cell_label_border_color',
+'cell_data_border_color',
 'row_color_even',
 'row_color_odd',
 'row_color_highlight',
 'btn_text_color',
 'btn_bg_color',
-'btn_border_style',
+'btn_border_color',
 'btn_alt_text_color',
 'btn_alt_bg_color',
-'btn_alt_border_style',
+'btn_alt_border_color',
 'txtfield_text_color',
 'txtfield_bg_color',
-'txtfield_border_style'];
+'txtfield_border_color',
+'txtfield_alt_border_color'];
 var console_top_color;
 var console_bottom_color;
 var console_text_color;
 var tabstrip_bg_color;
 var tabstrip_alt_bg_color;
 var tabstrip_text_color;
-
+var tabstrip_border_color;
+var tabstrip_tab_border_color;
+var tabstrip_tab_alt_border_color;
 var body_bg_color;
 var body_text_color;
 var body_text_modified_color;
 var body_link_hover_color;
 var body_link_color;
 var body_label_text_color;
-var alert_background_color;
+var alert_bg_color;
 var alert_text_color;
-var alert_border_style;
-var warning_background_color;
+var alert_border_color;
+var warning_bg_color;
 var warning_text_color;
-var warning_border_style;
+var warning_border_color;
+var success_bg_color;
+var success_text_color;
+var success_border_color;
 var percent_bar_color;
 var percent_bar_bg_color;
 var tb_bg_color;
 var tb_text_color;
 var tb_link_color;
-var tb_border_style;
+var tb_border_color;
 var box_h_text_color;
 var box_h_bg_color;
-var box_h_border_style;
+var box_h_border_color;
 var box_body_bg_color;
-var box_body_border_style;
-var cell_label_border_style;
-var cell_data_border_style;
+var box_body_border_color;
+var table_header_bg_color;
+var table_header_text_color;
+var table_header_border_color;
+var cell_label_border_color;
+var cell_data_border_color;
 var row_color_even;
 var row_color_odd;
 var row_color_highlight;
 var btn_text_color;
 var btn_bg_color;
-var btn_border_style;
+var btn_border_color;
+var btn_alt_text_color;
+var btn_alt_bg_color;
+var btn_alt_border_color;
 var txtfield_text_color;
 var txtfield_bg_color;
-var txtfield_border_style;
+var txtfield_border_color;
+var txtfield_alt_border_color;
 
-var requestVars = ['boostTextSize','removePullDownBar'].concat(myTheme);
-// var requestVars ='myTheme';
+var requestVars = ['boostTextSize','removePullDownBar'].concat(themeParts);
+// var requestVars ='themeParts';
 // Sets Global Theme
 getVars(JSON.stringify(requestVars), setTheme);
-function setTheme() { setStyle(myTheme); }
+function setTheme() { setStyle(themeParts); }
 
 
 ////////////////////////////////////////////////
@@ -511,8 +533,104 @@ function formatBytes(bytes,decimals)
     }
 }
 
+
+
+function makeFloatingBox(args) {
+	/* args:
+	 * id**
+	 * title: goes in title bar
+	 * height: height of box
+	 * width: width of box
+	 * overlay: t/f
+	 *	>	overlayColor: rgb color, 0,0,0 = black | 255,255,255 = white
+	 *  > overlayAlpha: alpha level, 0.75 = 75%
+	 * positionX: x-axis position - top
+	 * positionY: y-axis position - left
+	 *
+	 */
+	//  alert('making box');
+
+	if (!(args.id)) { args.id = args[0]; }
+	if (!(args.boxTarget)) { args.boxTarget = 'body'; }
+	if (!(args.title)) { args.title = ""; }
+	if (!(args.positionX)) { args.positionX = "calc(32%)"; }
+	if (!(args.positionY)) { args.positionY = "calc(37.5%)"; }
+	if (!(args.height)) { args.height = "35%"; }
+	if (!(args.width)) { args.width = "25%"; }
+	if (args.overlay) {
+		if (!(args.overlayAlpha)) { args.overlayAlpha = 0.75; }
+		if (!(args.overlayColor)) { args.overlayColor = "0,0,0"; }
+
+		// $("<div id='" + args.id + "-overlayDiv' class='overlayDiv' style='height:100%; width:100%; background-color: rgba(0, 0, 0, 0.8); position:fixed; top:0px; left:0px; z-index: 102;'></div>").appendTo($('body'));//'div.efObjectDetails'
+		$("<div id='" + args.id + "-overlayDiv' class='overlayDiv' style='background-color: rgba(" + args.overlayColor + "," + args.overlayAlpha + ");'></div>").appendTo($(args.boxTarget));//'div.efObjectDetails'
+		args.boxTarget = '#' + args.id + "-overlayDiv";
+	}
+
+	var floatingBoxTemplate = "<table id='" + args.id + "' class='floatingBox' border='0' padding='0' style='top: " + args.positionX + "; left:" + args.positionY + "; width:" + args.width + "; height:" + args.height + ";'><tbody></tbody></table>";
+  $(floatingBoxTemplate).appendTo($(args.boxTarget));
+
+  $("<tr id='" + args.id + "-floatingBox-titleBar' class='pbHeader fbTitleBar'><td id='" + args.id + "-title' class='pbTitle fbTitle'><h3>&nbsp;&nbsp;" + args.title + "<h3></td><td id='" + args.id + "-btns' class='pbButton fbTitleBtns'></td><td id='" + args.id + "-close' class='fbTtileClose'></td></tr>").appendTo($('#' + args.id));
+  $("<a href='javascript:void(0)'>&nbsp;X&nbsp;</a>").click(
+		function() {
+			$('#' + args.id + "-overlayDiv").remove();
+			$('#' + args.id).remove();
+		}
+	).appendTo($('#' + args.id + '-close'));
+
+  $("<tr id='" + args.id + "-content' class='fbContent'></tr>").appendTo($('#' + args.id));
+
+	return {
+		"content": args.id + '-content',
+		"id": args.id,
+		"titleBtns": args.id + '-btns'
+	};
+}
+
+
+function triggerChange(targetId) {
+	var evt = document.createEvent("HTMLEvents");
+	evt.initEvent("change", false, true);
+	document.getElementById(targetId).dispatchEvent(evt);
+}
+
+
+function reviewChanges() {
+	if ($("#reviewChanges").length == 0){
+		// alert('reviewing change');
+		var fb = makeFloatingBox({"id":"reviewChanges","overlay":true,"title":"Whats New?"});
+		$("<select id='changesSelect'></select>").change(
+				function() {
+						$('#changesList').children().remove();
+						var verVal = $('#changesSelect option:selected').val();
+						for (var i = 2; i < changeLog[verVal].length; i++) {
+								var bolden = changeLog[verVal][i].split(':');
+								$("<li><b>" + bolden[0]+ ":</b>" + bolden[1] + "</li>").appendTo($("#changesList"));
+						}
+				}
+			).appendTo($('#' + fb.titleBtns));
+
+			for (var i = 0; i < changeLog.length; i++) {
+					$("<option id='change" + i + "' value='" + i + "'>" + changeLog[i][0] + " - " + changeLog[i][1] + "</option>").appendTo($('#changesSelect'));
+			}
+
+			$("<td colspan='3'><ul id='changesList' style='height:100%; width:100%; overflow:auto;'></ul></td>").appendTo($('#' + fb.content));
+			//On change function:
+			$('#changesList').children().remove();
+			var verVal = $('#changesSelect option:selected').val();
+			for (var i = 2; i < changeLog[verVal].length; i++) {
+					var bolden = changeLog[verVal][i].split(':');
+					$("<li><b>" + bolden[0]+ ":</b>" + bolden[1] + "</li>").appendTo($("#changesList"));
+			}
+		}
+}
+
+
+
+
+
+
 //Changelog review
-function reviewChanges()
+function reviewChangesBak()
 {
     $("<div id='changesDiv' style='height:100%; width:100%; background-color: rgba(0, 0, 0, 0.8); position:fixed; top:0px; left:0px; z-index: 102;'></div>").appendTo($('body'));//'div.efObjectDetails'
     $("<table id='changesTab' border='0' padding='0' style='position:absolute; top:calc(32%); left:calc(37.5%); background-color:#FFFFFF; width:25%; height: 35%;'><tbody></tbody></table>").appendTo($('#changesDiv'));

@@ -16,7 +16,8 @@
         "<all_urls>"
     ],
     "web_accessible_resources": [
-        "images/*"
+        "images/*",
+        "scw33t_themes.js"
     ],
     "background": {
         "page": "background.html",
@@ -65,8 +66,10 @@
             ],
             "js": [
                 "settings_helper.js",
+                "scw33t_themes.js",
                 "settings_content.js",
-                "500a_content.js"
+                "500a_content.js",
+                "templatSC_shared.js"
             ]
         },
         {
@@ -95,7 +98,8 @@
             "all_frames": true,
             "run_at": "document_end",
             "js": [
-                "comment_content.js"
+                "comment_content.js",
+                "templatSC_shared.js"
             ]
         },
         {
@@ -123,7 +127,8 @@
             "all_frames": true,
             "run_at": "document_end",
             "js": [
-                "defect_new_content.js"
+                "defect_new_content.js",
+                "templatSC_shared.js"
             ]
         },
         {
@@ -137,7 +142,8 @@
             "all_frames": true,
             "run_at": "document_end",
             "js": [
-                "defect_comment_content.js"
+                "defect_comment_content.js",
+                "templatSC_shared.js"
             ]
         },
         {

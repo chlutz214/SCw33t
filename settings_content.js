@@ -69,40 +69,6 @@ logTrace('settings_content.js initializing.');
 	var fiveHunAAID = window.location.href.split("/")[3].split("?")[0]; // Collect the full 500 ID
 	var fiveHunID = fiveHunAAID.slice(0,-3);                            // Collect the 500 ID
 
-	/*
-var theBoxes = {
-    // New Boxes
-	prodDetailID: ["#head_01Ba000000E3Y8V_ep, #body_01Ba000000E3Y8V_ep", "Product Detail", "l"],            // ID for Product Detail
-	caseResID: ["#head_01Ba000000E3Y8W_ep, #body_01Ba000000E3Y8W_ep", "Case Resolution", "l"],                 // ID for Case Resolution
-	prodOfferingID: ["#head_01Ba000000E3Y8X_ep, #body_01Ba000000E3Y8X_ep", "Product and Offering", "l"],  // ID for Product and Offering
-	supDetailsID: ["#head_01Ba000000E3Y8Y_ep, #body_01Ba000000E3Y8Y_ep", "Supplemental Details", "l"],      // ID for Supplemental Details
-	// Details Boxes
-	caseInfoID: ["#head_01Ba000000ETFux_ep, #body_01Ba000000ETFux_ep", "Case Information", "l"],              // ID for Case Information
-	detailsID: ["#head_01Ba000000ETFuz_ep, #body_01Ba000000ETFuz_ep", "Details", "l"],                         // ID for Details
-	//advInfoID: ["#head_01Ba000000ETFv0_ep, #advInfoBody", "Advanced Information", "l"],          // ID for Advanced Information - removed 4/21 2017
-	//componentID: ["#head_01Ba000000ETFv1_ep, #componentBody", "Search-Select CA Product and Component", "l"], // ID for Search/Select CA Product and Component
-	//prodDetailsID: ["#head_01Ba000000ETFv2_ep, #prodDetailsBody", "Product Details", "l"],       // ID for Product Details
-	altContactID: ["#head_01Ba000000ETFv3_ep, #body_01Ba000000ETFv3_ep", "Alt Contact Information", "l"], // ID for Alt Contact Information
-	auditHistoryID: ["#head_01Ba000000ETFv4_ep, #body_01Ba000000ETFv4_ep", "Case Audit History", "l"],  // ID for Case Audit History
-	alertBoxID: ["#head_arrangeSC-alertBox_ep, #body_arrangeSC-alertBox_ep", "Alerts!", "l"],          // ID for ArrangeSC Alert Box
-    // Related List Boxes
-    openActsID: ["#" + fiveHunID + "_RelatedActivityList", "Open Activities", "r"],              // ID for Open Activities
-    actHistoryID: ["#" + fiveHunID + "_RelatedHistoryList", "Activity History", "r"],            // ID for Activity History
-    caseTeamID: ["#" + fiveHunID + "_RelatedTeamMemberList", "Case Team", "r"],                  // ID for Case Team
-    attachmentsID: ["#" + fiveHunID + "_RelatedAttachmentList", "Attachments", "r"],             // ID for Attachments
-    caseCommentsID: ["#" + fiveHunID + "_RelatedCommentsList", "Case Comments", "r"],            // ID for Case Comments
-    sftpAttachmentsID: ["#" + fiveHunID + "_00Na000000ArhjW", "SFTP File Attachments", "r"],     // ID for SFTP File Attachments
-    relCasesID: ["#" + fiveHunID + "_RelatedChildCaseList", "Related Cases", "r"],               // ID for Related Cases
-    extReqsID: ["#" + fiveHunID + "_00Na000000Arhi2", "External Requests", "r"],                 // ID for External Requests
-    kbArtsID: ["#" + fiveHunID + "_00Na000000BFxGs", "KB Articles", "r"],                        // ID for KB Articles
-    emailsID: ["#" + fiveHunID + "_RelatedEmailMessageList", "Emails", "r"],                     // ID for Emails
-    caseReviewsID: ["#" + fiveHunID + "_00Na000000BLy1J", "Case Reviews", "r"],                  // ID for Case Reviews
-    chatTransID: ["#" + fiveHunID + "_RelatedLiveChatTranscriptList", "Live Chat Transcripts", "r"], // ID for Live Chat Transcripts
-    defectsID: ["#" + fiveHunID + "_00Na000000BFxGt", "Related Defects", "r"],                   // ID for Related Defects
-    caseHistoryID: ["#" + fiveHunID + "_RelatedEntityHistoryList", "Case History", "r"],         // ID for Case History
-    relContentID: ["#" + fiveHunID + "_00Na000000AxMex", "Related Content", "r"] };       // ID for Related Content
-
-	*/
 // Main loader (loaded by clicking SC Settings Button)
 function init_settings() {
 
@@ -155,7 +121,7 @@ function init_settings() {
         var a = document.getElementById('holdDiv_' + headId).appendChild(infoBoxHeads[i]);
         var b = document.getElementById('holdDiv_' + headId).appendChild(infoBoxes[i]);
         //insertArrangeSideBarItem("emails", "Emails");
-		logDebug(a + " :: " + headId + " :: " + i + " :: " + infoBoxes[i]);
+				logDebug(a + " :: " + headId + " :: " + i + " :: " + infoBoxes[i]);
     }
 	/////////////////////////////////////
 
@@ -192,11 +158,12 @@ function init_settings() {
     // Add Tabs
     addTab("tabbox1","arrangementTab","Arrange<b>SC</b>", ""); // <b>ARRANGE</b><span style='font-size:12px'>sc</span>
 		makeTopBar('arrangementTab');
+		addTab("tabbox1","genSettingsTab","Tweak<b>SC</b>", "");
     addTab("tabbox1","paintTab","Paint<b>SC</b>", "");
     // addTab("tabbox1","alertBoxTab","Alert<b>SC</b>", "");
-	// addTab("tabbox1","templateSCTab","Template<b>SC</b>", "");
-	// addTab("tabbox1","snippetsSCTab","<b>SC</b>nippets", "");
-	addTab("tabbox1","genSettingsTab","Tweak<b>SC</b>", "");
+	 	addTab("tabbox1","templateSCTab","Template<b>SC</b>", "");
+		// addTab("tabbox1","snippetsSCTab","<b>SC</b>nippets", "");
+
     // addTab("tabbox1","advSettingsTab","Advanced <b>SC</b>w33tness", "");
 
     addTab("tabbox1","aboutTab","About", "");
@@ -204,11 +171,15 @@ function init_settings() {
 			"<h3>Welcome to SCw33t.</h3>"+
 			"<p>SCw33t is a browser extension developed to customize & add functionality to Service Cloud.</p>"+
 			"<p>This is currently BETA software, so not everything is going to always work right. Feel free to contact me if you run into any problems. -Christian Lutz (<a href='mailto://lutch01@ca.com'>lutch01@ca.com</a>)</p>"+
-			"<br />"
-			// "<h4>Some code </h4>"
-			// "<br />"+
-			// "<br />"+
-			// "<br />"+
+			"<br />"+
+			"<h4>Some features borrowed from &/or inspired by: </h4>" +
+			"<ul>" +
+			"<li>Sean Kaim (Convenience Buttons)</li>"+
+			"<li>Charles Nack & (ServiceCloudBorders)</li>"+
+			"</li></li>"+
+			"</li></li>"+
+			"</li></li>"+
+			"</ul>"
 		);
 
     // Add Close Button
@@ -277,7 +248,7 @@ function init_settings() {
 
 	// insertColX("genSettingsTable", 2);
 	// insertColX("genSettingsTable", 2);
-	// insertColX("genSettingsTable", 2);
+	// insertColX("geemailTemplatesnSettingsTable", 2);
 
 
 	var currOptTable;
@@ -379,8 +350,10 @@ function init_settings() {
 	// Team Info
 	currOptTable = addTable("teamSettingsTable", "genSettingsTab","Team Info");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'myself',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
-	makeOption({varId:'myTeam',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	// makeOption({varId:'myself',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	// makeOption({varId:'myTeam',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	// makeOption({varId:'myself',targetId: currOptTable, type: 'listTable', displayStyle:'tableRow', stringify: true});
+	makeOption({varId:'myTeam',targetId: currOptTable, type: 'listTable', displayStyle:'tableRow', stringify: true, ltSchema: {'name':'textBox','alias':'textBox','color':'colorZ'}});
 	// makeOption({varId:'collapseQS',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
 
 	// Peek It
@@ -453,82 +426,128 @@ function init_settings() {
 	// makeOption({varId:'myTheme.txtfield_bg_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
 	// makeOption({varId:'myTheme.txtfield_border_style',targetId: currOptTable, type: 'style', displayStyle:'tableRow'});
 
-	// Console
+		$('<select id="style_picker"></select>').appendTo('#paintTab');
+		for (key in themes) {
+			// alert(key);
+			var optTemp = '<option id="style_' + key + '" value="' + key + '">' + key + '</option>';
+			append(optTemp,'style_picker');
+			if (key == myTheme) {
+				$('#style_' + key).prop("selected","true");
+			}
 
+		}
+
+		document.getElementById('style_picker').addEventListener('change',
+			function() {
+				var selTheme = $("#style_picker").find(":selected").val();
+				for (key in themes[selTheme]) {
+					$('#option_' + key).val(themes[selTheme][key]);
+					triggerChange('option_' + key);
+				}
+			}
+		);
+
+
+
+	// Console
 	currOptTable = addTable("paintTable", "paintTab","PaintSC");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'body_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'body_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'body_text_modified_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'body_link_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'body_link_hover_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'body_label_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'body_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'body_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'body_text_modified_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'body_link_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'body_link_hover_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'body_label_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintAlertTable", "paintTab","AlertSC");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'alert_background_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'alert_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'alert_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'warning_background_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'warning_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'percent_bar_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'percent_bar_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'alert_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'alert_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'alert_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'warning_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'warning_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'warning_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'success_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'success_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'success_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'percent_bar_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'percent_bar_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	// makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'color', displayStyle:'tableRow'});
-	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tabstrip_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_alt_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_tab_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tabstrip_tab_alt_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTopBarTable", "paintTab","Top Bar");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'tb_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tb_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tb_link_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'tb_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'tb_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tb_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tb_link_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'tb_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintBoxesTable", "paintTab","SC Boxes");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'box_h_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'box_h_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'box_h_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'box_body_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'box_body_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'cell_label_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'cell_data_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'box_h_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'box_body_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'box_body_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'cell_label_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'cell_data_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
-	currOptTable = addTable("paintRowsTable", "paintTab","Rows");
+	currOptTable = addTable("paintRowsTable", "paintTab","Tables");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'row_color_even',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'row_color_odd',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'row_color_highlight',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'table_header_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'table_header_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'table_header_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_even',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_odd',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'row_color_highlight',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintButtonsTable", "paintTab","Buttons");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_alt_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_alt_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'btn_alt_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'btn_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'btn_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'btn_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'btn_alt_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
 	currOptTable = addTable("paintTextFieldsTable", "paintTab","Text Fields (Editables)");
 	document.getElementById(currOptTable).className = 'pbSubsection';
-	makeOption({varId:'txtfield_text_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'txtfield_bg_color',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'txtfield_border_style',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_bg_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
+	makeOption({varId:'txtfield_alt_border_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 
-	// removePullDownBar
+	//TemplateSC
+	currOptTable = addTable("templateSCTable", "templateSCTab","TemplateSC");
+	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'enableCommentTemplates',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enableNewDefectTemplate',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'enableEmailTemplates',targetId: currOptTable, type: 'toggle', displayStyle:'tableRow'});
+	makeOption({varId:'emailGreeting',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'emailSignature',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow'});
+	makeOption({varId:'ftsSubject',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'ftsDList',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'ftsCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'ftsBCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
+	makeOption({varId:'emailTemplates',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	makeOption({varId:'commentTemplates',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+
 
 
 
 	//------------------------------------
 	// Setup ArrangeSC Tab
-	insertTag("head", "script", "text/javascript", htmlDemoScript);
+	// insertTag("head", "script", "text/javascript", htmlDemoScript);
 	//insertTag("head", "style", "text/css", htmlDemoCSS);
 	//console.log('making div');
 	var aD = makeDiv("arrangementDiv", "arrangementTab");
@@ -715,12 +734,14 @@ function toggleSaveButton() {
 		document.getElementById("saveASC").style.setProperty("color","var(--alert_text_color)","important");
 		document.getElementById("saveASC").style.setProperty("border","var(--alert_border_style)","important");
 		document.getElementById("saveASC").style.setProperty("font-weight","bold","important");
+		return true;
 	} else {
 		// document.getElementById("saveASC").className = "tablinks";
 		document.getElementById("saveASC").style.setProperty("background-color","initial");
-		document.getElementById("saveASC").style.setProperty("color","var(--alert_text_color)");
-		document.getElementById("saveASC").style.setProperty("border","var(--alert_border_style)");
+		document.getElementById("saveASC").style.setProperty("color","");
+		document.getElementById("saveASC").style.setProperty("border","");
 		document.getElementById("saveASC").style.setProperty("font-weight","normal");
+		return false;
 	}
 }
 
@@ -1126,21 +1147,31 @@ function switchArrangeBoxFill() {
 
 
 function makeArrangeSideBar() { // make side bar for ArrangeSC
-    var sideBarTemplate = '<div class="sideBar" ondrop="drop(event)" ondragover="allowDrop(event);" style="" id="sideBar"></div>';
+    var sideBarTemplate = '<div class="sideBar" id="sideBar"></div>';/*ondrop="drop(event)" ondragover="allowDrop(event);"*/
     append(sideBarTemplate, "arrangementTab");
+
+		addDrop("sideBar");
+		addAllowDrop("sideBar");
+		// document.getElementById("sideBar").addEventListener("drop", function(event) { drop(event); });
+		// document.getElementById("sideBar").addEventListener("dragover", function(event) { allowDrop(event); });
 }
 //--------------------------------------
 //--sub functions
     function insertArrangeSideBarItem(boxID, label, content) {
-		console.log('inserting ' + boxID);
+				logTrace('Inserting Arrange Side Bar Item: ' + boxID);
         var sideBarItemTemplate =
-            '<div class="movableDiv" draggable="true" ondragstart="drag(event)" style="" id="SBI-MD-' + boxID + '"> \n' +
-            '  <div class="movableDivCover" draggable="true" ondragstart="drag(event)" style="" id="SBI-MDC-' + boxID + '">&nbsp;</div> \n' +
+            '<div class="movableDiv" draggable="true"  style="" id="SBI-MD-' + boxID + '"> \n' + //ondragstart="drag(event)"
+            '  <div class="movableDivCover" draggable="true" style="" id="SBI-MDC-' + boxID + '">&nbsp;</div> \n' + // ondragstart="drag(event)"
             '  <div class="movableDivCoverToolbar" style="display:none;" id="SBI-MDCTB-' + boxID + '">&nbsp;</div> \n' +
             '  <div class="sideBarItem" style="" id="SBI-SBI-' + boxID + '"><span class="sbSpan">'+label+'</span></div> \n' +
             '  <div class="sideBarDemo" style="display:none;" id="SBI-SBD-' + boxID + '">' + content + '</div> \n' +
             '</div>';
         append(sideBarItemTemplate, "sideBar");
+				addDrag('SBI-MD-' + boxID);
+				addDrag('SBI-MDC-' + boxID);
+
+				// document.getElementById("movableDiv").addEventListener("dragstart", function(event) { drag(event); });
+				// document.getElementById("movableDivCover").addEventListener("dragstart", function(event) { drag(event); });
 
         //---------------------------------------------------------------------------------
         // Insert buttons to move the movableDiv around? --Not fully set up--
@@ -1150,7 +1181,7 @@ function makeArrangeSideBar() { // make side bar for ArrangeSC
         var workingID = 'SBI-MDCTB-' + boxID;
 
         //makeButton('SBI-TBB-' + boxID +'-cellReturn',"Return","alert('aaa');returnArrangeBoxToSidebar(findParentNodeByClass(this, 'movableDiv'));", workingID);
-		makeButton('SBI-TBB-' + boxID +'-cellReturn',"Return","", workingID,cellReturn);
+				makeButton('SBI-TBB-' + boxID +'-cellReturn',"Return","", workingID, cellReturn);
 
         //makeButton('SBI-TBB-' + boxID +'-cellUp',"^","alert('aaa');var par = findParentNodeByClass(this, 'movableDiv'); var sib = par.previousSibling; if (sib.className !== 'arrangeTD-toolbar') {console.log('^');insertAfter(sib,par);} else { alert('Cannot move further up.'); }", workingID);
         // makeButton('SBI-TBB-' + boxID +'-cellLeft',"<","var par = findParentNodeByClass(this, 'movableDiv'); var newCell = findParentNodeByClass(this, 'arrangeTD').previousSibling; if (newCell !== null) { console.log('<');newCell.appendChild(par); } else { alert('Cannot move further left.'); }", workingID);
@@ -1229,7 +1260,11 @@ function addArrangeCell(rowNum, cellNum, topB) {
     //else { newCell = insertColX(arrangeTable.id, 0, cellNum, "", "34%"); }
 
     // Add drag tags (the hard way...)
-    document.getElementById(newCell).outerHTML = document.getElementById(newCell).outerHTML.replace('">', '" ondrop="drop(event)" ondragover="allowDrop(event);">');
+    // document.getElementById(newCell).outerHTML = document.getElementById(newCell).outerHTML.replace('">', '" ondrop="drop(event)" ondragover="allowDrop(event);">');
+		// document.getElementById(newCell).addEventListener("drop", function(event) { drop(event); });
+		// document.getElementById(newCell).addEventListener("dragover", function(event) { allowDrop(event); });
+		addDrop(newCell);
+		addAllowDrop(newCell);
 
     // Add cell toolbar
     var cellToolB = makeDiv(newCell + "-toolbar", newCell);
@@ -1435,6 +1470,7 @@ function pushCellUp() {
 	if (sib.className !== 'arrangeTD-toolbar') {
 		console.log('^');
 		insertAfter(sib,par);
+		divMoved();
 	} else {
 		alert('Cannot move further up.');
 	}
@@ -1446,6 +1482,7 @@ function pushCellDown() {
 	if (sib !== null) {
 		console.log('v');
 		insertAfter(par,sib);
+		divMoved();
 	} else {
 		alert('Cannot move further down.');
 	}
@@ -1457,6 +1494,7 @@ function pushCellLeft() {
 	if (newCell !== null) {
 		console.log('<');
 		newCell.appendChild(par);
+		divMoved();
 	} else {
 		alert('Cannot move further left.');
 	}
@@ -1468,6 +1506,7 @@ function pushCellRight() {
 	if (newCell !== null) {
 		console.log('>');
 		newCell.appendChild(par);
+		divMoved();
 	} else {
 		alert('Cannot move further right.');
 	}
@@ -1551,7 +1590,15 @@ function addArrangeRow(num) {
         var cell = arrangeTable.children[0].children[0].children[i]; // get cell
         addClass(cell, "arrangeTD"); // add style class
 
-        if (topB !== true) { cell.outerHTML = cell.outerHTML.replace('">', '" ondrop="drop(event)" ondragover="allowDrop(event);">'); }//add drag tags (the hard way...)
+        if (topB !== true) {
+					// cell.outerHTML = cell.outerHTML.replace('">', '" ondrop="drop(event)" ondragover="allowDrop(event);">');
+					// cell.addEventListener("drop", function(event) { drop(event); });
+					// cell.addEventListener("dragover", function(event) { allowDrop(event); });
+					addDrop(cell.id);
+					addAllowDrop(cell.id);
+
+
+				}//add drag tags (the hard way...)
     } //return true;
     refillArrangeSelect();
 
@@ -1800,7 +1847,7 @@ function makeListBox(args) {
 
 
 
-'var txt = prompt("Text to add: "); if (txt != null) { var e = document.getElementById(\'' + args.id + '\'); e.appendChild(document.createElement("option").text(txt));} else {alert("No text entered");}';
+var txt = 'prompt("Text to add: "); if (txt != null) { var e = document.getElementById(\'' + args.id + '\'); e.appendChild(document.createElement("option").text(txt));} else {alert("No text entered");}';
 
 		// Create template
 		// TODO create css classes for: listBox_holder, listBox_topBar, listBox_box, listBox_option :selected,
@@ -1859,10 +1906,11 @@ function makeSwitch(switchID, appendToID, switchLabel, switchTip) { // Make a sw
 }
 
 
+
+
 // TODO multiple component settings.??
 //		type: multi
 // 	components: {comp name: type, comp2 name: type2, n...}
-
 
 function makeOption(args) { // Make a switch
 // Accepted args:
@@ -1883,12 +1931,13 @@ function makeOption(args) { // Make a switch
 //		width				= duh...
 //		height			= duh...
 //		stringify		= (true/false), stringify the initial setting
+//		ltSchema 		= types of option for floatbox setting ['textBox','textBox','colorZ']
 //
 // Add left/right side options?
 	// try {
 		//Check for Required args: {varId:'',targetId:''}
 		if (args.type == undefined | args.targetId == undefined | args.varId == undefined) {
-			logError("Unable to create option. type, targetId or varId = undefined");
+			logError("Unable to create option. type, targetId, or varId = undefined");
 			return false;
 		}
 
@@ -1899,7 +1948,6 @@ function makeOption(args) { // Make a switch
 			isTheme = true;
 			args.varId = args.varId.split(".")[1];
 		}
-
 
 		// Create defaults
 		if (args.labelText == undefined) {
@@ -1968,7 +2016,40 @@ function makeOption(args) { // Make a switch
 			optionTemplate.changed +
 			'</div>';
 
+		optionTemplate.colorZ =
+			'<div class="optionDiv"> \n'+
+			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"></input> \n' +
+			'	<input type="button" id="option_' + args.varId + '_colorPick" title="' + args.title + '" value="Choose..."></input> \n' +
+			optionTemplate.changed +
+			'</div>';
 
+			// TODO create css classes for: listBox_holder, listBox_topBar, listBox_box, listBox_option :selected,
+			// TODO add title & header buttons... delete, +
+			optionTemplate.listBox =
+				'<div id="' + args.varId + '_holder" class="listBox_holder"> \n' +
+				'	<div id="' + args.varId + '_topBar" class="listBox_topBar"> \n' +
+				'		<button class="listBox_button" id="' + args.varId + '_add_btn" onclick="var txt = prompt(\'Text to add: \'); if (txt != null) { var e = document.getElementById(\'' + args.varId + '\'); var node = document.createElement(\'option\'); node.text=txt; e.appendChild(node);} else {alert(\'No text entered\');}"> + </button> \n' +
+				'		<button class="listBox_button" id="' + args.varId + '_delete_btn" onclick="var e = document.getElementById(\'' + args.varId + '\'); e.options[e.selectedIndex].remove();"> - </button> \n' +
+				'	<div/> \n' +
+				'	<select  id="' + args.varId + '" class="listBox_box" size="' + args.listSize + '"> \n' +
+				// TODO options here...
+				//'		<option  id="' + args.id + '_opt1" class="listBox_option" value="bbb">aaa</option> \n' +
+				'	</select> \n' +
+				'</div>';
+
+			optionTemplate.listTable =
+				'<div id="option_' + args.varId + '_holder" class="listBox_holder"> \n' +
+				'	<div id="option_' + args.varId + '_topBar" class="listBox_topBar"> \n' +
+				'   <input id="option_' + args.varId + '" type="text" style="/*display:none;*/"></input> \n' +
+				'		<button class="listBox_button" id="option_' + args.varId + '_add_btn" onclick="var txt = prompt(\'Text to add: \'); if (txt != null) { var e = document.getElementById(\'' + args.varId + '\'); var node = document.createElement(\'option\'); node.text=txt; e.appendChild(node);} else {alert(\'No text entered\');}"> + </button> \n' +
+				'		<button class="listBox_button" id="option_' + args.varId + '_delete_btn" onclick="var e = document.getElementById(\'' + args.varId + '\'); e.options[e.selectedIndex].remove();"> - </button> \n' +
+				'	<div/> \n' +
+				optionTemplate.changed +
+				// '	<table id="option_' + args.varId + '_table" class="listBox_box"><tbody> \n' +
+				// TODO options here...
+				//'		<option  id="' + args.id + '_opt1" class="listBox_option" value="bbb">aaa</option> \n' +
+				// '	<tbody></table> \n' +
+				'</div>';
 
 
 
@@ -2046,6 +2127,210 @@ function makeOption(args) { // Make a switch
 				changables.push(myOptionC);
 				break;
 
+			case 'listTable':
+				var ltAdd = document.getElementById("option_" + args.varId + "_add_btn");
+				var ltDel = document.getElementById("option_" + args.varId + "_add_btn");
+				var lt = document.getElementById("option_" + args.varId + "_table");
+				myOption.value = newVal;
+				// for (key in newVal) {add rowX to "option_" + args.varId + "_table"}
+				var optObj = JSON.parse(myOption.value);
+				// var optObj = myOption.value;
+
+				var tid = addTable("option_" + args.varId + "_table", "option_" + args.varId + "_holder",args.varId);
+				var headerRow = insertRowX(tid);
+				for (var rowTitle in optObj[0]) {
+					var c = document.getElementById(insertColX(tid,headerRow));
+					c.className='tableHead';
+					c.innerHTML = rowTitle;
+				}
+				//"option_" + args.varId + "_table";
+				// var t = document.getElementById(tid);
+				for (var objRow in optObj) {
+
+					var r = insertRowX(tid);
+					for (var objCol in optObj[objRow]) {
+						var c = document.getElementById(insertColX(tid,r));
+						//c.class='';
+
+						//TODO THIS SHOULD BE COL CELL, NOTTTTTT Row Col???? i think...
+
+						// c.innerHTML = optObj[objRow][objCol];
+						//c.innerHTML = optionTemplate[args.type]
+
+						var thisArgs = {
+							varId: c.id + '_' + objCol,
+							colorPick: c.id + '_' + objCol + '_colorPick'
+						};
+						// alert('type: ' + args.ltSchema[objCol] + ' - val: ' + optObj[objRow][objCol]);
+						append('<input id="' + thisArgs.varId + '" type="text"></input>',c.id);
+
+
+
+						var thisSubOpt = document.getElementById(thisArgs.varId);
+						thisSubOpt.value = optObj[objRow][objCol];
+						thisSubOpt.addEventListener('change',
+							function() {
+								var optObj = {};
+
+								var parRowId = $(this).parent().parent().attr('id');
+								var parRowNum = parRowId.split('_');
+								parRowNum = parRowNum[parRowNum.length-1]-2;
+								var mainOptTb = parRowId.split('_');
+								mainOptTb =  document.getElementById('option_' + mainOptTb[1]);
+								alert('par: ' + parRowId);
+								$('#' + parRowId + ' td input').each(
+									function() {
+
+										var key = $(this).attr('id').split('_');
+										key = key[key.length-1];
+										optObj[key] = $(this).val();
+										alert($(this).attr('id') + ' - val: ' + $(this).val() + ' - key?: ' + key);
+									}
+								);
+
+								var curArr = JSON.parse(mainOptTb.value);
+								curArr[parRowNum] = optObj;
+								triggerChange(mainOptTb.id);
+								// alert("arrIndx: " + parRowNum-2 + "curarrrrr: " + curArr);
+
+								alert(JSON.stringify(optObj));
+
+							}
+						);
+
+						switch (args.ltSchema[objCol]) {
+							case "colorZ":
+								append('<input type="button" id="' + thisArgs.colorPick + '" title="' + args.title + '" value="Choose..."></input>',c.id);
+								makeColorPicker(thisArgs, thisSubOpt);
+								break;
+							default:
+								break;
+						}
+
+					}
+
+					ltAdd.addEventListener('click',
+						function() {
+							var tid = "option_" + args.varId + "_table";
+							// var t = documnet.getElementById(tid);
+							var r = insertRowX(tid);
+							for (var key in myOption.value) {
+								insertColX(tid,r);
+							}
+						}
+					);
+
+					ltDel.addEventListener('click',
+						function() {
+
+						}
+					);
+				}
+				break;
+
+			case 'colorZ': // for border styling... not ready
+
+				myOption.value = newVal;
+				args.colorPick = "option_" + args.varId + "_colorPick";
+				makeColorPicker(args, myOption);
+				/*var colorPick = document.getElementById("option_" + args.varId + "_colorPick");
+				myOption.value = newVal;
+				colorPick.addEventListener('click',
+					function() {
+						if ($('#' + args.varId + '_cpfb').length == 0) {
+							var fb = makeFloatingBox({'id': args.varId + '_cpfb',"title":"Color Picker"});
+							append('<td id="' + args.varId + '_cptd"></td>',fb.content);
+							var currOptTable = addTable(args.varId + '_cptb', args.varId + '_cptd');
+							document.getElementById(currOptTable).style.width = "";
+
+							var sliders = ['Red','Green','Blue','Alpha'];
+
+							sliders.forEach(
+								function(element, index, array) {
+									var sliderLabelTemplate = element;
+									var sliderMin = 0;
+									var sliderMax = 255;
+									var sliderStep = 1;
+									if (element == 'Alpha') {
+										sliderMax = 1;
+										sliderStep = 0.01;
+									}
+									var sliderTemplate = '<input id="' + fb.id + '_' + element + '" type="range" step="' + sliderStep + '" min="' + sliderMin + '" max="' + sliderMax + '"></input>';
+									var sliderTbTemplate = '<input type="number" maxlength="3" min="0" max="255" id="' + fb.id + '_' + element + '_tb" size="10" value=""></input>';
+
+									var newRow = insertRowX(currOptTable);
+									var lblCell = insertColX(currOptTable,newRow);
+									var dtaCell = insertColX(currOptTable,newRow);
+
+									append(sliderLabelTemplate,lblCell);
+									append(sliderTemplate,dtaCell);
+									append(sliderTbTemplate,dtaCell);
+
+									document.getElementById(fb.id + '_' + element).addEventListener("change",
+										function() {
+											document.getElementById(fb.id + '_' + element + '_tb').value = this.value;
+											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+										}
+									);
+
+									document.getElementById(fb.id + '_' + element + '_tb').addEventListener("change",
+										function() {
+											document.getElementById(fb.id + '_' + element).value = this.value;
+											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+										}
+									);
+									document.getElementById(fb.id + '_' + element + '_tb').addEventListener("keyup",
+										function() {
+											document.getElementById(fb.id + '_' + element).value = this.value;
+											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+										}
+									);
+								}
+							);
+
+							var colorDemoTemplate = '<table id="' + fb.id + '_demo" height="100%" width="100%" style="background-color: rgba(0,0,0,0.75); float:left; display:inline-block; border: none;"></table>';
+							var colorSetBtnTemplate = '<input id="' + fb.id + '_setBtn" type="button" value="Set" width="100%" height="20px"></input>';
+
+							var demoCell = insertColX(currOptTable,0);
+							append(colorDemoTemplate,demoCell);
+							demoCell = document.getElementById(demoCell);
+							demoCell.rowSpan = 3;
+							demoCell.className = 'checkerBoard';
+							demoCell.style.width = '100px';
+							demoCell.style.height = '100px';
+
+							var demoCell2 = insertColX(currOptTable,3);
+							append(colorSetBtnTemplate,demoCell2);
+
+							document.getElementById(fb.id + '_setBtn').addEventListener('click',
+								function() {
+									var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+									myOption.value = 'rgba('+rgba+')';
+									triggerChange("option_" + args.varId);
+									$('#' + fb.id + '-close a:eq(0)').click();
+								}
+							);
+
+							var curSetting = myOption.value.split('(')[1].split(')')[0];
+
+							document.getElementById(fb.id + '_Red').value = curSetting.split(',')[0];
+							triggerChange(fb.id + '_Red');
+							document.getElementById(fb.id + '_Green').value = curSetting.split(',')[1];
+							triggerChange(fb.id + '_Green');
+							document.getElementById(fb.id + '_Blue').value = curSetting.split(',')[2];
+							triggerChange(fb.id + '_Blue');
+							document.getElementById(fb.id + '_Alpha').value = curSetting.split(',')[3];
+							triggerChange(fb.id + '_Alpha');
+						}
+					}
+				);*/
+				break;
 
 			// case "color":
 			// case "textBox":
@@ -2077,7 +2362,7 @@ function makeOption(args) { // Make a switch
 
 						case 'style':
 							var optionItemC = document.getElementById('option_' + args.varId + '_color');
-							 setting = optionItem.value + ' ' + optionItemC.value;
+							setting = optionItem.value + ' ' + optionItemC.value;
 							break;
 
 						default:
@@ -2287,53 +2572,192 @@ var htmlDemoBox =
 '</div></div>';
 
 
-var htmlDemoScript =
-'function allowDrop(ev) {  '+
-'    ev.preventDefault();  '+
-'}  '+
+function allowDrop(allowdropevent) {
+    allowdropevent.preventDefault();
+	}
 
-'function drag(ev) {  '+
-'    ev.dataTransfer.setData("text", ev.target.id);  '+
-'}   '+
-'function drop(ev) {  '+
-'    ev.preventDefault();  '+
-'    var data = ev.dataTransfer.getData("text");  '+
-//     'alert(data); \n' + //moving div
-//'    alert(ev.target.className + "     " + ev.target.parentNode.parentNode.className); \n' + // Alert Where it is dropped & the parent
-'    if (ev.target.className == "arrangeTD") {  '+
-//    alert("to td");   //to td
- '       ev.target.appendChild(document.getElementById(data).parentElement);  '+
-  '      document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
-   '     document.getElementById(data.replace("MDC","SBD")).style.display = "block"; '+
-    '    document.getElementById(data.replace("MDC","MDCTB")).style.display = "block";  '+
-/* Above below boxes disabled...
-'    } else if (ev.target.className == "addAbove") { \n' +
-        'alert("to UP"); \n' + //to td
-'        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
-'        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
-'        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
-'        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
-'    } else if (ev.target.className == "addBelow") { \n' +
-        'alert("to DOWN"); \n' + //to td
-'        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
-'        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
-'        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
-'        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
-*/
-    '} else if (ev.target.className == "sideBar") { '+
-//        alert("to sb");   //to sideBar
-     '   ev.target.appendChild(document.getElementById(data).parentElement);  '+
-      '  document.getElementById(data.replace("MDC","SBI")).style.display = "block"; '+
-       ' document.getElementById(data.replace("MDC","SBD")).style.display = "none"; '+
-        'document.getElementById(data.replace("MDC","MDCTB")).style.display = "none"; '+
-    '}  else if (ev.target.className == "movableDivCover" && ev.target.parentNode.parentNode.className != "sideBar") {  '+ //to ontop of other div (that is not in the sidebar still...)
-        //alert("to other Div...");
-      '  ev.target.parentElement.parentElement.appendChild(document.getElementById(data).parentElement);  '+
-     '   document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
-       ' document.getElementById(data.replace("MDC","SBD")).style.display = "block";  '+
-        'document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; '+
-   ' }'+
-'}';
+	function drag(dragevent) {
+		alert('d start');
+	    var a = dragevent.dataTransfer.setData("text", dragevent.target.id);
+			alert(a);
+	}
+
+
+	function addDrag(targetId) {
+		// console.log("adding drag to: " + targetId)
+		document.getElementById(targetId).addEventListener("dragstart",
+			function(event) {
+				// console.log('d start');
+				 event.dataTransfer.setData("text", event.target.id);
+			 }
+	 	);
+	}
+
+	function addAllowDrop(targetId) {
+		// console.log("adding allow-drop to: " + targetId)
+		document.getElementById(targetId).addEventListener("dragover",
+			function(event) {
+				event.preventDefault();
+			}
+		);
+	}
+
+
+	function addDrop(targetId) {
+		// console.log("adding drop to: " + targetId)
+		document.getElementById(targetId).addEventListener("drop",
+			function(event) {
+
+				event.preventDefault();
+				var targetClass = event.target.className;
+				var movingBoxId = event.dataTransfer.getData("text");
+		    var movingBox = document.getElementById(movingBoxId).parentElement;
+				var sbi = document.getElementById(movingBoxId.replace("MDC","SBI"));
+				var sbd = document.getElementById(movingBoxId.replace("MDC","SBD"));
+				var mdctb = document.getElementById(movingBoxId.replace("MDC","MDCTB"));
+
+				if (targetClass == "arrangeTD") {
+					event.target.appendChild(movingBox);
+					sbi.style.display = "none";
+					sbd.style.display = "block";
+					mdctb.style.display = "block";
+				} else if (targetClass == "sideBar") {
+					event.target.appendChild(movingBox);
+					sbi.style.display = "block";
+					sbd.style.display = "none";
+					mdctb.style.display = "none";
+				} else if (targetClass == "movableDivCover" && event.target.parentNode.parentNode.className != "sideBar") {//
+					// dropped on top of other div (that is NOT in the sidebar still...)
+					event.target.parentNode.parentNode.appendChild(movingBox);
+		      sbi.style.display = "none";
+		      sbd.style.display = "block";
+		      mdctb.style.display = "block";
+		    } else if (targetClass == "movableDivCover" && event.target.parentNode.parentNode.className == "sideBar") {//
+					// dropped on top of other div (that IS in the sidebar still...)
+					event.target.parentNode.parentNode.appendChild(movingBox);
+					sbi.style.display = "block";
+					sbd.style.display = "none";
+					mdctb.style.display = "none";
+		    }
+
+				divMoved();
+			}
+		);
+	}
+
+
+function divMoved(mdctb) {
+
+	toggleSaveButton();
+	// mdctb.style.setProperty("background-color","var(--alert_background_color)","important");
+	// mdctb.style.setProperty("border","var(--alert_border_style)","important");
+
+	// var changed = toggleSaveButton();
+	// if (changed) {
+	// 	mdctb.style.setProperty("background-color","var(--alert_background_color)","important");
+	// 	mdctb.style.setProperty("border","var(--alert_border_style)","important");
+	// } else {
+	// 	mdctb.style.setProperty("background-color","");
+	// 	mdctb.style.setProperty("border","");
+	// }
+}
+
+
+	function drop(dropevent) {
+		alert('reg drop ' + dropevent.target.id);
+	    dropevent.preventDefault();
+	    var data = dropevent.dataTransfer.getData("text");
+			alert(data);
+	//     'alert(data); \n' + //moving div
+	//'    alert(ev.target.className + "     " + ev.target.parentNode.parentNode.className); \n' + // Alert Where it is dropped & the parent
+	    if (dropevent.target.className == "arrangeTD") {
+	//    alert("to td");   //to td
+	        dropevent.target.appendChild(document.getElementById(data).parentElement);
+	        document.getElementById(data.replace("MDC","SBI")).style.display = "none";
+	        document.getElementById(data.replace("MDC","SBD")).style.display = "block";
+	        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block";
+	/* Above below boxes disabled...
+	'    } else if (ev.target.className == "addAbove") { \n' +
+	        'alert("to UP"); \n' + //to td
+	'        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
+	'        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
+	'        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
+	'        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
+	'    } else if (ev.target.className == "addBelow") { \n' +
+	        'alert("to DOWN"); \n' + //to td
+	'        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
+	'        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
+	'        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
+	'        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
+	*/
+	   } else if (dropevent.target.className == "sideBar") {
+	//        alert("to sb");   //to sideBar
+	        dropevent.target.appendChild(document.getElementById(data).parentElement);
+	       document.getElementById(data.replace("MDC","SBI")).style.display = "block";
+	        document.getElementById(data.replace("MDC","SBD")).style.display = "none";
+	        document.getElementById(data.replace("MDC","MDCTB")).style.display = "none";
+	    }  else if (dropevent.target.className == "movableDivCover" && dropevent.target.parentNode.parentNode.className != "sideBar") {   //to ontop of other div (that is not in the sidebar still...)
+	        //alert("to other Div...");
+
+	      dropevent.target.parentNode.parentNode.appendChild(document.getElementById(data).parentElement);
+	      // event.target.parentElement.parentElement.appendChild(document.getElementById(data).parentElement);
+	      document.getElementById(data.replace("MDC","SBI")).style.display = "none";
+	       document.getElementById(data.replace("MDC","SBD")).style.display = "block";
+	        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block";
+	    }
+	}
+
+
+
+
+
+// var htmlDemoScript =
+// 'function allowDrop(ev) {  '+
+// '    ev.preventDefault();  '+
+// '}  '+
+//
+// 'function drag(ev) {  '+
+// '    ev.dataTransfer.setData("text", ev.target.id);  '+
+// '}   '+
+// 'function drop(ev) {  '+
+// '    ev.preventDefault();  '+
+// '    var data = ev.dataTransfer.getData("text");  '+
+// //     'alert(data); \n' + //moving div
+// //'    alert(ev.target.className + "     " + ev.target.parentNode.parentNode.className); \n' + // Alert Where it is dropped & the parent
+// '    if (ev.target.className == "arrangeTD") {  '+
+// //    alert("to td");   //to td
+//  '       ev.target.appendChild(document.getElementById(data).parentElement);  '+
+//   '      document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
+//    '     document.getElementById(data.replace("MDC","SBD")).style.display = "block"; '+
+//     '    document.getElementById(data.replace("MDC","MDCTB")).style.display = "block";  '+
+// /* Above below boxes disabled...
+// '    } else if (ev.target.className == "addAbove") { \n' +
+//         'alert("to UP"); \n' + //to td
+// '        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
+// '        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
+// '        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
+// '        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
+// '    } else if (ev.target.className == "addBelow") { \n' +
+//         'alert("to DOWN"); \n' + //to td
+// '        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
+// '        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
+// '        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
+// '        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
+// */
+//     '} else if (ev.target.className == "sideBar") { '+
+// //        alert("to sb");   //to sideBar
+//      '   ev.target.appendChild(document.getElementById(data).parentElement);  '+
+//       '  document.getElementById(data.replace("MDC","SBI")).style.display = "block"; '+
+//        ' document.getElementById(data.replace("MDC","SBD")).style.display = "none"; '+
+//         'document.getElementById(data.replace("MDC","MDCTB")).style.display = "none"; '+
+//     '}  else if (ev.target.className == "movableDivCover" && ev.target.parentNode.parentNode.className != "sideBar") {  '+ //to ontop of other div (that is not in the sidebar still...)
+//         //alert("to other Div...");
+//       '  ev.target.parentElement.parentElement.appendChild(document.getElementById(data).parentElement);  '+
+//      '   document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
+//        ' document.getElementById(data.replace("MDC","SBD")).style.display = "block";  '+
+//         'document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; '+
+//    ' }'+
+// '}';
 
 
 
@@ -2342,7 +2766,8 @@ function returnArrangeBoxToSidebar(arrangeBox) {
     document.getElementById(arrangeBox.id.replace("MD","SBI")).style.display = "block";
     document.getElementById(arrangeBox.id.replace("MD","SBD")).style.display = "none";
     document.getElementById(arrangeBox.id.replace("MD","MDCTB")).style.display = "none";
-	logTrace(arrangeBox.id + " returned to sidebar.");
+		divMoved();
+		logTrace(arrangeBox.id + " returned to sidebar.");
     return true;
 }
 
@@ -2376,36 +2801,36 @@ function returnAllArrangeBoxesToSidebar() {
 	// stop at 1 to skip topbar stuff in row 0
     for (var i = numRows -1; i >= 1; i--) {
         returnArrangeRowToSidebar(rows[i].id);
-		logTrace("Returned Arrnge Box " +rows[i].id);
+				logTrace("Returned Arrnge Box " + rows[i].id);
     }
 }
 
-var theBoxesSet = {
-    // info type
-    "01Ba000000ETFux": "caseInfoID",
-    "01Ba000000ETFuz": "detailsID",
-    "01Ba000000ETFv0": "advInfoID",
-    "01Ba000000ETFv1": "componentID",
-    "01Ba000000ETFv2": "prodDetailsID",
-    "01Ba000000ETFv3": "altContactID",
-    "01Ba000000ETFv4": "auditHistoryID",
-    "arrangeSC-alertBox": "alertBoxID",
-    // related type
-    "RelatedActivityList": "openActsID",
-    "RelatedHistoryList": "actHistoryID",
-    "RelatedTeamMemberList": "caseTeamID",
-    "RelatedAttachmentList": "attachmentsID",
-    "RelatedCommentsList": "caseCommentsID",
-    "00Na000000ArhjW": "sftpAttachmentsID",
-    "RelatedChildCaseList": "relCasesID",
-    "00Na000000Arhi2": "extReqsID",
-    "00Na000000BFxGs": "kbArtsID",
-    "RelatedEmailMessageList": "emailsID",
-    "00Na000000BLy1J": "caseReviewsID",
-    "RelatedLiveChatTranscriptList": "chatTransID",
-    "00Na000000BFxGt": "defectsID",
-    "RelatedEntityHistoryList": "caseHistoryID",
-    "00Na000000AxMex": "relContentID", };
+// var theBoxesSet = {
+//     // info type
+//     "01Ba000000ETFux": "caseInfoID",
+//     "01Ba000000ETFuz": "detailsID",
+//     "01Ba000000ETFv0": "advInfoID",
+//     "01Ba000000ETFv1": "componentID",
+//     "01Ba000000ETFv2": "prodDetailsID",
+//     "01Ba000000ETFv3": "altContactID",
+//     "01Ba000000ETFv4": "auditHistoryID",
+//     "arrangeSC-alertBox": "alertBoxID",
+//     // related type
+//     "RelatedActivityList": "openActsID",
+//     "RelatedHistoryList": "actHistoryID",
+//     "RelatedTeamMemberList": "caseTeamID",
+//     "RelatedAttachmentList": "attachmentsID",
+//     "RelatedCommentsList": "caseCommentsID",
+//     "00Na000000ArhjW": "sftpAttachmentsID",
+//     "RelatedChildCaseList": "relCasesID",
+//     "00Na000000Arhi2": "extReqsID",
+//     "00Na000000BFxGs": "kbArtsID",
+//     "RelatedEmailMessageList": "emailsID",
+//     "00Na000000BLy1J": "caseReviewsID",
+//     "RelatedLiveChatTranscriptList": "chatTransID",
+//     "00Na000000BFxGt": "defectsID",
+//     "RelatedEntityHistoryList": "caseHistoryID",
+//     "00Na000000AxMex": "relContentID", };
 
 
 /* Not used currently, saving
@@ -2434,5 +2859,110 @@ function alertAncestorsUntilID(node, id) {
 //var cssCollection = [switchCSS, tabBoxCSS, arrangementTableCSS, infoBoxCSSFix]; //[buttonCSS, switchCSS, tabBoxCSS, tabCSS, textboxCSS]; // Array of CSS variables
 //init();
 
+
+
+function makeColorPicker(args, myOption) {
+	/* required args
+
+	 * varId
+	 */
+	// alert(args.varId);
+	var colorPick = document.getElementById(args.colorPick);
+	colorPick.addEventListener('click',
+		function() {
+			if ($('#' + args.varId + '_cpfb').length == 0) {
+				var fb = makeFloatingBox({'id': args.varId + '_cpfb',"title":"Color Picker"});
+				append('<td id="' + args.varId + '_cptd"></td>',fb.content);
+				var currOptTable = addTable(args.varId + '_cptb', args.varId + '_cptd');
+				document.getElementById(currOptTable).style.width = "";
+
+				var sliders = ['Red','Green','Blue','Alpha'];
+
+				sliders.forEach(
+					function(element, index, array) {
+						var sliderLabelTemplate = element;
+						var sliderMin = 0;
+						var sliderMax = 255;
+						var sliderStep = 1;
+						if (element == 'Alpha') {
+							sliderMax = 1;
+							sliderStep = 0.01;
+						}
+						var sliderTemplate = '<input id="' + fb.id + '_' + element + '" type="range" step="' + sliderStep + '" min="' + sliderMin + '" max="' + sliderMax + '"></input>';
+						var sliderTbTemplate = '<input type="number" maxlength="3" min="0" max="255" id="' + fb.id + '_' + element + '_tb" size="10" value=""></input>';
+
+						var newRow = insertRowX(currOptTable);
+						var lblCell = insertColX(currOptTable,newRow);
+						var dtaCell = insertColX(currOptTable,newRow);
+
+						append(sliderLabelTemplate,lblCell);
+						append(sliderTemplate,dtaCell);
+						append(sliderTbTemplate,dtaCell);
+
+						document.getElementById(fb.id + '_' + element).addEventListener("change",
+							function() {
+								document.getElementById(fb.id + '_' + element + '_tb').value = this.value;
+								// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+								var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+								$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+							}
+						);
+
+						document.getElementById(fb.id + '_' + element + '_tb').addEventListener("change",
+							function() {
+								document.getElementById(fb.id + '_' + element).value = this.value;
+								// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+								var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+								$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+							}
+						);
+						document.getElementById(fb.id + '_' + element + '_tb').addEventListener("keyup",
+							function() {
+								document.getElementById(fb.id + '_' + element).value = this.value;
+								// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+								var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
+								$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
+							}
+						);
+					}
+				);
+
+				var colorDemoTemplate = '<table id="' + fb.id + '_demo" height="100%" width="100%" style="background-color: rgba(0,0,0,0.75); float:left; display:inline-block; border: none;"></table>';
+				var colorSetBtnTemplate = '<input id="' + fb.id + '_setBtn" type="button" value="Set" width="100%" height="20px"></input>';
+
+				var demoCell = insertColX(currOptTable,0);
+				append(colorDemoTemplate,demoCell);
+				demoCell = document.getElementById(demoCell);
+				demoCell.rowSpan = 3;
+				demoCell.className = 'checkerBoard';
+				demoCell.style.width = '100px';
+				demoCell.style.height = '100px';
+
+				var demoCell2 = insertColX(currOptTable,3);
+				append(colorSetBtnTemplate,demoCell2);
+
+				document.getElementById(fb.id + '_setBtn').addEventListener('click',
+					function() {
+						var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
+						myOption.value = 'rgba('+rgba+')';
+						triggerChange("option_" + args.varId);
+						$('#' + fb.id + '-close a:eq(0)').click();
+					}
+				);
+
+				var curSetting = myOption.value.split('(')[1].split(')')[0];
+
+				document.getElementById(fb.id + '_Red').value = curSetting.split(',')[0];
+				triggerChange(fb.id + '_Red');
+				document.getElementById(fb.id + '_Green').value = curSetting.split(',')[1];
+				triggerChange(fb.id + '_Green');
+				document.getElementById(fb.id + '_Blue').value = curSetting.split(',')[2];
+				triggerChange(fb.id + '_Blue');
+				document.getElementById(fb.id + '_Alpha').value = curSetting.split(',')[3];
+				triggerChange(fb.id + '_Alpha');
+			}
+		}
+	);
+}
 
 logTrace('settings_content.js finished.');

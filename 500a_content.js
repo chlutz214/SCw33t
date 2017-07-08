@@ -98,64 +98,6 @@ logTrace("HREF: " + window.location.href);
 
 
 
-// SCPlus
-// var myTheme ={
-	// body_bg_color: "#FFFFFF",
-	// body_text_color: "#16325C",
-	// body_text_modified_color: "#FF6A00",
-	// body_link_hover_color: "#FF0000", /*#015BA7;*/
-	// body_link_color: "#006CB5",
-
-	// body_label_text_color: "#54698D",
-
-	// alert_background_color: "#FF99EE",
-	// alert_text_color: "#CC0000",
-	// alert_border_style: "1px solid #000000",
-
-	// warning_background_color: "#FFCF6F",
-	// warning_text_color: "#FF6A00",
-	// warning_border_style: "1px solid #000000",
-
-	// percentBarColor: "#00FFFF",
-
-	// tb_bg_color: "#0070D2",
-	// tb_text_color: "#FFFFFF",
-	// tb_link_color: "#FFFFFF",
-	// tb_border_style: "1px solid #000000",
-
-	// box_h_text_color: "#FFFFFF",
-	// box_h_bg_color: "#0070D2",
-	// box_h_border_style: "1px solid #000000",
-	// box_body_bg_color: "#FFFFFF",
-	// box_body_border_style: "1px solid #000000",
-
-	// cell_label_border_style: "1px solid #00FF00",
-	// cell_data_border_style: "1px solid #0000FF",
-
-	// row_color_even: "inherit",
-	// row_color_odd: "#DDDDDD",
-	// row_color_highlight: "#000000",
-
-	// btn_text_color: "#0070d2",
-	// btn_bg_color: "#F4F5F7",
-	// btn_border_style: "1px solid #E0E5EE",
-
-	// txtfield_text_color: "#000000",
-	// txtfield_bg_color: "#FFFFFF",
-	// txtfield_border_style: "1px solid #D8DDE6",
-// }
-
-// console.log("Stringified theme: " + JSON.stringify(myTheme));
-
-
-
-
-
-
-
-
-
-
 
 
 // Team
@@ -305,111 +247,11 @@ chrome.runtime.onMessage.addListener(
 */
 
 
-/*
-var curVersion = "3.0 BETA";
-var pblink = "https://cawiki.ca.com/display/CASupport/ArrangeSC+v2";
-var changeLog = [
-    ['3.0BETA', 'today',
-	 'Converted from UserScript to Extension. Now known as SCw33t',
-     'Code Cleanup: Made the code more readable.',
-     'New Feature: Added Comment Filtering. Filters out irrelevant comments.',
-     'New Feature: Added Comment Compression. Removes excess space from comments.',
-	 'New Feature: Added SCtab. Opens pages in SC tabs.',
-     'New Feature: Added "PeekIt" hover box to allow quick viewing of Special Conditions page.',
-     'New Feature: Added Sean Kaim\'s Convenience/SFTP button script. CA SFTP Protocol Handler or other SFTP protocol handler will still be required to use the FTP button. Using this feature will require adding these new true/false values; enableConvenience, createLocalDirs & openLocalButton.',
-    ],
-	['2.81', 'April 25, 2017',
-     'Bug Fix: Resolved problems due to changes to Case Review page. Made more resiliant for the future.',
-     'Bug Fix: Resolved a problem where he april update message was being shown at incorrect times.',
-    ],
-    ['2.80', 'April 21, 2017',
-     'SC Update: Fixes & changes related to new/changed items in the latest SC update.',
-     'More info on SC update: https://communities.ca.com/thread/241776031',
-     'More info on ArrangeSC update: https://cawiki.ca.com/display/CASupport/ArrangeSC+April+21+Update+Info'
-    ],
-	['2.0.77', 'March 22, 2017',
-     'Bug Fix: Fixed specialConditionsFix & made more resiliant to future changes.',
-    ],
-    ['2.0.76', 'March 06, 2017',
-     'Bug Fix: Fixed formatting issues with Case Review related items after Case Review update.',
-    ],
-    ['2.0.75', 'February 22, 2017',
-     'Bug Fix: Fixed bug where 50/50 closed when it shouldn\'t.',
-    ],
-    ['2.0.74', 'February 22, 2017',
-     'Code Cleanup: Made the code more readable.',
-     'Fix: Fixed case review parts that were broken by SC change to add Chat vs Assisted types.',
-     'New Feature: Review Case, Added option to defult to "Assisted" type. "caseRevDefaultToAssisted"',
-     'Minor Fix: Fixed a rare situation where POP windows failed to automatically close.',
-     'New Feature: Added Sean Kaim\'s Convenience/SFTP button script. CA SFTP Protocol Handler or other SFTP protocol handler will still be required to use the FTP button. Using this feature will require adding these new true/false values; enableConvenience, createLocalDirs & openLocalButton.',
-    ],
-    ['2.0.73', 'November 21, 2016',
-     'New Alert: Added alert to notify users of case reivews.',
-     'New Feature: Added an optional variable to the Case Review email options to include the score. To add this to your settings use this tag: <reviewScore>.',
-     'Minor Tweaks: Tweaked some back end code that has no effect on UI.',
-    ],
-    ['2.0.72', 'October 17, 2016',
-     'Fix: Fixed some errors caused by the addition of the "Guarenteed Availability" field.',
-     'Feature Change: Changed the Case Review test mode to clearly state that test mode is being used and stopped it from clicking cancel to avoid accidental loss of work.',
-    ],
-    ['2.0.71', 'October 6, 2016',
-     'Added Support: For the new "Related Content" box.',
-     'This includes: ability to add to Arrangement Settings, POP! & 50/50 buttons to relate content & re-worked insides for square/low-res monitors.',
-     'To add this to the Arrangement Settings: Use the box name "relContent".',
-    ],
-    ['2.0.70', 'August 26, 2016',
-     'New Feature: Added What\'s New? to the footer bar.',
-     'Enhancement: Added functionality to support/enhance TemplateSC.',
-     'Minor Fix: Removed erroneous error message when on New Task page.',
-     'Fix: Fixed some string formatting issues in URLs used for POP! & 50/50.',
-     'Fix: Fixed an error where Alerts box would disappear after closing a 50/50 page.',
-     'Cosmetic Fix: Some Alerts were not switching to a link cursor on mouse over and had the "I" cursor instead.',
-     'Cosmetic Fix: Fixed text formating on some alerts.',
-    ],
-
-    ['2.0.6', 'August 8, 2016',
-     'New Feature: POP! & 50/50, View Defect in Rally',
-     'New Feature: 50/50, Added Close button',
-     'Cosmetic Change: POP! & 50/50 button lists, made buttons smaller',
-     'Enhancement: Added footer bar which contains the version number & a link to the wiki page.',
-     'Behavior Change/Enhancement: POP! Windows now open in the center of the screen.',
-     'Behavior Change/Enhancement: POP! Windows that change what would be on the case page now refresh the case page when they close so you have updated version of the page.\n - Note: Does NOT refresh if you press "X", DOES refresh when the page re-loads due to save/send/cancel buttons'
-    ],
-
-    ['2.0.5', 'July 25, 2016',
-     'Bug Fix: Fixed an issue with "Save/Save & Dismiss" buttons not saving/sending the comment or email.'
-    ],
-
-    ['2.0.4', 'July 19, 2016',
-     'listArrangementFix: Fixed some bugs that were introduced by the addition of the "Queue Jumper" field to Case Info box.'
-    ],
-
-    ['2.0.3', 'July 18, 2016',
-     'listArrangementFix: Fixed some unwanted behavior due to changes in SC fields. Added additional tweeks.',
-     'Minor Tweak: Made labels fit better.'
-    ],
-
-    ['2.0.2', 'July 15, 2016',
-     'Bug Fix: On Case Review page removed some debug code & fixed bug.'
-    ],
-
-    ['2.0.1', 'June 24, 2016',
-     'Minor Fix: New Email POP & 50/50 did not auto-populate subject line like the stock send mail button does.'
-    ],
-
-    ['2.0.0', 'June 22, 2016',
-     'Major Release: Initial Release.'
-    ]
-];
-*/
 // For SC default layout...
 var dRows;
 var dIndex = JSON.parse('[[[],[]],[[],["100%","Case Information","SCw33t Alerts!","Details","Product Detail","Case Resolution","Product and Offering","Supplemental Details","Alt Contact Information","Case Audit History","Open Activities","Activity History","Case Team","Attachments","Case Comments","SFTP File Attachments","Related Cases","CA Diagnostics","External Requests","KB Articles","Related Content","Emails","Case Reviews","Live Chat Transcripts","Related Defects","Case History"],["0%","empty"]]]');
 
-
-var SID = 0;
-
-
+// var SID = 0;
 
 function init() {
 
@@ -419,25 +261,18 @@ if (lockTopBar) { updateBodyMargin(); }
 // Fixes a problem with top Bar spacing when case starts on feed view:
 document.getElementById($(".efpDetailsView").attr('id')).addEventListener('click', function() {if (lockTopBar) { updateBodyMargin(); }}, false);
 
-// var rainbowcss = "color: white; background-color:#6c6c6c; text-shadow: -1px -1px hsl(0,100%,50%), 1px 1px hsl(5.4, 100%, 50%), 3px 2px hsl(10.8, 100%, 50%), 5px 3px hsl(16.2, 100%, 50%), 7px 4px hsl(21.6, 100%, 50%), 9px 5px hsl(27, 100%, 50%), 11px 6px hsl(32.4, 100%, 50%), 13px 7px hsl(37.8, 100%, 50%), 14px 8px hsl(43.2, 100%, 50%), 16px 9px hsl(48.6, 100%, 50%), 18px 10px hsl(54, 100%, 50%), 20px 11px hsl(59.4, 100%, 50%), 22px 12px hsl(64.8, 100%, 50%), 23px 13px hsl(70.2, 100%, 50%), 25px 14px hsl(75.6, 100%, 50%), 27px 15px hsl(81, 100%, 50%), 28px 16px hsl(86.4, 100%, 50%), 30px 17px hsl(91.8, 100%, 50%), 32px 18px hsl(97.2, 100%, 50%), 33px 19px hsl(102.6, 100%, 50%), 35px 20px hsl(108, 100%, 50%), 36px 21px hsl(113.4, 100%, 50%), 38px 22px hsl(118.8, 100%, 50%), 39px 23px hsl(124.2, 100%, 50%), 41px 24px hsl(129.6, 100%, 50%), 42px 25px hsl(135, 100%, 50%), 43px 26px hsl(140.4, 100%, 50%), 45px 27px hsl(145.8, 100%, 50%), 46px 28px hsl(151.2, 100%, 50%), 47px 29px hsl(156.6, 100%, 50%), 48px 30px hsl(162, 100%, 50%), 49px 31px hsl(167.4, 100%, 50%), 50px 32px hsl(172.8, 100%, 50%), 51px 33px hsl(178.2, 100%, 50%), 52px 34px hsl(183.6, 100%, 50%), 53px 35px hsl(189, 100%, 50%), 54px 36px hsl(194.4, 100%, 50%), 55px 37px hsl(199.8, 100%, 50%), 55px 38px hsl(205.2, 100%, 50%), 56px 39px hsl(210.6, 100%, 50%), 57px 40px hsl(216, 100%, 50%), 57px 41px hsl(221.4, 100%, 50%), 58px 42px hsl(226.8, 100%, 50%), 58px 43px hsl(232.2, 100%, 50%), 58px 44px hsl(237.6, 100%, 50%), 59px 45px hsl(243, 100%, 50%), 59px 46px hsl(248.4, 100%, 50%), 59px 47px hsl(253.8, 100%, 50%), 59px 48px hsl(259.2, 100%, 50%), 59px 49px hsl(264.6, 100%, 50%), 60px 50px hsl(270, 100%, 50%), 59px 51px hsl(275.4, 100%, 50%), 59px 52px hsl(280.8, 100%, 50%), 59px 53px hsl(286.2, 100%, 50%), 59px 54px hsl(291.6, 100%, 50%), 59px 55px hsl(297, 100%, 50%), 58px 56px hsl(302.4, 100%, 50%), 58px 57px hsl(307.8, 100%, 50%), 58px 58px hsl(313.2, 100%, 50%), 57px 59px hsl(318.6, 100%, 50%), 57px 60px hsl(324, 100%, 50%), 56px 61px hsl(329.4, 100%, 50%), 55px 62px hsl(334.8, 100%, 50%), 55px 63px hsl(340.2, 100%, 50%), 54px 64px hsl(345.6, 100%, 50%), 53px 65px hsl(351, 100%, 50%), 52px 66px hsl(356.4, 100%, 50%), 51px 67px hsl(361.8, 100%, 50%), 50px 68px hsl(367.2, 100%, 50%), 49px 69px hsl(372.6, 100%, 50%), 48px 70px hsl(378, 100%, 50%), 47px 71px hsl(383.4, 100%, 50%), 46px 72px hsl(388.8, 100%, 50%), 45px 73px hsl(394.2, 100%, 50%), 43px 74px hsl(399.6, 100%, 50%), 42px 75px hsl(405, 100%, 50%), 41px 76px hsl(410.4, 100%, 50%), 39px 77px hsl(415.8, 100%, 50%), 38px 78px hsl(421.2, 100%, 50%), 36px 79px hsl(426.6, 100%, 50%), 35px 80px hsl(432, 100%, 50%), 33px 81px hsl(437.4, 100%, 50%), 32px 82px hsl(442.8, 100%, 50%), 30px 83px hsl(448.2, 100%, 50%), 28px 84px hsl(453.6, 100%, 50%), 27px 85px hsl(459, 100%, 50%), 25px 86px hsl(464.4, 100%, 50%), 23px 87px hsl(469.8, 100%, 50%), 22px 88px hsl(475.2, 100%, 50%), 20px 89px hsl(480.6, 100%, 50%), 18px 90px hsl(486, 100%, 50%), 16px 91px hsl(491.4, 100%, 50%), 14px 92px hsl(496.8, 100%, 50%), 13px 93px hsl(502.2, 100%, 50%), 11px 94px hsl(507.6, 100%, 50%), 9px 95px hsl(513, 100%, 50%), 7px 96px hsl(518.4, 100%, 50%), 5px 97px hsl(523.8, 100%, 50%), 3px 98px hsl(529.2, 100%, 50%), 1px 99px hsl(534.6, 100%, 50%), 7px 100px hsl(540, 100%, 50%), -1px 101px hsl(545.4, 100%, 50%), -3px 102px hsl(550.8, 100%, 50%), -5px 103px hsl(556.2, 100%, 50%), -7px 104px hsl(561.6, 100%, 50%), -9px 105px hsl(567, 100%, 50%), -11px 106px hsl(572.4, 100%, 50%), -13px 107px hsl(577.8, 100%, 50%), -14px 108px hsl(583.2, 100%, 50%), -16px 109px hsl(588.6, 100%, 50%), -18px 110px hsl(594, 100%, 50%), -20px 111px hsl(599.4, 100%, 50%), -22px 112px hsl(604.8, 100%, 50%), -23px 113px hsl(610.2, 100%, 50%), -25px 114px hsl(615.6, 100%, 50%), -27px 115px hsl(621, 100%, 50%), -28px 116px hsl(626.4, 100%, 50%), -30px 117px hsl(631.8, 100%, 50%), -32px 118px hsl(637.2, 100%, 50%), -33px 119px hsl(642.6, 100%, 50%), -35px 120px hsl(648, 100%, 50%), -36px 121px hsl(653.4, 100%, 50%), -38px 122px hsl(658.8, 100%, 50%), -39px 123px hsl(664.2, 100%, 50%), -41px 124px hsl(669.6, 100%, 50%), -42px 125px hsl(675, 100%, 50%), -43px 126px hsl(680.4, 100%, 50%), -45px 127px hsl(685.8, 100%, 50%), -46px 128px hsl(691.2, 100%, 50%), -47px 129px hsl(696.6, 100%, 50%), -48px 130px hsl(702, 100%, 50%), -49px 131px hsl(707.4, 100%, 50%), -50px 132px hsl(712.8, 100%, 50%), -51px 133px hsl(718.2, 100%, 50%), -52px 134px hsl(723.6, 100%, 50%), -53px 135px hsl(729, 100%, 50%), -54px 136px hsl(734.4, 100%, 50%), -55px 137px hsl(739.8, 100%, 50%), -55px 138px hsl(745.2, 100%, 50%), -56px 139px hsl(750.6, 100%, 50%), -57px 140px hsl(756, 100%, 50%), -57px 141px hsl(761.4, 100%, 50%), -58px 142px hsl(766.8, 100%, 50%), -58px 143px hsl(772.2, 100%, 50%), -58px 144px hsl(777.6, 100%, 50%), -59px 145px hsl(783, 100%, 50%), -59px 146px hsl(788.4, 100%, 50%), -59px 147px hsl(793.8, 100%, 50%), -59px 148px hsl(799.2, 100%, 50%), -59px 149px hsl(804.6, 100%, 50%), -60px 150px hsl(810, 100%, 50%), -59px 151px hsl(815.4, 100%, 50%), -59px 152px hsl(820.8, 100%, 50%), -59px 153px hsl(826.2, 100%, 50%), -59px 154px hsl(831.6, 100%, 50%), -59px 155px hsl(837, 100%, 50%), -58px 156px hsl(842.4, 100%, 50%), -58px 157px hsl(847.8, 100%, 50%), -58px 158px hsl(853.2, 100%, 50%), -57px 159px hsl(858.6, 100%, 50%), -57px 160px hsl(864, 100%, 50%), -56px 161px hsl(869.4, 100%, 50%), -55px 162px hsl(874.8, 100%, 50%), -55px 163px hsl(880.2, 100%, 50%), -54px 164px hsl(885.6, 100%, 50%), -53px 165px hsl(891, 100%, 50%), -52px 166px hsl(896.4, 100%, 50%), -51px 167px hsl(901.8, 100%, 50%), -50px 168px hsl(907.2, 100%, 50%), -49px 169px hsl(912.6, 100%, 50%), -48px 170px hsl(918, 100%, 50%), -47px 171px hsl(923.4, 100%, 50%), -46px 172px hsl(928.8, 100%, 50%), -45px 173px hsl(934.2, 100%, 50%), -43px 174px hsl(939.6, 100%, 50%), -42px 175px hsl(945, 100%, 50%), -41px 176px hsl(950.4, 100%, 50%), -39px 177px hsl(955.8, 100%, 50%), -38px 178px hsl(961.2, 100%, 50%), -36px 179px hsl(966.6, 100%, 50%), -35px 180px hsl(972, 100%, 50%), -33px 181px hsl(977.4, 100%, 50%), -32px 182px hsl(982.8, 100%, 50%), -30px 183px hsl(988.2, 100%, 50%), -28px 184px hsl(993.6, 100%, 50%), -27px 185px hsl(999, 100%, 50%), -25px 186px hsl(1004.4, 100%, 50%), -23px 187px hsl(1009.8, 100%, 50%), -22px 188px hsl(1015.2, 100%, 50%), -20px 189px hsl(1020.6, 100%, 50%), -18px 190px hsl(1026, 100%, 50%), -16px 191px hsl(1031.4, 100%, 50%), -14px 192px hsl(1036.8, 100%, 50%), -13px 193px hsl(1042.2, 100%, 50%), -11px 194px hsl(1047.6, 100%, 50%), -9px 195px hsl(1053, 100%, 50%), -7px 196px hsl(1058.4, 100%, 50%), -5px 197px hsl(1063.8, 100%, 50%), -3px 198px hsl(1069.2, 100%, 50%), -1px 199px hsl(1074.6, 100%, 50%), -1px 200px hsl(1080, 100%, 50%), 1px 201px hsl(1085.4, 100%, 50%), 3px 202px hsl(1090.8, 100%, 50%), 5px 203px hsl(1096.2, 100%, 50%), 7px 204px hsl(1101.6, 100%, 50%), 9px 205px hsl(1107, 100%, 50%), 11px 206px hsl(1112.4, 100%, 50%), 13px 207px hsl(1117.8, 100%, 50%), 14px 208px hsl(1123.2, 100%, 50%), 16px 209px hsl(1128.6, 100%, 50%), 18px 210px hsl(1134, 100%, 50%), 20px 211px hsl(1139.4, 100%, 50%), 22px 212px hsl(1144.8, 100%, 50%), 23px 213px hsl(1150.2, 100%, 50%), 25px 214px hsl(1155.6, 100%, 50%), 27px 215px hsl(1161, 100%, 50%), 28px 216px hsl(1166.4, 100%, 50%), 30px 217px hsl(1171.8, 100%, 50%), 32px 218px hsl(1177.2, 100%, 50%), 33px 219px hsl(1182.6, 100%, 50%), 35px 220px hsl(1188, 100%, 50%), 36px 221px hsl(1193.4, 100%, 50%), 38px 222px hsl(1198.8, 100%, 50%), 39px 223px hsl(1204.2, 100%, 50%), 41px 224px hsl(1209.6, 100%, 50%), 42px 225px hsl(1215, 100%, 50%), 43px 226px hsl(1220.4, 100%, 50%), 45px 227px hsl(1225.8, 100%, 50%), 46px 228px hsl(1231.2, 100%, 50%), 47px 229px hsl(1236.6, 100%, 50%), 48px 230px hsl(1242, 100%, 50%), 49px 231px hsl(1247.4, 100%, 50%), 50px 232px hsl(1252.8, 100%, 50%), 51px 233px hsl(1258.2, 100%, 50%), 52px 234px hsl(1263.6, 100%, 50%), 53px 235px hsl(1269, 100%, 50%), 54px 236px hsl(1274.4, 100%, 50%), 55px 237px hsl(1279.8, 100%, 50%), 55px 238px hsl(1285.2, 100%, 50%), 56px 239px hsl(1290.6, 100%, 50%), 57px 240px hsl(1296, 100%, 50%), 57px 241px hsl(1301.4, 100%, 50%), 58px 242px hsl(1306.8, 100%, 50%), 58px 243px hsl(1312.2, 100%, 50%), 58px 244px hsl(1317.6, 100%, 50%), 59px 245px hsl(1323, 100%, 50%), 59px 246px hsl(1328.4, 100%, 50%), 59px 247px hsl(1333.8, 100%, 50%), 59px 248px hsl(1339.2, 100%, 50%), 59px 249px hsl(1344.6, 100%, 50%), 60px 250px hsl(1350, 100%, 50%), 59px 251px hsl(1355.4, 100%, 50%), 59px 252px hsl(1360.8, 100%, 50%), 59px 253px hsl(1366.2, 100%, 50%), 59px 254px hsl(1371.6, 100%, 50%), 59px 255px hsl(1377, 100%, 50%), 58px 256px hsl(1382.4, 100%, 50%), 58px 257px hsl(1387.8, 100%, 50%), 58px 258px hsl(1393.2, 100%, 50%), 57px 259px hsl(1398.6, 100%, 50%), 57px 260px hsl(1404, 100%, 50%), 56px 261px hsl(1409.4, 100%, 50%), 55px 262px hsl(1414.8, 100%, 50%), 55px 263px hsl(1420.2, 100%, 50%), 54px 264px hsl(1425.6, 100%, 50%), 53px 265px hsl(1431, 100%, 50%), 52px 266px hsl(1436.4, 100%, 50%), 51px 267px hsl(1441.8, 100%, 50%), 50px 268px hsl(1447.2, 100%, 50%), 49px 269px hsl(1452.6, 100%, 50%), 48px 270px hsl(1458, 100%, 50%), 47px 271px hsl(1463.4, 100%, 50%), 46px 272px hsl(1468.8, 100%, 50%), 45px 273px hsl(1474.2, 100%, 50%), 43px 274px hsl(1479.6, 100%, 50%), 42px 275px hsl(1485, 100%, 50%), 41px 276px hsl(1490.4, 100%, 50%), 39px 277px hsl(1495.8, 100%, 50%), 38px 278px hsl(1501.2, 100%, 50%), 36px 279px hsl(1506.6, 100%, 50%), 35px 280px hsl(1512, 100%, 50%), 33px 281px hsl(1517.4, 100%, 50%), 32px 282px hsl(1522.8, 100%, 50%), 30px 283px hsl(1528.2, 100%, 50%), 28px 284px hsl(1533.6, 100%, 50%), 27px 285px hsl(1539, 100%, 50%), 25px 286px hsl(1544.4, 100%, 50%), 23px 287px hsl(1549.8, 100%, 50%), 22px 288px hsl(1555.2, 100%, 50%), 20px 289px hsl(1560.6, 100%, 50%), 18px 290px hsl(1566, 100%, 50%), 16px 291px hsl(1571.4, 100%, 50%), 14px 292px hsl(1576.8, 100%, 50%), 13px 293px hsl(1582.2, 100%, 50%), 11px 294px hsl(1587.6, 100%, 50%), 9px 295px hsl(1593, 100%, 50%), 7px 296px hsl(1598.4, 100%, 50%), 5px 297px hsl(1603.8, 100%, 50%), 3px 298px hsl(1609.2, 100%, 50%), 1px 299px hsl(1614.6, 100%, 50%), 2px 300px hsl(1620, 100%, 50%), -1px 301px hsl(1625.4, 100%, 50%), -3px 302px hsl(1630.8, 100%, 50%), -5px 303px hsl(1636.2, 100%, 50%), -7px 304px hsl(1641.6, 100%, 50%), -9px 305px hsl(1647, 100%, 50%), -11px 306px hsl(1652.4, 100%, 50%), -13px 307px hsl(1657.8, 100%, 50%), -14px 308px hsl(1663.2, 100%, 50%), -16px 309px hsl(1668.6, 100%, 50%), -18px 310px hsl(1674, 100%, 50%), -20px 311px hsl(1679.4, 100%, 50%), -22px 312px hsl(1684.8, 100%, 50%), -23px 313px hsl(1690.2, 100%, 50%), -25px 314px hsl(1695.6, 100%, 50%), -27px 315px hsl(1701, 100%, 50%), -28px 316px hsl(1706.4, 100%, 50%), -30px 317px hsl(1711.8, 100%, 50%), -32px 318px hsl(1717.2, 100%, 50%), -33px 319px hsl(1722.6, 100%, 50%), -35px 320px hsl(1728, 100%, 50%), -36px 321px hsl(1733.4, 100%, 50%), -38px 322px hsl(1738.8, 100%, 50%), -39px 323px hsl(1744.2, 100%, 50%), -41px 324px hsl(1749.6, 100%, 50%), -42px 325px hsl(1755, 100%, 50%), -43px 326px hsl(1760.4, 100%, 50%), -45px 327px hsl(1765.8, 100%, 50%), -46px 328px hsl(1771.2, 100%, 50%), -47px 329px hsl(1776.6, 100%, 50%), -48px 330px hsl(1782, 100%, 50%), -49px 331px hsl(1787.4, 100%, 50%), -50px 332px hsl(1792.8, 100%, 50%), -51px 333px hsl(1798.2, 100%, 50%), -52px 334px hsl(1803.6, 100%, 50%), -53px 335px hsl(1809, 100%, 50%), -54px 336px hsl(1814.4, 100%, 50%), -55px 337px hsl(1819.8, 100%, 50%), -55px 338px hsl(1825.2, 100%, 50%), -56px 339px hsl(1830.6, 100%, 50%), -57px 340px hsl(1836, 100%, 50%), -57px 341px hsl(1841.4, 100%, 50%), -58px 342px hsl(1846.8, 100%, 50%), -58px 343px hsl(1852.2, 100%, 50%), -58px 344px hsl(1857.6, 100%, 50%), -59px 345px hsl(1863, 100%, 50%), -59px 346px hsl(1868.4, 100%, 50%), -59px 347px hsl(1873.8, 100%, 50%), -59px 348px hsl(1879.2, 100%, 50%), -59px 349px hsl(1884.6, 100%, 50%), -60px 350px hsl(1890, 100%, 50%), -59px 351px hsl(1895.4, 100%, 50%), -59px 352px hsl(1900.8, 100%, 50%), -59px 353px hsl(1906.2, 100%, 50%), -59px 354px hsl(1911.6, 100%, 50%), -59px 355px hsl(1917, 100%, 50%), -58px 356px hsl(1922.4, 100%, 50%), -58px 357px hsl(1927.8, 100%, 50%), -58px 358px hsl(1933.2, 100%, 50%), -57px 359px hsl(1938.6, 100%, 50%), -57px 360px hsl(1944, 100%, 50%), -56px 361px hsl(1949.4, 100%, 50%), -55px 362px hsl(1954.8, 100%, 50%), -55px 363px hsl(1960.2, 100%, 50%), -54px 364px hsl(1965.6, 100%, 50%), -53px 365px hsl(1971, 100%, 50%), -52px 366px hsl(1976.4, 100%, 50%), -51px 367px hsl(1981.8, 100%, 50%), -50px 368px hsl(1987.2, 100%, 50%), -49px 369px hsl(1992.6, 100%, 50%), -48px 370px hsl(1998, 100%, 50%), -47px 371px hsl(2003.4, 100%, 50%), -46px 372px hsl(2008.8, 100%, 50%), -45px 373px hsl(2014.2, 100%, 50%), -43px 374px hsl(2019.6, 100%, 50%), -42px 375px hsl(2025, 100%, 50%), -41px 376px hsl(2030.4, 100%, 50%), -39px 377px hsl(2035.8, 100%, 50%), -38px 378px hsl(2041.2, 100%, 50%), -36px 379px hsl(2046.6, 100%, 50%), -35px 380px hsl(2052, 100%, 50%), -33px 381px hsl(2057.4, 100%, 50%), -32px 382px hsl(2062.8, 100%, 50%), -30px 383px hsl(2068.2, 100%, 50%), -28px 384px hsl(2073.6, 100%, 50%), -27px 385px hsl(2079, 100%, 50%), -25px 386px hsl(2084.4, 100%, 50%), -23px 387px hsl(2089.8, 100%, 50%), -22px 388px hsl(2095.2, 100%, 50%), -20px 389px hsl(2100.6, 100%, 50%), -18px 390px hsl(2106, 100%, 50%), -16px 391px hsl(2111.4, 100%, 50%), -14px 392px hsl(2116.8, 100%, 50%), -13px 393px hsl(2122.2, 100%, 50%), -11px 394px hsl(2127.6, 100%, 50%), -9px 395px hsl(2133, 100%, 50%), -7px 396px hsl(2138.4, 100%, 50%), -5px 397px hsl(2143.8, 100%, 50%), -3px 398px hsl(2149.2, 100%, 50%), -1px 399px hsl(2154.6, 100%, 50%); font-size: 40px;";
-// console.log("%cSCwwww33333333tttt!!!!!!!", rainbowcss);
-
 //document.documentElement.style.setProperty(`--${this.id}`, this.value + suffix);
 
 	// TODO this only really removes the piece that opens it...
 	if (removePullDownBar) {
-		var pullDownBar = window.parent.document.getElementsByClassName('x-layout-collapsed x-layout-collapsed-north x-layout-cmini-north');
+		var pullDownBar = window.parent.document.getElementsByClassName('');//x-layout-collapsed  x-layout-cmini-northx-layout-collapsed-north
 		for (var i=0; i < pullDownBar.length;i++) {
 			pullDownBar[i].remove();
 		}
 	}
 
-//paintIt();
-
-
 
 // TODO
-// Look into how to stop "settings not installed" message on Task page...  i think this is fixed...
 // ? Feed View box (with & without top?) - $("#entity_feed_" + fiveHunID)
 // Fix issue with not being able to scroll through hover boxes
 //logTrace('in4it');
@@ -449,7 +284,7 @@ document.getElementById($(".efpDetailsView").attr('id')).addEventListener('click
 // Add Settings Button
 addTemplateByClass("<li><a href='javascript:void(0)' id='asc_Settings_Launch'>SCw33t</a></li>", 'optionContainer');//onclick='init()'
 document.getElementById("asc_Settings_Launch").addEventListener('click', init_settings, false);
-document.getElementById("asc_Settings_Launch").addEventListener('click', init_settings, false);
+
 
 //-----BEGIN: Collect Case Info-----
 //var fiveHunID = $("div.bRelatedList:eq( 0 )").attr('id').replace("_RelatedActivityList", ""); //Collect the 500 ID  --old way
@@ -459,17 +294,17 @@ var fiveHunAAID = window.location.href.split("/")[3].split("?")[0]; // Collect t
 var fiveHunID = fiveHunAAID.slice(0,-3);                            // Collect the 500 ID
 if(window.location.href.indexOf("&nonce=") > -1) { SID = window.location.href.split("&nonce=")[1].split("&")[0]; } // Collect the Session ID, if available alert("Session ID not found, some ArrangeSC functions may not work.");?
 else { squareMonitor = false; enable5050 = false;} // Else disable features that break
-var CID = $("#cas3_ileinner a").attr("href").replace("javascript:srcUp(%27%2F", "").replace("%3Fisdtp%3Dvw%27);","");// Collect Contact ID
+
 //-----END: Collect Case Info-----
 
 // TODO replace above with below
 
+
 theCase = {
-	num: pullTextByCellName('Case Number').trim().split(' ')[0],
+	caseNum: pullTextByCellName('Case Number').trim().split(' ')[0],
 	fiveHunAAID: fiveHunAAID,
 	fiveHunID: fiveHunID,
-	SID: SID,
-	CID: CID,
+	CID: $("#cas3_ileinner a").attr("href").replace("javascript:srcUp(%27%2F", "").replace("%3Fisdtp%3Dvw%27);",""), // Collect Contact ID,
 
 	owner: pullTextByCellName('Case Owner').trim().split(' [')[0],
 	type: pullTextByCellName('Case Type').trim(),
@@ -478,15 +313,13 @@ theCase = {
 	naOwner: pullTextByCellName('Next Action Owner').trim(),
 	naDue: pullTextByCellName('Next Action Due Date').trim(),
 	siteId: pullTextByCellName('Tops Site ID').trim(),
-	siteId: pullTextByCellName('Project ID').trim(),
-
+	projId: pullTextByCellName('Project ID').trim(),
 
 	conName: pullTextByCellName('Contact Name').trim(),
 	conEmail: pullTextByCellName('Contact Emaill').trim(),
 
 	altName: pullTextByCellName('Alt Contact First Name').trim() + ' ' + pullTextByCellName('Alt Contact Last Name').trim(),
 	altEmail: pullTextByCellName('Alternate email').trim(),
-
 
 	product: pullTextByCellName('CA Product').trim(),
 	productCode: pullTextByCellName('Product Code').trim(),
@@ -497,25 +330,23 @@ theCase = {
 	isOpen: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Open') > -1),
 	isVerify: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Verify') > -1),
 	isClosed: (pullTextByCellName({'name': "Troubleshooting Stage"}).indexOf('Closed') > -1),
+	// isEscalated: pullTextByCellName('Escalated').trim(),// need oullCheckedByCellName??
+	// isSelect: ,
+	// isGuarenteedRestoration: ,
 
-
-
-
-
-	/*escalated: pullTextByCellName('Escalated').trim(),// need oullCheckedByCellName?? */
-
-	//
 };
+
+if (window.location.href.indexOf("&nonce=") > -1) {
+	theCase.SID = window.location.href.split("&nonce=")[1].split("&")[0];
+}
+
 logTrace("theCase: " + JSON.stringify(theCase));
 
-// setStyle(myTheme);
-
-// TODO chekc last comment date, alert if 5+ days...
+// TODO check last comment date, alert if 5+ days...
 // TODO alert not your case, add yourself to the case team??
 // TODO add alert info internal ca... alert Help Required...alert QJ... alert select ...alert guarenteed avail...
 // TODO add button to buttons: reassign case (make sure there is confirmbox)
 // TODO based on OS, mini pic in title bar?
-
 
 // Add Alerts box:
 $('<div style="display:none;" id="alertHider"><div class="brandTertiaryBrd pbSubheader tertiaryPalette" id="head_arrangeSC-alertBox_ep"><img src="/s.gif" alt="Hide Section - SCw33t Alerts!" class="hideListButton" id="img_arrangeSC-alertBox" name="SCw33t Alerts!" onclick="twistSection(this);" onkeypress="if (event.keyCode==\'13\')twistSection(this);" style="cursor:pointer;" tabindex="0" title="Hide Section - SCw33t Alerts!"><h3>SCw33t Alerts!<span class="titleSeparatingColon">:</span></h3><h3> ( </h3><h3 id="numAlerts">0</h3><h3> )</h3></div><div class="pbSubsection" id="body_arrangeSC-alertBox_ep" style="display: block;"></div></div>').appendTo('body');
@@ -525,6 +356,7 @@ $('<table id="arrangeSC-alertBox-table-2" class="detailList"></table>').appendTo
 $('<table id="arrangeSC-alertBox-table-3" class="detailList"></table>').appendTo("#body_arrangeSC-alertBox_ep");
 $('<table id="arrangeSC-alertBox-No-Alerts" style="width:auto;" class="detailList"><tr><td align=\'right\' style=\'min-width:75px; word-wrap: break-word;\'></td><td style=\'width:100%; word-wrap: break-word;\'>-- No Alerts --</td></tr></table>').appendTo("#body_arrangeSC-alertBox_ep");
 
+// Alert Samples, uncomment for testing
 // addAlert(1, "This is a test of the <a href='www.google.com'>automated</a> alert function. <br /> This is <br /> a multi-line <br /> message");
 // addAlert(0, "This is a test of the <a href='www.google.com'>automated</a> alert function.");
 // addAlert(2, "This is a test of the <a href='www.google.com'>automated</a> alert function.");
@@ -584,121 +416,119 @@ $("div.bRelatedList").each(
 	}
 );
 
+// Read thru boxes??
 // for (var box in theBoxes2) {
 	// if (theBoxes2[box].boxType == 'rel') {
 		// alert(box);
 		// alert(JSON.stringify(theBoxes2[box]));
 	// }
-
 // }
 
 
 // TODO add function to compare settings to boxes & make sure all used boxes still exist!
 
-
-/*
-
-	// TODO Auto generate theBoxes...
-var theBoxes = {
-    // Details Boxes
-	prodDetailID: ["#head_01Ba000000E3Y8V_ep, #body_01Ba000000E3Y8V_ep", "Product Detail", "l"],            // ID for Product Detail
-	caseResID: ["#head_01Ba000000E3Y8W_ep, #body_01Ba000000E3Y8W_ep", "Case Resolution", "l"],                 // ID for Case Resolution
-	prodOfferingID: ["#head_01Ba000000E3Y8X_ep, #body_01Ba000000E3Y8X_ep", "Product and Offering", "l"],  // ID for Product and Offering
-	supDetailsID: ["#head_01Ba000000E3Y8Y_ep, #body_01Ba000000E3Y8Y_ep", "Supplemental Details", "l"],      // ID for Supplemental Details
-	// Details Boxes
-	caseInfoID: ["#head_01Ba000000ETFux_ep, #body_01Ba000000ETFux_ep", "Case Information", "l"],              // ID for Case Information
-	detailsID: ["#head_01Ba000000ETFuz_ep, #body_01Ba000000ETFuz_ep", "Details", "l"],                         // ID for Details
-	//advInfoID: ["#head_01Ba000000ETFv0_ep, #advInfoBody", "Advanced Information", "l"],          // ID for Advanced Information - removed 4/21 2017
-	//componentID: ["#head_01Ba000000ETFv1_ep, #componentBody", "Search-Select CA Product and Component", "l"], // ID for Search/Select CA Product and Component
-	//prodDetailsID: ["#head_01Ba000000ETFv2_ep, #prodDetailsBody", "Product Details", "l"],       // ID for Product Details
-	altContactID: ["#head_01Ba000000ETFv3_ep, #body_01Ba000000ETFv3_ep", "Alt Contact Information", "l"], // ID for Alt Contact Information
-	auditHistoryID: ["#head_01Ba000000ETFv4_ep, #body_01Ba000000ETFv4_ep", "Case Audit History", "l"],  // ID for Case Audit History
-	alertBoxID: ["#head_arrangeSC-alertBox_ep, #body_arrangeSC-alertBox_ep", "Alerts!", "l"],          // ID for ArrangeSC Alert Box
-    // Related List Boxes
-    openActsID: ["#" + fiveHunID + "_RelatedActivityList", "Open Activities", "r"],              // ID for Open Activities
-    actHistoryID: ["#" + fiveHunID + "_RelatedHistoryList", "Activity History", "r"],            // ID for Activity History
-    caseTeamID: ["#" + fiveHunID + "_RelatedTeamMemberList", "Case Team", "r"],                  // ID for Case Team
-    attachmentsID: ["#" + fiveHunID + "_RelatedAttachmentList", "Attachments", "r"],             // ID for Attachments
-    caseCommentsID: ["#" + fiveHunID + "_RelatedCommentsList", "Case Comments", "r"],            // ID for Case Comments
-    sftpAttachmentsID: ["#" + fiveHunID + "_00Na000000ArhjW", "SFTP File Attachments", "r"],     // ID for SFTP File Attachments
-    relCasesID: ["#" + fiveHunID + "_RelatedChildCaseList", "Related Cases", "r"],               // ID for Related Cases
-    extReqsID: ["#" + fiveHunID + "_00Na000000Arhi2", "External Requests", "r"],                 // ID for External Requests
-    kbArtsID: ["#" + fiveHunID + "_00Na000000BFxGs", "KB Articles", "r"],                        // ID for KB Articles
-    emailsID: ["#" + fiveHunID + "_RelatedEmailMessageList", "Emails", "r"],                     // ID for Emails
-    caseReviewsID: ["#" + fiveHunID + "_00Na000000BLy1J", "Case Reviews", "r"],                  // ID for Case Reviews
-    chatTransID: ["#" + fiveHunID + "_RelatedLiveChatTranscriptList", "Live Chat Transcripts", "r"], // ID for Live Chat Transcripts
-    defectsID: ["#" + fiveHunID + "_00Na000000BFxGt", "Related Defects", "r"],                   // ID for Related Defects
-    caseHistoryID: ["#" + fiveHunID + "_RelatedEntityHistoryList", "Case History", "r"],         // ID for Case History
-    relContentID: ["#" + fiveHunID + "_00Na000000AxMex", "Related Content", "r"] };       // ID for Related Content
-
-
-	*/
-
-
-
 var emptyID = "";                   // ID for creating empty space
 //var fiftyFrameID = "#fiftyFrame"; // ID for 50/50 Iframe
 //------Bodies Successfully Identified------
 
-/*/BEGIN: Related List Collapse Style
-$(`<style id="Arrange_Related_List_Collapse_Style">
-.hideListButtonR { background: transparent url('/img/alohaSkin/twisty_sprite.png') 0 -11px no-repeat !important;
-margin-right: 4px !important;
-border: 0 !important;
-height: 11px !important;
-width: 11px !important;
-}
-.showListButtonR { background: transparent url('/img/alohaSkin/twisty_sprite.png') 0 0 no-repeat !important;
-margin-right: 4px !important;
-border: 0 !important;
-height: 11px !important;
-width: 11px !important;
-}
-</style>`).appendTo($('body'));
-//END: Related List Collapse Style*/
-
-//--BEGIN: Square monitor table style options
-/*
-if (squareMonitor) {
-    $(`<style id="Arrange_Square_Style">
-table .sqTB { width: 100% !important;
-padding: 1px !important;
-border-top-width: 0px !important;
-border-bottom-width: 1px !important;
-border-left-width: 0px !important;
-border-right-width: 0px !important;
-border-style: solid !important;
-border-color: grey !important;
-}
-th .sqTH { border: 0 none !important;
-}
-tr .sqTR { border: 0 none !important;
-padding: 0px !important;
-}
-.sqTD { padding: 0px !important;
-margin: 1px !important;
-border-top-width: 0px !important;
-border-bottom-width: 0px !important;
-border-left-width: 0px !important;
-border-right-width: 0px !important;
-border-style: none !important;
-}
-.sqTD span {
-color: #54698d !important;
-font-weight: normal !important;
-font-size: .9em !important;
-}
-.labelSpan {
-color: #54698d !important;
-font-weight: normal !important;
-font-size: .9em !important;
-}
-</style>`).appendTo($('body'));
-}
-*/
-//--END: Square monitor table style options
 var needToDismiss = false; // Are there open callbacks?
 // TODO fix needToDismiss on other pages
+
+// Case Status Alerts
+// If not closed, lets make some alerts...
+if (theCase.isClosed == false) {
+
+// Next acction check
+logTrace("Checking Next Action...");
+var compared = compareDTNow($("#" + pullIdByCellName("Next Action Due Date")).text());
+
+if (compared.tense == 'today') {
+addAlert(1,"Your next action is set for TODAY! In " + compared.timeLeft);
+addClassByCellName({'name': "Next Action Due Date", "className": "warningCell", "mod": "both"});
+} else if (compared.tense == 'past') {
+addClassByCellName({'name': "Next Action Due Date", "className": "alertText", "mod": "both"});
+addAlert(1,"Your next action has expired! " + compared.timeLeft);
+} else if (compared.tense == 'future') {
+//addAlert(3,"Your next action is OK! " + compared.timeLeft);
+}
+
+if (compared.tense == 'future' || compared.tense == 'today') {
+var naCell = $("#" + pullIdByCellName("Next Action Due Date"));
+naCell.text(naCell.text() + ' (' + compared.timeLeft + ')');
+}
+
+// Empty Field Checks
+logTrace("Checking for empty required fields...");
+var fieldsToCheck = ["Symptom", "Root Cause Category", "Root Cause Subcategory", "Case Reason", "Resolution",
+							"Product Release","CA Product","Component","Product Code","Product Release Selection"];
+
+if (theCase.sev <= 2) {
+	logTrace("Sev is 2 or greater, adding additional empty field checks.");
+	fieldsToCheck.push("Business Impact");
+}
+
+if (theCase.sev == 1) {
+	logTrace("Sev is 1, adding additional empty field checks.");
+	fieldsToCheck.push("Severity 1 Impact", "Production Down Status","SDM Owner");
+
+	logTrace("Sev is 1, adding alert styles.");
+	addClassByCellName({'name': "Severity", "className": "alertCell", "mod": "both"});
+	// $("#" + pullIdByCellName()).addClass('alertCell');
+}
+
+var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);
+bgPercent(stgNum,7,$("#" + pullIdByCellName("Troubleshooting Stage")).parent());
+
+var emptyFields=[];// = '';
+
+for (var field in fieldsToCheck) {
+var txt = pullTextByCellName({'name': fieldsToCheck[field]});
+//console.log("'"+txt+"'");
+if (txt.length <= 2) {
+	// document.getElementById('aa').dispatchEvent(new MouseEvent('dblclick'),{'view': window,'bubbles': true,'cancelable': true});
+	// set a href to the anchor so the page moves there??
+	//emptyFields += ('<a href="javascript:void(0)" onclick="$(\'#' + pullIdByCellName({'name':fieldsToCheck[field]}) + '\').dblclick();" >' + fieldsToCheck[field] + '</a>');
+	emptyFields.push(fieldsToCheck[field]);
+	addClassByCellName({'name': fieldsToCheck[field], "className": "alertBg"});
+}
+}
+
+if (emptyFields.length) {
+	if (parseInt(pullTextByCellName({name: "Troubleshooting Stage"}).split('.')[0]) >= 5) {
+		logTrace("Troubleshooting stage >= 5, generating empty field alert at Alert level instead of Warning.");
+		addAlert(1, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+	} else {
+		logTrace("Generating empty field alert at default level of Warning.");
+		addAlert(2, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+	}
+} else {
+	// TODO Should we generate an alert here saying OK?
+	logTrace("No empty fields found. No alert will be generated.");
+}
+
+var ownerCell = $("#" + pullIdByCellName("Case Owner")).parent();
+if (theCase.owner == myself.name) {
+	ownerCell.css('background-color', myself.color);
+} else {
+	for (var teamMate in myTeam) {
+		if (theCase.owner == myTeam[teamMate].name) {
+			ownerCell.css({"background-color": myTeam[teamMate].color});
+		}
+	}
+}
+
+// Check if last item in Case History is > 5 days old?
+// alert(compareDTNow(cellPull2('t',"Date",theBoxes2["Case History"].pid,0)));
+
+} else {
+addAlert(3, "This case is closed, case status alerts not processed.");
+}
+
+
+
+
+
+
 
 
 
@@ -727,189 +557,84 @@ function loop1(argss) {
 
         if (foundIt) { // If Page is ready execute, otherwise skip and loop again
 
-		// Case status alerts
-// If not closed, lets make some alerts...
-if (theCase.isClosed == false) {
 
-	// Next acction check
-	logTrace("Checking Next Action...");
-	var compared = compareDTNow($("#" + pullIdByCellName("Next Action Due Date")).text());
 
-	if (compared.tense == 'today') {
-		addAlert(1,"Your next action is set for TODAY! In " + compared.timeLeft);
-		addClassByCellName({'name': "Next Action Due Date", "className": "warningCell", "mod": "both"});
-	} else if (compared.tense == 'past') {
-		addClassByCellName({'name': "Next Action Due Date", "className": "alertText", "mod": "both"});
-		addAlert(1,"Your next action has expired! " + compared.timeLeft);
-	} else if (compared.tense == 'future') {
-		//addAlert(3,"Your next action is OK! " + compared.timeLeft);
-	}
+if (lockTopBar) { updateBodyMargin(); } // Update body margin for lock top bar
 
-	if (compared.tense == 'future' || compared.tense == 'today') {
-		var naCell = $("#" + pullIdByCellName("Next Action Due Date"));
-		naCell.text(naCell.text() + ' (' + compared.timeLeft + ')');
-	}
+// BEGIN: "Create Se Action" Alerts
+if ($(theBoxes2["Related Defects"].pid + " th a").length > 0) {
+	if ($(theBoxes2["Related Defects"].pid + " table.list tr.dataRow").length > 0) {
+		var seActs = [];
+		var defs = {};
 
-	// Empty Field Checks
-	logTrace("Checking for empty required fields...");
-	var fieldsToCheck = ["Symptom", "Root Cause Category", "Root Cause Subcategory", "Case Reason", "Resolution",
-								  "Product Release","CA Product","Component","Product Code","Product Release Selection"];
+		var bodyID = theBoxes2["Open Activities"].pid;
+		for (i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
+			var thisType = $(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text().trim()
+			if (thisType == "SE Info"|| thisType == "SE Action") {
+				seActs.push({
+					title: $(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text(),
+					seType: thisType,
+					boxSel: bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )"
+				});
 
-	if (theCase.sev <= 2) {
-		logTrace("Sev is 2 or greater, adding additional empty field checks.");
-		fieldsToCheck.push("Business Impact");
-	}
-
-	if (theCase.sev == 1) {
-		logTrace("Sev is 1, adding additional empty field checks.");
-		fieldsToCheck.push("Severity 1 Impact", "Production Down Status","SDM Owner");
-
-		logTrace("Sev is 1, adding alert styles.");
-		addClassByCellName({'name': "Severity", "className": "alertCell", "mod": "both"});
-		// $("#" + pullIdByCellName()).addClass('alertCell');
-	}
-
-	var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);
-	bgPercent(stgNum,7,$("#" + pullIdByCellName("Troubleshooting Stage")).parent());
-
-	var emptyFields=[];// = '';
-
-	for (var field in fieldsToCheck) {
-		var txt = pullTextByCellName({'name': fieldsToCheck[field]});
-		//console.log("'"+txt+"'");
-		if (txt.length <= 2) {
-			// document.getElementById('aa').dispatchEvent(new MouseEvent('dblclick'),{'view': window,'bubbles': true,'cancelable': true});
-			// set a href to the anchor so the page moves there??
-			//emptyFields += ('<a href="javascript:void(0)" onclick="$(\'#' + pullIdByCellName({'name':fieldsToCheck[field]}) + '\').dblclick();" >' + fieldsToCheck[field] + '</a>');
-			emptyFields.push(fieldsToCheck[field]);
-			addClassByCellName({'name': fieldsToCheck[field], "className": "alertBg"});
+			}
 		}
-	}
 
-	if (emptyFields.length) {
-		if (parseInt(pullTextByCellName({name: "Troubleshooting Stage"}).split('.')[0]) >= 5) {
-			logTrace("Troubleshooting stage >= 5, generating empty field alert at Alert level instead of Warning.");
-			addAlert(1, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
-		} else {
-			logTrace("Generating empty field alert at default level of Warning.");
-			addAlert(2, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+		bodyID = theBoxes2["Related Defects"].pid;
+		for (var i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
+			defs[$(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text()] = {
+				status: $(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text(),
+				boxSel: bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )"
+			};
 		}
-	} else {
-		// TODO decide if I want to generate an alert here saying OK!
-		logTrace("No empty fields found. No alert will be generated.");
-	}
 
-  var ownerCell = $("#" + pullIdByCellName("Case Owner")).parent();
-  if (theCase.owner == myself.name) {
-   ownerCell.css('background-color', myself.color);
-  } else {
-    for (var teamMate in myTeam) {
-      if (theCase.owner == myTeam[teamMate].name) {
-        ownerCell.css({"background-color": myTeam[teamMate].color});
-      }
-    }
+		logTrace("seActs.length: " + seActs.length + " defs.length: " + defs.length);
+
+		for (var key in defs) {
+			var def = defs[key];
+
+			for (var sKey in seActs) {
+				if (seActs[sKey].title.indexOf(key) > -1) {
+					// alert('aaa');
+					def.hasOA = true;
+				} //else {alert('bbb');}
+			}
+
+			logTrace('defStat: ' + def.status + ' OA: ' + def.hasOA );
+			if (def.status != 'Closed' && def.hasOA) {
+				// Good, no need to alert
+			} else if (def.status != 'Closed' && !def.hasOA) {
+				// Open Defect w/ NO Open Act., Warn
+				$("<b style='color: red;'>NoSE - </b>").prependTo($(def.boxSel));
+				var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + theCase.CID + "&what_id=" + theCase.fiveHunID + "&retURL=/"+ theCase.fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + key + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
+				$("<a id='makeSEact_" + key + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=action", "Create SE Action", "New Task"); } ).appendTo("#alertHider");
+				$("<a id='makeSEinfo_" + key + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=info", "Create SE Info", "New Task"); } ).appendTo("#alertHider");
+				addAlert(2,'<br />' + key + ' has no corresponding SE Activity! Create <a id="seActPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEact_' + key + '").click();\'>SE Action</a>' + ' or ' + '<a id="seInfoPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEinfo_' + key + '").click();\'>SE Info</a>');
+			} else if (def.status == 'Closed' && def.hasOA) {
+				// Closed Defect w/ Open Act., Inform
+				addAlert(3,'<br />' + key + ' was closed, but has an Open Activity. Consider <a href="javascript:void(0)" onclick="var closeBtn=$(' + def.boxSel + ');closeBtn.click();">closing</a> it.');
+			} else if (def.status == 'Closed' && !def.hasOA) {
+				// Good, no need to alert
+			}
+		}
+
+		// Too many SE?!
+		if (seActs.length > defs.length) {
+			addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras.");
+		}
   }
-
-	// Check if last item in Case History is > 5 days old?
-	// alert(compareDTNow(cellPull2('t',"Date",theBoxes2["Case History"].pid,0)));
-
-} else {
-	addAlert(3, "This case is closed, case status alerts not processed.");
 }
-
-
-           // if (lockTopBar) { updateBodyMargin(); } // Update body margin for lock top bar
-
-			// BEGIN: "Create Se Action" Alerts
-			// TODO logic needs some work :/ how to handle closed DE & closed Acts...
-			// I think I fixed it with seperate if statements... needs to be re-evaluated still
-			//buttGen("newTask2", "New Task 2","https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&ctestDe=DE123456&ctestSev=2", "New Task");
-			if ($(theBoxes2["Related Defects"].pid + " th a").length > 0) {
-				if ($(theBoxes2["Related Defects"].pid + " table.list tr.dataRow").length > 0) {
-					var seActs = [];
-					var defs = [];
-					var needed = [];
-					var notneeded = 0;
-
-					var bodyID = theBoxes2["Open Activities"].pid;
-					for (i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
-						// if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text() != ("SE Action" || "SE Info")) { }
-						// else { seActs.push($(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text()); }
-						if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text()  == ("SE Action" || "SE Info")) {
-							seActs.push($(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text());
-						}
-					}
-
-					bodyID = theBoxes2["Related Defects"].pid;
-					var closedDECount = 0;
-					for (var i = 0; i < $(bodyID + " table.list tr.dataRow").length; i++) {
-						if ($(bodyID + " table.list .dataCell.cellCol2:eq( " + i + " )").text() == "Closed") {
-						closedDECount += 1;
-						}
-
-						defs.push(i + "-" + $(bodyID + " table.list .dataCell.cellCol1:eq( " + i + " )").text());
-
-					}
-					logTrace("seActs.length: "+seActs.length + " defs.length: "+ defs.length);
-
-					// TODO add alert with quick links to defects?
-					// if (seActs.length > defs.length - closedDECount) {
-						// addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras.");
-					// }
-					// Too many SE?!
-					if (seActs.length > defs.length - closedDECount) {
-						addAlert(3, "You have more SE Action/SE Info tasks than open defects. Consider closing the extras.");
-					}
-
-                    //else if (seActs.length == defs.length) {  }  // if #SE and #DE are equal, they should each have one
-                    if (seActs.length < defs.length) {        // If more defects than SE actions, something is missing
-                        for (var i = 0; i < defs.length; i++) {    // Check each DE & SE to see if there are corresponding actions
-                            if ($('#' + theBoxes2["Open Activities"].id + " table.list tr.dataRow").length > 0) {
-                                for (var j = 0; j < seActs.length; j++) {
-                                    if (seActs[j].indexOf(defs[i].split("-")[1]) > -1) {
-										notneeded++;
-									}//needed.push(defs[i]); } // Open Activity Found with DE in title, doesn't need
-									else {
-										needed.push(defs[i]);
-									} // Open Activity Not found with DE in title, may need one
-								}
-							} else { needed.push(defs[i]); }       // No Open Activities at all... needs one
-						}
-
-						if (seActs.length - notneeded === 0) {      // All SEs have a DE in title, Create individual alerts for remaining DEs
-							for (var i = 0; i < needed.length; i++) {
-								var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + needed[i].split("-")[1] + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
-								$("<a id='makeSEact_" + needed[i].split("-")[0] + "' href='javascript:void(0)'></a>").appendTo("#alertHider").click(function() { popIt("frameDEF", loc + "&seType=action", "Create SE Action", "New Task"); } );
-								$("<a id='makeSEinfo_" + needed[i].split("-")[0] + "' href='javascript:void(0)'></a>").appendTo("#alertHider").click(function() { popIt("frameDEF", loc + "&seType=info", "Create SE Info", "New Task"); } );
-								$("<b style='color: red;'>NoSE - </b>").prependTo($(bodyID + "_body table.list .dataCell.cellCol1:eq( " + needed[i].split("-")[0] + " )"));
-								addAlert(1, needed[i].split("-")[1] + ' has no corresponding SE Activity! Create ' + '<a id="seActPOP" onclick=\'document.getElementById("makeSEact_' + needed[i].split("-")[0] + '").click();\'>SE Action</a>' + ' or ' + '<a id="seInfoPOP" onclick=\'document.getElementById("makeSEinfo_' + needed[i].split("-")[0] + '").click();\'>SE Info</a>' );
-							}
-						} else if (seActs.length - notneeded > 0) {
-							// NO SEs have a DE in title, Create 1 Generic alert for remaining DEs w/o specific SE
-                            var alertText = "One or more defects do not have corresponding SE Activity! Create:";
-                            for (var i = 0; i < needed.length; i++) {
-                                var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + needed[i].split("-")[1] + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
-                                $("<a id='makeSEact_" + needed[i].split("-")[0] + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=action", "Create SE Action", "New Task"); } ).appendTo("#alertHider");
-                                $("<a id='makeSEinfo_" + needed[i].split("-")[0] + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=info", "Create SE Info", "New Task"); } ).appendTo("#alertHider");
-                                alertText += '<br />' + needed[i].split("-")[1] + ': Create <a id="seActPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEact_' + needed[i].split("-")[0] + '").click();\'>SE Action</a>' + ' or ' + '<a id="seInfoPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEinfo_' + needed[i].split("-")[0] + '").click();\'>SE Info</a>';
-                            }
-                            addAlert(1, alertText);
-                        }
-                    }
-                }
-            }
-            // END: "Create Se Action" Alerts
-
-            //--BEGIN: Remove " | " from action columns to make them smaller--
-            if ($("td.actionColumn").length > 0 ) {
-                $("td.actionColumn").each(
-                    function() {
-                        var that = $(this).html().replace(/\&nbsp;\|\&nbsp;/g, "\<br /\>");
-                        $(this).html(that);
-                    }
-                );
-            }
-            //--END: Remove " | " from actuion columns to make them smaller--
+// END: "Create Se Action" Alerts
+	//--BEGIN: Remove " | " from action columns to make them smaller--
+  if ($("td.actionColumn").length > 0 ) {
+  	$("td.actionColumn").each(
+    	function() {
+      	var that = $(this).html().replace(/\&nbsp;\|\&nbsp;/g, "\<br /\>");
+        $(this).html(that);
+      }
+		);
+  }
+  //--END: Remove " | " from actuion columns to make them smaller--
 
 
 
@@ -1090,32 +815,27 @@ if (theCase.isClosed == false) {
                     } ).appendTo($(theBoxes2["Case Comments"].pid + " td.pbButton"));
             }
             //--END: Add filter comments dropdown--
+	for (var thisBox in theBoxes2) {
+		scweeten(theBoxes2[thisBox].title);
+	}
 
-				for (var thisBox in theBoxes2) {
-					scweeten(theBoxes2[thisBox].title); //can i just pass thisBox????
-				}
-
-
-            // BEGIN: Show More fix for square monitor changes & pop-up emails
-            if ($("div.pShowMore a").length > 0) {
-                for (i = 0; i < $("div.pShowMore a").length - 1; i++)
-                {
-                    if ($("div.pShowMore a:eq(" + i + ")").attr('href').indexOf("showXMore") > -1)
-                    {
-                        $("div.pShowMore a:eq(" + i + ")").click(
-                            function()
-                            {
-                                foundIt = 0;
-                                lps = 1;
-                                foundITAgain = 1;
-                                FIAHold = $("table.list tr.dataRow").length;
-                                loop1("a");
-                            }
-                        ); // END: function/click
-                    } // END: if indexOf "showXMore"
-                } // END: for i
-            } // END: if show more
-            // END: Show More fix for square monitor changes & pop-up emails
+	// BEGIN: Show More fix for square monitor changes & pop-up emails
+  if ($("div.pShowMore a").length > 0) {
+			for (i = 0; i < $("div.pShowMore a").length - 1; i++) {
+	      if ($("div.pShowMore a:eq(" + i + ")").attr('href').indexOf("showXMore") > -1) {
+	      	$("div.pShowMore a:eq(" + i + ")").click(
+          	function() {
+            	foundIt = 0;
+              lps = 1;
+              foundITAgain = 1;
+              FIAHold = $("table.list tr.dataRow").length;
+              loop1("a");
+            }
+          ); // END: function/click
+        } // END: if indexOf "showXMore"
+      } // END: for i
+    } // END: if show more
+    // END: Show More fix for square monitor changes & pop-up emails
 
 
 
@@ -1272,10 +992,10 @@ if (lockTopBar) {
         //$("div.pbBody").css('margin-top', '40px');
     }
     $("div.pbBody").first().css({'margin-top': $("#arrangeTopBar").outerHeight() + "px" });
-    $("div.pbHeader").children().first().css('table-layout', 'fixed');
+    // $("div.pbHeader").children().first().css('table-layout', 'fixed');
     $("td.topButtonRow").css({'overflow': 'hidden', 'width': 'inherit'});
     $("div.helpElement").css({'z-index': '100','position': 'fixed', 'margin':'7px 10px 0px 130px'}); // Lock layout/print/? icons in place
-    $("#efpViews_" + theCase.fiveHunID).first().css({'z-index': '101','position': 'fixed'});                 // Lock Case - feed view switching buttons in place
+    // $("#efpViews_" + theCase.fiveHunID).first().css({'z-index': '101','position': 'fixed'});                 // Lock Case - feed view switching buttons in place
     $(window).resize(updateBodyMargin); // Set window resize to adjust margin between body & top bar
 }
 
@@ -1303,17 +1023,17 @@ if (enablePOP || enable5050 || enableSCTab) {
 	var siteID = $("#00Na000000Arhhc_ileinner").text();
 	var contactFullName = $("#cas3_ileinner").text();
 	var contactFirstName = contactFullName.split(' ')[0];
-	buttGen("newCom", "New Comment", encodeURI('https://ca.my.salesforce.com/00a/e?parent_id=' + fiveHunID + '&retURL=/' + fiveHunID + '&isdtp=vw' + "&siteID=" + siteID + "&conFullName=" + contactFullName + "&conFirstName=" + contactFirstName), "Comments: Case");
-	buttGen("newerEmail","New Email", encodeURI('https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor?p2_lkid=' + CID + '&rtype=003&p3_lkid=' + fiveHunID + '&p6=CA Support Case  ' + caseNum + ' -' + $("#cas14_ileinner").text() + '&retURL=/' + fiveHunAAID + '?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw'), "Send an Email"); //Now includes subject
-	//buttGen("newerEmail","New Email",'https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor?p2_lkid=' + CID + '&rtype=003&p3_lkid=' + fiveHunID + '&retURL=/' + fiveHunAAID + '?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw', "Send an Email") ;//Old, no subject
-	buttGen("newTask", "New Task", encodeURI("https://ca.my.salesforce.com/setup/ui/recordtypeselect.jsp?ent=Task&ekp=00T&retURL=/" + fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&save_new_url=/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw"), "New Task");
-	//buttGen("newTask2", "New Task 2","https://ca.my.salesforce.com/00T/e?who_id=" + CID + "&what_id=" + fiveHunID + "&retURL=/"+ fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&ctestDe=DE123456&ctestSev=2", "New Task");
-	buttGen("caseReview","Review Case", encodeURI('https://ca--c.na13.visual.force.com/apex/CaseReviewEdit?caseId=' + fiveHunID +'&caseType=' + theCase.type + '&isdtp=vw'));
-	buttGen("relateKB","Relate KB Doc", encodeURI('https://ca.my.salesforce.com/apex/RelateKBArticle?id=' + fiveHunID + '&isdtp=vw'));
+	buttGen("newCom", "New Comment", encodeURI('https://ca.my.salesforce.com/00a/e?parent_id=' + theCase.fiveHunID + '&retURL=/' + theCase.fiveHunID + '&isdtp=vw' + "&siteID=" + theCase.siteID + "&conFullName=" + contactFullName + "&conFirstName=" + contactFirstName), "Comments: Case");
+	buttGen("newerEmail","New Email", encodeURI('https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor?p2_lkid=' + theCase.CID + '&rtype=003&p3_lkid=' + theCase.fiveHunID + '&p6=CA Support Case  ' + caseNum + ' -' + $("#cas14_ileinner").text() + '&retURL=/' + theCase.fiveHunAAID + '?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw'), "Send an Email"); //Now includes subject
+	//buttGen("newerEmail","New Email",'https://ca.my.salesforce.com/_ui/core/email/author/EmailAuthor?p2_lkid=' + theCase.CID + '&rtype=003&p3_lkid=' + theCase.fiveHunID + '&retURL=/' + theCase.fiveHunAAID + '?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw', "Send an Email") ;//Old, no subject
+	buttGen("newTask", "New Task", encodeURI("https://ca.my.salesforce.com/setup/ui/recordtypeselect.jsp?ent=Task&ekp=00T&retURL=/" + theCase.fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&save_new_url=/00T/e?who_id=" + theCase.CID + "&what_id=" + theCase.fiveHunID + "&retURL=/"+ theCase.fiveHunAAID + "?nooverride=1&isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com&isdtp=vw"), "New Task");
+	//buttGen("newTask2", "New Task 2","https://ca.my.salesforce.com/00T/e?who_id=" + theCase.CID + "&what_id=" + theCase.fiveHunID + "&retURL=/"+ theCase.fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&ctestDe=DE123456&ctestSev=2", "New Task");
+	buttGen("caseReview","Review Case", encodeURI('https://ca--c.na13.visual.force.com/apex/CaseReviewEdit?caseId=' + theCase.fiveHunID +'&caseType=' + theCase.type + '&isdtp=vw'));
+	buttGen("relateKB","Relate KB Doc", encodeURI('https://ca.my.salesforce.com/apex/RelateKBArticle?id=' + theCase.fiveHunID + '&isdtp=vw'));
 	buttGen("relateContent", "Relate Content", encodeURI('https://ca.my.salesforce.com/a9n/e?CF00Na000000AxMex=' + caseNum + "&isdtp=vw"));
-	buttGen("caseTeam", "Update Case Team", encodeURI('/0B6/e?kp=500&pid=' + fiveHunID + '&isdtp=vw')); //&sfdcIFrameOrigin=https%3A%2F%2Fca.my.salesforce.com
-	buttGen("newDefect", "New Defect", encodeURI('https://ca--c.na13.visual.force.com/servlet/servlet.Integration?scontrolCaching=1&lid=00ba0000001QkQ6&eid=' + fiveHunID + '&ic=1&isdtp=vw'));
-	buttGen("assDefect", "Associate Defect", encodeURI('https://ca--c.na13.visual.force.com/servlet/servlet.Integration?scontrolCaching=1&lid=00ba0000001QkQ5&eid=' + fiveHunID + '&ic=1&isdtp=vw'));
+	buttGen("caseTeam", "Update Case Team", encodeURI('/0B6/e?kp=500&pid=' + theCase.fiveHunID + '&isdtp=vw')); //&sfdcIFrameOrigin=https%3A%2F%2Fca.my.salesforce.com
+	buttGen("newDefect", "New Defect", encodeURI('https://ca--c.na13.visual.force.com/servlet/servlet.Integration?scontrolCaching=1&lid=00ba0000001QkQ6&eid=' + theCase.fiveHunID + '&ic=1&isdtp=vw'));
+	buttGen("assDefect", "Associate Defect", encodeURI('https://ca--c.na13.visual.force.com/servlet/servlet.Integration?scontrolCaching=1&lid=00ba0000001QkQ5&eid=' + theCase.fiveHunID + '&ic=1&isdtp=vw'));
 }
 
 tableGen(cIndex, cRows, "c");
@@ -1576,7 +1296,10 @@ function scweeten(boxTitle) {
 							tabGen(2,bodyId);
 
 							cellGen(1, 0, "10%",'rowspan="2"', cellPull2('a','Action',bodyId),bodyId);
-							cellGen(1, 1, "45%",'',"<span>User: </span>" + cellPull2('h','Team Member',bodyId).replace("User: ", ""),bodyId);
+							var thisCell = cellGen(1, 1, "45%",'',"<span>User: </span>" + cellPull2('h','Team Member',bodyId).replace("User: ", ""),bodyId);
+							$(bodyId + ' #' + thisCell).addClass("teamMemberName");
+							// alert(thisCell);
+							// alert(document.getElementById(thisCell).className);
 							cellGen(1, 2, "17%",'',"<span>Access: </span>" + cellPull2('t', 'Case Access',bodyId),bodyId);
 							cellGen(1, 3, "28%",'',"<span>Last Modified: </span>",bodyId);
 
@@ -1588,6 +1311,29 @@ function scweeten(boxTitle) {
 						$(bodyId + " table.list tr.dataRow").remove();
 					}
 				}
+				// Highlight team mates with their color!
+				var selector = bodyId + " table.list .dataCell.cellCol1";
+				if (squareMonitor) {
+					// alert('sq ');
+					selector = ".teamMemberName";//:eq(1)
+				}
+				$(selector).each(
+					function() {
+						var memberColor;
+						var thisEntry = $(this).text().replace("User: ", "");
+						// alert(thisEntry);
+						if (thisEntry == myself.name) {
+							memberColor = myself.color;
+						} else {
+							for (var teamMate in myTeam) {
+								if (thisEntry == myTeam[teamMate].name) {
+									memberColor = myTeam[teamMate].color;
+								}
+							}
+						}
+						$(this).css({"background-color": memberColor});
+					}
+				);
 				break;
 
 			case "Emails":
@@ -1729,26 +1475,27 @@ function scweeten(boxTitle) {
 						}
 					}
 
-					for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
+					if (squareMonitor) {
+						for (i = 0; i < $(bodyId + " table.list tr.dataRow").length; i++) {
 
-						tabGen(2,bodyId);
+							tabGen(2,bodyId);
 
-						cellGen(1, 0, "5%",'rowspan="2"', cellPull('a','',bodyId),bodyId);
-						cellGen(1, 1, "30%",'',"<span> Subject: </span>" + cellPull(1,'h',bodyId),bodyId);
-						cellGen(1, 2, "8%",'',"<span>Sev: </span>" + cellPull(7,'',bodyId),bodyId);
-						cellGen(1, 3, "22%",'',"<span>Status: </span>" + cellPull(6,'',bodyId),bodyId);
-						cellGen(1, 4, "40%",'',"<span>Owner: </span>" + cellPull(8, 'h',bodyId),bodyId);
+							cellGen(1, 0, "5%",'rowspan="2"', cellPull('a','',bodyId),bodyId);
+							cellGen(1, 1, "30%",'',"<span> Subject: </span>" + cellPull(1,'h',bodyId),bodyId);
+							cellGen(1, 2, "8%",'',"<span>Sev: </span>" + cellPull(7,'',bodyId),bodyId);
+							cellGen(1, 3, "22%",'',"<span>Status: </span>" + cellPull(6,'',bodyId),bodyId);
+							cellGen(1, 4, "40%",'',"<span>Owner: </span>" + cellPull(8, 'h',bodyId),bodyId);
 
-						cellGen(2, 1, "35%",'colspan="2"',"<span>SLO: </span>" + cellPull(3,'',bodyId),bodyId);
-						cellGen(2, 2, "20%",'',"<span>Type: </span>" + cellPull(2,'',bodyId),bodyId);
-						cellGen(2, 3, "40%",'',"<span>Mod: </span>" + cellPull(9,'',bodyId),bodyId);
+							cellGen(2, 1, "35%",'colspan="2"',"<span>SLO: </span>" + cellPull(3,'',bodyId),bodyId);
+							cellGen(2, 2, "20%",'',"<span>Type: </span>" + cellPull(2,'',bodyId),bodyId);
+							cellGen(2, 3, "40%",'',"<span>Mod: </span>" + cellPull(9,'',bodyId),bodyId);
 
-						// cellGen(1, 3, "35%","colspan='2'","<span>Completed: </span>" + cellPull(4));
-						// cellGen(2, 2, "20%","","<span>Due: </span>" + cellPull(5));
+							// cellGen(1, 3, "35%","colspan='2'","<span>Completed: </span>" + cellPull(4));
+							// cellGen(2, 2, "20%","","<span>Due: </span>" + cellPull(5));
+						}
+						$(bodyId + " table.list tr.headerRow").remove();
+						$(bodyId + " table.list tr.dataRow").remove();
 					}
-					$(bodyId + " table.list tr.headerRow").remove();
-					$(bodyId + " table.list tr.dataRow").remove();
-
 				}
 				break;
 
@@ -1797,7 +1544,7 @@ function scweeten(boxTitle) {
 							$(this).attr('id',newId);
 							var defectID = $(this).attr("href").replace("javascript:srcUp(%27%2F","").replace("%3Fisdtp%3Dvw%27);","");
 							var defectNum = $(this).text();
-							var defectCommentLink = "https://ca--c.na13.visual.force.com/apex/defectComment?CF00Na000000BFxGr=" + defectNum + "&CF00Na000000BFxGr_lkid=" + defectID + "&scontrolCaching=1&retURL=/" + defectID + "?isdtp=vw&nonce=" + SID + "&sfdcIFrameOrigin=https://ca.my.salesforce.com&sfdc.sdnewedit=1&sfdc.override=1&isdtp=vw&nonce=" + SID + "&sfdcIFrameOrigin=https://ca.my.salesforce.com";
+							var defectCommentLink = "https://ca--c.na13.visual.force.com/apex/defectComment?CF00Na000000BFxGr=" + defectNum + "&CF00Na000000BFxGr_lkid=" + defectID + "&scontrolCaching=1&retURL=/" + defectID + "?isdtp=vw&nonce=" + theCase.SID + "&sfdcIFrameOrigin=https://ca.my.salesforce.com&sfdc.sdnewedit=1&sfdc.override=1&isdtp=vw&nonce=" + theCase.SID + "&sfdcIFrameOrigin=https://ca.my.salesforce.com";
 							var defectViewLink = "https://ca.my.salesforce.com/" + defectID + "?isdtp=vw&sfdcIFrameOrigin=https://ca.my.salesforce.com";
 							var defectRallyLink = "https://rally1.rallydev.com/#/search?keywords=" + defectNum;
 							buttGen("defectView" + defectNum, "View "+ defectNum, defectViewLink);
@@ -1925,7 +1672,7 @@ function cellGen(row, col, width, params, inner, bodyID) {
 
 	$("#rw_t" + i + "_r" + row + "_" + bodyID.split("_")[1])
 		.append($("<td class='sqTD' id='rw_t" + i + "r" + row + "c" + col + "' width='" + width + "' " + params + ">" + inner  + "</td>"));
-
+	return "rw_t" + i + "r" + row + "c" + col;
 }
 
 function cellPull(cell, type, bodyID) {

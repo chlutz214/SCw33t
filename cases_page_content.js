@@ -160,9 +160,10 @@ function casesPageInit() {
 						// TODO make colors modifiable by selecting anchor colors like: g y o r
 						var alpha = 0.75;
 						var age = parseInt($(this).text().trim());
-						this.style.setProperty("color", "white", "important");
+						this.style.setProperty("color", "black", "important");
+						this.style.setProperty("font-weight", "bold", "important");
 						if (age == 0) {
-							$(this).parent().css({"background-color": "rgba(0,112,210,"+alpha+")"});
+							$(this).parent().css({"background-color": "rgba(0,112,210,1)"});
 						} else if (age > 0 && age <= 30) {
 							$(this).parent().css({"background-color": "rgba(" + Math.round(8.53*age) + ",255,0,"+alpha+")"}); // 255 (max) / 30(range) = ~8.53
 						} else if (age > 30 && age <= 60) {
@@ -210,20 +211,20 @@ function casesPageInit() {
 						var NA = $(this);
 						if (NA.text().indexOf('M') > -1) {
 							try{
-						console.log("Next Action: " + NA.text());
+						logTrace("Next Action: " + NA.text());
 
 						var compared = compareDTNow(NA.text());
-						if (compared.tense == 'today') {
+						if (compared.tense.indexOf('today') > -1) {
 							$(this).parent().addClass('warningCell');
 							// addToAction(this.id,"NA");
-							console.log(myself.endHour - compared.now.hour);
+							logTrace(myself.endHour - compared.now.hour);
 							if (myself.endHour - compared.now.hour < 2) {
 								$(this).parent().addClass('blink_me');
 							}
 						} else if (compared.tense == 'future') {
 							// $(this).css({"background-color": 'blue'});
 
-						}else if (compared.tense == 'past') {
+						} else if (compared.tense == 'past') {
 							// $(this).css({"background-color": 'red'});
 							$(this).parent().addClass('alertCell');
 
@@ -310,7 +311,7 @@ function casesPageInit() {
 					$(args.cssClass).each(
 						function() {
 							var stgNum = parseInt($(this).text().trim().split('. ')[0]);
-							bgPercent(stgNum,7,$(this));
+							bgPercent(stgNum-1,6,$(this));
 							// var percent = (stgNum/6) * 100;
 							// console.log('stage: ' + stgNum);
 							// console.log('percent: ' + percent);

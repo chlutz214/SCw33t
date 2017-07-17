@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "SCw33t",
     "description": "ServiceCloud wildly 3xtensive 3xtension testing !! BETA !!",
-    "version": "0.1.0.1",
+    "version": "0.1.0.3",
     "author": "Christian Lutz",
     "homepage_url": "https://cawiki.ca.com/display/CASupport/Service+Cloud+User+Scripts",
     "permissions": [
@@ -47,7 +47,8 @@
         },
         {
             "matches": [
-                "https://ca.my.salesforce.com/500a*"
+                "https://ca.my.salesforce.com/500a*",
+                "https://ca.my.salesforce.com/5000c*"
             ],
             "exclude_globs": [
                 "*dontscw33ten=1*",

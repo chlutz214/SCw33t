@@ -2,84 +2,62 @@
 /* Define variables in root */
 /* TODO MAKE THESE ALL "INHERIT" as default */
 :root {
-	--console_top_color: #000000; /*#0070D2;*/
-	--console_bottom_color: #ff0000;
-	--console_text_color: #FFFFFF;
-
- 	--tabstrip_bg_color: #000000;
-	--tabstrip_alt_bg_color: #333333;
-	--tabstrip_text_color: #ffffff;
-
-	--tabstrip_border_color: #FF00FF;
-	--tabstrip_tab_border_color: #FFFFFF;
-	--tabstrip_tab_alt_border_color: #00FF00;
-
-	--body_bg_color: #FFFFFF;
+	--console_top_color: rgba(0,112,210,1);
+	--console_bottom_color: rgba(37,44,51,1);
+	--console_text_color: rgba(255,255,255,1);
+	--tabstrip_bg_color: rgba(244,246,249,1);
+	--tabstrip_alt_bg_color: rgba(255,255,255,1);
+	--tabstrip_text_color: rgba(22,50,92,1);
+	--tabstrip_border_color: rgba(0,0,0,0.2);
+	--tabstrip_tab_border_color: rgba(255,255,0,1);
+	--tabstrip_tab_alt_border_color: rgba(255,0,0,1);
+	--body_bg_color: rgba(255,255,255,1);
 	--body_text_color: rgba(22,50,92,1);
-	--body_text_modified_color: #FF6A00;
-	--body_link_color: #006CB5;
-	--body_link_hover_color: #FF0000;/*#015BA7;*/
-	--body_label_text_color: #54698D;
-
-	--alert_bg_color: #FFECEC;
-	--alert_text_color: #CC0000;
-	--alert_border_color: #000000;
-
-	--warning_bg_color: #FFB75D;
-	--warning_text_color: #FF6A00;
-	--warning_border_color: #000000;
-
-	--success_bg_color: #FFB75D;
-	--success_text_color: #FF6A00;
-	--success_border_color: #000000;
-
-	--percent_bar_color: #00FFFF;
-	--percent_bar_bg_color: transparent;
-
-	--tb_bg_color: #0070D2;
-	--tb_text_color: #FFFFFF;
-	--tb_link_color: #FFFFFF;
-	--tb_border_color: #000000;
-
-	--box_h_text_color: #FFFFFF;
-	--box_h_bg_color: #0070D2;
-	--box_h_border_color: #000000;
-	--box_body_bg_color: #FFFFFF;
-	--box_body_border_color: #000000;
-
-	--table_header_bg_color: #000000;
-	--table_header_text_color: #FFFFFF;
-	--table_header_border_color: #FFFFFF;
-
-	--cell_label_border_color: #000000;
-	--cell_data_border_color: #000000;
-
-	--row_color_even: inherit;
-	--row_border_color_even: #000000;
-
-	--row_color_odd: #DDDDDD;
-	--row_border_color_odd: #000000;
-
-	--row_color_highlight: #000000; /* #e3f3ff */
-
-	--btn_bg_color: #F4F5F7;
-	--btn_border_color: #E0E5EE;
-	--btn_text_color: #0070d2;
-
-	--btn_alt_bg_color: #00FFFF;
-	--btn_alt_border_color: #0000FF;
-	--btn_alt_text_color: #00FF00;
-
-	--txtfield_text_color: #000000;
-	--txtfield_bg_color: #FFFFFF;
-	--txtfield_border_color: #D8DDE6;
-	--txtfield_alt_border_color: #FF0000;
+	--body_text_modified_color: rgba(255,106,0,1);
+	--body_link_hover_color: rgba(0,108,181,1);
+	--body_link_color: rgba(0,108,181,1);
+	--body_label_text_color: rgba(84,105,141,1);
+	--alert_bg_color: rgba(0,0,0,0);
+	--alert_text_color: rgba(204,0,0,1);
+	--alert_border_color: rgba(0,0,0,0);
+	--warning_bg_color: rgba(0,0,0,0);
+	--warning_text_color: rgba(255,106,0,1);
+	--warning_border_color: rgba(0,0,0,0);
+	--success_bg_color: rgba(0,0,0,0);
+	--success_text_color: rgba(255,106,0,1);
+	--success_border_color: rgba(0,0,0,0);
+	--percent_bar_color: rgba(255,255,0,1);
+	--percent_bar_bg_color: rgba(0,0,0,0);
+	--tb_bg_color: rgba(255,255,255,1);
+	--tb_text_color: rgba(22,50,92,1);
+	--tb_link_color: rgba(0,108,181,1);
+	--tb_border_color: rgba(255,255,255,1);
+	--box_h_text_color: rgba(22,50,92,1);
+	--box_h_bg_color: rgba(244,246,249,1);
+	--box_h_border_color: rgb(216,221,230,1);
+	--box_body_bg_color: rgba(255,255,255,1);
+	--box_body_border_color: rgba(255,255,255,1);
+	--table_header_bg_color: rgba(255,255,255,1);
+	--table_header_text_color: rgba(84,105,141,1);
+	--table_header_border_color: rgba(224,227,229,1);
+	--cell_label_border_color: rgba(236,236,236,1);
+	--cell_data_border_color: rgba(236,236,236,1);
+	--row_color_even: rgba(255,255,255,1);
+	--row_color_odd: rgba(255,255,255,1);
+	--row_color_highlight: rgba(244,246,249,1);
+	--btn_text_color: rgba(0,112,210,1);
+	--btn_bg_color: rgba(244,245,247,1);
+	--btn_border_color: rgba(224,229,238,1);
+	--btn_alt_text_color: rgba(0,112,210,1);
+	--btn_alt_bg_color: rgba(231,237,244,1);
+	--btn_alt_border_color: rgba(224,229,238,1);
+	--txtfield_text_color: rgba(0,0,0,1);
+	--txtfield_bg_color: rgba(255,255,255,1);
+	--txtfield_border_color: rgba(216,221,230,1);
+	--txtfield_alt_border_color: rgba(216,221,230,1);
 }
 
-
-
-
-/* slo timer - not working on task page*/
+/* slo timer - not working on task page */
 .timer {
   background-color: inherit !important;
   color: inherit !important;
@@ -94,7 +72,6 @@
 iframe {
 	background-color: var(--body_bg_color) !important;
 }
-
 
 /* Table Headers */
 .headerRow, .headerRow *, .x-grid3-hd-row, .x-grid3-hd-row *, .x-grid3-header-inner {
@@ -120,10 +97,6 @@ iframe {
 }*/
 
 
-
-
-
-
 /* Tab Strip  Style */
 
 
@@ -147,7 +120,7 @@ iframe {
 /* Tab Strip ALT BG Style */
 .x-tab-strip-active, .x-tab-strip-over, .x-menu-item-active, .support-servicedesk-sbmenuitemselected,
 .x-tab-strip-active *, .x-tab-strip-over *, .x-menu-item-active *, .support-servicedesk-sbmenuitemselected *,
- .tab:hover, .tab a:hover, .tab.selected, .x-btn-over, .x-btn-over * {
+ .tab a:hover, .tab.selected, .x-btn-over, .x-btn-over * {
 	background-color: var(--tabstrip_alt_bg_color) !important;
 	color: var(--tabstrip_text_color) !important;
 	border-color: var(--tabstrip_tab_alt_border_color) !important;
@@ -163,68 +136,25 @@ iframe {
 	border-color: var(--tabstrip_border_color) !important;
 }
 
+ul.tab{
+		position:fixed;
+		top:0;
+		left:0;
+	height: 30px;
+	width:100%;
+	z-index: 2;
+	/*z-index: 1001;*/
+}
 ul.tab, ul.tab * {
 	-moz-user-select: none !important;
 	-khtml-user-select: none !important;
 	-webkit-user-select: ignore !important;
 }
 
-.x-plain-header.x-unselectable, /*ul.x-tab-strip-top,*/ li.add-tab-btn  {/*.x-tab-strip.x-tab-strip-top,.sd_secondary_tabstrip, .sd_primary_tabstrip*/
-	 /*border-width: 0px 0px 1px 0px !important;
-	 border-style: solid !important;
-	 border-color: var(--tabstrip_border_color) !important;*/
- }
-.x-plain-header, .x-tab-strip, .support-servicedesk-navigator, .tab {
-	/*border-width: 0px 0px 0px 0px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_border_color) !important;*/
+.tabcontent {
+	z-index: 1;
+	margin-top: 33px;
 }
-
-.x-tab-tabmenu-right {
-	/*border-width: 0px 0px 0px 1px;
-	border-color: var(--tabstrip_border_color) !important;*/
-}
-
-/*.x-tab-strip-active, .x-tab-strip-over,*/ .x-menu-item-active, .support-servicedesk-sbmenuitemselected, .tab a:hover, .tab.selected/*, .x-tab-strip-closable*/ {
-	/*border-width: 1px 1px 1px 1px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_tab_alt_border_color) !important;*/
-}
-.x-tab-strip-closable.x-tab-strip-active, .x-tab-strip-closable.x-tab-strip-over, .add-tab-btn.add-tab-btn-hover {
-	/*border-width: 1px 1px 0px 1px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_tab_alt_border_color) !important;*/
-}
-
-.x-tab-strip.x-tab-strip-top .x-tab-right22 /*, .sd_secondary_tabstrip .x-tab-right, .x-tab-right, .add-tab-btn*/ {
-	/*border-width: 0px 0px 5px 0px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_border_color) !important;*/
-}
-
-.sd_primary_tabstrip li.x-tab-strip-closable:not(.x-tab-strip-over):not(.x-tab-strip-active)/*,.sd_secondary_tabstrip .x-tab-right*/  {
-	/*border-width: 0px 0px 2px 0px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_tab_border_color) !important;*/
-}
-
-.x-tab-strip-wrap {
-	/*height: 30px !important;*/
-}
-
-.sd_secondary_tabstrip .x-tab-strip-active, .sd_secondary_tabstrip .x-tab-strip-over,
-.sd_secondary_tabstrip .x-tab-strip-active .x-tab-right, .sd_secondary_tabstrip .x-tab-strip-over .x-tab-right {
-	/*border-width: 0px 0px 5px 0px !important;
-	border-style: solid !important;
-	border-color: var(--tabstrip_tab_alt_border_color) !important;*/
-}
-/*.x-tab-strip-closable {
-	border-width: 1px 1px 1px 1px !important;
-	border-style: solid !important;
-	border-bottom-color: var(--tabstrip_tab_alt_border_color) !important;
-	border-color: var(--tabstrip_tab_alt_border_color) !important;
-}*/
-
 
 /* Console Footer Style */
 .sd_footer, .sd_footer *, .sd_widget_btn_text, .sd_widget_btn_text * {
@@ -263,8 +193,6 @@ ul.tab, ul.tab * {
 	margin-left: 3px !important;
 }
 
-
-
 /* Top Bar Styles */
 #arrangeTopBar {
 	z-index: 1;
@@ -277,7 +205,6 @@ ul.tab, ul.tab * {
 	overflow: visible;
 }
 
-
 /*.fewerMore, .fewerMore a,*/ /*div.efdRLHover, div.pbHeader,*/
 div.efdRLHover, div.pbHeader:not(.pbHeaderEmpty), .linkBar, .bPageTitle, .listHoverLinks, .bNext,
 .topNav, .pageType, .pageDescription, .efpsTopTabs {
@@ -288,10 +215,6 @@ div.efdRLHover, div.pbHeader:not(.pbHeaderEmpty), .linkBar, .bPageTitle, .listHo
 .topNav a, .bNext a, .listHoverLinks *, .linkBar * {
 	color: var(--tb_text_color) !important;
 }
-
-/*.listHoverLinks {
-  line-height: normal !important;
-}*/
 
  .linkBar {
    margin-top: 0px !important;
@@ -320,7 +243,6 @@ div.efdRLHover a, div.pbHeader a, .linkBar a {
 	color: var(--tb_link_color) !important;
 }
 
-
 /* removes the colored line above the top bar on some pages... */
 .bPageBlock {
 	border-top: none !important;
@@ -331,6 +253,7 @@ div.efdRLHover a, div.pbHeader a, .linkBar a {
 
 body, .entityFeedLayout, .efodBody, .pbBody, .bottomNav, .bPageBlock, .feedBody, .new-tab-form, .oRight {
 	background-color: var(--body_bg_color) !important;
+	background-image: none !important;
   /*background-image: none !important;*/
 }
 
@@ -412,30 +335,6 @@ input[type=text]:focus, input[type=number]:focus, select:focus, option:focus, x-
   background-image: none !important;
 }
 
-/*
-input[type=checkbox] {
-    display: none;
-}
-
-
-.checkbox label:before {
-    border-radius: 3px;
-}
-
-input[type=checkbox]:checked {
-    content: "\2713";
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-    font-size: 15px;
-    color: #f3f3f3;
-    text-align: center;
-    line-height: 15px;
-}
-input[type=checkbox] {
-	color: var(--txtfield_text_color) !important;
-	background-color: var(--txtfield_bg_color) !important;
-	border-color:var(--txtfield_border_color) !important;
-}
-*/
 /* List Styles */
 
 .pbSubheader, div.bRelatedList .pbHeader, .apexp .pbHeader,  .bottomNav, .bottomNav a, .inlineEditDialog > div, .agentFilterPanel {
@@ -444,7 +343,8 @@ input[type=checkbox] {
 	background-image: none !important;
 }
 
-.pbSubheader h3, div.bRelatedList .pbHeader h3, .apexp .pbHeader h3, .inlineEditDialog h2, .inlineEditDialog .topRight .topLeft, .inlineEditDialog .bottomLeft, .agentFilterPanelTitle {
+.pbSubheader h3, div.bRelatedList .pbHeader h3, .apexp .pbHeader h3, .inlineEditDialog h2, .inlineEditDialog .topRight .topLeft,
+.inlineEditDialog .bottomLeft, .agentFilterPanelTitle, .pbSubheader .requiredText {
 	background-color: var(--box_h_bg_color) !important;
 	color: var(--box_h_text_color) !important;
 	background-image: none !important;
@@ -471,7 +371,6 @@ table.list, table.list *, .detailList, .detailList *, .even, .odd {
 	background-color: transparent !important;
 }
 
-
 .odd, .sqTD.odd, .list tr:nth-child(odd):not(.sqTR):not(.even), .x-grid3-row:nth-child(odd), .x-tree-node:nth-child(odd), .feeditem:nth-child(odd) {
 	background-color: var(--row_color_odd) !important;
 	/*border-width: 0px 0px 1px 0px !important;*/
@@ -485,7 +384,7 @@ table.list, table.list *, .detailList, .detailList *, .even, .odd {
 /* .over */
 .highlight, .highlight > td, .highlight > th, .highlight > tr, .selectedDate,
 .inlineEditWriteOn, .inlineEditLockOn, .dataCol:hover, .data2Col:hover,
-div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *,
+div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible div,
 .x-tree-selected, .x-tree-node-over, tr.LA_Expanded > *, .list tr:not(.sqTR):hover, .sqTB:hover, .dataRow:hover > * {
 	background-color: var(--row_color_highlight) !important;
 }
@@ -494,18 +393,24 @@ div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *,
 	background-color: var(--box_body_bg_color) !important;
 }
 
-
 .relatedListIcon {
 	display: none !important;
 }
 
 /* Button Styles */
 /* Why is menuButtonLabel here? it messes up console page squares... */
-.btn, .zen-btn, .x-btn, .x-btn-noicon, #asc_Settings_Launch {
+.btn, .zen-btn, .x-btn, .x-btn-noicon, .login_button, .dialogClose, #asc_Settings_Launch {
 	color: var(--btn_text_color) !important;
 	background-color: var(--btn_bg_color) !important;
 	border-color: var(--btn_border_color) !important;
   background-image: none !important;
+}
+.login_button {
+	color: var(--btn_text_color) !important;
+	background-color: var(--btn_bg_color) !important;
+	border-color: var(--btn_border_color) !important;
+  background-image: none !important;
+	content: " X ";
 }
 
 /*#newCase.menuButton{
@@ -541,12 +446,15 @@ div.x-grid3-row-over > *, .inlineEditWriteVisible, .inlineEditWriteVisible *,
   border: var(--btn_alt_border_color) !important;
 }*/
 
-.btn:hover, .zen-btn:hover, .x-btn-over, #asc_Settings_Launch:hover, .menuButtonButton:hover {
+.btn:hover, .zen-btn:hover, .x-btn-over, #asc_Settings_Launch:hover, .login_button:hover, .dialogCloseOn  { /* .menuButtonButton:hover,*/
 	color: var(--btn_alt_text_color) !important;
 	background-color: var(--btn_alt_bg_color) !important;
 	border-color: var(--btn_alt_border_color) !important;
   background-image: none !important;
 }
+ .dialogCloseOn:after, .dialogClose:after {
+	 content: " X " !important;
+ }
 
 .btn.refreshListButton {
 	background-image: url('https://ca.my.salesforce.com/img/support/servicedesk/serviceDeskListReskin-sprite.png') !important;
@@ -658,17 +566,21 @@ tr .sqTR {
 .successCell,.confirmM6,.confirmM4,.confirmM3,.confirmM2,.confirmS1 {
 	background-color: var(--success_bg_color) !important;
 	color: var(--success_text_color) !important;
-	border: var(--success_border_color) !important;
+	border-color: var(--success_border_color) !important;
+}
+.successCell .messageText {
+	color: var(--success_text_color) !important;
 }
 
-
-
 /* Warning & Alert Styles */
-.alertCell, .pbError,.errorM6,.errorM4,.errorM3,.errorM2,.errorS1 {
+.alertCell, .pbError,.errorM6,.errorM4,.errorM3,.errorM2,.errorS1{
 	color: var(--alert_text_color) !important;
 	background-color: var(--alert_bg_color) !important;
 	font-weight: bold !important;
-	border:  var(--alert_border_color) !important;
+	border-color: var(--alert_border_color) !important;
+}
+.alertCell .messageText {
+	color: var(--alert_text_color) !important;
 }
 
 .alertText, .errorMsg {
@@ -689,7 +601,11 @@ tr .sqTR {
 	color: var(--warning_text_color) !important;
 	background-color: var(--warning_bg_color) !important;
 	font-weight: bold !important;
-	border: var(--warning_border_color) !important;
+	border-color: var(--warning_border_color) !important;
+}
+
+.warningCell .messageText {
+	color: var(--warning_text_color) !important;
 }
 
 .warningText {
@@ -702,6 +618,10 @@ tr .sqTR {
 	font-weight: bold !important;
 }
 
+/* option item styling */
+.listBox_topBar {
+	float: right !important;
+}
 
 /* Overlay Box CSS */
 .overlayDiv {
@@ -755,7 +675,6 @@ tr .sqTR {
 	color: var(--body_text_color) !important;
 }
 
-
 .checkerBoard {
     background-image:
       -moz-linear-gradient(45deg, #000 25%, transparent 25%),
@@ -775,10 +694,10 @@ tr .sqTR {
     background-position:0 0, 50px 0, 50px -50px, 0px 50px;
 }
 
-
 .tmplOverlay {
 		opacity: 1;
-		background-color: #f8f8f8;
+		background-color: var(--body_bg_color) !important;
+
 		position: fixed;
 		width: 100%;
 		height: 100%;
@@ -787,7 +706,15 @@ tr .sqTR {
 		z-index: 1000;
 		overflow: scroll;
 }
+
+.tmplTBa td, .tmplTBa tr {
+	color: var(--box_h_text_color) !important;
+	align: center;
+}
+
 .tmplTBa {
+		background-color: var(--box_h_bg_color) !important;
+		width: 100%;
 		margin: 48px auto 0 auto;
 		border: 0;
 		align: center;
@@ -799,6 +726,7 @@ tr .sqTR {
 		align: center;
 		vertical-align: middle;
 }
+
 .taClass {
 	width: 350px;
 }
@@ -806,9 +734,99 @@ tr .sqTR {
 	text-align: right;
 	font-size: 91%;
 	font-weight: bold;
-	color: #4a4a56;
+	color: var(--body_label_text_color) !important;
 }
 .templateName {
 	font-size: 120%;
 	font-weight: bold;
+}
+
+/* tbalinks */
+li a.tablinks.active {
+	background-color:  var(--tabstrip_alt_bg_color) !important;
+}
+
+.colorZDCB {
+	float:right;
+	height: 24px;
+	width: 24px;
+}
+
+.colorZD {
+	margin: 2px;
+	height: 20px;
+	width: 20px;
+	border:none;
+	display:inline-block;
+}
+.optChangedSpan {
+	float:right;
+}
+
+.optChanged {
+	clear:right;
+}
+
+
+/* Calander parts */
+.datePicker {
+	background-color: var(--body_bg_color) !important;
+	background-image: none !important;
+}
+
+.dayOfWeek {
+	color: var(--table_header_text_color) !important;
+	background-color: var(--table_header_bg_color) !important;
+}
+.weekday {
+	color: var(--body_text_color) !important;
+}
+.weekend {
+	color: var(--body_text_color) !important;
+}
+.prevMonth, .nextMonth {
+	color: var(--body_label_text_color) !important;
+}
+
+.todayDate {
+	color: var(--alert_text_color) !important;
+	background-color: var(--alert_bg_color) !important;
+	font-weight: bold !important;
+	border-color: var(--alert_border_color) !important;
+}
+
+.selectedDate {
+	color: var(--warning_text_color) !important;
+	background-color: var(--warning_bg_color) !important;
+	font-weight: bold !important;
+	border-color: var(--warning_border_color) !important;
+}
+
+
+/* Console Search box */
+.autoCompleteBoxScrolling, .autoCompleteBox {
+	background-color: var(--box_body_bg_color) !important;
+	color: var(--box_body_text_color) !important;
+	border-color: var(--box_body_border_color) !important;
+
+}
+
+.autoCompleteSectionRow {
+	background-color: var(--box_h_bg_color) !important;
+	color: var(--box_h_text_color) !important;
+	border-color: var(--box_h_border_color) !important;
+	width: 100% !important;
+}
+
+.headerSearchContainer {
+	background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.autoCompleteRow {
+	background-color: var(--row_color_even) !important;
+	color: var(--box_body_text_color) !important;
+	border-color: var(--box_body_border_color) !important;
+}
+.autoCompleteHoverRow {
+	background-color: var(--row_color_highlight) !important;
 }

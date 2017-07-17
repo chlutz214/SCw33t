@@ -38,17 +38,13 @@ logTrace('settings_content.js initializing.');
     // makeTextarea("ta1", "body", "Test");
     // makeTextbox("tb1", "body", "Test");
     // makePWbox("pw1", "body");
-
     // makeSelect("sel1", "body");
     //   addSelOpt("opt1", "Test", "sel1", "L", false);
     //   addSelOpt("opt2", "Test", "sel1", "L", false);
     //   addSelOpt("opt3", "Test", "sel1", "L", false);
     //   addSelOpt("opt4", "F", "sel1", "F", false);
     //   addSelOpt("opt5", "3", "sel1", 3, false);
-
-
     //clearById('body', "genSettingsTable");
-
     makeTabBox("tabbox1");
     addTab("tabbox1","arrangementTab","Arrangement", "not much here");
     addTab("tabbox1","colorTab","Color Options PaintSC?", "still not much here");
@@ -57,13 +53,11 @@ logTrace('settings_content.js initializing.');
     addTab("tabbox1","advSettingsTab","Advanced Settings", "s.till not much here");
     addTab("tabbox1","templateSCTab","TemplateSC", "s.till not much here");
     //openTab(event, 'tab1');
-
     currSel = makeSelect("arrangeBar-CellSelect", "topBar");//?????????
        addSelOpt("placeHolder", "--No Cells found--", currSel, "L", false);
        addSelOpt("opt2", "First", currSel, "F", false);
        addSelOpt("opt3", "Test", currSel, "#", false);
        addSelOpt("opt4", "Last", currSel, "L", false);
-
     */ // End OBJECT SAMPLES
 
 	var fiveHunAAID = window.location.href.split("/")[3].split("?")[0]; // Collect the full 500 ID
@@ -475,6 +469,10 @@ function init_settings() {
 
 	currOptTable = addTable("paintConsoleTable", "paintTab","SC Console");
 	document.getElementById(currOptTable).className = 'pbSubsection';
+	makeOption({varId:'replaceCloud',targetId: currOptTable, type: 'select', displayStyle:'tableRow',
+							selectOptions: '[ {"value": "default", "title":"Default"},{"value": "images/rainbow_cloud_64x40.png", "title":"Rainbow"},'
+													+ '{"value": "images/grey_cloud_64x40.png", "title":"Greyscale"} ]'});
+													// default cloud location: /img/support/servicedesk/service-cloud-logo.png
 	makeOption({varId:'console_top_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 	makeOption({varId:'console_bottom_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
 	makeOption({varId:'console_text_color',targetId: currOptTable, type: 'colorZ', displayStyle:'tableRow'});
@@ -539,8 +537,10 @@ function init_settings() {
 	makeOption({varId:'ftsDList',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'ftsCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
 	makeOption({varId:'ftsBCC',targetId: currOptTable, type: 'textBox', displayStyle:'tableRow'});
-	makeOption({varId:'emailTemplates',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	// makeOption({varId:'emailTemplates',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
 	makeOption({varId:'commentTemplates',targetId: currOptTable, type: 'textArea', displayStyle:'tableRow', stringify: true});
+	makeOption({varId:'emailTemplates',targetId: currOptTable, type: 'listTable', displayStyle:'tableRow', stringify: true, ltSchema: {'title':'textBox','greeting':'textArea','body':'textArea','signature':'textArea','postSignature':'textArea'}});
+	// makeOption({varId:'commentTemplates',targetId: currOptTable, type: 'listTable', displayStyle:'tableRow', stringify: true, ltSchema: {'title':'textBox','greeting':'textArea','body':'textArea','signature':'textArea','postSignature':'textArea'}});
 
 
 
@@ -602,7 +602,6 @@ function init_settings() {
 
 	/*
 	delete me later
-
 	'[ cindex
 	[[],[]] cindex[0]
 	,[cindex[1]
@@ -612,9 +611,7 @@ function init_settings() {
 	,[[],["60%","caseComments"],["40%","kbArts","relContent","sftpAttachments","attachments","emails","relCases"]],
 	[[],["33%","component"],["33%","prodDetails"],["34%","auditHistory"]] l:3
 	]',
-
 	MovableDiv ex id: SBI-MD-head_01Ba000000ETFv0_ep
-
 	*/
 	getTopBar();
 
@@ -686,10 +683,8 @@ function init_settings() {
 
 
 /*--Ideas--
-
 Create template of box.
 --add to page, hidden
-
 Create list to hold box names,
 --Div, 200x400, with name, stacked in original order
 --onHover = light grey
@@ -698,8 +693,6 @@ Create list to hold box names,
 --on drag (past list boundries?) =
 ----switch holding div insides to template
 ----leave empty space in list
-
-
 Inside Table,
 --onHover = light grey
 ----Buttons top right: Move up, Move Down, Return to list (Move to next Column, Move to next Row?)
@@ -709,7 +702,6 @@ Inside Table,
 ----Open up space
 ----light up empty space in list
 ----let go - Drop to original sopt
-
 */
 
 // workspace
@@ -757,6 +749,7 @@ function changedOpts(returnArg) {
 	if (currCIndex != JSON.stringify(window["cIndex"])) {
 		numChanged++;
 		indexChanged = true;
+		// TODO Add :after for Tab with a * in it???
 	}
 
 	if (returnArg == 'changedCount') {
@@ -882,7 +875,6 @@ function exportArrangement(type) {
     	for (var j = 0; j < thisRow.children.length; j++) {
     		var thisCell = document.getElementById(thisRow.id + '-' + j);
     		var cellDef = cIndex[i][j+1] = [thisCell.width;
-
     	}
     }*/
 
@@ -962,7 +954,6 @@ function exportArrangementBACKUP(type) {
     	for (var j = 0; j < thisRow.children.length; j++) {
     		var thisCell = document.getElementById(thisRow.id + '-' + j);
     		var cellDef = cIndex[i][j+1] = [thisCell.width;
-
     	}
     }*/
 
@@ -1347,7 +1338,6 @@ function addArrangeCell(rowNum, cellNum, topB) {
     newDiv.text = "+ ^";
     // Add drag tags (the hard way...)
     document.getElementById(newDiv).outerHTML = document.getElementById(newDiv).outerHTML.replace('">', '" ondrop="drop(event)" ondragover="allowDrop(event)">');
-
     // Add "add below" box
     newDiv = makeDiv(newCell + "-addBelow", newCell);
     addClass(document.getElementById(newDiv), "addBelow");
@@ -1536,7 +1526,6 @@ function insertAfter(newElement,targetElement) {
 
 //--------------------------------
 /* Function Information:
-
 Arrangement Functions:
     addArrangeCell(rowNum, cellNum);
     addArrangeRow(num);
@@ -1544,13 +1533,10 @@ Arrangement Functions:
     cleanArrangeCells(rowNum);
     makeArrangeSideBar();
     refillArrangeSelect();
-
 Table Generation:
     addTable(tableID, appendToID);
     insertRowX(tableID, pos);
     insertColX(tableID, rowID, pos, fill, width);
-
-
 //------------------------------*/
 
 
@@ -2016,12 +2002,13 @@ function makeOption(args) { // Make a switch
 			optionTemplate.changed +
 			'</div>';
 
-		optionTemplate.colorZ =
-			'<div class="optionDiv"> \n'+
-			'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"></input> \n' +
-			'	<input type="button" id="option_' + args.varId + '_colorPick" title="' + args.title + '" value="Choose..."></input> \n' +
-			optionTemplate.changed +
-			'</div>';
+			optionTemplate.colorZ =
+				'<div class="optionDiv"> \n'+
+				'	<input type="text" id="option_' + args.varId + '" title="' + args.title + '"></input> \n' +
+				'	<input type="button" id="option_' + args.varId + '_colorPick" title="' + args.title + '" value="Choose..."></input> \n' +
+				'	<div class="checkerBoard colorZDCB"><table id="option_' + args.varId + '_colorPick_D" title="' + args.title + ' demo" class="colorZD"></table></div> \n' +
+				optionTemplate.changed +
+				'</div>';
 
 			// TODO create css classes for: listBox_holder, listBox_topBar, listBox_box, listBox_option :selected,
 			// TODO add title & header buttons... delete, +
@@ -2032,7 +2019,7 @@ function makeOption(args) { // Make a switch
 				'		<button class="listBox_button" id="' + args.varId + '_delete_btn" onclick="var e = document.getElementById(\'' + args.varId + '\'); e.options[e.selectedIndex].remove();"> - </button> \n' +
 				'	<div/> \n' +
 				'	<select  id="' + args.varId + '" class="listBox_box" size="' + args.listSize + '"> \n' +
-				// TODO options here...
+				// options go here...
 				//'		<option  id="' + args.id + '_opt1" class="listBox_option" value="bbb">aaa</option> \n' +
 				'	</select> \n' +
 				'</div>';
@@ -2040,18 +2027,13 @@ function makeOption(args) { // Make a switch
 			optionTemplate.listTable =
 				'<div id="option_' + args.varId + '_holder" class="listBox_holder"> \n' +
 				'	<div id="option_' + args.varId + '_topBar" class="listBox_topBar"> \n' +
-				'   <input id="option_' + args.varId + '" type="text" style="/*display:none;*/"></input> \n' +
-				'		<button class="listBox_button" id="option_' + args.varId + '_add_btn" onclick="var txt = prompt(\'Text to add: \'); if (txt != null) { var e = document.getElementById(\'' + args.varId + '\'); var node = document.createElement(\'option\'); node.text=txt; e.appendChild(node);} else {alert(\'No text entered\');}"> + </button> \n' +
-				'		<button class="listBox_button" id="option_' + args.varId + '_delete_btn" onclick="var e = document.getElementById(\'' + args.varId + '\'); e.options[e.selectedIndex].remove();"> - </button> \n' +
-				'	<div/> \n' +
+				'   <input id="option_' + args.varId + '" type="text" style="display:none;"></input> \n' +
+				'		<button class="listBox_button" id="option_' + args.varId + '_add_btn"> + </button> \n' +
+				// '		<button class="listBox_button" id="option_' + args.varId + '_delete_btn" onclick="var e = document.getElementById(\'' + args.varId + '\'); e.options[e.selectedIndex].remove();"> - </button> \n' +
 				optionTemplate.changed +
-				// '	<table id="option_' + args.varId + '_table" class="listBox_box"><tbody> \n' +
-				// TODO options here...
-				//'		<option  id="' + args.id + '_opt1" class="listBox_option" value="bbb">aaa</option> \n' +
-				// '	<tbody></table> \n' +
+				'	<div/> \n' +
+				// Options will go here...
 				'</div>';
-
-
 
 		//defaultTemplate
 
@@ -2127,209 +2109,59 @@ function makeOption(args) { // Make a switch
 				changables.push(myOptionC);
 				break;
 
+			case 'listBox':
+				// for () {
+				// 	'		<option  id="' + args.id + '_opt1" class="listBox_option" value="bbb">aaa</option> \n' +
+				// }
+				break;
+
 			case 'listTable':
-				var ltAdd = document.getElementById("option_" + args.varId + "_add_btn");
-				var ltDel = document.getElementById("option_" + args.varId + "_add_btn");
-				var lt = document.getElementById("option_" + args.varId + "_table");
-				myOption.value = newVal;
-				// for (key in newVal) {add rowX to "option_" + args.varId + "_table"}
-				var optObj = JSON.parse(myOption.value);
-				// var optObj = myOption.value;
+					var ltAdd = document.getElementById("option_" + args.varId + "_add_btn");
+					var ltDel = document.getElementById("option_" + args.varId + "_add_btn");
+					var lt = document.getElementById("option_" + args.varId + "_table");
+					myOption.value = newVal;
 
-				var tid = addTable("option_" + args.varId + "_table", "option_" + args.varId + "_holder",args.varId);
-				var headerRow = insertRowX(tid);
-				for (var rowTitle in optObj[0]) {
-					var c = document.getElementById(insertColX(tid,headerRow));
-					c.className='tableHead';
-					c.innerHTML = rowTitle;
-				}
-				//"option_" + args.varId + "_table";
-				// var t = document.getElementById(tid);
-				for (var objRow in optObj) {
+					var optObj = JSON.parse(myOption.value);
 
-					var r = insertRowX(tid);
-					for (var objCol in optObj[objRow]) {
-						var c = document.getElementById(insertColX(tid,r));
-						//c.class='';
+					var tid = addTable("option_" + args.varId + "_table", "option_" + args.varId + "_holder",args.varId);
+					var headerRow = insertRowX(tid);
+					for (var rowTitle in args.ltSchema) {
+						var c = document.getElementById(insertColX(tid,headerRow));
+						c.className='tableHead';
+						c.innerHTML = rowTitle;
+					}
 
-						//TODO THIS SHOULD BE COL CELL, NOTTTTTT Row Col???? i think...
-
-						// c.innerHTML = optObj[objRow][objCol];
-						//c.innerHTML = optionTemplate[args.type]
-
-						var thisArgs = {
-							varId: c.id + '_' + objCol,
-							colorPick: c.id + '_' + objCol + '_colorPick'
-						};
-						// alert('type: ' + args.ltSchema[objCol] + ' - val: ' + optObj[objRow][objCol]);
-						append('<input id="' + thisArgs.varId + '" type="text"></input>',c.id);
-
-
-
-						var thisSubOpt = document.getElementById(thisArgs.varId);
-						thisSubOpt.value = optObj[objRow][objCol];
-						thisSubOpt.addEventListener('change',
-							function() {
-								var optObj = {};
-
-								var parRowId = $(this).parent().parent().attr('id');
-								var parRowNum = parRowId.split('_');
-								parRowNum = parRowNum[parRowNum.length-1]-2;
-								var mainOptTb = parRowId.split('_');
-								mainOptTb =  document.getElementById('option_' + mainOptTb[1]);
-								alert('par: ' + parRowId);
-								$('#' + parRowId + ' td input').each(
-									function() {
-
-										var key = $(this).attr('id').split('_');
-										key = key[key.length-1];
-										optObj[key] = $(this).val();
-										alert($(this).attr('id') + ' - val: ' + $(this).val() + ' - key?: ' + key);
-									}
-								);
-
-								var curArr = JSON.parse(mainOptTb.value);
-								curArr[parRowNum] = optObj;
-								triggerChange(mainOptTb.id);
-								// alert("arrIndx: " + parRowNum-2 + "curarrrrr: " + curArr);
-
-								alert(JSON.stringify(optObj));
-
-							}
-						);
-
-						switch (args.ltSchema[objCol]) {
-							case "colorZ":
-								append('<input type="button" id="' + thisArgs.colorPick + '" title="' + args.title + '" value="Choose..."></input>',c.id);
-								makeColorPicker(thisArgs, thisSubOpt);
-								break;
-							default:
-								break;
-						}
-
+					for (var objRow in optObj) {
+						var optItm = optObj[objRow];
+						makeltRow(tid,args.ltSchema,optItm);
 					}
 
 					ltAdd.addEventListener('click',
 						function() {
 							var tid = "option_" + args.varId + "_table";
 							// var t = documnet.getElementById(tid);
-							var r = insertRowX(tid);
-							for (var key in myOption.value) {
-								insertColX(tid,r);
+							// makeltRow()?????????????????????????????????
+							var optItm = {};
+							for (var itm in args.ltSchema) {
+								optItm[itm] = '';
 							}
+							makeltRow(tid,args.ltSchema,optItm);
 						}
 					);
 
-					ltDel.addEventListener('click',
-						function() {
+					break;
 
-						}
-					);
-				}
-				break;
 
 			case 'colorZ': // for border styling... not ready
-
 				myOption.value = newVal;
 				args.colorPick = "option_" + args.varId + "_colorPick";
-				makeColorPicker(args, myOption);
-				/*var colorPick = document.getElementById("option_" + args.varId + "_colorPick");
-				myOption.value = newVal;
-				colorPick.addEventListener('click',
+				$('#' + args.colorPick + '_D').css('background-color', newVal);
+				addEventListeners("option_" + args.varId, ['change','keyup'],
 					function() {
-						if ($('#' + args.varId + '_cpfb').length == 0) {
-							var fb = makeFloatingBox({'id': args.varId + '_cpfb',"title":"Color Picker"});
-							append('<td id="' + args.varId + '_cptd"></td>',fb.content);
-							var currOptTable = addTable(args.varId + '_cptb', args.varId + '_cptd');
-							document.getElementById(currOptTable).style.width = "";
-
-							var sliders = ['Red','Green','Blue','Alpha'];
-
-							sliders.forEach(
-								function(element, index, array) {
-									var sliderLabelTemplate = element;
-									var sliderMin = 0;
-									var sliderMax = 255;
-									var sliderStep = 1;
-									if (element == 'Alpha') {
-										sliderMax = 1;
-										sliderStep = 0.01;
-									}
-									var sliderTemplate = '<input id="' + fb.id + '_' + element + '" type="range" step="' + sliderStep + '" min="' + sliderMin + '" max="' + sliderMax + '"></input>';
-									var sliderTbTemplate = '<input type="number" maxlength="3" min="0" max="255" id="' + fb.id + '_' + element + '_tb" size="10" value=""></input>';
-
-									var newRow = insertRowX(currOptTable);
-									var lblCell = insertColX(currOptTable,newRow);
-									var dtaCell = insertColX(currOptTable,newRow);
-
-									append(sliderLabelTemplate,lblCell);
-									append(sliderTemplate,dtaCell);
-									append(sliderTbTemplate,dtaCell);
-
-									document.getElementById(fb.id + '_' + element).addEventListener("change",
-										function() {
-											document.getElementById(fb.id + '_' + element + '_tb').value = this.value;
-											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
-											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
-											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
-										}
-									);
-
-									document.getElementById(fb.id + '_' + element + '_tb').addEventListener("change",
-										function() {
-											document.getElementById(fb.id + '_' + element).value = this.value;
-											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
-											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
-											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
-										}
-									);
-									document.getElementById(fb.id + '_' + element + '_tb').addEventListener("keyup",
-										function() {
-											document.getElementById(fb.id + '_' + element).value = this.value;
-											// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
-											var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
-											$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
-										}
-									);
-								}
-							);
-
-							var colorDemoTemplate = '<table id="' + fb.id + '_demo" height="100%" width="100%" style="background-color: rgba(0,0,0,0.75); float:left; display:inline-block; border: none;"></table>';
-							var colorSetBtnTemplate = '<input id="' + fb.id + '_setBtn" type="button" value="Set" width="100%" height="20px"></input>';
-
-							var demoCell = insertColX(currOptTable,0);
-							append(colorDemoTemplate,demoCell);
-							demoCell = document.getElementById(demoCell);
-							demoCell.rowSpan = 3;
-							demoCell.className = 'checkerBoard';
-							demoCell.style.width = '100px';
-							demoCell.style.height = '100px';
-
-							var demoCell2 = insertColX(currOptTable,3);
-							append(colorSetBtnTemplate,demoCell2);
-
-							document.getElementById(fb.id + '_setBtn').addEventListener('click',
-								function() {
-									var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
-									myOption.value = 'rgba('+rgba+')';
-									triggerChange("option_" + args.varId);
-									$('#' + fb.id + '-close a:eq(0)').click();
-								}
-							);
-
-							var curSetting = myOption.value.split('(')[1].split(')')[0];
-
-							document.getElementById(fb.id + '_Red').value = curSetting.split(',')[0];
-							triggerChange(fb.id + '_Red');
-							document.getElementById(fb.id + '_Green').value = curSetting.split(',')[1];
-							triggerChange(fb.id + '_Green');
-							document.getElementById(fb.id + '_Blue').value = curSetting.split(',')[2];
-							triggerChange(fb.id + '_Blue');
-							document.getElementById(fb.id + '_Alpha').value = curSetting.split(',')[3];
-							triggerChange(fb.id + '_Alpha');
-						}
+						$('#' + args.colorPick+ '_D').css('background-color', document.getElementById("option_" + args.varId).value);
 					}
-				);*/
+				);
+				makeColorPicker(args, myOption);
 				break;
 
 			// case "color":
@@ -2338,8 +2170,6 @@ function makeOption(args) { // Make a switch
 				myOption.value = newVal;
 				break;
 		}
-
-
 
 		// Add on change listener
 		try {
@@ -2418,10 +2248,6 @@ function makeOption(args) { // Make a switch
     return myOption;
 }
 
-
-
-
-
 function makeTabBox(tabBoxID) {// Make a box to hold tabs
     // Make Tab Box & Tabs
     //source: http://www.w3schools.com/howto/howto_js_tabs.asp
@@ -2493,11 +2319,9 @@ var htmlDemoBoxes =  {
     Case contact             = Customer Contact
     Case contact email       = customer@sample.com
     Case site Name           = Sample Company
-
     options... Sample Fills: Real Case Fill (Make sure show more works), empty, small sample, max capacity
                sw: use square monitor style
     Allow to collapse/uncollapse individually - collapse all button
-
     */
 //'<img src="/s.gif" alt="Hide Section - Details" class="hideListButton" id="img_colBut-Open_Activities" name="Details" onclick="if ($(\'#500a000001CGCP1_RelatedActivityList_body\').css(\'display\') == \'none\') { $(\'#500a000001CGCP1_RelatedActivityList_body\').css({\'display\': \'block\'}); $(\'#img_colBut-Open_Activities\').attr({\'class\': \'hideListButton\', \'title\': \'Hide Section - Open Activities\', \'alt\': \'Hide Section - Open Activities\'}); } else { $(\'#500a000001CGCP1_RelatedActivityList_body\').css({\'display\': \'none\'}); $(\'#img_colBut-Open_Activities\').attr({\'class\': \'showListButton\', \'title\': \'Show Section - Open Activities\', \'alt\': \'Show Section - Open Activities\'}); }" style="cursor:pointer;" tabindex="0" title="Hide Section - Open Activities">'
     emails: [
@@ -2708,59 +2532,6 @@ function divMoved(mdctb) {
 	}
 
 
-
-
-
-// var htmlDemoScript =
-// 'function allowDrop(ev) {  '+
-// '    ev.preventDefault();  '+
-// '}  '+
-//
-// 'function drag(ev) {  '+
-// '    ev.dataTransfer.setData("text", ev.target.id);  '+
-// '}   '+
-// 'function drop(ev) {  '+
-// '    ev.preventDefault();  '+
-// '    var data = ev.dataTransfer.getData("text");  '+
-// //     'alert(data); \n' + //moving div
-// //'    alert(ev.target.className + "     " + ev.target.parentNode.parentNode.className); \n' + // Alert Where it is dropped & the parent
-// '    if (ev.target.className == "arrangeTD") {  '+
-// //    alert("to td");   //to td
-//  '       ev.target.appendChild(document.getElementById(data).parentElement);  '+
-//   '      document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
-//    '     document.getElementById(data.replace("MDC","SBD")).style.display = "block"; '+
-//     '    document.getElementById(data.replace("MDC","MDCTB")).style.display = "block";  '+
-// /* Above below boxes disabled...
-// '    } else if (ev.target.className == "addAbove") { \n' +
-//         'alert("to UP"); \n' + //to td
-// '        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
-// '        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
-// '        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
-// '        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
-// '    } else if (ev.target.className == "addBelow") { \n' +
-//         'alert("to DOWN"); \n' + //to td
-// '        ev.target.parentElement.appendChild(document.getElementById(data).parentElement); \n' +
-// '        document.getElementById(data.replace("MDC","SBI")).style.display = "none"; \n' +
-// '        document.getElementById(data.replace("MDC","SBD")).style.display = "block"; \n' +
-// '        document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; \n' +
-// */
-//     '} else if (ev.target.className == "sideBar") { '+
-// //        alert("to sb");   //to sideBar
-//      '   ev.target.appendChild(document.getElementById(data).parentElement);  '+
-//       '  document.getElementById(data.replace("MDC","SBI")).style.display = "block"; '+
-//        ' document.getElementById(data.replace("MDC","SBD")).style.display = "none"; '+
-//         'document.getElementById(data.replace("MDC","MDCTB")).style.display = "none"; '+
-//     '}  else if (ev.target.className == "movableDivCover" && ev.target.parentNode.parentNode.className != "sideBar") {  '+ //to ontop of other div (that is not in the sidebar still...)
-//         //alert("to other Div...");
-//       '  ev.target.parentElement.parentElement.appendChild(document.getElementById(data).parentElement);  '+
-//      '   document.getElementById(data.replace("MDC","SBI")).style.display = "none"; '+
-//        ' document.getElementById(data.replace("MDC","SBD")).style.display = "block";  '+
-//         'document.getElementById(data.replace("MDC","MDCTB")).style.display = "block"; '+
-//    ' }'+
-// '}';
-
-
-
 function returnArrangeBoxToSidebar(arrangeBox) {
     document.getElementById("sideBar").appendChild(arrangeBox);
     document.getElementById(arrangeBox.id.replace("MD","SBI")).style.display = "block";
@@ -2773,25 +2544,23 @@ function returnArrangeBoxToSidebar(arrangeBox) {
 
 function returnArrangeCellToSidebar(arrangeCellID) {
     var boxes = document.getElementById(arrangeCellID).getElementsByClassName("movableDiv");
-    console.log(arrangeCellID + " - " + boxes.length);
+    logTrace(arrangeCellID + " - " + boxes.length);
     var numBoxes = boxes.length;
     for (var i=numBoxes-1; i >= 0; i--) {
-		console.log(numBoxes + " - " + boxes.length);
-        console.log("arrangeCellID " + i + " - " + boxes[i].id);
-        returnArrangeBoxToSidebar(boxes[0]);
+			logTrace(numBoxes + " - " + boxes.length);
+      logTrace("arrangeCellID " + i + " - " + boxes[i].id);
+      returnArrangeBoxToSidebar(boxes[0]);
     }
 	return arrangeCellID;
 }
 
 function returnArrangeRowToSidebar(arrangeRow) {
-    var cells = document.getElementById(arrangeRow).getElementsByClassName("arrangeTD");
+  var cells = document.getElementById(arrangeRow).getElementsByClassName("arrangeTD");
 	var numCells = cells.length;
 	logTrace("Number of Cells in Row " + arrangeRow + " = "+ numCells);
-	// if (numCells > 1) {
-		for (var i=0; i < numCells; i++) {
-			returnArrangeCellToSidebar(cells[i].id);
-		}
-	// }
+	for (var i=0; i < numCells; i++) {
+		returnArrangeCellToSidebar(cells[i].id);
+	}
 }
 
 function returnAllArrangeBoxesToSidebar() {
@@ -2805,66 +2574,11 @@ function returnAllArrangeBoxesToSidebar() {
     }
 }
 
-// var theBoxesSet = {
-//     // info type
-//     "01Ba000000ETFux": "caseInfoID",
-//     "01Ba000000ETFuz": "detailsID",
-//     "01Ba000000ETFv0": "advInfoID",
-//     "01Ba000000ETFv1": "componentID",
-//     "01Ba000000ETFv2": "prodDetailsID",
-//     "01Ba000000ETFv3": "altContactID",
-//     "01Ba000000ETFv4": "auditHistoryID",
-//     "arrangeSC-alertBox": "alertBoxID",
-//     // related type
-//     "RelatedActivityList": "openActsID",
-//     "RelatedHistoryList": "actHistoryID",
-//     "RelatedTeamMemberList": "caseTeamID",
-//     "RelatedAttachmentList": "attachmentsID",
-//     "RelatedCommentsList": "caseCommentsID",
-//     "00Na000000ArhjW": "sftpAttachmentsID",
-//     "RelatedChildCaseList": "relCasesID",
-//     "00Na000000Arhi2": "extReqsID",
-//     "00Na000000BFxGs": "kbArtsID",
-//     "RelatedEmailMessageList": "emailsID",
-//     "00Na000000BLy1J": "caseReviewsID",
-//     "RelatedLiveChatTranscriptList": "chatTransID",
-//     "00Na000000BFxGt": "defectsID",
-//     "RelatedEntityHistoryList": "caseHistoryID",
-//     "00Na000000AxMex": "relContentID", };
-
-
-/* Not used currently, saving
-function alertAncestorsUntilTag(node, tag) {
-    var parent = node;
-    var nodeTags;
-    try { nodeTags = parent.className; } catch(e){ }
-    while(nodeTags !== undefined && nodeTags.includes(tag) !== true) {
-        parent = parent.parentNode;
-        try { nodeTags = parent.className; } catch(e) { }
-        //alert(parent.id);
-    }
-    return parent;
-}
-function alertAncestorsUntilID(node, id) {
-    var parent = node;
-    while(parent.id != id) {
-        parent = parent.parentNode;
-        //alert(parent.id);
-    }
-    return parent;
-}
-*/
-
-
-//var cssCollection = [switchCSS, tabBoxCSS, arrangementTableCSS, infoBoxCSSFix]; //[buttonCSS, switchCSS, tabBoxCSS, tabCSS, textboxCSS]; // Array of CSS variables
-//init();
-
-
-
 function makeColorPicker(args, myOption) {
 	/* required args
 
 	 * varId
+	 * colorPick
 	 */
 	// alert(args.varId);
 	var colorPick = document.getElementById(args.colorPick);
@@ -2908,15 +2622,7 @@ function makeColorPicker(args, myOption) {
 							}
 						);
 
-						document.getElementById(fb.id + '_' + element + '_tb').addEventListener("change",
-							function() {
-								document.getElementById(fb.id + '_' + element).value = this.value;
-								// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
-								var rgba = $('#'+fb.id+'_Red').val()+','+$('#'+fb.id+'_Green').val()+','+$('#'+fb.id+'_Blue').val()+','+$('#'+fb.id+'_Alpha').val();
-								$('#' + fb.id + '_demo').css('background-color', 'rgba('+rgba+')');
-							}
-						);
-						document.getElementById(fb.id + '_' + element + '_tb').addEventListener("keyup",
+						addEventListeners(fb.id + '_' + element + '_tb', ['change','keyup'],
 							function() {
 								document.getElementById(fb.id + '_' + element).value = this.value;
 								// var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
@@ -2945,7 +2651,10 @@ function makeColorPicker(args, myOption) {
 					function() {
 						var rgba = document.getElementById(fb.id + '_Red').value + ',' + document.getElementById(fb.id + '_Green').value + ',' + document.getElementById(fb.id + '_Blue').value + ',' + document.getElementById(fb.id + '_Alpha').value;
 						myOption.value = 'rgba('+rgba+')';
-						triggerChange("option_" + args.varId);
+						// alert('varis: ' + args.varId );
+						triggerChange("option_" + args.varId.replace('option_',''));
+						// alert('#' + args.colorPick + '_D');
+						$('#' + args.colorPick + '_D').css('background-color', 'rgba('+rgba+')');
 						$('#' + fb.id + '-close a:eq(0)').click();
 					}
 				);
@@ -2960,9 +2669,110 @@ function makeColorPicker(args, myOption) {
 				triggerChange(fb.id + '_Blue');
 				document.getElementById(fb.id + '_Alpha').value = curSetting.split(',')[3];
 				triggerChange(fb.id + '_Alpha');
+
 			}
 		}
 	);
 }
 
+function makeltRow(tid,ltSchema,optItm) {
+
+		var r = insertRowX(tid);
+		for (var objCol in optItm) {
+			var c = document.getElementById(insertColX(tid,r));
+			//c.class='';
+
+			//TODO THIS SHOULD BE COL CELL, NOTTTTTT Row Col???? i think...
+
+			var thisArgs = {
+				varId: c.id + '_' + objCol,
+				colorPick: c.id + '_' + objCol + '_colorPick'
+			};
+
+			var ltOptTemplate;
+			switch(ltSchema[[objCol]]) {
+				case 'textArea':
+					ltOptTemplate = '<textArea id="' + thisArgs.varId + '"></textArea>';
+					break;
+
+				case 'select':
+					ltOptTemplate = '<select id="' + thisArgs.varId + '"></select>';
+					break;
+
+				default:
+					ltOptTemplate = '<input id="' + thisArgs.varId + '" type="text"></input>';
+					break;
+			}
+
+			append(ltOptTemplate,c.id);
+
+			var thisSubOpt = document.getElementById(thisArgs.varId);
+			thisSubOpt.value = optItm[objCol];
+			thisSubOpt.addEventListener('change',
+				function() {
+					var optObj = {};
+
+					var parRowId = $(this).parent().parent().attr('id');
+					var parRowNum = parRowId.split('-');
+					parRowNum = (parRowNum[parRowNum.length-1]) - 2;
+					var mainOptTb = parRowId.split('_');
+					mainOptTb =  document.getElementById('option_' + mainOptTb[1]);
+
+					$('#' + parRowId + ' td input[type!=button], #' + parRowId + ' td textArea').each(
+						function() {
+							var thisVal = $(this).val().trim();
+							var thisId = $(this).attr('id');
+							var key = thisId.split('_');
+							key = key[key.length-1];
+							optObj[key] = $(this).val();
+						}
+					);
+
+					var curArr = JSON.parse(mainOptTb.value);
+					curArr[parRowNum] = optObj;
+					mainOptTb.value=JSON.stringify(curArr);
+					triggerChange(mainOptTb.id);
+				}
+			);
+
+			switch (ltSchema[objCol]) {
+				case "colorZ":
+					append('<input type="button" id="' + thisArgs.colorPick + '" value="Choose..."></input>',c.id);
+					append('<div class="checkerBoard colorZDCB"><table id="' + thisArgs.colorPick + '_D" title="color demo" class="colorZD"></table></div>',c.id);
+					addEventListeners(thisArgs.varId,['change','keyup'],
+						function() {
+							$('#' + thisArgs.colorPick + '_D').css('background-color', document.getElementById(thisArgs.varId).value);
+						}
+					);
+					makeColorPicker(thisArgs, thisSubOpt);
+					$('#' + thisArgs.colorPick + '_D').css('background-color', document.getElementById(thisArgs.varId).value);
+					break;
+
+				// case select:
+				// 	break;
+
+				default:
+					break;
+			}
+
+		}
+		append('<button class="btn" id="' + thisArgs.varId + '_del"> Del </button>',c.id);
+		document.getElementById(thisArgs.varId + '_del').addEventListener('click',
+			function() {
+				var optObj = {};
+				var parRowId = $(this).parent().parent().attr('id');
+				var parRowNum = r.split('-');
+				parRowNum = (parRowNum[parRowNum.length-1]) - 2;
+				var mainOptTb = parRowId.split('_');
+				mainOptTb =  document.getElementById('option_' + mainOptTb[1]);
+				var curArr = JSON.parse(mainOptTb.value);
+				curArr.splice(parRowNum,1);
+				mainOptTb.value=JSON.stringify(curArr);
+				$('#' + r).remove();
+				triggerChange(mainOptTb.id);
+
+			}
+		);
+
+}
 logTrace('settings_content.js finished.');

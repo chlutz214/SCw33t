@@ -28,17 +28,17 @@ function initTemplateSC() {
 
 // You can use variables like this for strings you will use in multiple templates:
 //
-var myGreeting = "Hello <contactFirst>,";
-var mySignature = "Thanks, \n" +
-                  "Christian Lutz \n" +
-                  "Support Engineer \n" +
-                  "CA Technologies - North America";
-var SFTPLinks = "You may need the following information to manage case attachments using secure FTP:\n" +
-                "Server name: supportftp.ca.com Log in using your CA Support Online user ID and password.\n\n" +
-                "If sending files to CA then use the following path: \n" +
-                "sftp://supportftp.ca.com/<siteID>/<caseNum>/files_from_customer \n\n" +
-                "If downloading files from CA then use the following path: \n" +
-                "sftp://supportftp.ca.com/<siteID>/<caseNum>/files_from_ca";
+// var myGreeting = "Hello <contactFirst>,";
+// var mySignature = "Thanks, \n" +
+//                   "Christian Lutz \n" +
+//                   "Support Engineer \n" +
+//                   "CA Technologies - North America";
+// var SFTPLinks = "You may need the following information to manage case attachments using secure FTP:\n" +
+//                 "Server name: supportftp.ca.com Log in using your CA Support Online user ID and password.\n\n" +
+//                 "If sending files to CA then use the following path: \n" +
+//                 "sftp://supportftp.ca.com/<siteID>/<caseNum>/files_from_customer \n\n" +
+//                 "If downloading files from CA then use the following path: \n" +
+//                 "sftp://supportftp.ca.com/<siteID>/<caseNum>/files_from_ca";
 
 
 
@@ -132,7 +132,7 @@ if (window.location.href.indexOf("00a/e") > -1) { // If is Comment Page
         // For each template in array, add it to the boxArray
         // for (var i = 0; i < emailTemplates.length; i++) {
         for (var key in emailTemplates) {
-            addLauncher("dropOptionEmail", key);
+            addLauncher("dropOptionEmail", emailTemplates[key].title);
               boxArray[boxArray.length] = [
                 ["Greeting", 2, emailTemplates[key].greeting, ""],
                 ["Body", 10, emailTemplates[key].body, ""],
@@ -224,7 +224,7 @@ var templateEnd = "] ######";
 $("<div id='templateSC-div' class='tmplOverlay' style='display: none;'></div>").appendTo('body');                                                                                                              // Create hidden div & append
 $('<div class="bPageBlock brandSecondaryBrd bEditBlock secondaryPalette" id="tSC-ep" style="position:fixed; width:100%;"><div class="pbHeader" ><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="pbTitle"><h2 class="mainTitle">TemplateSC</h2></td><td class="pbButton" id="templateSC-topButtonRow"></td></tr></tbody></table></div></div>')
     .appendTo('#templateSC-div');                                                                                                                                                                          // Create top bar & append
-$("<table class='tmplTBa'><tr><td id='templateSC-templateTitle' class='templateName'>New Defect</td></tr><tr><td>Remaining Characters: </td><td id='templateSC-charCounter'>4000</td></tr></table>").appendTo('#templateSC-div');
+$("<table class='tmplTBa'><tr><td id='templateSC-templateTitle' class='templateName' align='center' colspan='2'>New Defect</td></tr><tr><td align='center'>Remaining Characters: <span id='templateSC-charCounter'>4000</span></td></tr></table>").appendTo('#templateSC-div');
 $("<table id='templateSC-table' class='tmplTBb'></table>").appendTo('#templateSC-div');                                                                                                                     // Create table to hold form & append
 $("<input id='templateSC-saveBtn' value='Save Changes' title='Save Changes' type='button' class='btn'> </input>").click(
   function() {
@@ -344,7 +344,7 @@ function addBox(boxTitle, idName, rows, preFill, explanation, arrID) {
                     .mouseup(function() { countChars(arrID); }));
         if (preFill !== undefined) { $("#templateSC-box-" + idName).val(replacePlaceHolds(preFill)); }
         if (explanation !== "") {
-            var expBtn = $("<input id='templateSC-exp-" + idName + "' value='*' title='Explanation' type='button' class='btn'> </input>").click(function() { countChars(arrID); alert(explanation); });
+            var expBtn = $("<input id='templateSC-exp-" + idName + "' value='*' title='Explanation' type='button' class='btn'> </input>").click(function() { countChars(arrID); alert(replacePlaceHolds(explanation)); });
             expBtn.appendTo($("#templateSC-box-" + idName + "-c1"));
         }
     }
@@ -357,6 +357,18 @@ function addBox(boxTitle, idName, rows, preFill, explanation, arrID) {
 // Function to make it easy to replace the <placeholder> strings in templates.
 function replacePlaceHolds(str) {
     try {
+        str = str.replace(/<myGreeting>/g, emailGreeting);
+        str = str.replace(/<mySignature>/g, emailSignature);
+        str = str.replace(/<SFTPLinks>/g, SFTPLinks);
+        // alert(str);
+// function(match) {}
+
+        // return propertyName.replace(/[A-Z]/g, upperToHyphenLower);
+        // str = str.replace(/<explanations\.(.*)>/g, $1);
+        // str = str.replace(/<explanations\..*>/gi, function myFunction(x){return x.toUpperCase();});
+
+
+// alert('$1' + str);
         str = str.replace(/<caseNum>/g, caseNum);
         if (myURL.indexOf("&siteID=") > -1) {
             str = str.replace(/<siteID>/g, siteID)

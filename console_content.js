@@ -18,10 +18,10 @@ function init_console() {
   console.log('console_content.js initializing...');
 
 
-  // if (replaceCloud) {
-    $("[title='Console']:eq(0)").attr('src', chrome.extension.getURL("images/rainbow_cloud_64x40.png"));
-    console.log($("img [title='Console']").length);
-  // }
+  if (replaceCloud != "default") {
+    $("[title='Console']:eq(0)").attr('src', chrome.extension.getURL(replaceCloud));
+    // console.log($("img [title='Console']").length);
+  }
 
 
 

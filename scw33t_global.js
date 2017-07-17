@@ -327,7 +327,10 @@ function setVars(varsToSet) {
 }
 
 function clearSettings() {
+	alert('about to clear your settings...');
 	chrome.storage.sync.clear();
+	alert('they gon!');
+
 }
 
 function setStyle(args) {
@@ -1207,16 +1210,16 @@ function getCaseOwner()
 								}
 
 
-								console.log('now: ' + now.orig + ' - NA: ' + dtObj.orig);
+								// console.log('now: ' + now.orig + ' - NA: ' + dtObj.orig);
 								if (dtObj.orig == now.orig) {
-									tense == "now";
+									tense == "today:now";
 								} else if (dtObj.year == now.year && dtObj.month == now.month && dtObj.day == now.day) { // present day...
 									logTrace('NA is today');
 									tense = "today";
-									if (dtObj.hour <= now.hour && dtObj.mins < now.mins)  {
-										// tense += ':exp';
-									} else if ((dtObj.hour  > now.hour) || dtObj.hour  <= now.hour && dtObj.mins >= now.mins)  {
-
+									if ((dtObj.hour < now.hour) || (dtObj.hour = now.hour && dtObj.mins < now.mins))  {
+										tense += ':past';
+									} else if ((dtObj.hour  > now.hour) || dtObj.hour <= now.hour && dtObj.mins >= now.mins)  {
+										tense += ':future';
 									} else { tense+= ':false'; }
 								} else  if (((dtObj.year < now.year) ? true : (dtObj.month < now.month)) ? true : (dtObj.year == now.year && dtObj.month == now.month && dtObj.day < now.day)) { // past day...
 									logTrace('NA is past');
@@ -1307,7 +1310,7 @@ function getCaseOwner()
 													+ dtObj.minsDif + ' Mins';
 
 								dtObj.now = now;
-								console.log(JSON.stringify(dtObj));
+								logTrace(JSON.stringify(dtObj));
 								return dtObj;
 							}
 
@@ -1323,10 +1326,13 @@ function getCaseOwner()
 							function bgPercent(thisVal,maxVal,cell) {
 
 								var percent = (thisVal/maxVal) * 100;
-								console.log('percent: ' + percent);
+								logTrace('percent: ' + percent);
 
 								if (thisVal >= maxVal) {
 									cell.css({"background": "var(--percent_bar_color)"});
+								} else if (thisVal == 0) {
+									// Leave the BG alone!
+									// ORRR if alert
 								} else {
 									 /*#00FFFF 0%,*/
 									cell.css({"background": "linear-gradient(90deg, var(--percent_bar_color) " + (percent-10) + "%, var(--percent_bar_bg_color) " + (percent+10) + "%"});//, rgba(0,0,0,0)
@@ -1444,7 +1450,12 @@ function addEvenOdd() {
 
 
 
-
+function addEventListeners(id, listeners, func) {
+	for (var listener in listeners) {
+		logTrace('Adding listener: ' + listeners[listener] + ' to: ' + id);
+		document.getElementById(id).addEventListener(listeners[listener], func);
+	}
+}
 
 
 

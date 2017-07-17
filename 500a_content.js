@@ -24,6 +24,8 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 logTrace('500a_content.js initializing.');
 logTrace("HREF: " + window.location.href);
+alert("HREF: " + window.location.href);
+
 
 
 // var myself = {
@@ -290,6 +292,7 @@ document.getElementById("asc_Settings_Launch").addEventListener('click', init_se
 //var fiveHunID = $("div.bRelatedList:eq( 0 )").attr('id').replace("_RelatedActivityList", ""); //Collect the 500 ID  --old way
 
 var caseNum = $(document).find("title").text().split(" ")[1];       // Collect Case #
+alert(caseNum);
 var fiveHunAAID = window.location.href.split("/")[3].split("?")[0]; // Collect the full 500 ID
 var fiveHunID = fiveHunAAID.slice(0,-3);                            // Collect the 500 ID
 if(window.location.href.indexOf("&nonce=") > -1) { SID = window.location.href.split("&nonce=")[1].split("&")[0]; } // Collect the Session ID, if available alert("Session ID not found, some ArrangeSC functions may not work.");?
@@ -438,74 +441,86 @@ var needToDismiss = false; // Are there open callbacks?
 // If not closed, lets make some alerts...
 if (theCase.isClosed == false) {
 
-// Next acction check
-logTrace("Checking Next Action...");
-var compared = compareDTNow($("#" + pullIdByCellName("Next Action Due Date")).text());
+	// Next acction check
+	logTrace("Checking Next Action...");
+	var compared = compareDTNow($("#" + pullIdByCellName("Next Action Due Date")).text());
 
-if (compared.tense == 'today') {
-addAlert(1,"Your next action is set for TODAY! In " + compared.timeLeft);
-addClassByCellName({'name': "Next Action Due Date", "className": "warningCell", "mod": "both"});
-} else if (compared.tense == 'past') {
-addClassByCellName({'name': "Next Action Due Date", "className": "alertText", "mod": "both"});
-addAlert(1,"Your next action has expired! " + compared.timeLeft);
-} else if (compared.tense == 'future') {
-//addAlert(3,"Your next action is OK! " + compared.timeLeft);
-}
-
-if (compared.tense == 'future' || compared.tense == 'today') {
-var naCell = $("#" + pullIdByCellName("Next Action Due Date"));
-naCell.text(naCell.text() + ' (' + compared.timeLeft + ')');
-}
-
-// Empty Field Checks
-logTrace("Checking for empty required fields...");
-var fieldsToCheck = ["Symptom", "Root Cause Category", "Root Cause Subcategory", "Case Reason", "Resolution",
-							"Product Release","CA Product","Component","Product Code","Product Release Selection"];
-
-if (theCase.sev <= 2) {
-	logTrace("Sev is 2 or greater, adding additional empty field checks.");
-	fieldsToCheck.push("Business Impact");
-}
-
-if (theCase.sev == 1) {
-	logTrace("Sev is 1, adding additional empty field checks.");
-	fieldsToCheck.push("Severity 1 Impact", "Production Down Status","SDM Owner");
-
-	logTrace("Sev is 1, adding alert styles.");
-	addClassByCellName({'name': "Severity", "className": "alertCell", "mod": "both"});
-	// $("#" + pullIdByCellName()).addClass('alertCell');
-}
-
-var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);
-bgPercent(stgNum,7,$("#" + pullIdByCellName("Troubleshooting Stage")).parent());
-
-var emptyFields=[];// = '';
-
-for (var field in fieldsToCheck) {
-var txt = pullTextByCellName({'name': fieldsToCheck[field]});
-//console.log("'"+txt+"'");
-if (txt.length <= 2) {
-	// document.getElementById('aa').dispatchEvent(new MouseEvent('dblclick'),{'view': window,'bubbles': true,'cancelable': true});
-	// set a href to the anchor so the page moves there??
-	//emptyFields += ('<a href="javascript:void(0)" onclick="$(\'#' + pullIdByCellName({'name':fieldsToCheck[field]}) + '\').dblclick();" >' + fieldsToCheck[field] + '</a>');
-	emptyFields.push(fieldsToCheck[field]);
-	addClassByCellName({'name': fieldsToCheck[field], "className": "alertBg"});
-}
-}
-
-if (emptyFields.length) {
-	if (parseInt(pullTextByCellName({name: "Troubleshooting Stage"}).split('.')[0]) >= 5) {
-		logTrace("Troubleshooting stage >= 5, generating empty field alert at Alert level instead of Warning.");
-		addAlert(1, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
-	} else {
-		logTrace("Generating empty field alert at default level of Warning.");
-		addAlert(2, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+	if (compared.tense.indexOf('today') > -1) {
+		addClassByCellName({'name': "Next Action Due Date", "className": "warningText warningBg", "mod": "td"});
+		addClassByCellName({'name': "Next Action Due Date", "className": "warningText", "mod": "label"});
+		addAlert(1,"Your next action is set for TODAY! In " + compared.timeLeft);
+	} else if (compared.tense == 'past') {
+		addClassByCellName({'name': "Next Action Due Date", "className": "alertText alertBg", "mod": "td"});
+		addClassByCellName({'name': "Next Action Due Date", "className": "alertText", "mod": "label"});
+		addAlert(1,"Your next action has expired! " + compared.timeLeft);
+	} else if (compared.tense == 'future') {
+		//addAlert(3,"Your next action is OK! " + compared.timeLeft);
 	}
+
+	if (compared.tense == 'future' || compared.tense == 'today') {
+	var naCell = $("#" + pullIdByCellName("Next Action Due Date"));
+	naCell.text(naCell.text() + ' (' + compared.timeLeft + ')');
+	}
+
+	// Empty Field Checks
+	logTrace("Checking for empty required fields...");
+	var fieldsToCheck = ["Symptom", "Root Cause Category", "Root Cause Subcategory", "Case Reason", "Resolution",
+								"Product Release","CA Product","Component","Product Code","Product Release Selection"];
+
+	if (theCase.sev <= 2) {
+		logTrace("Sev is 2 or greater, adding additional empty field checks.");
+		fieldsToCheck.push("Business Impact");
+	}
+
+	if (theCase.sev == 1) {
+		logTrace("Sev is 1, adding additional empty field checks.");
+		fieldsToCheck.push("Severity 1 Impact", "Production Down Status","SDM Owner");
+
+		logTrace("Sev is 1, adding alert styles.");
+		addClassByCellName({'name': "Severity", "className": "alertText", "mod": "both"});
+		// $("#" + pullIdByCellName()).addClass('alertCell');
+	}
+
+	var stgNum = parseInt($("#" + pullIdByCellName("Troubleshooting Stage")).text().trim().split('. ')[0]);
+	bgPercent(stgNum-1,6,$("#" + pullIdByCellName("Troubleshooting Stage")).parent());
+
+	var emptyFields=[];// = '';
+
+	for (var field in fieldsToCheck) {
+	var txt = pullTextByCellName({'name': fieldsToCheck[field]});
+	//console.log("'"+txt+"'");
+	if (txt.length <= 2) {
+		// document.getElementById('aa').dispatchEvent(new MouseEvent('dblclick'),{'view': window,'bubbles': true,'cancelable': true});
+		// set a href to the anchor so the page moves there??
+		//emptyFields += ('<a href="javascript:void(0)" onclick="$(\'#' + pullIdByCellName({'name':fieldsToCheck[field]}) + '\').dblclick();" >' + fieldsToCheck[field] + '</a>');
+		emptyFields.push(fieldsToCheck[field]);
+		addClassByCellName({'name': fieldsToCheck[field], "className": "alertBg", "mod": "td"});
+	}
+	}
+
+	if (emptyFields.length) {
+		if (parseInt(pullTextByCellName({name: "Troubleshooting Stage"}).split('.')[0]) >= 5) {
+			logTrace("Troubleshooting stage >= 5, generating empty field alert at Alert level instead of Warning.");
+			addAlert(1, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+		} else {
+			logTrace("Generating empty field alert at default level of Warning.");
+			addAlert(2, '<b>The following important fields have not been filled out:</b> <br />' + emptyFields);
+		}
+	} else {
+		// TODO Should we generate an alert here saying OK?
+		logTrace("No empty fields found. No alert will be generated.");
+	}
+
+
+
+	// Check if last item in Case History is > 5 days old?
+	// alert(compareDTNow(cellPull2('t',"Date",theBoxes2["Case History"].pid,0)));
+
 } else {
-	// TODO Should we generate an alert here saying OK?
-	logTrace("No empty fields found. No alert will be generated.");
+	addAlert(3, "This case is closed, case status alerts not processed.");
 }
 
+// Color Team Owner Cell
 var ownerCell = $("#" + pullIdByCellName("Case Owner")).parent();
 if (theCase.owner == myself.name) {
 	ownerCell.css('background-color', myself.color);
@@ -516,16 +531,6 @@ if (theCase.owner == myself.name) {
 		}
 	}
 }
-
-// Check if last item in Case History is > 5 days old?
-// alert(compareDTNow(cellPull2('t',"Date",theBoxes2["Case History"].pid,0)));
-
-} else {
-addAlert(3, "This case is closed, case status alerts not processed.");
-}
-
-
-
 
 
 
@@ -606,10 +611,11 @@ if ($(theBoxes2["Related Defects"].pid + " th a").length > 0) {
 			} else if (def.status != 'Closed' && !def.hasOA) {
 				// Open Defect w/ NO Open Act., Warn
 				$("<b style='color: red;'>NoSE - </b>").prependTo($(def.boxSel));
-				var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + theCase.CID + "&what_id=" + theCase.fiveHunID + "&retURL=/"+ theCase.fiveHunAAID + "?nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + key + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
+				var loc = "https://ca.my.salesforce.com/00T/e?who_id=" + theCase.CID + "&what_id=" + theCase.fiveHunID + "&retURL=/"+ theCase.fiveHunAAID + "&nooverride=1&RecordType=012a00000018GH8&ent=Task&isdtp=vw&deNum=" + key + "&deSev=" + $("#00Na000000ArhhL_ileinner").text();
+				alert(loc);
 				$("<a id='makeSEact_" + key + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=action", "Create SE Action", "New Task"); } ).appendTo("#alertHider");
 				$("<a id='makeSEinfo_" + key + "' href='javascript:void(0)'></a>").click(function() { popIt("frameDEF", loc + "&seType=info", "Create SE Info", "New Task"); } ).appendTo("#alertHider");
-				addAlert(2,'<br />' + key + ' has no corresponding SE Activity! Create <a id="seActPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEact_' + key + '").click();\'>SE Action</a>' + ' or ' + '<a id="seInfoPOP" href=\'javascript:void(0)\' onclick=\'$("#makeSEinfo_' + key + '").click();\'>SE Info</a>');
+				addAlert(2,'<br />' + key + ' has no corresponding SE Activity! Create <a id="seActPOP_' + key + '" href="javascript:void(0)" onclick="document.getElementById(\'makeSEact_' + key + '\').click();">SE Action</a>' + ' or ' + '<a id="seInfoPOP_' + key + '" href="javascript:void(0)" onclick="document.getElementById(\'makeSEinfo_' + key + '\').click();">SE Info</a>');
 			} else if (def.status == 'Closed' && def.hasOA) {
 				// Closed Defect w/ Open Act., Inform
 				addAlert(3,'<br />' + key + ' was closed, but has an Open Activity. Consider <a href="javascript:void(0)" onclick="var closeBtn=$(' + def.boxSel + ');closeBtn.click();">closing</a> it.');
@@ -995,6 +1001,7 @@ if (lockTopBar) {
     // $("div.pbHeader").children().first().css('table-layout', 'fixed');
     $("td.topButtonRow").css({'overflow': 'hidden', 'width': 'inherit'});
     $("div.helpElement").css({'z-index': '100','position': 'fixed', 'margin':'7px 10px 0px 130px'}); // Lock layout/print/? icons in place
+    $("div.efpsToggle").css({'z-index': '100','position': 'fixed'}); // Lock layout/print/? icons in place
     // $("#efpViews_" + theCase.fiveHunID).first().css({'z-index': '101','position': 'fixed'});                 // Lock Case - feed view switching buttons in place
     $(window).resize(updateBodyMargin); // Set window resize to adjust margin between body & top bar
 }
@@ -1426,7 +1433,7 @@ function scweeten(boxTitle) {
 
 							var cbObj = {};
 
-							cbObj.orig = cbs[cb];
+							cbObj.orig = cbs[cb].trim();
 
 							cbObj.date = splitCB[0];
 							cbObj.time = splitCB[1];
@@ -1451,28 +1458,35 @@ function scweeten(boxTitle) {
 
 						if (closestCB == null) {
 							closestCB = cbObj;
-							logTrace("Setting closestCB for the first time: " + cbObj.date + " @ " + cbObj.time);
+							// logTrace("Need to dismiss.. Setting closestCB for the first time: " + closestCB.date + " @ " + closestCB.time);
 						} else {
 							closestCB = compareCBs(cbObj,closestCB);
-							logTrace("Re-setting closestCB: " + cbObj.date + " @ " + cbObj.time);
+							// logTrace("Need to dismiss.. Re-setting closestCB: " + JSON.stringify(closestCB));
+							// logTrace("Need to dismiss.. Re-setting closestCB: " + closestCB.date + " @ " + closestCB.time);
 						}
 					}
 
-					if (needToDismiss) {
+					var compared = compareDTNow(closestCB.orig);
+					if (needToDismiss && compared.tense.indexOf("past") == -1) {
 						// TODO better implementation of the time difference...
 						logTrace("Need to dismiss... Creating alert.");
 						//('Y: ' + compareDTNow(closestCB.orig).yearDif + ' M: ' + compareDTNow(closestCB.orig).minsDif
-
+						logTrace('need to dismiss, stamp to compare: ' + JSON.stringify(closestCB));
 						var compared = compareDTNow(closestCB.orig);
+						logTrace('need to dismiss, compared: ' + JSON.stringify(compared));
 						// var timeLeft = ((compared.yearDif != 0) ? 'Yrs: ' + compared.yearDif : '')
 											// + ((compared.monthDif != 0) ? ' Mos: ' + compared.monthDif : '')
 											// + ((compared.dayDif != 0) ? ' Days: ' + compared.dayDif : '')
 											// + ' Hrs: ' + compared.hourDif + ' Mins: ' + compared.minsDif;
 						if (cbNum == 1) {
+							// alert('1');
 							addAlert(2, 'There is an open callback expiring ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callback.</a>');
 						} else {
+							// alert('multi');
 							addAlert(2, 'There are ' + cbNum + ' open callbacks which start expiring ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callbacks.</a>');
 						}
+					} else {
+						addAlert(1, 'The closest callback has already expired! ' + closestCB.date + ' @ ' + closestCB.time + ' (' + compared.timeLeft + '). <a id="dismissAlert" href=\'javascript:void(0)\' onclick=\'$("input[name=dismiss_the_selected_call_backs]").click();\'>Dismiss Callbacks.</a>');
 					}
 
 					if (squareMonitor) {
@@ -2109,15 +2123,15 @@ function addClassByCellName(args) {
 									for (var part in parts) {
 										if (a[parts[part]] > b[parts[part]]) {
 											// a is after b... do nothing
-											// logTrace(parts[part] + ': a is after b. b is closest' + ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
+											logTrace(parts[part] + ': a is after b. b is closest' + ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
 											break;
 										} else if (a[parts[part]] == b[parts[part]]) {
 											// a = b, keep comparing other parts
-											// logTrace(parts[part] + ': a = b'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
+											logTrace(parts[part] + ': a = b'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
 										} else if (a[parts[part]] < b[parts[part]]) {
 											// a is earlier, set & stop testing
 											closest = a;
-											// logTrace(parts[part] + ': a is closest'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
+											logTrace(parts[part] + ': a is closest'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
 											break;
 										} else {
 											// failed to compare
@@ -2125,6 +2139,12 @@ function addClassByCellName(args) {
 											logTrace('failed to compare'+ ' a: ' +a[parts[part]] +  ' b: ' +b[parts[part]]);
 											break;
 										}
+
+									}
+
+									// If all parts have been gone thru, but a wasnt closest & no errors, set b as closest...
+									if (closest != false && closest != a) {
+										closest = b
 									}
 
 									// return soonest CB found by this

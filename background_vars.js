@@ -189,6 +189,8 @@ chrome.storage.sync.get(
 		// CSS Theme
 		"myTheme":"SCDefault",
 
+		"replaceCloud":"default",
+
 		"console_top_color":"rgba(0,112,210,1)",
 		"console_bottom_color":"rgba(37,44,51,1)",
 		"console_text_color":"rgba(255,255,255,1)",
@@ -258,7 +260,7 @@ chrome.storage.sync.get(
 
 		// Team
 		'myself': '{"name":"Christian Lutz","alias":"lutch01","color":"#e6e6fa","startHour":8,"endHour":17}',
-		'myTeam': '[{"name":"Ed Vogel","alias":"VOGED01","color":"#bcd7f2"},{"name":"Margaret Anttila","alias":"ANTMA06","color":"#a6eea7"},{"name":"Ralf Prigl","alias":"PRIRA01","color":"#c9eea6"},{"name":"Ilir Prifti","alias":"PRIIL01","color":"#f2bcd7"},{"name":"Anthony Manoleas","alias":"MANAN23","color":"#bcf2d7"},{"name":"Joseph Lutz","alias":"LUTJO01","color":"#bcbcf2"},{"name":"Brian Rehder","alias":"REHBR01","color":"#bcf2f2"},{"name":"Carlos Solla","alias":"SOLCA02","color":"#f2d7bc"},{"name":"Aaron Armagost","alias":"ARMAA01","color":"#f2f2bc"},{"name":"Shams Ahmed","alias":"AHMSH05","color":"#e3e3e3"},{"name":"Kelly Wong","alias":"SONWA03","color":"#e3e3FF"}]',
+		'myTeam': '[{"name":"Ed Vogel","alias":"VOGED01","color":"rgba(188,215,242,1)"},{"name":"Margaret Anttila","alias":"ANTMA06","color":"rgba(166,238,167,1)"},{"name":"Ralf Prigl","alias":"PRIRA01","color":"rgba(201,238,166,1)"},{"name":"Ilir Prifti","alias":"PRIIL01","color":"rgba(242,188,215,1)"},{"name":"Anthony Manoleas","alias":"MANAN23","color":"rgba(188,242,215,1)"},{"name":"Joseph Lutz","alias":"LUTJO01","color":"rgba(188,188,242,1)"},{"name":"Brian Rehder","alias":"REHBR01","color":"rgba(188,242,242,1)"},{"name":"Carlos Solla","alias":"SOLCA02","color":"rgba(242,215,188,1)"},{"name":"Aaron Armagost","alias":"ARMAA01","color":"rgba(242,242,188,1)"},{"name":"Shams Ahmed","alias":"AHMSH05","color":"rgba(227,227,227,1)"},{"name":"Kelly Wong","alias":"SONWA03","color":"rgba(227,227,255,1)"}]',
 
 		// General
 		'boostTextSize': '75%',
@@ -378,40 +380,41 @@ chrome.storage.sync.get(
 		"ftsCC": '',
 		"ftsBCC": '',
 
-		"emailTemplates": JSON.stringify({
-			"Basic Email": {
+		"emailTemplates": JSON.stringify([
+			{
+				title: "Basic Email",
 				greeting: "<myGreeting>",
 				body: '',
 				signature: "<mySignature>",
 				postSignature: "<SFTPLinks>",
 
-			},
-			"Follow-Up Email": {
+			}, {
+				title: "Follow-Up Email",
 				greeting: "<myGreeting>",
 				body: "I sent a response to this case on <INSERT DATE HERE> <as well as a follow-up email on --date here--> and haven't heard back from you. Do you have any further questions regarding this issue? Can we consider this issue resolved and close the support ticket?",
 				signature: "<mySignature>",
 				postSignature: "<SFTPLinks>",
-			},
-			"Close Case Email": {
+			}, {
+				title: "Close Case Email",
 				greeting: "<myGreeting>",
 				body: "This case is being closed. If you receive a customer satisfaction survey please take the time to fill it out, I would truly appreciate your honest feedback.\n\n" +
 				      "If you should need any additional help with this issue now that it is closed, you can easily reopen it within 14 days of closure. After 14 days we would need to open a new issue and can simply reference this issue number within the new issue.",
 				signature: "<mySignature>",
 				postSignature: "",
-			},
-			"Close Case Inactive": {
+			}, {
+				title: "Close Case Inactive",
 				greeting: "<myGreeting>",
 				body: "I sent a response to this case on <INSERT DATE HERE> <as well as a follow-up email on --date here--> and haven't heard back from you. Do you have any further questions regarding this issue? Can we consider this issue resolved and close the support ticket?",
 				signature: "<mySignature>",
 				postSignature: "",
-			},
-			"Proactive Email": {
+			}, {
+				title: "Proactive Email",
 				greeting: "<myGreeting>",
 				body: "I am just checking to see if the solution we discussed for this case still meets your needs or if you have concerns. There is no need to respond to this email if things are going well, but if you have concerns please feel free to respond.",
 				signature: "<mySignature>",
 				postSignature: "",
 			}
-		}),
+		]),
 
 		setSendNotification: true,
 		commentTemplates: JSON.stringify({
@@ -473,6 +476,7 @@ chrome.storage.sync.get(
 
 		// CSS Theme
 		myTheme = items.myTheme;
+		replaceCloud = items.replaceCloud;
 		console_top_color = items.console_top_color;
 		console_bottom_color = items.console_bottom_color;
 		console_text_color = items.console_text_color;
@@ -661,6 +665,7 @@ chrome.extension.onMessage.addListener(
 
 					// CSS Theme
 					'myTheme': myTheme,
+					"replaceCloud":replaceCloud,
 					"console_top_color":console_top_color,
 					"console_bottom_color":console_bottom_color,
 					"console_text_color":console_text_color,

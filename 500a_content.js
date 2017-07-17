@@ -24,18 +24,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 logTrace('500a_content.js initializing.');
 logTrace("HREF: " + window.location.href);
-alert("HREF: " + window.location.href);
-
-
-
-// var myself = {
-// 	name: "Christian Lutz",
-// 	alias: "lutch01",
-// 	color: '#e6e6fa',
-// 	startHour: 8,
-// 	endHour: 17,
-// };
-// console.log("Stringified myself: " + JSON.stringify(myself));
 
 // Light colors...
 /*
@@ -97,10 +85,6 @@ alert("HREF: " + window.location.href);
 // ];
 //
 // console.log("Stringified myTeam: " + JSON.stringify(myTeam));
-
-
-
-
 
 // Team
 var myself;
@@ -292,7 +276,6 @@ document.getElementById("asc_Settings_Launch").addEventListener('click', init_se
 //var fiveHunID = $("div.bRelatedList:eq( 0 )").attr('id').replace("_RelatedActivityList", ""); //Collect the 500 ID  --old way
 
 var caseNum = $(document).find("title").text().split(" ")[1];       // Collect Case #
-alert(caseNum);
 var fiveHunAAID = window.location.href.split("/")[3].split("?")[0]; // Collect the full 500 ID
 var fiveHunID = fiveHunAAID.slice(0,-3);                            // Collect the 500 ID
 if(window.location.href.indexOf("&nonce=") > -1) { SID = window.location.href.split("&nonce=")[1].split("&")[0]; } // Collect the Session ID, if available alert("Session ID not found, some ArrangeSC functions may not work.");?
